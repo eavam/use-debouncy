@@ -2,15 +2,15 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "es5",
-    "rootDir": ".",
     "moduleResolution": "node",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": true,
-    "resolveJsonModule": true,
-    "importHelpers": true,
-    "strict": true
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true
   },
-  "include": ["./index.test.ts", "./index.ts"],
-  "exclude": ["node_modules", "rollup.config.js", "lib", "compile"]
+  "include": ["index.test.ts", "index.ts"],
+  "exclude": ["node_modules", "lib", "compile"]
 }

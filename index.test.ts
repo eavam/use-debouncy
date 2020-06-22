@@ -1,5 +1,6 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useDebouncy from '.';
+// eslint-disable-next-line unicorn/import-index
+import useDebouncy from './index';
 
 beforeAll(() => {
   jest.useFakeTimers('modern');

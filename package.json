@@ -13,31 +13,32 @@
     "use-debouncy"
   ],
   "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
   "module": "lib/index.es.js",
-  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest",
     "build": "rollup -c",
-    "prebuild": "tsc --outDir compile --declarationDir lib --declaration true",
-    "prepare": "yarn run build"
+    "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test"
   },
   "peerDependencies": {
-    "lodash.debounce": "^4.0.8",
     "react": "^16.8.0"
   },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8"
+  },
   "devDependencies": {
-    "@commitlint/cli": "8.3.5",
-    "@commitlint/config-conventional": "8.3.4",
+    "@commitlint/cli": "9.0.1",
+    "@commitlint/config-conventional": "9.0.1",
     "@rollup/plugin-commonjs": "13.0.0",
-    "@rollup/plugin-node-resolve": "8.0.1",
-    "@rollup/plugin-replace": "2.3.3",
-    "@rollup/plugin-typescript": "4.1.2",
+    "@rollup/plugin-typescript": "5.0.0",
     "@testing-library/react-hooks": "3.3.0",
     "@types/jest": "26.0.0",
     "@types/lodash.debounce": "4.0.6",
     "@types/react": "16.9.38",
-    "@typescript-eslint/eslint-plugin": "3.3.0",
-    "@typescript-eslint/parser": "3.3.0",
+    "@typescript-eslint/eslint-plugin": "3.4.0",
+    "@typescript-eslint/parser": "3.4.0",
     "eslint": "7.3.0",
     "eslint-config-prettier": "6.11.0",
     "eslint-plugin-import": "2.21.2",
@@ -49,14 +50,13 @@
     "jest": "26.0.1",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1",
-    "raf": "3.4.1",
     "react": "16.13.1",
     "react-test-renderer": "16.13.1",
+    "rimraf": "^3.0.2",
     "rollup": "2.18.0",
     "rollup-plugin-analyzer": "3.2.3",
     "rollup-plugin-terser": "6.1.0",
     "ts-jest": "26.1.1",
-    "lodash.debounce": "4.0.8",
     "typescript": "3.9.5"
   },
   "husky": {
@@ -64,5 +64,8 @@
       "pre-commit": "pretty-quick --staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
-  }
+  },
+  "files": [
+    "lib/"
+  ]
 }
