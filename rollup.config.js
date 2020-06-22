@@ -18,7 +18,7 @@ export default {
       sourcemap: true,
     },
   ],
-  external: [...Object.keys(package_.dependencies || {})],
+  // external: [...Object.keys(package_.dependencies || {})],
   plugins: [
     analyze(),
     typescript(),
