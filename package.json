@@ -53,7 +53,7 @@
     "pretty-quick": "2.0.1",
     "react": "16.13.1",
     "react-test-renderer": "16.13.1",
-    "rimraf": "^3.0.2",
+    "rimraf": "3.0.2",
     "rollup": "2.18.0",
     "rollup-plugin-analyzer": "3.2.3",
     "rollup-plugin-terser": "6.1.0",
