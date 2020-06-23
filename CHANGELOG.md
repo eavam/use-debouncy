@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/egorAva/use-debouncy/compare/v1.2.1...v1.3.0) (2020-06-23)
+
+
+### Features
+
+* add disable call debounce on first mount ([dd5b41f](https://github.com/egorAva/use-debouncy/commit/dd5b41f3d2802451a78533da5b90772efb9c5e27))
+
 ## [1.2.1](https://github.com/egorAva/use-debouncy/compare/v1.2.0...v1.2.1) (2020-06-23)
 
 
