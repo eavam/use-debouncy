@@ -17,7 +17,8 @@
   "typings": "lib/index.d.ts",
   "module": "lib/index.es.js",
   "scripts": {
-    "test": "jest",
+    "size": "size-limit",
+    "test": "jest && size-limit",
     "build": "rollup -c",
     "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true",
     "prepare": "npm run build",
@@ -38,6 +39,7 @@
     "@semantic-release/github": "7.0.7",
     "@semantic-release/npm": "7.0.5",
     "@semantic-release/release-notes-generator": "9.0.1",
+    "@size-limit/preset-small-lib": "4.5.1",
     "@testing-library/react-hooks": "3.3.0",
     "@types/jest": "26.0.0",
     "@types/react": "16.9.38",
@@ -61,6 +63,7 @@
     "rollup-plugin-analyzer": "3.2.3",
     "rollup-plugin-terser": "6.1.0",
     "semantic-release": "17.1.0",
+    "size-limit": "4.5.1",
     "ts-jest": "26.1.1",
     "typescript": "3.9.5"
   },
@@ -70,6 +73,12 @@
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
+  "size-limit": [
+    {
+      "limit": "200 B",
+      "path": "lib/index.js"
+    }
+  ],
   "files": [
     "lib/"
   ],

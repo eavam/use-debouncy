@@ -10,10 +10,10 @@
 
 ## Features
 
-- 👌 Zero dependencies
-- 🏋️‍♀️ Size <0.5kb
-- 📖 Typescript support
-- 🎣 React hook effect
+- 👌 **No dependencies.**
+- 🏋️‍♀️ **Small.** <200 bytes.
+- 📖 **Types.** Support typescript.
+- 🎣 **Easy.** Like useEffect hook.
 
 ## Installation
 
