@@ -1,7 +1,6 @@
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
-import analyze from 'rollup-plugin-analyzer';
 import package_ from './package.json';
 
 export default {
@@ -20,7 +19,6 @@ export default {
   ],
   // external: [...Object.keys(package_.dependencies || {})],
   plugins: [
-    analyze(),
     typescript(),
     terser({
       mangle: {
