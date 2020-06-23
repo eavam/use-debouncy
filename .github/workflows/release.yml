@@ -20,4 +20,4 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+        run: GH_TOKEN=${{ secrets.TOKEN }} yarn semantic-release
