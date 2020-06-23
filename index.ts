@@ -6,45 +6,34 @@ import {
   useCallback,
 } from 'react';
 
-type DebounceInstance = [
-  NodeJS.Timeout | undefined,
-  EffectCallback,
-  () => void,
-];
+const effect = useEffect;
+const reference = useRef;
 
 const useDebouncy = (
   fn: EffectCallback,
   wait = 0,
   deps: DependencyList = [],
 ): void => {
-  const effect = useEffect;
-  const debounced = useRef<DebounceInstance>([
-    // setTimeout instance
-    undefined,
-
-    // user callback
-    fn,
-
-    // clear timeout callback
-    () => {
-      const [timeoutId] = debounced.current;
-      timeoutId && clearTimeout(timeoutId);
-    },
-  ]);
+  const timeout = reference<NodeJS.Timeout>();
+  const callback = reference(fn);
+  const clear = reference(() => {
+    const timeoutId = timeout.current;
+    timeoutId && clearTimeout(timeoutId);
+  });
 
   const updater = useCallback(() => {
-    const [, callback, clear] = debounced.current;
-    clear();
+    clear.current();
 
     // Init setTimeout
-    debounced.current[0] = setTimeout(() => {
-      callback();
+    timeout.current = setTimeout(() => {
+      callback.current();
     }, wait);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [wait]);
 
   // Set new callback if it updated
   effect(() => {
-    debounced.current[1] = fn;
+    callback.current = fn;
   }, [fn]);
 
   // Call update if deps changes
@@ -54,7 +43,7 @@ const useDebouncy = (
 
   // Clear timer on first render
   effect(() => {
-    debounced.current[2]();
+    clear.current();
   }, []);
 };
 

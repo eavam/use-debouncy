@@ -40,6 +40,7 @@
     "@semantic-release/npm": "7.0.5",
     "@semantic-release/release-notes-generator": "9.0.1",
     "@size-limit/preset-small-lib": "4.5.1",
+    "@size-limit/time": "4.5.1",
     "@testing-library/react-hooks": "3.3.0",
     "@types/jest": "26.0.0",
     "@types/react": "16.9.38",
@@ -60,7 +61,6 @@
     "react-test-renderer": "16.13.1",
     "rimraf": "3.0.2",
     "rollup": "2.18.0",
-    "rollup-plugin-analyzer": "3.2.3",
     "rollup-plugin-terser": "6.1.0",
     "semantic-release": "17.1.0",
     "size-limit": "4.5.1",
@@ -76,7 +76,23 @@
   "size-limit": [
     {
       "limit": "200 B",
-      "path": "lib/index.js"
+      "path": [
+        "lib/index.js"
+      ],
+      "import": "{ createStore }",
+      "running": true,
+      "gzip": true,
+      "brotli": true
+    },
+    {
+      "limit": "200 B",
+      "path": [
+        "lib/index.es.js"
+      ],
+      "import": "{ createStore }",
+      "running": true,
+      "gzip": true,
+      "brotli": true
     }
   ],
   "files": [
