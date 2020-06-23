@@ -8,6 +8,9 @@ import {
 
 const effect = useEffect;
 const reference = useRef;
+const clear = (timeout?: NodeJS.Timeout) => {
+  timeout && clearTimeout(timeout);
+};
 
 const useDebouncy = (
   fn: EffectCallback,
@@ -16,13 +19,9 @@ const useDebouncy = (
 ): void => {
   const timeout = reference<NodeJS.Timeout>();
   const callback = reference(fn);
-  const clear = reference(() => {
-    const timeoutId = timeout.current;
-    timeoutId && clearTimeout(timeoutId);
-  });
 
   const updater = useCallback(() => {
-    clear.current();
+    clear(timeout.current);
 
     // Init setTimeout
     timeout.current = setTimeout(() => {
@@ -43,7 +42,7 @@ const useDebouncy = (
 
   // Clear timer on first render
   effect(() => {
-    clear.current();
+    clear(timeout.current);
   }, []);
 };
 
