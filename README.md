@@ -10,13 +10,10 @@
 
 ## Features
 
-👌 Zero dependencies
-
-🏋️‍♀️ Size <0.5kb
-
-📖 Typescript support
-
-🎣 React hook effect
+- 👌 Zero dependencies
+- 🏋️‍♀️ Size <0.5kb
+- 📖 Typescript support
+- 🎣 React hook effect
 
 ## Installation
 
