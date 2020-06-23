@@ -1,3 +1,18 @@
+# [1.7.0](https://github.com/egorAva/use-debouncy/compare/v1.6.1...v1.7.0) (2020-06-23)
+
+
+### Bug Fixes
+
+* brotli disable ([1db05ff](https://github.com/egorAva/use-debouncy/commit/1db05ffbf3e359083dd7cf28a199dbd185f654fc))
+* clear moved in up scope ([a58fe87](https://github.com/egorAva/use-debouncy/commit/a58fe87357d49423f20efbdd3be282a1de7a7412))
+* disable run size-limit in test ([c5560b8](https://github.com/egorAva/use-debouncy/commit/c5560b8046885655b6799aee50c3bc6e96777fd4))
+
+
+### Features
+
+* compress size bundle ([0d2976e](https://github.com/egorAva/use-debouncy/commit/0d2976ecfb6b67ab30cd3097aa037f4de57c11a2))
+* remove update function for comprese size ([a71b259](https://github.com/egorAva/use-debouncy/commit/a71b259eb6eac65beb120103d3ead625834dbc6f))
+
 ## [1.6.1](https://github.com/egorAva/use-debouncy/compare/v1.6.0...v1.6.1) (2020-06-23)
 
 
