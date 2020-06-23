@@ -82,7 +82,7 @@
       "import": "{ createStore }",
       "running": true,
       "gzip": true,
-      "brotli": true
+      "brotli": false
     },
     {
       "limit": "200 B",
@@ -92,7 +92,7 @@
       "import": "{ createStore }",
       "running": true,
       "gzip": true,
-      "brotli": true
+      "brotli": false
     }
   ],
   "files": [
