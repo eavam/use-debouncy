@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/egorAva/use-debouncy/compare/v1.4.0...v1.5.0) (2020-06-23)
+
+
+### Features
+
+* add codesandbox link ([8c8e569](https://github.com/egorAva/use-debouncy/commit/8c8e569aae0ece784a8758b8f1917fb28f270f2e))
+
 # [1.4.0](https://github.com/egorAva/use-debouncy/compare/v1.3.0...v1.4.0) (2020-06-23)
 
 
