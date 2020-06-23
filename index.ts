@@ -1,13 +1,12 @@
-import {
-  useRef,
-  useEffect,
-  EffectCallback,
-  DependencyList,
-  useCallback,
-} from 'react';
+import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
+
+const enum DC {
+  timeout,
+  callback,
+}
+type TimerRefType = [NodeJS.Timeout | undefined, EffectCallback];
 
 const effect = useEffect;
-const reference = useRef;
 const clear = (timeout?: NodeJS.Timeout) => {
   timeout && clearTimeout(timeout);
 };
@@ -17,32 +16,26 @@ const useDebouncy = (
   wait = 0,
   deps: DependencyList = [],
 ): void => {
-  const timeout = reference<NodeJS.Timeout>();
-  const callback = reference(fn);
-
-  const updater = useCallback(() => {
-    clear(timeout.current);
-
-    // Init setTimeout
-    timeout.current = setTimeout(() => {
-      callback.current();
-    }, wait);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [wait]);
+  const timer = useRef<TimerRefType>([undefined, fn]);
 
   // Set new callback if it updated
   effect(() => {
-    callback.current = fn;
+    timer.current[DC.callback] = fn;
   }, [fn]);
 
   // Call update if deps changes
   effect(() => {
-    updater();
+    clear(timer.current[DC.timeout]);
+
+    // Init setTimeout
+    timer.current[DC.timeout] = setTimeout(() => {
+      timer.current[DC.callback]();
+    }, wait);
   }, deps);
 
   // Clear timer on first render
   effect(() => {
-    clear(timeout.current);
+    clear(timer.current[DC.timeout]);
   }, []);
 };
 
