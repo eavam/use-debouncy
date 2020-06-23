@@ -11,7 +11,7 @@ module.exports = {
         tarballDir: 'lib',
       },
     ],
-    '@semantic-release/git',
+    ['@semantic-release/git', { assets: ['CHANGELOG.md', 'package.json'] }],
     [
       '@semantic-release/github',
       {
