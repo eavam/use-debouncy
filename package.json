@@ -18,7 +18,7 @@
   "module": "lib/index.es.js",
   "scripts": {
     "size": "size-limit",
-    "test": "jest && size-limit",
+    "test": "jest",
     "build": "rollup -c",
     "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true",
     "prepare": "npm run build",
