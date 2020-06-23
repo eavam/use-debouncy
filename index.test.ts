@@ -16,17 +16,53 @@ afterAll(() => {
 });
 
 const defaultDelay = 16;
+const defaultDeps = [1];
 const spy = jest.fn();
 
-test('should call after change deps', () => {
-  const hook = renderHook(({ delay, deps }) => useDebouncy(spy, delay, deps), {
-    initialProps: { delay: defaultDelay, deps: [1] },
+const getHook = () =>
+  renderHook(({ delay, deps }) => useDebouncy(spy, delay, deps), {
+    initialProps: { delay: defaultDelay, deps: defaultDeps },
   });
 
+test('should call after change deps', () => {
+  const hook = getHook();
+
+  jest.runAllTimers();
   expect(spy).toBeCalledTimes(0);
 
   hook.rerender({ delay: defaultDelay, deps: [2] });
   jest.runAllTimers();
 
   expect(spy).toBeCalledTimes(1);
+});
+
+test('should call not triggered on first mount', () => {
+  getHook();
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+});
+
+test('should not calling callback if deps not changed', () => {
+  const hook = getHook();
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+
+  hook.rerender();
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+});
+
+test('should call with default args', () => {
+  const hook = renderHook(() => useDebouncy(spy));
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+
+  hook.rerender();
+  jest.runAllTimers();
+
+  expect(spy).toBeCalledTimes(0);
 });
