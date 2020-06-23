@@ -1,3 +1,13 @@
+## [1.2.1](https://github.com/egorAva/use-debouncy/compare/v1.2.0...v1.2.1) (2020-06-23)
+
+
+### Bug Fixes
+
+* automate release ([#11](https://github.com/egorAva/use-debouncy/issues/11)) ([2d70dab](https://github.com/egorAva/use-debouncy/commit/2d70dab9d164469d64d9d4fc381a985edfbb85b7))
+* automate release ([#11](https://github.com/egorAva/use-debouncy/issues/11)) ([4521a86](https://github.com/egorAva/use-debouncy/commit/4521a862d3b97d83e2a6869fbf2eef9279718ee5))
+* removed semantic-release from deps ([b5ff7a1](https://github.com/egorAva/use-debouncy/commit/b5ff7a1cb027c583dad8b4310bbba08fa24a1eee))
+* removed semantic-release from deps ([0b8a36d](https://github.com/egorAva/use-debouncy/commit/0b8a36da618acc98bbd9013641aa5555ef31d3b0))
+
 # [1.2.0](https://github.com/egorAva/use-debouncy/compare/v1.1.0...v1.2.0) (2020-06-23)
 
 
