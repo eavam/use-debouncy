@@ -1,3 +1,15 @@
+# [1.4.0](https://github.com/egorAva/use-debouncy/compare/v1.3.0...v1.4.0) (2020-06-23)
+
+
+### Bug Fixes
+
+* move size-limit workflows ([2ea23f5](https://github.com/egorAva/use-debouncy/commit/2ea23f51f8fe167165b797397197830576e9a6ee))
+
+
+### Features
+
+* add size-limit ([2dcd81d](https://github.com/egorAva/use-debouncy/commit/2dcd81d935c24d337e46b7fb0ebbdd81bcc51bee))
+
 # [1.3.0](https://github.com/egorAva/use-debouncy/compare/v1.2.1...v1.3.0) (2020-06-23)
 
 
