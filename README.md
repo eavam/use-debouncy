@@ -2,8 +2,6 @@
 
 🚦React effect hook for debounce.
 
-![status](https://badgen.net/github/status/egorAva/use-debouncy/master)
-![minzip](https://badgen.net/bundlephobia/minzip/use-debouncy)
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
