@@ -43,3 +43,5 @@ const App = () => {
   );
 };
 ```
+
+### Try in [codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
