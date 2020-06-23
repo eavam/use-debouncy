@@ -25,6 +25,8 @@ yarn add use-debouncy
 
 ## Examples
 
+### Try in [codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
+
 ```tsx
 import React, { useState } from 'react';
 import useDebouncy from 'use-debouncy';
