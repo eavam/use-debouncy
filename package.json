@@ -53,7 +53,7 @@
     "eslint-plugin-react-hooks": "4.0.4",
     "eslint-plugin-unicorn": "20.1.0",
     "husky": "4.2.5",
-    "jest": "26.0.1",
+    "jest": "26.1.0",
     "prettier": "2.0.5",
     "pretty-quick": "2.0.1",
     "react": "16.13.1",
