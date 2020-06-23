@@ -13,22 +13,30 @@ const useDebouncy = (
 ): void => {
   const timeout = useRef<NodeJS.Timeout>();
   const callback = useRef(fn);
+  const clear = useRef(() => timeout.current && clearTimeout(timeout.current));
 
   const updater = useCallback(() => {
-    if (timeout.current !== undefined) {
-      clearTimeout(timeout.current);
-    }
+    clear.current();
 
     timeout.current = setTimeout(() => {
       callback.current();
     }, wait);
   }, [wait]);
 
+  // Set new callback if it updated
   useEffect(() => {
     callback.current = fn;
   }, [fn]);
 
-  useEffect(() => updater(), deps);
+  // Call update if deps changes
+  useEffect(() => {
+    updater();
+  }, deps);
+
+  // Clear timer on first render
+  useEffect(() => {
+    clear.current();
+  }, []);
 };
 
 export default useDebouncy;
