@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/egorAva/use-debouncy/compare/v1.6.0...v1.6.1) (2020-06-23)
+
+
+### Bug Fixes
+
+* remove duplicate link in codesandbox ([ebe87b6](https://github.com/egorAva/use-debouncy/commit/ebe87b6e073dae1bac3bc54696b11f104724f54f))
+
 # [1.6.0](https://github.com/egorAva/use-debouncy/compare/v1.5.0...v1.6.0) (2020-06-23)
 
 
