@@ -22,7 +22,13 @@ export default {
   plugins: [
     analyze(),
     typescript(),
-    terser(), // minifies generated bundles
+    terser({
+      mangle: {
+        properties: {
+          reserved: ['useRef', 'useCallback', 'useEffect', 'current'],
+        },
+      },
+    }), // minifies generated bundles
     commonjs(),
   ],
 };

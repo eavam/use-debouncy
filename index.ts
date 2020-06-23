@@ -6,36 +6,55 @@ import {
   useCallback,
 } from 'react';
 
+type DebounceInstance = [
+  NodeJS.Timeout | undefined,
+  EffectCallback,
+  () => void,
+];
+
 const useDebouncy = (
   fn: EffectCallback,
   wait = 0,
   deps: DependencyList = [],
 ): void => {
-  const timeout = useRef<NodeJS.Timeout>();
-  const callback = useRef(fn);
-  const clear = useRef(() => timeout.current && clearTimeout(timeout.current));
+  const effect = useEffect;
+  const debounced = useRef<DebounceInstance>([
+    // setTimeout instance
+    undefined,
+
+    // user callback
+    fn,
+
+    // clear timeout callback
+    () => {
+      const [timeoutId] = debounced.current;
+      timeoutId && clearTimeout(timeoutId);
+    },
+  ]);
 
   const updater = useCallback(() => {
-    clear.current();
+    const [, callback, clear] = debounced.current;
+    clear();
 
-    timeout.current = setTimeout(() => {
-      callback.current();
+    // Init setTimeout
+    debounced.current[0] = setTimeout(() => {
+      callback();
     }, wait);
   }, [wait]);
 
   // Set new callback if it updated
-  useEffect(() => {
-    callback.current = fn;
+  effect(() => {
+    debounced.current[1] = fn;
   }, [fn]);
 
   // Call update if deps changes
-  useEffect(() => {
+  effect(() => {
     updater();
   }, deps);
 
   // Clear timer on first render
-  useEffect(() => {
-    clear.current();
+  effect(() => {
+    debounced.current[2]();
   }, []);
 };
 
