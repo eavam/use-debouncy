@@ -24,13 +24,27 @@ const getHook = () =>
     initialProps: { delay: defaultDelay, deps: defaultDeps },
   });
 
-test('should call after change deps', () => {
+test('should call once after change deps', () => {
   const hook = getHook();
 
   jest.runAllTimers();
   expect(spy).toBeCalledTimes(0);
 
   hook.rerender({ delay: defaultDelay, deps: [2] });
+  jest.runAllTimers();
+
+  expect(spy).toBeCalledTimes(1);
+});
+
+test('should call once after many change deps', () => {
+  const hook = getHook();
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+
+  hook.rerender({ delay: defaultDelay, deps: [2] });
+  hook.rerender({ delay: defaultDelay, deps: [3] });
+  hook.rerender({ delay: defaultDelay, deps: [4] });
   jest.runAllTimers();
 
   expect(spy).toBeCalledTimes(1);
@@ -64,5 +78,18 @@ test('should call with default args', () => {
   hook.rerender();
   jest.runAllTimers();
 
+  expect(spy).toBeCalledTimes(0);
+});
+
+test('should clear timers on unmount', () => {
+  const hook = getHook();
+
+  jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+
+  hook.rerender({ delay: defaultDelay, deps: [2] });
+  hook.unmount();
+
+  jest.runAllTimers();
   expect(spy).toBeCalledTimes(0);
 });
