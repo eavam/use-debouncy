@@ -36,6 +36,10 @@ const useDebouncy = (
   // Clear timer on first render
   effect(() => {
     clear(timer.current[DC.timeout]);
+
+    return () => {
+      clear(timer.current[DC.timeout]);
+    };
   }, []);
 };
 
