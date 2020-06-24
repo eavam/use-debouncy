@@ -1,3 +1,16 @@
+# [1.8.0](https://github.com/eavam/use-debouncy/compare/v1.7.0...v1.8.0) (2020-06-24)
+
+
+### Bug Fixes
+
+* change bundle size limit ([8fc2039](https://github.com/eavam/use-debouncy/commit/8fc2039c5ffc9c0df88cffbe7b4cc0e4895dc5d2))
+* repository urls ([829f8d3](https://github.com/eavam/use-debouncy/commit/829f8d367d94525c0989515c9bd0ea3f13cb3177))
+
+
+### Features
+
+* add clear timer on unmount to avoid memory leaks ([56f2c4c](https://github.com/eavam/use-debouncy/commit/56f2c4c15289e4f6b9f6954a80763df3fa85f8b5))
+
 # [1.7.0](https://github.com/eavam/use-debouncy/compare/v1.6.1...v1.7.0) (2020-06-23)
 
 ### Bug Fixes
