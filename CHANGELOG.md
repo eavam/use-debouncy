@@ -1,3 +1,10 @@
+# [1.9.0](https://github.com/eavam/use-debouncy/compare/v1.8.0...v1.9.0) (2020-06-24)
+
+
+### Features
+
+* optimize bundle size ([1d393cb](https://github.com/eavam/use-debouncy/commit/1d393cbb384fd18dcce3f13fe9e8717335443fc1))
+
 # [1.8.0](https://github.com/eavam/use-debouncy/compare/v1.7.0...v1.8.0) (2020-06-24)
 
 
