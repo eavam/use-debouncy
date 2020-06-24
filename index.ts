@@ -13,9 +13,11 @@ const clear = (timeout?: NodeJS.Timeout) => {
 
 const useDebouncy = (
   fn: EffectCallback,
-  wait = 0,
-  deps: DependencyList = [],
+  wait?: number,
+  deps?: DependencyList,
 ): void => {
+  const defaultWait = wait || 0;
+  const defaultDeps = deps || [];
   const timer = useRef<TimerRefType>([undefined, fn]);
 
   // Set new callback if it updated
@@ -30,8 +32,8 @@ const useDebouncy = (
     // Init setTimeout
     timer.current[DC.timeout] = setTimeout(() => {
       timer.current[DC.callback]();
-    }, wait);
-  }, deps);
+    }, defaultWait);
+  }, defaultDeps);
 
   // Clear timer on first render
   effect(() => {
