@@ -9,7 +9,7 @@
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍♀️ **Small.** <200 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍♀️ **Small.** <150 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
 - 📖 **Types.** Support typescript.
 - 🎣 **Easy.** Like useEffect hook.
 

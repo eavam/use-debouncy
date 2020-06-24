@@ -78,7 +78,7 @@
   },
   "size-limit": [
     {
-      "limit": "200 B",
+      "limit": "150 B",
       "path": [
         "lib/index.js"
       ],
@@ -88,7 +88,7 @@
       "brotli": false
     },
     {
-      "limit": "200 B",
+      "limit": "150 B",
       "path": [
         "lib/index.es.js"
       ],
