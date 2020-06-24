@@ -12,7 +12,10 @@
     "react-hook",
     "use-debouncy"
   ],
-  "repository": "https://github.com/egorAva/use-debouncy",
+  "repository": {
+    "url": "https://github.com/eavam/use-debouncy.git",
+    "type": "git"
+  },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.es.js",
