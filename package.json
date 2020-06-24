@@ -2,15 +2,17 @@
   "name": "use-debouncy",
   "version": "1.8.0",
   "author": "Egor Avakumov",
-  "description": "React effect hook for debounce",
+  "description": "Small (<150 bytes ⚡️) debounce react effect hook with typescript 🌀",
   "license": "MIT",
   "keywords": [
     "debounce",
+    "typescript",
     "hooks",
     "use-debounce",
     "react",
     "react-hook",
-    "use-debouncy"
+    "use-debouncy",
+    "use-effect"
   ],
   "repository": {
     "url": "https://github.com/eavam/use-debouncy.git",
