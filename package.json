@@ -25,9 +25,7 @@
     "size": "size-limit",
     "test": "jest",
     "build": "rollup -c",
-    "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm test"
+    "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true"
   },
   "peerDependencies": {
     "react": "^16.8.0"

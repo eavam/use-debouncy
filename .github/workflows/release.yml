@@ -4,7 +4,28 @@ on:
     branches:
       - master
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Testing
+        run: yarn test --ci --coverage
+    env:
+      CI: true
+
   release:
+    needs: test
     name: Release
     runs-on: ubuntu-latest
     steps:
@@ -17,7 +38,9 @@ jobs:
         with:
           node-version: 12
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
+      - name: Build
+        run: yarn build
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
