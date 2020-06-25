@@ -25,5 +25,8 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
     env:
       CI: true
