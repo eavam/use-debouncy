@@ -1,3 +1,10 @@
+## [1.9.1](https://github.com/eavam/use-debouncy/compare/v1.9.0...v1.9.1) (2020-06-25)
+
+
+### Bug Fixes
+
+* change description ([83f420e](https://github.com/eavam/use-debouncy/commit/83f420ea3314abfc82836e0afba548501621ddf8))
+
 # [1.9.0](https://github.com/eavam/use-debouncy/compare/v1.8.0...v1.9.0) (2020-06-24)
 
 
