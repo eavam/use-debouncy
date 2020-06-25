@@ -11,6 +11,7 @@ jobs:
         node-version: [10.x, 12.x]
     steps:
       - uses: actions/checkout@v2
+
       - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
@@ -33,14 +34,18 @@ jobs:
         uses: actions/checkout@v2
         with:
           persist-credentials: false
+
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
           node-version: 12
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
       - name: Build
         run: yarn build
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
