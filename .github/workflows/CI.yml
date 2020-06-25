@@ -22,5 +22,8 @@ jobs:
 
       - name: Testing
         run: yarn test --ci --coverage
+
+      - name: Build
+        run: yarn build
     env:
       CI: true

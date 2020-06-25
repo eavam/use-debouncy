@@ -1,15 +1,16 @@
 # useDebouncy
 
-🚦React effect hook for debounce.
+🌀Tiny (<150 bytes) debounce react effect hook with typescript support
 
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
+[![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/master/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
 
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍♀️ **Small.** <150 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍♀️ **Tiny.** <150 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
 - 📖 **Types.** Support typescript.
 - 🎣 **Easy.** Like useEffect hook.
 
