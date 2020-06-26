@@ -65,7 +65,7 @@
     "react": "16.13.1",
     "react-test-renderer": "16.13.1",
     "rimraf": "3.0.2",
-    "rollup": "2.18.0",
+    "rollup": "2.18.1",
     "rollup-plugin-terser": "6.1.0",
     "semantic-release": "17.1.1",
     "size-limit": "4.5.2",
