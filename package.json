@@ -6,13 +6,15 @@
   "license": "MIT",
   "keywords": [
     "debounce",
-    "typescript",
-    "hooks",
     "use-debounce",
-    "react",
-    "react-hook",
+    "react debounce",
+    "debounce hook",
     "use-debouncy",
-    "use-effect"
+    "use-effect",
+    "react",
+    "react hook",
+    "hooks",
+    "typescript"
   ],
   "repository": {
     "url": "https://github.com/eavam/use-debouncy.git",
