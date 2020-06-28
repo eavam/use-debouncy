@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/eavam/use-debouncy/compare/v1.9.1...v1.9.2) (2020-06-28)
+
+
+### Bug Fixes
+
+* current timer state allocated to a separate variable ([9d8846e](https://github.com/eavam/use-debouncy/commit/9d8846ec648b38ce69c736985173ee3e23328623))
+
 ## [1.9.1](https://github.com/eavam/use-debouncy/compare/v1.9.0...v1.9.1) (2020-06-25)
 
 
