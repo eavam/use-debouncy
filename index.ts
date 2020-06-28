@@ -27,20 +27,22 @@ const useDebouncy = (
 
   // Call update if deps changes
   effect(() => {
-    clear(timer.current[DC.timeout]);
+    const reference = timer.current;
+    clear(reference[DC.timeout]);
 
     // Init setTimeout
-    timer.current[DC.timeout] = setTimeout(() => {
-      timer.current[DC.callback]();
+    reference[DC.timeout] = setTimeout(() => {
+      reference[DC.callback]();
     }, defaultWait);
   }, defaultDeps);
 
   // Clear timer on first render
   effect(() => {
-    clear(timer.current[DC.timeout]);
+    const reference = timer.current;
+    clear(reference[DC.timeout]);
 
     return () => {
-      clear(timer.current[DC.timeout]);
+      clear(reference[DC.timeout]);
     };
   }, []);
 };
