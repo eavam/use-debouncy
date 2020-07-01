@@ -7,6 +7,8 @@
 ![types](https://badgen.net/npm/types/use-debouncy)
 [![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/master/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
 
+![](assets/example.gif)
+
 ## Features
 
 - 👌 **No dependencies.**
