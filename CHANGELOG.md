@@ -1,3 +1,10 @@
+## [1.9.3](https://github.com/eavam/use-debouncy/compare/v1.9.2...v1.9.3) (2020-07-01)
+
+
+### Bug Fixes
+
+* add example gif ([54d1cbe](https://github.com/eavam/use-debouncy/commit/54d1cbe04bc72f0d77c42ab30b4144ab1c3768f5))
+
 ## [1.9.2](https://github.com/eavam/use-debouncy/compare/v1.9.1...v1.9.2) (2020-06-28)
 
 
