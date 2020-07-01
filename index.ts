@@ -13,7 +13,7 @@ const clear = (timeout?: NodeJS.Timeout) => {
 
 /**
  *
- * @param fn - Callback called on debounce.
+ * @param fn - Debounce callback.
  * @param wait - Number of milliseconds to delay.
  * @param deps - Array values that the debounce depends (like as useEffect).
  */

@@ -28,7 +28,7 @@ yarn add use-debouncy
 
 ## Examples
 
-### Try in [codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
+### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
 
 ```tsx
 import React, { useState } from 'react';
@@ -48,3 +48,21 @@ const App = () => {
   );
 };
 ```
+
+## API Reference
+
+### useDebouncy
+
+```typescript
+useDebouncy(
+  fn: () => (void | (() => void | undefined)),
+  wait?: number,
+  deps?: any[],
+): void
+```
+
+| Prop | Required | Default | Description                                                 |
+| ---- | -------- | ------- | ----------------------------------------------------------- |
+| fn   | ✓        |         | Debounce callback.                                          |
+| wait |          | `0`     | Number of milliseconds to delay.                            |
+| deps |          | `[]`    | Array values that the debounce depends (like as useEffect). |
