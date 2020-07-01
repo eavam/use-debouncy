@@ -15,22 +15,25 @@ afterAll(() => {
   jest.useRealTimers();
 });
 
-const defaultDelay = 16;
+const defaultDelay = 100;
 const defaultDeps = [1];
 const spy = jest.fn();
 
+const getProperties = ({ deps = defaultDeps, fn = spy } = {}) => ({
+  delay: defaultDelay,
+  deps,
+  fn,
+});
+
 const getHook = () =>
-  renderHook(({ delay, deps }) => useDebouncy(spy, delay, deps), {
-    initialProps: { delay: defaultDelay, deps: defaultDeps },
+  renderHook(({ delay, deps, fn }) => useDebouncy(fn, delay, deps), {
+    initialProps: getProperties(),
   });
 
 test('should call once after change deps', () => {
   const hook = getHook();
 
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-
-  hook.rerender({ delay: defaultDelay, deps: [2] });
+  hook.rerender(getProperties({ deps: [2] }));
   jest.runAllTimers();
 
   expect(spy).toBeCalledTimes(1);
@@ -39,12 +42,9 @@ test('should call once after change deps', () => {
 test('should call once after many change deps', () => {
   const hook = getHook();
 
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-
-  hook.rerender({ delay: defaultDelay, deps: [2] });
-  hook.rerender({ delay: defaultDelay, deps: [3] });
-  hook.rerender({ delay: defaultDelay, deps: [4] });
+  for (let i = 1; i < 4; i++) {
+    hook.rerender(getProperties({ deps: [i] }));
+  }
   jest.runAllTimers();
 
   expect(spy).toBeCalledTimes(1);
@@ -60,9 +60,6 @@ test('should call not triggered on first mount', () => {
 test('should not calling callback if deps not changed', () => {
   const hook = getHook();
 
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-
   hook.rerender();
 
   jest.runAllTimers();
@@ -71,9 +68,6 @@ test('should not calling callback if deps not changed', () => {
 
 test('should call with default args', () => {
   const hook = renderHook(() => useDebouncy(spy));
-
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
 
   hook.rerender();
   jest.runAllTimers();
@@ -84,12 +78,32 @@ test('should call with default args', () => {
 test('should clear timers on unmount', () => {
   const hook = getHook();
 
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-
-  hook.rerender({ delay: defaultDelay, deps: [2] });
+  hook.rerender(getProperties({ deps: [2] }));
   hook.unmount();
 
   jest.runAllTimers();
+  expect(spy).toBeCalledTimes(0);
+});
+
+test('should call callback after timer end', () => {
+  const hook = getHook();
+
+  hook.rerender(getProperties({ deps: [2] }));
+
+  jest.runTimersToTime(defaultDelay - 10);
+  expect(spy).toBeCalledTimes(0);
+
+  jest.runTimersToTime(10);
+  expect(spy).toBeCalledTimes(1);
+});
+
+test('should update callback function', () => {
+  const hook = getHook();
+  const newSpy = jest.fn();
+
+  hook.rerender(getProperties({ deps: [2], fn: newSpy }));
+  jest.runAllTimers();
+
+  expect(newSpy).toBeCalledTimes(1);
   expect(spy).toBeCalledTimes(0);
 });
