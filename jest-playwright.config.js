@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   serverOptions: {
     command: 'yarn parcel e2e/app/index.html',
