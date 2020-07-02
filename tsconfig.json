@@ -11,6 +11,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["index.test.ts", "index.ts"],
-  "exclude": ["node_modules", "lib", "compile"]
+  "include": ["index.test.ts", "index.ts", "e2e/browser.test.ts"],
+  "exclude": ["node_modules", "lib", "compile"],
+  "types": ["jest-playwright-preset", "expect-playwright"]
 }

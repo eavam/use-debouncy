@@ -42,9 +42,10 @@ test('should call once after change deps', () => {
 test('should call once after many change deps', () => {
   const hook = getHook();
 
-  for (let i = 1; i < 4; i++) {
+  for (let i = 0; i < 4; i++) {
     hook.rerender(getProperties({ deps: [i] }));
   }
+
   jest.runAllTimers();
 
   expect(spy).toBeCalledTimes(1);
