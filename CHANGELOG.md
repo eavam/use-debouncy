@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/eavam/use-debouncy/compare/v2.0.0...v2.0.1) (2020-07-02)
+
+
+### Bug Fixes
+
+* update information about bundle size ([38017d2](https://github.com/eavam/use-debouncy/commit/38017d21d0b11fcf3245e5e4e3d4afc451d991c9))
+
 # [2.0.0](https://github.com/eavam/use-debouncy/compare/v1.9.3...v2.0.0) (2020-07-02)
 
 
