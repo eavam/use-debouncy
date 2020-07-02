@@ -1,3 +1,24 @@
+# [2.0.0](https://github.com/eavam/use-debouncy/compare/v1.9.3...v2.0.0) (2020-07-02)
+
+
+### Bug Fixes
+
+* add e2e tests in release workflow ([23928e3](https://github.com/eavam/use-debouncy/commit/23928e35dbb23d1a7c43a713f74c8061b86c6691))
+* add newline at end gitignore ([c66ba7f](https://github.com/eavam/use-debouncy/commit/c66ba7f6ce012ebc50e897f92a8debf24827b17d))
+
+
+### Features
+
+* add e2e tests ([34cc610](https://github.com/eavam/use-debouncy/commit/34cc610a4f01affafa58d5d643094aa5a60c650c))
+* changed hook for minimize useEffect calls ([26c608a](https://github.com/eavam/use-debouncy/commit/26c608aa27dfc24ab31e78d53313d5c8829a217f))
+
+
+### BREAKING CHANGES
+
+* Change track first mount call.
+setTimeout reference moved in lexical scope.
+The call happens clearTimeout with every deps update.
+
 ## [1.9.3](https://github.com/eavam/use-debouncy/compare/v1.9.2...v1.9.3) (2020-07-01)
 
 
