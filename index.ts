@@ -1,16 +1,5 @@
 import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
 
-const enum DC {
-  timeout,
-  callback,
-}
-type TimerRefType = [NodeJS.Timeout | undefined, EffectCallback];
-
-const effect = useEffect;
-const clear = (timeout?: NodeJS.Timeout) => {
-  timeout && clearTimeout(timeout);
-};
-
 /**
  *
  * @param fn - Debounce callback.
@@ -24,33 +13,30 @@ const useDebouncy = (
 ): void => {
   const defaultWait = wait || 0;
   const defaultDeps = deps || [];
-  const timer = useRef<TimerRefType>([undefined, fn]);
+  const callback = useRef(fn);
+  const isFirstRender = useRef(true);
 
   // Set new callback if it updated
-  effect(() => {
-    timer.current[DC.callback] = fn;
+  useEffect(() => {
+    callback.current = fn;
   }, [fn]);
 
   // Call update if deps changes
-  effect(() => {
-    const reference = timer.current;
-    clear(reference[DC.timeout]);
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return;
+    }
 
     // Init setTimeout
-    reference[DC.timeout] = setTimeout(() => {
-      reference[DC.callback]();
+    const timeout = setTimeout(() => {
+      callback.current();
     }, defaultWait);
-  }, defaultDeps);
-
-  // Clear timer on first render
-  effect(() => {
-    const reference = timer.current;
-    clear(reference[DC.timeout]);
 
     return () => {
-      clear(reference[DC.timeout]);
+      clearTimeout(timeout);
     };
-  }, []);
+  }, defaultDeps);
 };
 
 export default useDebouncy;
