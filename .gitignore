@@ -69,3 +69,4 @@ web_modules/
 # build
 lib/
 compile/
+dist/
