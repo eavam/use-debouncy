@@ -17,11 +17,20 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: Setup Playwright
+        uses: microsoft/playwright-github-action@v1
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Testing
-        run: yarn test --ci --coverage
+      - name: Unit tests
+        run: yarn test:unit --ci --coverage
+
+      - name: Build
+        run: yarn build
+
+      - name: E2E tests
+        run: yarn test:e2e --forceExit
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
