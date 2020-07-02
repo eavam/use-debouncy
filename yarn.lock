@@ -1910,7 +1910,7 @@
     "@types/istanbul-lib-coverage" "*"
     "@types/istanbul-lib-report" "*"
 
-"@types/jest-in-case@^1.0.2":
+"@types/jest-in-case@1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@types/jest-in-case/-/jest-in-case-1.0.2.tgz#f4364d3e255a1aa9d001bcdeef3ab6d5f41aadee"
   integrity sha512-1JOsX6y/gLa8SBEXEOMTFN8IMMetxB74ySw0Gv7+i3uhWLWQ2O7PA5Tz3FV4SH12v/gJEhCMNX7MHzPg6bbfrw==
