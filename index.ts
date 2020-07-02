@@ -33,6 +33,7 @@ const useDebouncy = (
       callback.current();
     }, defaultWait);
 
+    // Clear on update or unmount
     return () => {
       clearTimeout(timeout);
     };
