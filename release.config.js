@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   branches: ['master'],
   plugins: [

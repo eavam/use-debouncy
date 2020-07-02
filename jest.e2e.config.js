@@ -1,5 +1,3 @@
-/* eslint-disable unicorn/prevent-abbreviations */
-// eslint-disable-next-line no-undef
 module.exports = {
   name: 'e2e',
   preset: 'jest-playwright-preset',

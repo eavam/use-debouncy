@@ -27,5 +27,10 @@
       "pragma": "React",
       "version": "detect"
     }
+  },
+  "rules": {
+    "no-undef": "off",
+    "unicorn/prevent-abbreviations": "off",
+    "unicorn/import-index": "off"
   }
 }

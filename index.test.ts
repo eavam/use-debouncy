@@ -1,5 +1,4 @@
 import { renderHook } from '@testing-library/react-hooks';
-// eslint-disable-next-line unicorn/import-index
 import useDebouncy from './index';
 
 beforeAll(() => {

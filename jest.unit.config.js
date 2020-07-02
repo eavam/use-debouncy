@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-undef
 module.exports = {
   name: 'unit',
   preset: 'ts-jest',
