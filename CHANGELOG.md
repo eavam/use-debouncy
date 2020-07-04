@@ -1,3 +1,10 @@
+## [2.0.2](https://github.com/eavam/use-debouncy/compare/v2.0.1...v2.0.2) (2020-07-04)
+
+
+### Bug Fixes
+
+* change size limit and add info about side effects ([8df54bb](https://github.com/eavam/use-debouncy/commit/8df54bb3139446f122c73c2dc8c536249e8d4726))
+
 ## [2.0.1](https://github.com/eavam/use-debouncy/compare/v2.0.0...v2.0.1) (2020-07-02)
 
 
