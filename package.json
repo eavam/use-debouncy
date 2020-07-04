@@ -23,6 +23,7 @@
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.es.js",
+  "sideEffects": false,
   "scripts": {
     "size": "size-limit",
     "test": "jest",
@@ -90,24 +91,16 @@
   },
   "size-limit": [
     {
-      "limit": "150 B",
-      "path": [
-        "lib/index.js"
-      ],
-      "import": "{ createStore }",
-      "running": true,
-      "gzip": true,
-      "brotli": false
+      "name": "use-debouncy",
+      "limit": "120 B",
+      "path": "lib/index.js",
+      "import": "{ useDebouncy }"
     },
     {
-      "limit": "150 B",
-      "path": [
-        "lib/index.es.js"
-      ],
-      "import": "{ createStore }",
-      "running": true,
-      "gzip": true,
-      "brotli": false
+      "name": "use-debouncy ES6",
+      "limit": "120 B",
+      "path": "lib/index.es.js",
+      "import": "{ useDebouncy }"
     }
   ],
   "files": [
