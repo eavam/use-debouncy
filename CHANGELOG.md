@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/eavam/use-debouncy/compare/v2.0.2...v2.1.0) (2020-07-05)
+
+
+### Features
+
+* add bit.dev support ([d295182](https://github.com/eavam/use-debouncy/commit/d295182c8f79330ef4944416a467117074c31f67))
+
 ## [2.0.2](https://github.com/eavam/use-debouncy/compare/v2.0.1...v2.0.2) (2020-07-04)
 
 
