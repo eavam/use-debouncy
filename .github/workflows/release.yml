@@ -59,6 +59,7 @@ jobs:
         run: yarn build
 
       - name: Setup bit.dev
+        # https://github.com/teambit/bit/issues/2297
         run: |
           yarn bit config set analytics_reporting false
           yarn bit config set error_reporting false
@@ -66,6 +67,7 @@ jobs:
           yarn bit config
           yarn bit -v && yarn bit import
           yarn bit status
+          yarn bit import bit.envs/compilers/react-typescript@3.1.54
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
