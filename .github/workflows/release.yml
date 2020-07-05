@@ -58,6 +58,13 @@ jobs:
       - name: Build
         run: yarn build
 
+      - name: Setup bit.dev
+        run: |
+          npm config set @bit:registry https://node.bit.dev
+          npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}

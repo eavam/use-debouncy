@@ -17,5 +17,12 @@ module.exports = {
         assets: ['lib/**'],
       },
     ],
+    [
+      '@semantic-release/exec',
+      {
+        publishCmd:
+          'yarn bit tag --all ${nextRelease.version} && yarn bit export --all',
+      },
+    ],
   ],
 };
