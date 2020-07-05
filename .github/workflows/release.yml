@@ -62,6 +62,8 @@ jobs:
         run: |
           npm config set @bit:registry https://node.bit.dev
           npm config set //node.bit.dev/:_authToken ${BIT_TOKEN}
+          yarn bit config set analytics_reporting false
+          yarn bit config set error_reporting false
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
