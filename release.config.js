@@ -21,7 +21,7 @@ module.exports = {
       '@semantic-release/exec',
       {
         publishCmd:
-          'yarn bit tag --all ${nextRelease.version} && yarn bit export --all',
+          'yarn bit import && yarn bit tag --all ${nextRelease.version} && yarn bit export --all',
       },
     ],
   ],
