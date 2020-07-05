@@ -26,7 +26,14 @@ npm install use-debouncy
 yarn add use-debouncy
 ```
 
-## Examples
+### [Check bit component here](https://bit.dev/eavam/use-debouncy/use-debounce)
+
+```bash
+# Import bit component
+bit import eavam.use-debouncy/use-debounce
+```
+
+## Usage
 
 ### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
 
