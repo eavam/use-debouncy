@@ -1,3 +1,10 @@
+## [2.1.5](https://github.com/eavam/use-debouncy/compare/v2.1.4...v2.1.5) (2020-07-05)
+
+
+### Bug Fixes
+
+* add force tag for bit ([0081b64](https://github.com/eavam/use-debouncy/commit/0081b64e8662706294e94af9086023c52a3c6ca7))
+
 ## [2.1.4](https://github.com/eavam/use-debouncy/compare/v2.1.3...v2.1.4) (2020-07-05)
 
 
