@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/eavam/use-debouncy/compare/v2.1.3...v2.1.4) (2020-07-05)
+
+
+### Bug Fixes
+
+* add description for install in bit and try release workflow ([0cc9dd7](https://github.com/eavam/use-debouncy/commit/0cc9dd7335725ecae79dbbbe9458e75c4c088462))
+
 ## [2.1.3](https://github.com/eavam/use-debouncy/compare/v2.1.2...v2.1.3) (2020-07-05)
 
 
