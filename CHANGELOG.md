@@ -1,3 +1,10 @@
+## [2.1.2](https://github.com/eavam/use-debouncy/compare/v2.1.1...v2.1.2) (2020-07-05)
+
+
+### Bug Fixes
+
+* add pull latest bit object ([41538e0](https://github.com/eavam/use-debouncy/commit/41538e0be437631f5d4c1d384232ddace9b14178))
+
 ## [2.1.1](https://github.com/eavam/use-debouncy/compare/v2.1.0...v2.1.1) (2020-07-05)
 
 
