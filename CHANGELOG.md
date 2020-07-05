@@ -1,3 +1,11 @@
+## [2.1.3](https://github.com/eavam/use-debouncy/compare/v2.1.2...v2.1.3) (2020-07-05)
+
+
+### Bug Fixes
+
+* change bit set config ([8bac3c4](https://github.com/eavam/use-debouncy/commit/8bac3c46fc1a8a37254832d959d93d072a3e0254))
+* change bit set config ([9261339](https://github.com/eavam/use-debouncy/commit/9261339d8b1ad62b56f75099c25fda7302a6f639))
+
 ## [2.1.2](https://github.com/eavam/use-debouncy/compare/v2.1.1...v2.1.2) (2020-07-05)
 
 
