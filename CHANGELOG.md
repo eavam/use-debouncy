@@ -1,3 +1,10 @@
+## [2.1.1](https://github.com/eavam/use-debouncy/compare/v2.1.0...v2.1.1) (2020-07-05)
+
+
+### Bug Fixes
+
+* disabled reporting for bit ([0c59ffb](https://github.com/eavam/use-debouncy/commit/0c59ffb6803648eb13e5d5eb5a7d663351fc0983))
+
 # [2.1.0](https://github.com/eavam/use-debouncy/compare/v2.0.2...v2.1.0) (2020-07-05)
 
 
