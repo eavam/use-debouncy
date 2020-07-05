@@ -1,3 +1,12 @@
+## [2.1.6](https://github.com/eavam/use-debouncy/compare/v2.1.5...v2.1.6) (2020-07-05)
+
+
+### Bug Fixes
+
+* add import compiler for bit ([531f3cb](https://github.com/eavam/use-debouncy/commit/531f3cb2c12c323a82c6fe9a2180f9aea2be1dee))
+* add import compiler for bit ([0b2ca84](https://github.com/eavam/use-debouncy/commit/0b2ca842e4fb081a7f853389e0b4a7910ca85317))
+* add import compiler for bit ([396e901](https://github.com/eavam/use-debouncy/commit/396e901f957b9525e1a3d1910526063b07eef8cf))
+
 ## [2.1.5](https://github.com/eavam/use-debouncy/compare/v2.1.4...v2.1.5) (2020-07-05)
 
 
