@@ -65,9 +65,9 @@ jobs:
           yarn bit config set error_reporting false
           yarn bit config set user.token $BIT_TOKEN
           yarn bit config
+          yarn bit import bit.envs/compilers/react-typescript@3.1.54
           yarn bit -v && yarn bit import
           yarn bit status
-          yarn bit import bit.envs/compilers/react-typescript@3.1.54
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
