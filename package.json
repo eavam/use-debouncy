@@ -67,7 +67,6 @@
     "eslint-plugin-unicorn": "20.1.0",
     "husky": "4.2.5",
     "jest": "26.1.0",
-    "jest-in-case": "1.0.2",
     "jest-playwright-preset": "1.2.1",
     "parcel": "1.12.4",
     "playwright": "1.2.0",

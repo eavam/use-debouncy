@@ -1,41 +1,69 @@
-import { webkit, chromium, firefox } from 'playwright';
+import {
+  webkit,
+  chromium,
+  firefox,
+  Page,
+  FirefoxBrowser,
+  WebKitBrowser,
+  ChromiumBrowser,
+} from 'playwright';
 import expect from 'expect';
-import cases from 'jest-in-case';
 
-cases(
-  'should work',
-  async ({ browserType }) => {
-    const browser = await browserType.launch();
-    const page = await browser.newPage();
-    await page.goto('http://localhost:1234/');
-    const view = '#view';
-    const input = 'input';
-    const getViewText = async () => await page.textContent(view);
-    const getInputValue = async () =>
-      await page.$eval(input, (element) => element.value);
+let browser: FirefoxBrowser | WebKitBrowser | ChromiumBrowser;
+let page: Page;
+const urlBase = 'http://localhost:1234/';
+const viewSelector = '#view';
+const inputSelector = 'input';
+const browserEnv = process.env.BROWSER;
+const browsers = {
+  webkit,
+  chromium,
+  firefox,
+};
 
-    expect(await getViewText()).toBe('');
-    expect(await getInputValue()).toBe('');
+const isBrowser = (str: unknown): str is keyof typeof browsers =>
+  Object.prototype.hasOwnProperty.call(browsers, str);
 
-    await page.type(input, 'first text');
-    await page.waitForTimeout(500);
+const browserType = isBrowser(browserEnv)
+  ? browsers[browserEnv]
+  : browsers.chromium;
 
-    expect(await getViewText()).toBe('first text');
-    expect(await getInputValue()).toBe('first text');
+const getViewText = async () => await page.textContent(viewSelector);
+const getInputValue = async () =>
+  await page.$eval(inputSelector, (element) => element.value);
 
-    await page.fill(input, '');
-    await page.type(input, 'second text', { delay: 200 });
-    await page.waitForTimeout(500);
+beforeAll(async () => {
+  browser = await browserType.launch();
+});
 
-    expect(await getViewText()).toBe('first text, second text');
-    expect(await getInputValue()).toBe('second text');
+afterAll(async () => {
+  await browser.close();
+});
 
-    await page.close();
-    await browser.close();
-  },
-  [
-    { name: 'webkit', browserType: webkit },
-    { name: 'chromium', browserType: chromium },
-    { name: 'firefox', browserType: firefox },
-  ],
-);
+beforeEach(async () => {
+  page = await browser.newPage();
+});
+
+afterEach(async () => {
+  await page.close();
+});
+
+test('should work', async () => {
+  await page.goto(urlBase);
+
+  await page.type(inputSelector, 'first text');
+  await page.waitForTimeout(500);
+
+  expect(await getViewText()).toBe('first text');
+  expect(await getInputValue()).toBe('first text');
+
+  await page.fill(inputSelector, '');
+  await page.type(inputSelector, 'second text', { delay: 200 });
+  await page.waitForTimeout(500);
+
+  expect(await getViewText()).toBe('first text, second text');
+  expect(await getInputValue()).toBe('second text');
+
+  await page.close();
+  await browser.close();
+}, 30000);
