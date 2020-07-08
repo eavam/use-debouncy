@@ -29,11 +29,10 @@ jobs:
       CI: true
 
   test-e2e:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         browser: [webkit, chromium, firefox]
-        os: [macos-latest, windows-latest, ubuntu-latest]
         node: [10, 12]
     steps:
       - uses: actions/checkout@v2
