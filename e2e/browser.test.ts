@@ -52,18 +52,15 @@ test('should work', async () => {
   await page.goto(urlBase);
 
   await page.type(inputSelector, 'first text');
-  await page.waitForTimeout(500);
+  await page.waitForTimeout(1000);
 
   expect(await getViewText()).toBe('first text');
   expect(await getInputValue()).toBe('first text');
 
   await page.fill(inputSelector, '');
-  await page.type(inputSelector, 'second text', { delay: 200 });
-  await page.waitForTimeout(500);
+  await page.type(inputSelector, 'second text', { delay: 100 });
+  await page.waitForTimeout(1000);
 
   expect(await getViewText()).toBe('first text, second text');
   expect(await getInputValue()).toBe('second text');
-
-  await page.close();
-  await browser.close();
 }, 30000);
