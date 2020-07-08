@@ -4,7 +4,31 @@ on:
     branches:
       - master
 jobs:
-  test:
+  test-unit:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [10, 12]
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Unit tests
+        run: yarn test:unit --ci --coverage
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1
+    env:
+      CI: true
+
+  test-e2e:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -25,9 +49,6 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Unit tests
-        run: yarn test:unit --ci --coverage
-
       - name: Build
         run: yarn build
 
@@ -35,14 +56,11 @@ jobs:
         run: yarn test:e2e --forceExit
         env:
           BROWSER: ${{ matrix.browser }}
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v1
     env:
       CI: true
 
   release:
-    needs: test
+    needs: [test-unit, test-e2e]
     name: Release
     runs-on: ubuntu-latest
     steps:
