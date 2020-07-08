@@ -28,9 +28,10 @@ const browserType = isBrowser(browserEnv)
   ? browsers[browserEnv]
   : browsers.chromium;
 
-const getViewText = async () => await page.textContent(viewSelector);
-const getInputValue = async () =>
-  await page.$eval(inputSelector, (element) => element.value);
+const getViewText = () =>
+  page.$eval(viewSelector, (element) => element.textContent);
+const getInputValue = () =>
+  page.$eval(inputSelector, (element) => element.value);
 
 beforeAll(async () => {
   browser = await browserType.launch();
