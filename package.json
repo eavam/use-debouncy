@@ -96,13 +96,15 @@
       "name": "use-debouncy",
       "limit": "120 B",
       "path": "lib/index.js",
-      "import": "{ useDebouncy }"
+      "import": "{ useDebouncy }",
+      "running": false
     },
     {
       "name": "use-debouncy ES6",
       "limit": "120 B",
       "path": "lib/index.es.js",
-      "import": "{ useDebouncy }"
+      "import": "{ useDebouncy }",
+      "running": false
     }
   ],
   "files": [
