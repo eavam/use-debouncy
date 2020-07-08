@@ -28,10 +28,24 @@ const browserType = isBrowser(browserEnv)
   ? browsers[browserEnv]
   : browsers.chromium;
 
-const getViewText = () =>
-  page.$eval(viewSelector, (element) => element.textContent);
-const getInputValue = () =>
-  page.$eval(inputSelector, (element) => element.value);
+const getValues = () =>
+  page.evaluate(
+    ({ viewSelector, inputSelector }) => {
+      return {
+        view: document.querySelector(viewSelector)?.textContent,
+        input: document.querySelector<HTMLInputElement>(inputSelector)?.value,
+      };
+    },
+    {
+      viewSelector,
+      inputSelector,
+    },
+  );
+
+// const getViewText = () =>
+//   page.$eval(viewSelector, (element) => element.textContent);
+// const getInputValue = () =>
+//   page.$eval(inputSelector, (element) => element.value);
 
 beforeAll(async () => {
   browser = await browserType.launch();
@@ -52,16 +66,18 @@ afterEach(async () => {
 test('should work', async () => {
   await page.goto(urlBase);
 
-  await page.type(inputSelector, 'first text');
-  await page.waitForTimeout(1000);
+  await page.type(inputSelector, 'first text', { delay: 50 });
+  await page.waitForTimeout(500);
 
-  expect(await getViewText()).toBe('first text');
-  expect(await getInputValue()).toBe('first text');
+  const firstCheck = await getValues();
+  expect(firstCheck.view).toBe('first text');
+  expect(firstCheck.input).toBe('first text');
 
   await page.fill(inputSelector, '');
-  await page.type(inputSelector, 'second text', { delay: 100 });
-  await page.waitForTimeout(1000);
+  await page.type(inputSelector, 'second text', { delay: 50 });
+  await page.waitForTimeout(500);
 
-  expect(await getViewText()).toBe('first text, second text');
-  expect(await getInputValue()).toBe('second text');
+  const secondCheck = await getValues();
+  expect(secondCheck.view).toBe('first text, second text');
+  expect(secondCheck.input).toBe('second text');
 }, 30000);
