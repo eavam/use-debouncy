@@ -42,11 +42,6 @@ const getValues = () =>
     },
   );
 
-// const getViewText = () =>
-//   page.$eval(viewSelector, (element) => element.textContent);
-// const getInputValue = () =>
-//   page.$eval(inputSelector, (element) => element.value);
-
 beforeAll(async () => {
   browser = await browserType.launch();
 });
