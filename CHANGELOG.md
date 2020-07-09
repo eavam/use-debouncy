@@ -1,3 +1,10 @@
+## [2.1.7](https://github.com/eavam/use-debouncy/compare/v2.1.6...v2.1.7) (2020-07-09)
+
+
+### Bug Fixes
+
+* optimize e2e test and add more matrix in CI ([#63](https://github.com/eavam/use-debouncy/issues/63)) ([8939446](https://github.com/eavam/use-debouncy/commit/89394465015970f9eddf8574fcb3a7c0bbedbbf6))
+
 ## [2.1.6](https://github.com/eavam/use-debouncy/compare/v2.1.5...v2.1.6) (2020-07-05)
 
 
