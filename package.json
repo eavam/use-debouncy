@@ -79,7 +79,7 @@
     "rollup": "2.21.0",
     "rollup-plugin-terser": "6.1.0",
     "semantic-release": "17.1.1",
-    "size-limit": "4.5.3",
+    "size-limit": "4.5.4",
     "ts-jest": "26.1.1",
     "tslib": "2.0.0",
     "typescript": "3.9.6"
