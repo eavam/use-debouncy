@@ -4121,10 +4121,10 @@ bindings@^1.5.0:
   dependencies:
     file-uri-to-path "1.0.0"
 
-bit-bin@14.8.7:
-  version "14.8.7"
-  resolved "https://registry.yarnpkg.com/bit-bin/-/bit-bin-14.8.7.tgz#c6cb01ec5608ae5df50ddc4392930dfcfac84c6f"
-  integrity sha512-z43gYxUdNjljyD66cuuoLtw7UiyexsizBeQIOQseSGcVcjHTvFo2HStHcGebpHPgS5FEg0it6Qa7UhHzm7rdrw==
+bit-bin@14.8.8:
+  version "14.8.8"
+  resolved "https://registry.yarnpkg.com/bit-bin/-/bit-bin-14.8.8.tgz#81d5fb8e2f48792082d59072e393471636ea981b"
+  integrity sha512-t7PKK2o72FKW8LHEE7D11uFswljrTJIlwHD4ymG2eEvB6mzIv3POmce5pOTW4FiJEzY9WUA/bXarjHhtmDAzLQ==
   dependencies:
     "@apollo/react-hooks" "^3.1.5"
     "@babel/core" "^7.9.6"
