@@ -37,8 +37,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "9.0.1",
-    "@commitlint/config-conventional": "9.0.1",
+    "@commitlint/cli": "9.1.1",
+    "@commitlint/config-conventional": "9.1.1",
     "@rollup/plugin-commonjs": "13.0.1",
     "@rollup/plugin-typescript": "5.0.2",
     "@semantic-release/changelog": "5.0.1",
