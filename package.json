@@ -82,7 +82,7 @@
     "size-limit": "4.5.5",
     "ts-jest": "26.1.2",
     "tslib": "2.0.0",
-    "typescript": "3.9.6"
+    "typescript": "3.9.7"
   },
   "husky": {
     "hooks": {
