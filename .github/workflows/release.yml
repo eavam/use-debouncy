@@ -20,6 +20,9 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      - name: Linter
+        run: yarn eslint . --ext .js,.ts
+
       - name: Unit tests
         run: yarn test:unit --ci --coverage
 
