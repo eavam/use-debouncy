@@ -65,7 +65,7 @@
     "eslint-plugin-react-hooks": "4.0.8",
     "eslint-plugin-unicorn": "21.0.0",
     "husky": "4.2.5",
-    "jest": "26.2.1",
+    "jest": "26.2.2",
     "jest-playwright-preset": "1.3.0",
     "parcel": "1.12.4",
     "playwright": "1.2.1",
