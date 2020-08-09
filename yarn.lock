@@ -2185,12 +2185,12 @@
     "@size-limit/file" "4.5.6"
     "@size-limit/webpack" "4.5.6"
 
-"@size-limit/time@4.5.5":
-  version "4.5.5"
-  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.5.5.tgz#31560db3a7ef7e337a657cc339243e9b5ca42020"
-  integrity sha512-igCesaa/u0+cQku2s8ApAD9JOvJGyHngt9wEXV6oXxHwmMDDIqVCAqN29RgY5adXf26grnmILW7ox0TB00xttQ==
+"@size-limit/time@4.5.6":
+  version "4.5.6"
+  resolved "https://registry.yarnpkg.com/@size-limit/time/-/time-4.5.6.tgz#2b93e9db5cfdf4d67e89674a1a324bda542fd019"
+  integrity sha512-q6sPkCysx/sUGIat377flEpwrSfuLBiM0DG7TyF/FWfGRN2tM2hkH2wwe7BgqQzzybbZjkR/l0S1dGKb8nkWKQ==
   dependencies:
-    estimo "^2.1.1"
+    estimo "^2.2.0"
     react "^16.13.1"
 
 "@size-limit/webpack@4.5.6":
@@ -7069,13 +7069,13 @@ esrecurse@^4.1.0:
   dependencies:
     estraverse "^4.1.0"
 
-estimo@^2.1.1:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/estimo/-/estimo-2.1.2.tgz#783815247715832e60f3a2b90a9197cf3b841fb3"
-  integrity sha512-rvCEGDx+Tam4CiEKfl4kqQjdbNl8Z4R2rJN9Yhx3BrS8+NHype/LTWxIGQTXnV3PqafSIrObI4GSNBfdUcexSA==
+estimo@^2.2.0:
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/estimo/-/estimo-2.2.0.tgz#e0ba7c6ec8de30324d743652cd28590c258daa4f"
+  integrity sha512-LnHlYtnLb80ExHWmsUP1wIVFGnpg+X/6/BLGPSJBN8UXwqswE/1Yoc6Xuesbhlt2hyTJ7KI0UW7lukUYmm+RhQ==
   dependencies:
-    nanoid "^3.1.10"
-    puppeteer-core "^5.2.0"
+    nanoid "^3.1.11"
+    puppeteer-core "^5.2.1"
     tracium "^0.2.1"
     yargs "^15.4.1"
 
@@ -12348,6 +12348,11 @@ nanoid@^3.1.10:
   resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.10.tgz#69a8a52b77892de0d11cede96bc9762852145bc4"
   integrity sha512-iZFMXKeXWkxzlfmMfM91gw7YhN2sdJtixY+eZh9V6QWJWTOiurhpKhBMgr82pfzgSqglQgqYSCowEYsz8D++6w==
 
+nanoid@^3.1.11:
+  version "3.1.12"
+  resolved "https://registry.yarnpkg.com/nanoid/-/nanoid-3.1.12.tgz#6f7736c62e8d39421601e4a0c77623a97ea69654"
+  integrity sha512-1qstj9z5+x491jfiC4Nelk+f8XBad7LN20PmyWINJEMRSf3wcAjAWysw1qaA8z6NSKe2sjq1hRSDpBH5paCb6A==
+
 nanomatch@^1.2.9:
   version "1.2.13"
   resolved "https://registry.yarnpkg.com/nanomatch/-/nanomatch-1.2.13.tgz#b87a8aa4fc0de8fe6be88895b38983ff265bd119"
@@ -14732,7 +14737,7 @@ punycode@^2.1.0, punycode@^2.1.1:
   resolved "https://registry.yarnpkg.com/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
   integrity sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A==
 
-puppeteer-core@^5.2.0:
+puppeteer-core@^5.2.1:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/puppeteer-core/-/puppeteer-core-5.2.1.tgz#0d21b5bbb30c82db9b439d255a459f3538cc7235"
   integrity sha512-gLjEOrzwgcnwRH+sm4hS1TBqe2/DN248nRb2hYB7+lZ9kCuLuACNvuzlXILlPAznU3Ob+mEvVEBDcLuFa0zq3g==
