@@ -18,13 +18,13 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Linter
-        run: yarn eslint . --ext .js,.ts
+        run: npm run lint
 
       - name: Unit tests
-        run: yarn test:unit --ci --coverage
+        run: npm run test:unit -- --ci --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -49,13 +49,13 @@ jobs:
         uses: microsoft/playwright-github-action@v1
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: E2E tests
-        run: yarn test:e2e --runInBand
+        run: npm run test:e2e -- --runInBand
         env:
           BROWSER: ${{ matrix.browser }}
     env:
@@ -77,21 +77,21 @@ jobs:
           node-version: 12
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Setup bit.dev
         # https://github.com/teambit/bit/issues/2297
         run: |
-          yarn bit config set analytics_reporting false
-          yarn bit config set error_reporting false
-          yarn bit config set user.token $BIT_TOKEN
-          yarn bit config
-          yarn bit import -c bit.envs/compilers/react-typescript@3.1.54
-          yarn bit -v && yarn bit import
-          yarn bit status
+          ./node_modules/.bin/bit config set analytics_reporting false
+          ./node_modules/.bin/bit config set error_reporting false
+          ./node_modules/.bin/bit config set user.token $BIT_TOKEN
+          ./node_modules/.bin/bit config
+          ./node_modules/.bin/bit import -c bit.envs/compilers/react-typescript@3.1.54
+          ./node_modules/.bin/bit -v && ./node_modules/.bin/bit import
+          ./node_modules/.bin/bit status
         env:
           BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
 
@@ -99,4 +99,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn semantic-release
+        run: npm run semantic-release

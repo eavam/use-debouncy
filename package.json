@@ -29,9 +29,12 @@
     "test": "jest",
     "test:unit": "jest --config=jest.unit.config.js",
     "test:e2e": "jest --config=jest.e2e.config.js",
+    "serve:e2e": "parcel e2e/app/index.html",
     "lint": "eslint . --ext .js,.ts",
     "build": "rollup -c",
-    "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true"
+    "clear": "rimraf lib compile",
+    "prebuild": "npm run clear && tsc --outDir compile --declarationDir lib --declaration true",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
     "react": "^16.8.0"
@@ -117,6 +120,6 @@
       "compiler": "bit.envs/compilers/react-typescript@3.1.54"
     },
     "componentsDefaultDirectory": "components/{name}",
-    "packageManager": "yarn"
+    "packageManager": "npm"
   }
 }
