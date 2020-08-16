@@ -19,13 +19,13 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Linter
-        run: yarn eslint . --ext .js,.ts
+        run: npm run lint
 
       - name: Unit tests
-        run: yarn test:unit --ci --coverage
+        run: npm run test:unit --ci --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -50,13 +50,13 @@ jobs:
         uses: microsoft/playwright-github-action@v1
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: E2E tests
-        run: yarn test:e2e --runInBand
+        run: npm run test:e2e --runInBand
         env:
           BROWSER: ${{ matrix.browser }}
     env:

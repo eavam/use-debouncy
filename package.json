@@ -29,6 +29,7 @@
     "test": "jest",
     "test:unit": "jest --config=jest.unit.config.js",
     "test:e2e": "jest --config=jest.e2e.config.js",
+    "lint": "eslint . --ext .js,.ts",
     "build": "rollup -c",
     "prebuild": "rimraf lib compile && tsc --outDir compile --declarationDir lib --declaration true"
   },
