@@ -1,3 +1,11 @@
+# [2.2.0](https://github.com/eavam/use-debouncy/compare/v2.1.7...v2.2.0) (2020-08-16)
+
+
+### Features
+
+* move to npm ([01fd239](https://github.com/eavam/use-debouncy/commit/01fd239367b641f88db447d1f47d4963fa9c3d83))
+* release build now use npm ([4bfd285](https://github.com/eavam/use-debouncy/commit/4bfd285631bdd5c15aa1010084b7de1e277a0c5e))
+
 ## [2.1.7](https://github.com/eavam/use-debouncy/compare/v2.1.6...v2.1.7) (2020-07-09)
 
 
