@@ -1,6 +1,6 @@
 module.exports = {
   serverOptions: {
-    command: 'yarn parcel e2e/app/index.html',
+    command: 'npm run serve:e2e',
     port: 1234,
     launchTimeout: 30000,
   },
