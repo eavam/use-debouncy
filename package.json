@@ -56,7 +56,7 @@
     "@size-limit/time": "4.5.7",
     "@testing-library/react-hooks": "3.4.1",
     "@types/jest": "26.0.10",
-    "@types/react": "16.9.47",
+    "@types/react": "16.9.48",
     "@types/react-dom": "16.9.8",
     "@typescript-eslint/eslint-plugin": "3.10.1",
     "@typescript-eslint/parser": "3.10.1",
