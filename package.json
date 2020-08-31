@@ -55,7 +55,7 @@
     "@size-limit/preset-small-lib": "4.5.7",
     "@size-limit/time": "4.5.7",
     "@testing-library/react-hooks": "3.4.1",
-    "@types/jest": "26.0.10",
+    "@types/jest": "26.0.12",
     "@types/react": "16.9.49",
     "@types/react-dom": "16.9.8",
     "@typescript-eslint/eslint-plugin": "3.10.1",
