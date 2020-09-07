@@ -52,7 +52,7 @@
     "@semantic-release/github": "7.1.0",
     "@semantic-release/npm": "7.0.6",
     "@semantic-release/release-notes-generator": "9.0.1",
-    "@size-limit/preset-small-lib": "4.5.7",
+    "@size-limit/preset-small-lib": "4.6.0",
     "@size-limit/time": "4.5.7",
     "@testing-library/react-hooks": "3.4.1",
     "@types/jest": "26.0.13",
