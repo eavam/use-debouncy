@@ -1,4 +1,10 @@
-import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
+import {
+  useRef,
+  useEffect,
+  EffectCallback,
+  DependencyList,
+  useCallback,
+} from 'react';
 
 /**
  *
@@ -11,31 +17,36 @@ const useDebouncy = (
   wait?: number,
   deps?: DependencyList,
 ): void => {
+  const raf = useRef(0);
+  const timeNow = useRef(Date.now());
   const defaultWait = wait || 0;
   const defaultDeps = deps || [];
   const callback = useRef(fn);
   const isFirstRender = useRef(true);
+  const renderFrame: FrameRequestCallback = useCallback((time) => {
+    if (time - timeNow.current >= defaultWait) {
+      callback.current();
+    } else {
+      raf.current = requestAnimationFrame(renderFrame);
+    }
+  }, []);
 
   // Set new callback if it updated
   useEffect(() => {
     callback.current = fn;
   }, [fn]);
 
-  // Call update if deps changes
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
 
-    // Init setTimeout
-    const timeout = setTimeout(() => {
-      callback.current();
-    }, defaultWait);
+    timeNow.current = Date.now();
+    raf.current = requestAnimationFrame(renderFrame);
 
-    // Clear on update or unmount
     return () => {
-      clearTimeout(timeout);
+      cancelAnimationFrame(raf.current);
     };
   }, defaultDeps);
 };

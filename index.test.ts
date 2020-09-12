@@ -93,7 +93,7 @@ test('should call callback after timer end', () => {
   jest.runTimersToTime(defaultDelay - 10);
   expect(spy).toBeCalledTimes(0);
 
-  jest.runTimersToTime(10);
+  jest.runTimersToTime(22);
   expect(spy).toBeCalledTimes(1);
 });
 
