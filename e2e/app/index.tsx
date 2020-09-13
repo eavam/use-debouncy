@@ -6,7 +6,13 @@ const App = () => {
   const [value, setValue] = useState('');
   const [view, setView] = useState([]);
 
-  useDebouncy(() => setView((array) => [...array, value]), 400, [value]);
+  useDebouncy(
+    () => {
+      setView((array) => [...array, value]);
+    },
+    400,
+    [value],
+  );
 
   return (
     <div>

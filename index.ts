@@ -1,10 +1,4 @@
-import {
-  useRef,
-  useEffect,
-  EffectCallback,
-  DependencyList,
-  useCallback,
-} from 'react';
+import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
 
 /**
  *
@@ -17,19 +11,23 @@ const useDebouncy = (
   wait?: number,
   deps?: DependencyList,
 ): void => {
-  const raf = useRef(0);
-  const timeNow = useRef(Date.now());
   const defaultWait = wait || 0;
   const defaultDeps = deps || [];
+  const rafId = useRef(0);
+  const timeStart = useRef(0);
   const callback = useRef(fn);
   const isFirstRender = useRef(true);
-  const renderFrame: FrameRequestCallback = useCallback((time) => {
-    if (time - timeNow.current >= defaultWait) {
+  const renderFrame = useRef<FrameRequestCallback>((timeNow) => {
+    if (timeStart.current === 0) {
+      timeStart.current = timeNow - 16; // 16 ms its time on 1 frame
+    }
+
+    if (timeNow - timeStart.current >= defaultWait) {
       callback.current();
     } else {
-      raf.current = requestAnimationFrame(renderFrame);
+      rafId.current = requestAnimationFrame(renderFrame.current);
     }
-  }, []);
+  });
 
   // Set new callback if it updated
   useEffect(() => {
@@ -42,11 +40,11 @@ const useDebouncy = (
       return;
     }
 
-    timeNow.current = Date.now();
-    raf.current = requestAnimationFrame(renderFrame);
+    timeStart.current = 0;
+    rafId.current = requestAnimationFrame(renderFrame.current);
 
     return () => {
-      cancelAnimationFrame(raf.current);
+      cancelAnimationFrame(rafId.current);
     };
   }, defaultDeps);
 };
