@@ -61,7 +61,7 @@ afterEach(async () => {
 test('should work', async () => {
   await page.goto(urlBase);
 
-  await page.type(inputSelector, 'first text', { delay: 50 });
+  await page.type(inputSelector, 'first text');
   await page.waitForTimeout(500);
 
   const firstCheck = await getValues();
@@ -69,7 +69,7 @@ test('should work', async () => {
   expect(firstCheck.input).toBe('first text');
 
   await page.fill(inputSelector, '');
-  await page.type(inputSelector, 'second text', { delay: 50 });
+  await page.type(inputSelector, 'second text');
   await page.waitForTimeout(500);
 
   const secondCheck = await getValues();

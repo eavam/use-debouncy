@@ -4,7 +4,7 @@ module.exports = {
     port: 1234,
     launchTimeout: 30000,
   },
-  launch: {
+  launchOptions: {
     headless: true,
     args: ['--no-sandbox', '--disable-setuid-sandbox', '--disable-gpu'],
   },
