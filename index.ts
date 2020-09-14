@@ -19,12 +19,18 @@ const useDebouncy = (
   const isFirstRender = useRef(true);
   const renderFrame = useRef<FrameRequestCallback>((timeNow) => {
     if (timeStart.current === 0) {
+      /**
+       * Call will be after the first frame.
+       * Requires subtracting 16 ms for more accurate timing.
+       */
       timeStart.current = timeNow - 16; // 16 ms its time on 1 frame
     }
 
+    // Call callback if times up
     if (timeNow - timeStart.current >= defaultWait) {
       callback.current();
     } else {
+      // Or call rAF
       rafId.current = requestAnimationFrame(renderFrame.current);
     }
   });
@@ -34,6 +40,7 @@ const useDebouncy = (
     callback.current = fn;
   }, [fn]);
 
+  // Call update if deps changes
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
