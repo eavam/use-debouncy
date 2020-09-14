@@ -1,3 +1,10 @@
+## [3.0.1](https://github.com/eavam/use-debouncy/compare/v3.0.0...v3.0.1) (2020-09-14)
+
+
+### Bug Fixes
+
+* change flag for bit release ([2ccd423](https://github.com/eavam/use-debouncy/commit/2ccd423c3c09639e84df348d8283060c1e1e54f7))
+
 # [3.0.0](https://github.com/eavam/use-debouncy/compare/v2.2.0...v3.0.0) (2020-09-14)
 
 
