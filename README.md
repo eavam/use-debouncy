@@ -1,6 +1,6 @@
 # useDebouncy
 
-🌀Small (120 bytes) debounce effect hook for React with TypeScript support
+🌀Small (180 bytes) debounce effect hook for React with TypeScript support
 
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
@@ -12,7 +12,8 @@
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍ **Tiny.** 120 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍ **Tiny.** 180 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🦾 **Performance** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
 - 🎣 **Easy.** Like useEffect hook.
 
