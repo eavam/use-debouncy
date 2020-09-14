@@ -13,7 +13,7 @@
 
 - 👌 **No dependencies.**
 - 🏋️‍ **Tiny.** 180 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
-- 🦾 **Performance** Used by requestAnimationFrame.
+- 🦾 **Performance.** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
 - 🎣 **Easy.** Like useEffect hook.
 
