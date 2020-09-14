@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/eavam/use-debouncy/compare/v2.2.0...v3.0.0) (2020-09-14)
+
+
+### Features
+
+* settimeout replaced on rAF ([5af7ab9](https://github.com/eavam/use-debouncy/commit/5af7ab9c0abfe7bf2652b54ebc0e6f0e600e5bbc))
+
+
+### BREAKING CHANGES
+
+* Instead of setTimeout is used now requestAnimationFrame.
+
 # [2.2.0](https://github.com/eavam/use-debouncy/compare/v2.1.7...v2.2.0) (2020-08-16)
 
 
