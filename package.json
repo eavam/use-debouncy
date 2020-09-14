@@ -2,7 +2,7 @@
   "name": "use-debouncy",
   "version": "2.2.0",
   "author": "Egor Avakumov",
-  "description": "🌀Small (120 bytes) debounce effect hook for React with TypeScript support",
+  "description": "🌀Small (180 bytes) debounce effect hook for React with TypeScript support",
   "license": "MIT",
   "keywords": [
     "debounce",
@@ -96,14 +96,14 @@
   "size-limit": [
     {
       "name": "use-debouncy",
-      "limit": "120 B",
+      "limit": "180 B",
       "path": "lib/index.js",
       "import": "{ useDebouncy }",
       "running": false
     },
     {
       "name": "use-debouncy ES6",
-      "limit": "120 B",
+      "limit": "180 B",
       "path": "lib/index.es.js",
       "import": "{ useDebouncy }",
       "running": false
