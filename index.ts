@@ -1,5 +1,7 @@
 import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
 
+const FRAME_MS = 16;
+
 /**
  *
  * @param fn - Debounce callback.
@@ -23,24 +25,24 @@ const useDebouncy = (
        * Call will be after the first frame.
        * Requires subtracting 16 ms for more accurate timing.
        */
-      timeStart.current = timeNow - 16; // 16 ms its time on 1 frame
+      timeStart.current = timeNow - FRAME_MS; // 16 ms its time on 1 frame
     }
 
-    // Call callback if times up
+    /** Call callback if times up */
     if (timeNow - timeStart.current >= defaultWait) {
       callback.current();
     } else {
-      // Or call rAF
+      /** Or call rAF */
       rafId.current = requestAnimationFrame(renderFrame.current);
     }
   });
 
-  // Set new callback if it updated
+  /** Set new callback if it updated */
   useEffect(() => {
     callback.current = fn;
   }, [fn]);
 
-  // Call update if deps changes
+  /** Call update if deps changes */
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
