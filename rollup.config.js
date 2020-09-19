@@ -5,16 +5,19 @@ import package_ from './package.json';
 
 export default {
   input: './index.ts',
+  external: ['react'],
   output: [
     {
       file: package_.main,
       format: 'cjs',
       sourcemap: true,
+      exports: 'default',
     },
     {
       file: package_.module,
       format: 'es',
       sourcemap: true,
+      exports: 'default',
     },
   ],
   // external: [...Object.keys(package_.dependencies || {})],
