@@ -1,5 +1,6 @@
 import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
 
+/** 16 ms its time on 1 frame */
 const FRAME_MS = 16;
 
 /**
@@ -19,22 +20,21 @@ const useDebouncy = (
   const timeStart = useRef(0);
   const callback = useRef(fn);
   const isFirstRender = useRef(true);
+
   const renderFrame = useRef<FrameRequestCallback>((timeNow) => {
-    if (timeStart.current === 0) {
-      /**
-       * Call will be after the first frame.
-       * Requires subtracting 16 ms for more accurate timing.
-       */
-      timeStart.current = timeNow - FRAME_MS; // 16 ms its time on 1 frame
+    /**
+     * Call will be after the first frame.
+     * Requires subtracting 16 ms for more accurate timing.
+     */
+    timeStart.current = timeStart.current || timeNow - FRAME_MS;
+
+    /** Call next rAF if time is not up */
+    if (timeNow - timeStart.current < defaultWait) {
+      rafId.current = requestAnimationFrame(renderFrame.current);
+      return;
     }
 
-    /** Call callback if times up */
-    if (timeNow - timeStart.current >= defaultWait) {
-      callback.current();
-    } else {
-      /** Or call rAF */
-      rafId.current = requestAnimationFrame(renderFrame.current);
-    }
+    callback.current();
   });
 
   /** Set new callback if it updated */
