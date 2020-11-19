@@ -81,7 +81,7 @@
     "rimraf": "3.0.2",
     "rollup": "2.33.3",
     "rollup-plugin-terser": "7.0.2",
-    "semantic-release": "17.2.3",
+    "semantic-release": "17.2.4",
     "size-limit": "4.8.0",
     "ts-jest": "26.4.4",
     "tslib": "2.0.3",
