@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { render } from 'react-dom';
-import useDebouncy from '../../lib';
+import useDebouncy from 'use-debouncy';
 
 const App = () => {
   const [value, setValue] = useState('');
