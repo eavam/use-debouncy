@@ -1,3 +1,18 @@
+# [3.1.0](https://github.com/eavam/use-debouncy/compare/v3.0.1...v3.1.0) (2020-11-29)
+
+
+### Bug Fixes
+
+* add abort request ([1572c5f](https://github.com/eavam/use-debouncy/commit/1572c5fc8ba8e5d93eaa1a4bde8b831ec6c0faef))
+* remove webkit tests ([81910d3](https://github.com/eavam/use-debouncy/commit/81910d3d557fec901fe30a0cc2c7860599b97b02))
+* remove webkit tests ([1690144](https://github.com/eavam/use-debouncy/commit/1690144b892df17a77562483dd9b3e179a70b0c0))
+
+
+### Features
+
+* add async fetch for e2e tests ([795b39d](https://github.com/eavam/use-debouncy/commit/795b39d92bf8092e57b46057c68f7922cd557647))
+* upgrade husky ([29b38c3](https://github.com/eavam/use-debouncy/commit/29b38c329fddcd35d2a38976dd335283bca70bbd))
+
 ## [3.0.1](https://github.com/eavam/use-debouncy/compare/v3.0.0...v3.0.1) (2020-09-14)
 
 
