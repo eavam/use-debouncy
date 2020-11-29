@@ -47,10 +47,15 @@ afterEach(async () => {
 test('should work', async () => {
   const fetchMock = jest.fn();
 
-  page.on('request', (interceptedRequest) => {
-    const url = interceptedRequest.url();
+  await page.route('**/*', (route) => {
+    const request = route.request();
+    const url = request.url();
+
     if (url.includes('swapi.dev')) {
       fetchMock(url);
+      route.abort();
+    } else {
+      route.continue();
     }
   });
 
