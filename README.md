@@ -1,6 +1,6 @@
 # useDebouncy
 
-🌀Small (180 bytes) debounce effect hook for React with TypeScript support
+🌀 Small (180 bytes) debounce effect hook for React with TypeScript support
 
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
