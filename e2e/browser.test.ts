@@ -12,9 +12,9 @@ import expect from 'expect';
 let browser: FirefoxBrowser | WebKitBrowser | ChromiumBrowser;
 let page: Page;
 const urlBase = 'http://localhost:1234/';
-const viewSelector = '#view';
-const inputSelector = 'input';
+const inputSelector = '[data-qa="input/search"]';
 const browserEnv = process.env.BROWSER;
+
 const browsers = {
   webkit,
   chromium,
@@ -27,20 +27,6 @@ const isBrowser = (str: unknown): str is keyof typeof browsers =>
 const browserType = isBrowser(browserEnv)
   ? browsers[browserEnv]
   : browsers.chromium;
-
-const getValues = () =>
-  page.evaluate(
-    ({ viewSelector, inputSelector }) => {
-      return {
-        view: document.querySelector(viewSelector)?.textContent,
-        input: document.querySelector<HTMLInputElement>(inputSelector)?.value,
-      };
-    },
-    {
-      viewSelector,
-      inputSelector,
-    },
-  );
 
 beforeAll(async () => {
   browser = await browserType.launch();
@@ -59,20 +45,32 @@ afterEach(async () => {
 });
 
 test('should work', async () => {
+  const fetchMock = jest.fn();
+
+  page.on('request', (interceptedRequest) => {
+    const url = interceptedRequest.url();
+    if (url.includes('swapi.dev')) {
+      fetchMock(url);
+    }
+  });
+
   await page.goto(urlBase);
 
-  await page.type(inputSelector, 'first text');
-  await page.waitForTimeout(500);
+  await page.type(inputSelector, 'Dar');
+  await page.waitForTimeout(1000);
+  expect(fetchMock).toBeCalledTimes(1);
+  expect(fetchMock.mock.calls[0][0]).toContain('Dar');
 
-  const firstCheck = await getValues();
-  expect(firstCheck.view).toBe('first text');
-  expect(firstCheck.input).toBe('first text');
+  await page.fill(inputSelector, 'Dart');
+  await page.type(inputSelector, ' Vader');
+  await page.waitForTimeout(1000);
+  expect(fetchMock).toBeCalledTimes(2);
+  expect(fetchMock.mock.calls[1][0]).toContain(
+    encodeURIComponent('Dart Vader'),
+  );
 
   await page.fill(inputSelector, '');
-  await page.type(inputSelector, 'second text');
-  await page.waitForTimeout(500);
-
-  const secondCheck = await getValues();
-  expect(secondCheck.view).toBe('first text, second text');
-  expect(secondCheck.input).toBe('second text');
+  await page.waitForTimeout(1000);
+  expect(fetchMock).toBeCalledTimes(3);
+  expect(fetchMock.mock.calls[2][0]).toContain('search=');
 }, 30000);

@@ -4,20 +4,38 @@ import useDebouncy from '../../lib';
 
 const App = () => {
   const [value, setValue] = useState('');
-  const [view, setView] = useState([]);
+  const [peoples, setPeoples] = useState([]);
+
+  const fetchPeoples = async (search: string) => {
+    try {
+      const searchedPeoples = await fetch(
+        `https://swapi.dev/api/people/?search=${search}`,
+      );
+
+      const data = await searchedPeoples.json();
+      setPeoples(data.results);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useDebouncy(
     () => {
-      setView((array) => [...array, value]);
+      fetchPeoples(value);
     },
     400,
     [value],
   );
 
+  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void =>
+    setValue(event.target.value);
+
   return (
     <div>
-      <input value={value} onChange={(event) => setValue(event.target.value)} />
-      <div id="view">{view.join(', ')}</div>
+      <input data-qa="input/search" value={value} onChange={onChange} />
+      {peoples.map(({ name }) => (
+        <div key={name}>{name}</div>
+      ))}
     </div>
   );
 };
