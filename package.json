@@ -75,7 +75,7 @@
     "jest": "26.6.3",
     "jest-playwright-preset": "1.4.2",
     "parcel": "1.12.4",
-    "playwright": "1.7.0",
+    "playwright": "1.7.1",
     "prettier": "2.2.1",
     "pretty-quick": "3.1.0",
     "react": "17.0.1",
