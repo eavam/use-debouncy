@@ -8,11 +8,11 @@
     "allowSyntheticDefaultImports": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
-    "strictNullChecks": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "strict": true
   },
-  "include": ["index.test.ts", "index.ts", "cypress/*.ts"],
-  "exclude": ["node_modules", "lib", "compile"],
-  "types": ["cypress"]
+  "include": ["index.test.ts", "index.ts"],
+  "exclude": ["node_modules", "lib"],
+  "types": ["jest"]
 }

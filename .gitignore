@@ -68,5 +68,7 @@ web_modules/
 
 # build
 lib/
-compile/
 dist/
+
+# Rollup cache
+.rollup.cache

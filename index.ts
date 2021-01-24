@@ -55,6 +55,7 @@ const useDebouncy = (
     return () => {
       cancelAnimationFrame(rafId.current);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, defaultDeps);
 };
 
