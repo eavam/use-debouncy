@@ -31,8 +31,8 @@
     "cypress:open": "cypress open",
     "lint": "eslint . --ext .js,.ts",
     "build": "rollup -c",
-    "clear": "rimraf lib compile",
-    "prebuild": "npm run clear && tsc --outDir compile --declarationDir lib --declaration true",
+    "clear": "rimraf lib",
+    "prebuild": "npm run clear && tsc -d --emitDeclarationOnly --declarationDir lib",
     "semantic-release": "semantic-release",
     "postinstall": "is-ci || husky install"
   },
