@@ -24,7 +24,7 @@ jobs:
         run: npm run lint
 
       - name: Unit tests
-        run: npm run test:unit -- --ci --coverage
+        run: npm run test -- --ci --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chromium, firefox]
+        browser: [chrome, firefox]
         node: [10, 12]
     steps:
       - uses: actions/checkout@v2
@@ -45,19 +45,15 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Setup Playwright
-        uses: microsoft/playwright-github-action@v1
+      - name: Cypress run
+        uses: cypress-io/github-action@v2
+        with:
+          browser: ${{ matrix.browser }}
+          headless: true
+          build: npm run build
+          start: npm run serve:e2e
+          wait-on: 'http://localhost:1234'
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build
-        run: npm run build
-
-      - name: E2E tests
-        run: npm run test:e2e -- --runInBand
-        env:
-          BROWSER: ${{ matrix.browser }}
     env:
       CI: true
 
