@@ -1,3 +1,6 @@
 module.exports = {
-  projects: ['./jest.unit.config.js', './jest.e2e.config.js'],
+  name: 'unit',
+  preset: 'ts-jest',
+  testEnvironment: 'jsdom',
+  testMatch: ['<rootDir>/index.test.ts'],
 };

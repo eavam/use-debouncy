@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
@@ -11,7 +12,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["index.test.ts", "index.ts", "e2e/browser.test.ts"],
+  "include": ["index.test.ts", "index.ts", "cypress/*.ts"],
   "exclude": ["node_modules", "lib", "compile"],
-  "types": ["jest-playwright-preset", "expect-playwright"]
+  "types": ["cypress"]
 }
