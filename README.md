@@ -5,7 +5,7 @@
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
-[![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/master/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
+[![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/main/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
 
 ![](assets/example.gif)
 
