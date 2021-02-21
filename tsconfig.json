@@ -12,7 +12,7 @@
     "noUnusedParameters": true,
     "strict": true
   },
-  "include": ["index.test.ts", "index.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "lib"],
   "types": ["jest"]
 }

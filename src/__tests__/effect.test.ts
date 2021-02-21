@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import useDebouncy from './index';
+import useDebouncy from '../effect';
 
 beforeAll(() => {
   jest.useFakeTimers('modern');

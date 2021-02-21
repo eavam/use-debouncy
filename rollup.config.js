@@ -1,29 +1,34 @@
-import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
+import sucrase from '@rollup/plugin-sucrase';
 import package_ from './package.json';
 
-export default {
-  input: './index.ts',
+const createConfig = (file) => ({
+  input: `./src/${file}.ts`,
   external: ['react'],
   output: [
     {
-      file: package_.main,
+      file: `${package_.main}/${file}.js`,
       format: 'cjs',
       sourcemap: true,
-      exports: 'default',
+      exports: 'auto',
     },
     {
-      file: package_.module,
+      file: `${package_.module}/${file}.js`,
       format: 'es',
       sourcemap: true,
-      exports: 'default',
+      exports: 'auto',
     },
   ],
-  // external: [...Object.keys(package_.dependencies || {})],
   plugins: [
-    typescript(),
+    sucrase({
+      exclude: ['node_modules/**'],
+      transforms: ['typescript'],
+      production: true,
+      enableLegacyBabel5ModuleInterop: true,
+    }),
     terser({
+      ecma: '5',
       mangle: {
         properties: {
           reserved: ['useRef', 'useCallback', 'useEffect', 'current'],
@@ -32,4 +37,6 @@ export default {
     }), // minifies generated bundles
     commonjs(),
   ],
-};
+});
+
+export default ['index', 'effect', 'fn'].map((file) => createConfig(file));

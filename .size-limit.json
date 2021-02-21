@@ -1,0 +1,26 @@
+[
+  {
+    "name": "use-debouncy effect",
+    "limit": "300 B",
+    "path": "lib/effect.js",
+    "running": false
+  },
+  {
+    "name": "use-debouncy fn",
+    "limit": "300 B",
+    "path": "lib/fn.js",
+    "running": false
+  },
+  {
+    "name": "use-debouncy effect ES6",
+    "limit": "300 B",
+    "path": "lib/es/effect.js",
+    "running": false
+  },
+  {
+    "name": "use-debouncy fn ES6",
+    "limit": "300 B",
+    "path": "lib/es/fn.js",
+    "running": false
+  }
+]
