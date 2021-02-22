@@ -29,42 +29,40 @@ const getHook = () =>
     initialProps: getProperties(),
   });
 
-test('should call once after change deps', () => {
-  const hook = getHook();
+test.each`
+  firstCalls | secondCalls | expected
+  ${0}       | ${0}        | ${0}
+  ${2}       | ${0}        | ${1}
+  ${20}      | ${0}        | ${1}
+  ${5}       | ${0}        | ${1}
+  ${0}       | ${3}        | ${1}
+  ${0}       | ${6}        | ${1}
+  ${0}       | ${25}       | ${1}
+  ${5}       | ${3}        | ${2}
+  ${2}       | ${6}        | ${2}
+  ${15}      | ${25}       | ${2}
+`(
+  'should changed deps $firstCalls and $secondCalls times and real call is $expected',
+  ({ firstCalls, secondCalls, expected }) => {
+    const hook = getHook();
 
-  hook.rerender(getProperties({ deps: [2] }));
-  jest.runAllTimers();
+    // Photom rerender without changed deps
+    hook.rerender();
+    jest.runAllTimers();
 
-  expect(spy).toBeCalledTimes(1);
-});
+    while (firstCalls--) {
+      hook.rerender(getProperties({ deps: [firstCalls] }));
+    }
+    jest.runAllTimers();
 
-test('should call once after many change deps', () => {
-  const hook = getHook();
+    while (secondCalls--) {
+      hook.rerender(getProperties({ deps: [secondCalls] }));
+    }
+    jest.runAllTimers();
 
-  for (let i = 0; i < 4; i++) {
-    hook.rerender(getProperties({ deps: [i] }));
-  }
-
-  jest.runAllTimers();
-
-  expect(spy).toBeCalledTimes(1);
-});
-
-test('should call not triggered on first mount', () => {
-  getHook();
-
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-});
-
-test('should not calling callback if deps not changed', () => {
-  const hook = getHook();
-
-  hook.rerender();
-
-  jest.runAllTimers();
-  expect(spy).toBeCalledTimes(0);
-});
+    expect(spy).toBeCalledTimes(expected);
+  },
+);
 
 test('should call with default args', () => {
   const hook = renderHook(() => useDebouncy(spy));
