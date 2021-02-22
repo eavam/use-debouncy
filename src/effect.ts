@@ -24,9 +24,10 @@ const useDebouncy = (
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
-    } else {
-      render();
+      return;
     }
+
+    render();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
