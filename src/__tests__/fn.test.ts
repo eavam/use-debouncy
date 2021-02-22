@@ -5,54 +5,97 @@ beforeAll(() => {
   jest.useFakeTimers('modern');
 });
 
+afterEach(() => {
+  jest.resetAllMocks();
+  jest.clearAllTimers();
+});
+
+afterAll(() => {
+  jest.useRealTimers();
+});
+
+const getHook = (...props: Parameters<typeof useDebouncyFn>) =>
+  renderHook(() => useDebouncyFn(...props));
+
+const spy = jest.fn();
+
 test('should hook returned function', () => {
-  const fn = jest.fn();
-  const hook = renderHook(() => useDebouncyFn(fn, 300));
+  const hook = getHook(spy);
 
   expect(typeof hook.result.current).toBe('function');
 });
 
-test('should call not triggered on initial hook', () => {
-  const fn = jest.fn();
-  renderHook(() => useDebouncyFn(fn, 300));
+test('should hook takes multiple args', () => {
+  const hook = getHook(spy);
 
+  hook.result.current(1, 2, [], { key: ['value', ''] });
   jest.runAllTimers();
-  expect(fn).toBeCalledTimes(0);
+
+  expect(spy.mock.calls[0][0]).toStrictEqual(1);
+  expect(spy.mock.calls[0][1]).toStrictEqual(2);
+  expect(spy.mock.calls[0][2]).toStrictEqual([]);
+  expect(spy.mock.calls[0][3]).toStrictEqual({ key: ['value', ''] });
 });
 
-test('should call only once', () => {
-  const fn = jest.fn();
-  const hook = renderHook(() => useDebouncyFn(fn, 300));
+const testSuite = ({
+  firstCalls,
+  secondCalls,
+  wait,
+  args,
+  expected,
+}: {
+  firstCalls: number;
+  secondCalls: number;
+  wait?: number;
+  args?: any;
+  expected: number;
+}) => {
+  const hook = getHook(spy, wait);
 
-  hook.result.current();
-  hook.result.current();
-  hook.result.current();
-
-  jest.runAllTimers();
-  expect(fn).toBeCalledTimes(1);
-});
-
-test('should call only twice', () => {
-  const fn = jest.fn();
-  const hook = renderHook(() => useDebouncyFn(fn, 300));
-
-  hook.result.current();
-  jest.runAllTimers();
-  hook.result.current();
-  hook.result.current();
+  while (firstCalls--) {
+    hook.result.current(args);
+  }
   jest.runAllTimers();
 
-  expect(fn).toBeCalledTimes(2);
-});
-
-test('should call with args', () => {
-  const fn = jest.fn();
-  const hook = renderHook(() => useDebouncyFn(fn, 300));
-  const args = { firstArg: 1, secondArg: [6, 7, 8], other: 'last arg' };
-
-  hook.result.current(args);
+  while (secondCalls--) {
+    hook.result.current(args);
+  }
   jest.runAllTimers();
 
-  expect(fn).toBeCalledTimes(1);
-  expect(fn.mock.calls[0][0]).toStrictEqual(args);
-});
+  expect(spy).toBeCalledTimes(expected);
+  while (expected--) {
+    expect(spy.mock.calls[expected][0]).toStrictEqual(args);
+  }
+};
+
+describe.each`
+  firstCalls | secondCalls | expected
+  ${0}       | ${0}        | ${0}
+  ${2}       | ${0}        | ${1}
+  ${20}      | ${0}        | ${1}
+  ${5}       | ${0}        | ${1}
+  ${0}       | ${3}        | ${1}
+  ${0}       | ${6}        | ${1}
+  ${0}       | ${25}       | ${1}
+  ${5}       | ${3}        | ${2}
+  ${2}       | ${6}        | ${2}
+  ${15}      | ${25}       | ${2}
+`(
+  'should hook call first $firstCalls times and second $secondCalls and real call is $expected',
+  (props) => {
+    test('with default props', () => {
+      testSuite(props);
+    });
+
+    test.each([300, 0, 100, 10, 1000])('with %p wait', (wait) => {
+      testSuite({ ...props, wait });
+    });
+
+    test.each([300, '0', '', [1, 2, 3], { key: 'obj', arr: [1, 2, 3] }])(
+      'with %p argument',
+      (args) => {
+        testSuite({ ...props, args });
+      },
+    );
+  },
+);

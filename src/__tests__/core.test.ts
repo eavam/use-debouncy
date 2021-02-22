@@ -61,29 +61,38 @@ const getAnimationFrame = () =>
     initialProps: getAnimationFrameProps(),
   });
 
-test('should call animation frame', () => {
-  const hook = getAnimationFrame();
+test.each`
+  firstCalls | secondCalls | expected
+  ${0}       | ${0}        | ${0}
+  ${2}       | ${0}        | ${1}
+  ${20}      | ${0}        | ${1}
+  ${5}       | ${0}        | ${1}
+  ${0}       | ${3}        | ${1}
+  ${0}       | ${6}        | ${1}
+  ${0}       | ${25}       | ${1}
+  ${5}       | ${3}        | ${2}
+  ${2}       | ${6}        | ${2}
+  ${15}      | ${25}       | ${2}
+`(
+  'should changed deps $firstCalls and $secondCalls times and real call is $expected',
+  ({ firstCalls, secondCalls, expected }) => {
+    const hook = getAnimationFrame();
 
-  expect(fnSpy).toBeCalledTimes(0);
+    expect(fnSpy).toBeCalledTimes(0);
 
-  hook.result.current();
-  jest.runAllTimers();
+    while (firstCalls--) {
+      hook.result.current();
+    }
+    jest.runAllTimers();
 
-  expect(fnSpy).toBeCalledTimes(1);
-});
+    while (secondCalls--) {
+      hook.result.current();
+    }
+    jest.runAllTimers();
 
-test('should call animation frame once', () => {
-  const hook = getAnimationFrame();
-
-  expect(fnSpy).toBeCalledTimes(0);
-
-  hook.result.current();
-  hook.result.current();
-  hook.result.current();
-  jest.runAllTimers();
-
-  expect(fnSpy).toBeCalledTimes(1);
-});
+    expect(fnSpy).toBeCalledTimes(expected);
+  },
+);
 
 test('should update animation callback function', () => {
   const newSpy = jest.fn();
