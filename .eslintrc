@@ -32,7 +32,13 @@
   "rules": {
     "no-undef": "off",
     "unicorn/prevent-abbreviations": "off",
-    "unicorn/import-index": "off"
+    "unicorn/import-index": "off",
+    "unicorn/filename-case": [
+      "error",
+      {
+        "case": "camelCase"
+      }
+    ]
   },
   "env": {
     "cypress/globals": true
