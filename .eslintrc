@@ -18,7 +18,6 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
     "plugin:react-hooks/recommended",
