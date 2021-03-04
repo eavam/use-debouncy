@@ -1,6 +1,6 @@
 # useDebouncy
 
-🌀 Small (180 bytes) debounce effect hook for React with TypeScript support
+🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support
 
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
@@ -12,7 +12,7 @@
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍ **Tiny.** 180 bytes. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍ **Tiny.** ~0.2kb. [Size Limit](https://github.com/ai/size-limit) controls the size.
 - 🦾 **Performance.** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
 - 🎣 **Easy.** Like useEffect hook.
@@ -38,9 +38,10 @@ bit import eavam.use-debouncy/use-debounce
 
 ### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
 
+### Use as effect hook
 ```tsx
 import React, { useState } from 'react';
-import useDebouncy from 'use-debouncy';
+import useDebouncy from 'use-debouncy/effect';
 
 const App = () => {
   const [value, setValue] = useState('');
@@ -53,6 +54,20 @@ const App = () => {
 
   return (
     <input value={value} onChange={(event) => setValue(event.target.value)} />
+  );
+};
+```
+
+### Use as callback function
+```tsx
+import React, { useState } from 'react';
+import useDebouncy from 'use-debouncy/fn';
+
+const App = () => {
+  const handleChange = useDebouncy((event) => fetchData(event.target.value), 400);
+
+  return (
+    <input value={value} onChange={handleChange} />
   );
 };
 ```
