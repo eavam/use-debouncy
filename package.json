@@ -27,7 +27,7 @@
   "scripts": {
     "size": "size-limit",
     "test": "jest",
-    "serve:e2e": "npx parcel cypress/app/index.html",
+    "serve:e2e": "npx parcel@1.12.3 cypress/app/index.html",
     "cypress:open": "cypress open",
     "lint": "eslint . --ext .js,.ts",
     "build": "rollup -c",
