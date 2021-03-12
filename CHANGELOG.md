@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/eavam/use-debouncy/compare/v3.1.0...v3.1.1) (2021-03-12)
+
+
+### Bug Fixes
+
+* parcel version > 1.12.3 is broken ([f651d32](https://github.com/eavam/use-debouncy/commit/f651d324e5c801782ab6f711e3cf606138a620e4))
+
 # [3.1.0](https://github.com/eavam/use-debouncy/compare/v3.0.1...v3.1.0) (2020-11-29)
 
 
