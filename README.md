@@ -39,6 +39,7 @@ bit import eavam.use-debouncy/use-debounce
 ### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
 
 ### Use as effect hook
+
 ```tsx
 import React, { useState } from 'react';
 import useDebouncy from 'use-debouncy/effect';
@@ -59,29 +60,27 @@ const App = () => {
 ```
 
 ### Use as callback function
+
 ```tsx
 import React, { useState } from 'react';
 import useDebouncy from 'use-debouncy/fn';
 
 const App = () => {
-  const handleChange = useDebouncy((event) => fetchData(event.target.value), 400);
-
-  return (
-    <input value={value} onChange={handleChange} />
+  const handleChange = useDebouncy(
+    (event) => fetchData(event.target.value),
+    400,
   );
+
+  return <input value={value} onChange={handleChange} />;
 };
 ```
 
 ## API Reference
 
-### useDebouncy
+### useDebouncy/effect
 
 ```typescript
-function useDebouncy(
-  fn: () => void | (() => void | undefined),
-  wait?: number,
-  deps?: any[],
-): void;
+function useDebouncyEffect(fn: () => void, wait?: number, deps?: any[]): void;
 ```
 
 | Prop | Required | Default | Description                                                 |
@@ -89,3 +88,17 @@ function useDebouncy(
 | fn   | ✓        |         | Debounce callback.                                          |
 | wait |          | `0`     | Number of milliseconds to delay.                            |
 | deps |          | `[]`    | Array values that the debounce depends (like as useEffect). |
+
+### useDebouncy/fn
+
+```typescript
+function useDebouncyFn(
+  fn: (...args: any[]) => void,
+  wait?: number,
+): (...args: any[]) => void;
+```
+
+| Prop | Required | Default | Description                      |
+| ---- | -------- | ------- | -------------------------------- |
+| fn   | ✓        |         | Debounce handler.                |
+| wait |          | `0`     | Number of milliseconds to delay. |
