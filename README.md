@@ -15,7 +15,7 @@
 - 🏋️‍ **Tiny.** ~0.2kb. [Size Limit](https://github.com/ai/size-limit) controls the size.
 - 🦾 **Performance.** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
-- 🎣 **Easy.** Like useEffect hook.
+- 🎣 **Easy.** Use like React effect or function.
 
 ## Installation
 
