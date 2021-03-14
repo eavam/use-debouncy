@@ -1,12 +1,15 @@
-name: Tests
+name: Main workflow
 
 on:
   pull_request:
     branches:
       - main
+  push:
+    branches:
+      - main
 
 jobs:
-  test-unit:
+  unit-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -43,7 +46,7 @@ jobs:
     env:
       CI: true
 
-  test-e2e:
+  e2e-tests:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -75,6 +78,56 @@ jobs:
           build: npm run build
           start: npm run serve:e2e
           wait-on: 'http://localhost:1234'
-
     env:
       CI: true
+
+  release:
+    if: github.event_name == 'push'
+    needs: [unit-tests, e2e-tests]
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 12
+
+      - name: Cache Node.js modules
+        uses: actions/cache@v2
+        with:
+          # npm cache files are stored in `~/.npm` on Linux/macOS
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+            ${{ runner.OS }}-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Setup bit.dev
+        # https://github.com/teambit/bit/issues/2297
+        run: |
+          ./node_modules/.bin/bit config set analytics_reporting false
+          ./node_modules/.bin/bit config set error_reporting false
+          ./node_modules/.bin/bit config set user.token $BIT_TOKEN
+          ./node_modules/.bin/bit config
+          ./node_modules/.bin/bit import -c bit.envs/compilers/react-typescript@3.1.54
+          ./node_modules/.bin/bit -v && ./node_modules/.bin/bit import
+          ./node_modules/.bin/bit status
+        env:
+          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm run semantic-release
