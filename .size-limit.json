@@ -14,13 +14,13 @@
   {
     "name": "use-debouncy effect ES6",
     "limit": "300 B",
-    "path": "lib/es/effect.js",
+    "path": "lib/effect.es.js",
     "running": false
   },
   {
     "name": "use-debouncy fn ES6",
     "limit": "300 B",
-    "path": "lib/es/fn.js",
+    "path": "lib/fn.es.js",
     "running": false
   }
 ]
