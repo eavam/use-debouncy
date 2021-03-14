@@ -1,6 +1,6 @@
 {
   "name": "use-debouncy",
-  "version": "3.1.1",
+  "version": "4.0.0",
   "author": "Egor Avakumov",
   "description": "🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support",
   "license": "MIT",

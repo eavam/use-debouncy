@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/eavam/use-debouncy/compare/v3.1.1...v4.0.0) (2021-03-14)
+
+
+### Features
+
+* add useDebouncy as function ([42e436f](https://github.com/eavam/use-debouncy/commit/42e436f7470611aafe1c6b94a78d8d509b910915))
+
+
+### BREAKING CHANGES
+
+* Now hooks need to be imported from `fn` or `effect` subdirectory
+
 ## [3.1.1](https://github.com/eavam/use-debouncy/compare/v3.1.0...v3.1.1) (2021-03-12)
 
 
