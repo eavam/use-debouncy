@@ -1,50 +1,55 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-export const useUserCallback = <T>(fn: T): React.MutableRefObject<T> => {
-  const callback = useRef(fn);
+interface BlankFn {
+  (): void;
+}
 
-  useEffect(() => {
-    callback.current = fn;
-  }, [fn]);
-
-  return callback;
-};
+interface RenderFrameFn {
+  (cb: BlankFn): FrameRequestCallback;
+}
 
 // 16 ms its time on 1 frame
 const FRAME_MS = 16;
 
-export const useAnimationFrame = <T, R>(
-  callback: (...args: T[]) => R,
+export const useAnimationFrame = <T>(
+  callback: (...args: T[]) => void,
   wait: number,
-): (() => void) => {
+): BlankFn => {
   const rafId = useRef(0);
   const timeStart = useRef(0);
 
-  const renderFrame = useCallback<FrameRequestCallback>(
-    (timeNow) => {
+  const renderFrame = useCallback<RenderFrameFn>(
+    (cb) => (timeNow) => {
       //Call will be after the first frame.
       // Requires subtracting 16 ms for more accurate timing.
       timeStart.current = timeStart.current || timeNow - FRAME_MS;
 
       // Call next rAF if time is not up
       if (timeNow - timeStart.current < wait) {
-        rafId.current = requestAnimationFrame(renderFrame);
+        rafId.current = requestAnimationFrame(renderFrame(cb));
         return;
       }
 
-      callback();
+      cb();
     },
-    [callback, wait],
+    [wait],
   );
 
   // Call cancel animation after umount
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
-  return useCallback(() => {
-    // Reset timer and previous animation before new animation frame
-    timeStart.current = 0;
-    cancelAnimationFrame(rafId.current);
+  return useCallback(
+    (...args: T[]) => {
+      // Reset timer and previous animation before new animation frame
+      timeStart.current = 0;
+      cancelAnimationFrame(rafId.current);
 
-    rafId.current = requestAnimationFrame(renderFrame);
-  }, [renderFrame]);
+      rafId.current = requestAnimationFrame(
+        renderFrame(() => {
+          callback(...args);
+        }),
+      );
+    },
+    [callback, renderFrame],
+  );
 };

@@ -1,5 +1,4 @@
-import { useRef } from 'react';
-import { useAnimationFrame, useUserCallback } from './core';
+import { useAnimationFrame } from './core';
 
 interface UseDebouncyFnReturn<T> {
   (...args: T[]): void;
@@ -14,17 +13,7 @@ const useDebouncyFn = <T, R>(
   fn: (...args: T[]) => R,
   wait = 0,
 ): UseDebouncyFnReturn<T> => {
-  const callback = useUserCallback(fn);
-  const callbackArgs = useRef<T[]>([]);
-  const render = useAnimationFrame(() => {
-    callback.current(...callbackArgs.current);
-  }, wait);
-
-  return (...args: T[]) => {
-    // Update arguments before render
-    callbackArgs.current = args;
-    render();
-  };
+  return useAnimationFrame(fn, wait);
 };
 
 export default useDebouncyFn;
