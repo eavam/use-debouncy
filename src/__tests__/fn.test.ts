@@ -47,7 +47,7 @@ const testSuite = ({
   firstCalls: number;
   secondCalls: number;
   wait?: number;
-  args?: any;
+  args?: unknown;
   expected: number;
 }) => {
   const hook = getHook(spy, wait);
