@@ -1,3 +1,11 @@
+## [4.0.1](https://github.com/eavam/use-debouncy/compare/v4.0.0...v4.0.1) (2021-03-14)
+
+
+### Bug Fixes
+
+* update module path ([c8fdcde](https://github.com/eavam/use-debouncy/commit/c8fdcde66b533876f72d1abcccef034507f998d8))
+* update paths for size-limit ([d732894](https://github.com/eavam/use-debouncy/commit/d7328945ea7ae861e41f9d32d5e990429c8c2558))
+
 # [4.0.0](https://github.com/eavam/use-debouncy/compare/v3.1.1...v4.0.0) (2021-03-14)
 
 
