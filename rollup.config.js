@@ -1,20 +1,19 @@
 import { terser } from 'rollup-plugin-terser';
 import commonjs from '@rollup/plugin-commonjs';
 import sucrase from '@rollup/plugin-sucrase';
-import package_ from './package.json';
 
 const createConfig = (file) => ({
   input: `./src/${file}.ts`,
   external: ['react'],
   output: [
     {
-      file: `${package_.main}/${file}.js`,
+      file: `lib/${file}.js`,
       format: 'cjs',
       sourcemap: true,
       exports: 'auto',
     },
     {
-      file: `${package_.module}/${file}.js`,
+      file: `lib/${file}.es.js`,
       format: 'es',
       sourcemap: true,
       exports: 'auto',
