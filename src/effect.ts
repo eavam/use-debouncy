@@ -1,5 +1,5 @@
 import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
-import { useAnimationFrame, useUserCallback } from './core';
+import { useAnimationFrame } from './core';
 
 const defaultDeps: DependencyList = [];
 
@@ -14,11 +14,8 @@ const useDebouncy = (
   wait = 0,
   deps = defaultDeps,
 ): void => {
-  const callback = useUserCallback(fn);
   const isFirstRender = useRef(true);
-  const render = useAnimationFrame(() => {
-    callback.current();
-  }, wait);
+  const render = useAnimationFrame(fn, wait);
 
   // Call update if deps changes
   useEffect(() => {

@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks';
-import { useUserCallback, useAnimationFrame } from '../core';
+import { useAnimationFrame } from '../core';
 
 beforeAll(() => {
   jest.useFakeTimers('modern');
@@ -16,40 +16,6 @@ afterAll(() => {
 
 const fnSpy = jest.fn();
 const defaultDelay = 100;
-
-const getUserCallbackProps = ({ fn = fnSpy } = {}) => ({
-  fn,
-});
-
-const getUserCallback = () =>
-  renderHook(({ fn }) => useUserCallback(fn), {
-    initialProps: getUserCallbackProps(),
-  });
-
-test('should call user callback', () => {
-  const hook = getUserCallback();
-
-  expect(fnSpy).toBeCalledTimes(0);
-
-  hook.result.current.current();
-
-  expect(fnSpy).toBeCalledTimes(1);
-});
-
-test('should update user callback function', () => {
-  const newSpy = jest.fn();
-
-  const hook = getUserCallback();
-
-  hook.rerender(getUserCallbackProps({ fn: newSpy }));
-
-  hook.result.current.current();
-
-  expect(fnSpy).toBeCalledTimes(0);
-  expect(newSpy).toBeCalledTimes(1);
-});
-
-/* -------------------------------- */
 
 const getAnimationFrameProps = ({ fn = fnSpy, delay = defaultDelay } = {}) => ({
   fn,

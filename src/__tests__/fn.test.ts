@@ -14,8 +14,10 @@ afterAll(() => {
   jest.useRealTimers();
 });
 
-const getHook = (...props: Parameters<typeof useDebouncyFn>) =>
-  renderHook(() => useDebouncyFn(...props));
+const getHook = (...initArgs: Parameters<typeof useDebouncyFn>) =>
+  renderHook(({ fn, wait }) => useDebouncyFn(fn, wait), {
+    initialProps: { fn: initArgs[0], wait: initArgs[1] },
+  });
 
 const spy = jest.fn();
 
@@ -35,6 +37,18 @@ test('should hook takes multiple args', () => {
   expect(spy.mock.calls[0][1]).toStrictEqual(2);
   expect(spy.mock.calls[0][2]).toStrictEqual([]);
   expect(spy.mock.calls[0][3]).toStrictEqual({ key: ['value', ''] });
+});
+
+test('should update callback function', () => {
+  const hook = getHook(spy);
+  const newSpy = jest.fn();
+
+  hook.rerender({ fn: newSpy, wait: 0 });
+  hook.result.current();
+  jest.runAllTimers();
+
+  expect(spy).toBeCalledTimes(0);
+  expect(newSpy).toBeCalledTimes(1);
 });
 
 const testSuite = ({
