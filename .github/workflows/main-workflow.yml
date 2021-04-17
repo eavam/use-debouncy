@@ -35,16 +35,20 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Build
+        run: npm run build
+
+      - name: Pack build
+        run: echo "pack_name=$(npm pack | tail -n 1)" >> $GITHUB_ENV
+
       - name: Pack tests
         run: |
-          npm pack
-          cp ./use-debouncy-$VERSION.tgz ./test-publish
+          cp ./${{ env.pack_name }} ./test-publish
           cd ./test-publish
-          npm install ./use-debouncy-$VERSION.tgz
+          npm install ./${{ env.pack_name }}
 
     env:
       CI: true
-      VERSION: $(grep version package.json | awk -F \" '{print $4}')
 
   unit-tests:
     runs-on: ubuntu-latest
