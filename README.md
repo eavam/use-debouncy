@@ -42,7 +42,7 @@ bit import eavam.use-debouncy/use-debounce
 
 ```tsx
 import React, { useState } from 'react';
-import useDebouncy from 'use-debouncy/effect';
+import useDebouncy from 'use-debouncy/effect'; // <== importing from effect
 
 const App = () => {
   const [value, setValue] = useState('');
@@ -63,12 +63,12 @@ const App = () => {
 
 ```tsx
 import React, { useState } from 'react';
-import useDebouncy from 'use-debouncy/fn';
+import useDebouncy from 'use-debouncy/fn'; // <== importing from fn
 
 const App = () => {
   const handleChange = useDebouncy(
-    (event) => fetchData(event.target.value),
-    400,
+    (event) => fetchData(event.target.value), // function debounce
+    400, // number of milliseconds to delay
   );
 
   return <input value={value} onChange={handleChange} />;
