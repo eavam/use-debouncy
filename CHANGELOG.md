@@ -1,3 +1,10 @@
+## [4.0.2](https://github.com/eavam/use-debouncy/compare/v4.0.1...v4.0.2) (2021-04-17)
+
+
+### Bug Fixes
+
+* changed postinstall to prepare ([d5ec166](https://github.com/eavam/use-debouncy/commit/d5ec166d696a004bef4b5aa2e92a75e0b6a4716e)), closes [#477](https://github.com/eavam/use-debouncy/issues/477)
+
 ## [4.0.1](https://github.com/eavam/use-debouncy/compare/v4.0.0...v4.0.1) (2021-03-14)
 
 
