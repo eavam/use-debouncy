@@ -1,3 +1,11 @@
+# [4.1.0](https://github.com/eavam/use-debouncy/compare/v4.0.2...v4.1.0) (2021-04-18)
+
+
+### Features
+
+* optimize size ([e2f60d2](https://github.com/eavam/use-debouncy/commit/e2f60d284e534e53eb6082ff62a6096cc3462e01))
+* removed fragile code related to fps timing ([5952cff](https://github.com/eavam/use-debouncy/commit/5952cffe6d1333c14836e2e033681af703bdfc86))
+
 ## [4.0.2](https://github.com/eavam/use-debouncy/compare/v4.0.1...v4.0.2) (2021-04-17)
 
 
