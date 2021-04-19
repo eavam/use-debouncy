@@ -1,3 +1,13 @@
+## [4.1.1](https://github.com/eavam/use-debouncy/compare/v4.1.0...v4.1.1) (2021-04-19)
+
+
+### Reverts
+
+* Revert "feat: removed fragile code related to fps timing" ([1f5f684](https://github.com/eavam/use-debouncy/commit/1f5f6842e49d1e0b9fddf532213e3286332b360b))
+* Revert "feat: optimize size" ([cf3aad7](https://github.com/eavam/use-debouncy/commit/cf3aad7b0d93d0e7500adc25883eb7220740883d))
+* this reverts commit 5952cffe6d1333c14836e2e033681af703bdfc86 ([3f9f784](https://github.com/eavam/use-debouncy/commit/3f9f784feaed9e2bc510967ea7cfac735efce437))
+* this reverts commit e2f60d284e534e53eb6082ff62a6096cc3462e01 ([cf6b851](https://github.com/eavam/use-debouncy/commit/cf6b851d5a5183efbc962ba8c3d60d249bd81fd6))
+
 # [4.1.0](https://github.com/eavam/use-debouncy/compare/v4.0.2...v4.1.0) (2021-04-18)
 
 
