@@ -5,7 +5,7 @@ interface BlankFn {
 }
 
 interface RenderFrameFn {
-  (cb: BlankFn, timeStart?: number): FrameRequestCallback;
+  (cb: BlankFn): FrameRequestCallback;
 }
 
 export const useAnimationFrame = <T>(
@@ -13,12 +13,13 @@ export const useAnimationFrame = <T>(
   wait: number,
 ): BlankFn => {
   const rafId = useRef(0);
+  const timeStart = useRef(0);
 
   const renderFrame = useCallback<RenderFrameFn>(
-    (cb, timeStart = Date.now()) => (timeNow) => {
+    (cb) => (timeNow) => {
       // Call next rAF if time is not up
-      if (timeNow - timeStart < wait) {
-        rafId.current = requestAnimationFrame(renderFrame(cb, timeStart));
+      if (timeNow - timeStart.current < wait) {
+        rafId.current = requestAnimationFrame(renderFrame(cb));
         return;
       }
 
@@ -32,7 +33,8 @@ export const useAnimationFrame = <T>(
 
   return useCallback(
     (...args: T[]) => {
-      // Reset previous animation before strart new animation
+      // Reset timer and previous animation before new animation frame
+      timeStart.current = Date.now();
       cancelAnimationFrame(rafId.current);
 
       rafId.current = requestAnimationFrame(
