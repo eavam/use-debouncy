@@ -88,10 +88,10 @@ test('should call callback after timer end', () => {
 
   hook.rerender(getProperties({ deps: [2] }));
 
-  jest.runTimersToTime(defaultDelay - 1); // 99 ms
+  jest.runTimersToTime(defaultDelay - 52); // 48 ms
   expect(spy).toBeCalledTimes(0);
 
-  jest.runTimersToTime(100); // next big tick
+  jest.runTimersToTime(64); // 112 ms
   expect(spy).toBeCalledTimes(1);
 });
 
