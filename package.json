@@ -62,7 +62,7 @@
     "@typescript-eslint/parser": "4.22.1",
     "bit-bin": "14.8.8",
     "cypress": "7.2.0",
-    "eslint": "7.25.0",
+    "eslint": "7.26.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-cypress": "2.11.3",
     "eslint-plugin-import": "2.22.1",
