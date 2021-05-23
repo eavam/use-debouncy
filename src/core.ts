@@ -15,16 +15,19 @@ export const useAnimationFrame = <T>(
   const rafId = useRef(0);
 
   const renderFrame = useCallback<RenderFrameFn>(
-    (cb, timeStart = 0) => (timeNow) => {
-      const timeFirstStart = timeStart || timeNow;
-      // Call next rAF if time is not up
-      if (timeNow - timeFirstStart < wait) {
-        rafId.current = requestAnimationFrame(renderFrame(cb, timeFirstStart));
-        return;
-      }
+    (cb, timeStart = 0) =>
+      (timeNow) => {
+        const timeFirstStart = timeStart || timeNow;
+        // Call next rAF if time is not up
+        if (timeNow - timeFirstStart < wait) {
+          rafId.current = requestAnimationFrame(
+            renderFrame(cb, timeFirstStart),
+          );
+          return;
+        }
 
-      cb();
-    },
+        cb();
+      },
     [wait],
   );
 
