@@ -1,3 +1,16 @@
+# [4.2.0](https://github.com/eavam/use-debouncy/compare/v4.1.1...v4.2.0) (2021-05-23)
+
+
+### Bug Fixes
+
+* giving up date.now ([#496](https://github.com/eavam/use-debouncy/issues/496)) ([032e735](https://github.com/eavam/use-debouncy/commit/032e7353e07876727a5ba09c6a880c05921d4700))
+
+
+### Features
+
+* optimize size ([7b3bb0c](https://github.com/eavam/use-debouncy/commit/7b3bb0c7aa8dd9d6ae0fea10df8ec3777eae0316))
+* removed fragile code related to fps timing ([2355c07](https://github.com/eavam/use-debouncy/commit/2355c07ab14d7d75cf74edc4731e85cce979cb42))
+
 ## [4.1.1](https://github.com/eavam/use-debouncy/compare/v4.1.0...v4.1.1) (2021-04-19)
 
 
