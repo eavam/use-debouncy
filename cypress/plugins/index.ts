@@ -15,7 +15,8 @@
 /**
  * @type {Cypress.PluginConfig}
  */
-module.exports = () => {
+// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
+export default () => {
   // `on` is used to hook into various events Cypress emits
   // `config` is the resolved Cypress config
 };
