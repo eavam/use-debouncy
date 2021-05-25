@@ -23,18 +23,23 @@
 
 ## Installation
 
-```bash
-# NPM
-npm install use-debouncy
+#### NPM
 
-# YARN
+```sh
+npm install use-debouncy
+```
+
+#### Yarn
+
+```sh
 yarn add use-debouncy
 ```
 
-### [Check bit component here](https://bit.dev/eavam/use-debouncy/use-debounce)
+#### Import bit component
 
-```bash
-# Import bit component
+[Check bit component here](https://bit.dev/eavam/use-debouncy/use-debounce)
+
+```sh
 bit import eavam.use-debouncy/use-debounce
 ```
 
