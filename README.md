@@ -2,6 +2,9 @@
 
 🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support
 
+![minified](https://badgen.net/bundlephobia/min/use-debouncy)
+![minified + gzip](https://badgen.net/bundlephobia/minzip/use-debouncy)
+![tree-shaking](https://badgen.net/bundlephobia/tree-shaking/use-debouncy)
 ![license](https://badgen.net/npm/license/use-debouncy)
 ![dependents](https://badgen.net/npm/dependents/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
