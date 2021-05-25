@@ -1,3 +1,3 @@
 ## Checks
 
-[] Manual check in Codesandbox.
+- [ ] Manual check in Codesandbox.
