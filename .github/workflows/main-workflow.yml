@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [12, 14]
     steps:
       - uses: actions/checkout@v2
 
@@ -55,7 +55,7 @@ jobs:
     needs: [pack-tests]
     strategy:
       matrix:
-        node: [10, 12, 14]
+        node: [12, 14]
     steps:
       - uses: actions/checkout@v2
 
@@ -94,7 +94,7 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, firefox]
-        node: [10, 12, 14]
+        node: [12, 14]
     steps:
       - uses: actions/checkout@v2
 
