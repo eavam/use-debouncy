@@ -4,6 +4,12 @@
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "matchPackageNames": ["jest", "ts-jest"],
+      "groupName": "jest update",
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
     }
   ],
   "rebaseWhen": "behind-base-branch"
