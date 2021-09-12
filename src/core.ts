@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef } from 'react';
 
 interface BlankFn {
-  (): void;
+  (...args: any[]): any;
 }
 
 interface RenderFrameFn {
@@ -13,6 +13,8 @@ export const useAnimationFrame = <T>(
   wait: number,
 ): BlankFn => {
   const rafId = useRef(0);
+  const callbackArgsLen = callback.length;
+  const curryArgs: T[] = [];
 
   const renderFrame = useCallback<RenderFrameFn>(
     (cb, timeStart = 0) =>
@@ -34,7 +36,7 @@ export const useAnimationFrame = <T>(
   // Call cancel animation after umount
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
-  return useCallback(
+  const render = useCallback(
     (...args: T[]) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
@@ -47,4 +49,15 @@ export const useAnimationFrame = <T>(
     },
     [callback, renderFrame],
   );
+
+  const next: (...args: any[]) => any = useCallback(
+    (...args) => {
+      curryArgs.push(...args);
+      return curryArgs.length < callbackArgsLen ? next : render(...curryArgs);
+    },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [callbackArgsLen, render],
+  );
+
+  return next;
 };
