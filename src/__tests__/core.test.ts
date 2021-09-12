@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { renderHook } from '@testing-library/react-hooks';
 import { useAnimationFrame } from '../core';
 
@@ -78,7 +83,7 @@ test('should update animation callback function', () => {
 
 test('should function have auto curry', () => {
   // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const newSpy = jest.fn((a, b, c, d, e) => {});
+  const newSpy = jest.fn((_a, _b, _c, _d, _e) => {});
   const hook = getAnimationFrame({ fn: newSpy, delay: 300 });
 
   hook.result.current(1, 2);
