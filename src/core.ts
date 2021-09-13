@@ -13,8 +13,7 @@ export const useAnimationFrame = <T>(
   wait: number,
 ): BlankFn => {
   const rafId = useRef(0);
-  const callbackArgsLen = callback.length;
-  const curryArgs: T[] = [];
+  const ragArgs = useRef<T[]>([]);
 
   const renderFrame = useCallback<RenderFrameFn>(
     (cb, timeStart = 0) =>
@@ -36,28 +35,25 @@ export const useAnimationFrame = <T>(
   // Call cancel animation after umount
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
-  const render = useCallback(
-    (...args: T[]) => {
+  const render: (...args: T[]) => void = useCallback(
+    (...args) => {
+      ragArgs.current.push(...args);
+
+      if (ragArgs.current.length < callback.length) {
+        return render;
+      }
+
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
       rafId.current = requestAnimationFrame(
         renderFrame(() => {
-          callback(...args);
+          callback(...ragArgs.current);
         }),
       );
     },
-    [callback, renderFrame],
+    [callback, ragArgs, renderFrame],
   );
 
-  const next: (...args: any[]) => any = useCallback(
-    (...args) => {
-      curryArgs.push(...args);
-      return curryArgs.length < callbackArgsLen ? next : render(...curryArgs);
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [callbackArgsLen, render],
-  );
-
-  return next;
+  return render;
 };

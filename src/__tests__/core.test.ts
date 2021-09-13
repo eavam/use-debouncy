@@ -91,4 +91,5 @@ test('should function have auto curry', () => {
   jest.runAllTimers();
 
   expect(newSpy).toBeCalledTimes(1);
+  expect(newSpy.mock.calls[0]).toEqual([1, 2, 3, 4, 5]);
 });
