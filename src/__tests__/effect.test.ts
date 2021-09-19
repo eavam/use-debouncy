@@ -1,3 +1,7 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import { renderHook } from '@testing-library/react-hooks';
 import useDebouncy from '../effect';
 
@@ -88,10 +92,10 @@ test('should call callback after timer end', () => {
 
   hook.rerender(getProperties({ deps: [2] }));
 
-  jest.runTimersToTime(defaultDelay - 1); // 99 ms
+  jest.advanceTimersByTime(defaultDelay - 1); // 99 ms
   expect(spy).toBeCalledTimes(0);
 
-  jest.runTimersToTime(100); // next big tick
+  jest.advanceTimersByTime(100); // next big tick
   expect(spy).toBeCalledTimes(1);
 });
 

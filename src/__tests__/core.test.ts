@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { renderHook } from '@testing-library/react-hooks';
 import { useAnimationFrame } from '../core';
 
@@ -22,9 +27,11 @@ const getAnimationFrameProps = ({ fn = fnSpy, delay = defaultDelay } = {}) => ({
   delay,
 });
 
-const getAnimationFrame = () =>
+const getAnimationFrame = (
+  props?: Parameters<typeof getAnimationFrameProps>[0],
+) =>
   renderHook(({ fn, delay }) => useAnimationFrame(fn, delay), {
-    initialProps: getAnimationFrameProps(),
+    initialProps: getAnimationFrameProps(props),
   });
 
 test.each`
@@ -72,4 +79,22 @@ test('should update animation callback function', () => {
 
   expect(fnSpy).toBeCalledTimes(0);
   expect(newSpy).toBeCalledTimes(1);
+});
+
+test('should function have auto curry', () => {
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  const newSpy = jest.fn((_a, _b, _c, _d, _e) => {});
+  const hook = getAnimationFrame({ fn: newSpy, delay: 300 });
+
+  hook.result.current(1, 2);
+  jest.runAllTimers();
+
+  hook.result.current(3)(4);
+  jest.runAllTimers();
+
+  hook.result.current(5);
+  jest.runAllTimers();
+
+  expect(newSpy).toBeCalledTimes(1);
+  expect(newSpy.mock.calls[0]).toEqual([1, 2, 3, 4, 5]);
 });
