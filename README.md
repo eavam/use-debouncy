@@ -72,7 +72,7 @@ const App = () => {
 ### Use as callback function
 
 ```tsx
-import React, { useState } from 'react';
+import React from 'react';
 import useDebouncy from 'use-debouncy/fn'; // <== importing from fn
 
 const App = () => {
@@ -82,6 +82,21 @@ const App = () => {
   );
 
   return <input value={value} onChange={handleChange} />;
+};
+```
+
+### Use auto currying
+
+```tsx
+import React from 'react';
+import useDebouncy from 'use-debouncy/fn';
+
+const worseCb = (id) => (event) => fetchData(id, event.target.value); // ❌ Worse
+const bestCb = (id, event) => fetchData(id, event.target.value); // ✅ Best
+
+const App = () => {
+  const handleChange = useDebouncy(bestCb, 400);
+  return items.map((item) => <Item onChange={handleChange(item.id)} />);
 };
 ```
 
@@ -113,6 +128,6 @@ function useDebouncyFn(
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_large)
