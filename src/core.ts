@@ -11,7 +11,8 @@ interface RenderFrameFn<T> {
 export const useAnimationFrame = <T>(
   callback: RenderFn<T>,
   wait: number,
-): RenderFn<T> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): ((...args: T[]) => any) => {
   const rafId = useRef(0);
 
   const renderFrame = useCallback<RenderFrameFn<T>>(
@@ -31,7 +32,8 @@ export const useAnimationFrame = <T>(
     [wait],
   );
 
-  const render: RenderFn<T> = useCallback(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const render: (...args: T[]) => any = useCallback(
     (...args) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);

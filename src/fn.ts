@@ -1,9 +1,5 @@
 import { useAnimationFrame } from './core';
 
-interface UseDebouncyFnReturn<T> {
-  (...args: T[]): void;
-}
-
 /**
  *
  * @param fn - Debounce callback.
@@ -12,7 +8,8 @@ interface UseDebouncyFnReturn<T> {
 const useDebouncyFn = <T, R>(
   fn: (...args: T[]) => R,
   wait = 0,
-): UseDebouncyFnReturn<T> => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+): ((...args: T[]) => any) => {
   return useAnimationFrame(fn, wait);
 };
 
