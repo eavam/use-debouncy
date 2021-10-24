@@ -30,6 +30,7 @@
     }
   },
   "rules": {
+    "@typescript-eslint/no-explicit-any": "error",
     "no-undef": "off",
     "unicorn/prevent-abbreviations": "off",
     "unicorn/import-index": "off",

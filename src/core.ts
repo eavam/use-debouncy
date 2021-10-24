@@ -1,20 +1,20 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-interface BlankFn {
-  (): void;
+interface RenderFn<T> {
+  (...args: T[]): void;
 }
 
-interface RenderFrameFn {
-  (cb: BlankFn, timeStart?: number): FrameRequestCallback;
+interface RenderFrameFn<T> {
+  (cb: RenderFn<T>, timeStart?: number): FrameRequestCallback;
 }
 
 export const useAnimationFrame = <T>(
-  callback: (...args: T[]) => void,
+  callback: RenderFn<T>,
   wait: number,
-): BlankFn => {
+): RenderFn<T> => {
   const rafId = useRef(0);
 
-  const renderFrame = useCallback<RenderFrameFn>(
+  const renderFrame = useCallback<RenderFrameFn<T>>(
     (cb, timeStart = 0) =>
       (timeNow) => {
         const timeFirstStart = timeStart || timeNow;
@@ -31,11 +31,8 @@ export const useAnimationFrame = <T>(
     [wait],
   );
 
-  // Call cancel animation after umount
-  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
-
-  return useCallback(
-    (...args: T[]) => {
+  const render: RenderFn<T> = useCallback(
+    (...args) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
@@ -47,4 +44,9 @@ export const useAnimationFrame = <T>(
     },
     [callback, renderFrame],
   );
+
+  // Call cancel animation after umount
+  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
+
+  return render;
 };
