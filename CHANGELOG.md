@@ -1,3 +1,10 @@
+## [4.2.1](https://github.com/eavam/use-debouncy/compare/v4.2.0...v4.2.1) (2021-10-24)
+
+
+### Bug Fixes
+
+* **core:** update typing ([27bf62c](https://github.com/eavam/use-debouncy/commit/27bf62c5899c547673ebe8e644f6b5ea74ef1382))
+
 # [4.2.0](https://github.com/eavam/use-debouncy/compare/v4.1.1...v4.2.0) (2021-05-23)
 
 
