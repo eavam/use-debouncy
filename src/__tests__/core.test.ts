@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import { renderHook } from '@testing-library/react-hooks';
 import { useAnimationFrame } from '../core';
 
