@@ -1,21 +1,19 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-interface RenderFn<T> {
-  (...args: T[]): void;
+interface RenderFrameFn<Fn> {
+  (cb: Fn | (() => void), timeStart?: number): FrameRequestCallback;
 }
 
-interface RenderFrameFn<T> {
-  (cb: RenderFn<T>, timeStart?: number): FrameRequestCallback;
-}
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type Args = any[];
 
-export const useAnimationFrame = <T>(
-  callback: RenderFn<T>,
-  wait: number,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-): ((...args: T[]) => any) => {
+export const useAnimationFrame = <Fn extends (...args: Args) => void>(
+  callback: Fn,
+  wait = 0,
+): ((...args: Parameters<Fn>) => void) => {
   const rafId = useRef(0);
 
-  const renderFrame = useCallback<RenderFrameFn<T>>(
+  const renderFrame = useCallback<RenderFrameFn<Fn>>(
     (cb, timeStart = 0) =>
       (timeNow) => {
         const timeFirstStart = timeStart || timeNow;
@@ -32,9 +30,8 @@ export const useAnimationFrame = <T>(
     [wait],
   );
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const render: (...args: T[]) => any = useCallback(
-    (...args) => {
+  const render = useCallback(
+    (...args: Parameters<Fn>) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
