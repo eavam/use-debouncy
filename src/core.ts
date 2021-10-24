@@ -1,19 +1,26 @@
+import type { F } from 'ts-toolbelt';
 import { useCallback, useEffect, useRef } from 'react';
 
-interface BlankFn {
-  (...args: any[]): any;
-}
-
 interface RenderFrameFn {
-  (cb: BlankFn, timeStart?: number): FrameRequestCallback;
+  (cb: F.Function, timeStart?: number): FrameRequestCallback;
 }
 
-export const useAnimationFrame = <T>(
-  callback: (...args: T[]) => void,
-  wait: number,
-): BlankFn => {
+const curry = <T extends F.Function>(fn: T, cbLength: number) => {
+  const curringFn: F.Curry<T> = (...args) => {
+    const cbArgs = <F.Parameters<T>>[];
+    cbArgs.push(...args);
+
+    return cbArgs.length < cbLength ? curringFn : fn(cbArgs);
+  };
+
+  return curringFn;
+};
+
+export const useAnimationFrame = <Fn extends F.Function>(
+  callback: Fn,
+  wait = 0,
+): F.Curry<Fn> => {
   const rafId = useRef(0);
-  const ragArgs = useRef<T[]>([]);
 
   const renderFrame = useCallback<RenderFrameFn>(
     (cb, timeStart = 0) =>
@@ -32,28 +39,22 @@ export const useAnimationFrame = <T>(
     [wait],
   );
 
-  // Call cancel animation after umount
-  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
-
-  const render: (...args: T[]) => void = useCallback(
-    (...args) => {
-      ragArgs.current.push(...args);
-
-      if (ragArgs.current.length < callback.length) {
-        return render;
-      }
-
+  const render = useCallback(
+    (args) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
       rafId.current = requestAnimationFrame(
         renderFrame(() => {
-          callback(...ragArgs.current);
+          callback(...args);
         }),
       );
     },
-    [callback, ragArgs, renderFrame],
+    [callback, renderFrame],
   );
 
-  return render;
+  // Call cancel animation after umount
+  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
+
+  return curry(render, callback.length);
 };

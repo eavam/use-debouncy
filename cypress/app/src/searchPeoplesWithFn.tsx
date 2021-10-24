@@ -6,7 +6,10 @@ import useDebounceFn from '../../../lib/fn';
 export const SearchPeoplesWithFn = (): JSX.Element => {
   const { fetchPeoples, peoples } = usePeoples();
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const onChange = (
+    id: string,
+    event: React.ChangeEvent<HTMLInputElement>,
+  ): void => {
     fetchPeoples(event.target.value);
   };
 
@@ -14,7 +17,7 @@ export const SearchPeoplesWithFn = (): JSX.Element => {
 
   return (
     <div>
-      <input data-cy="input/search/fn" onChange={search} />
+      <input data-cy="input/search/fn" onChange={search('searchTestId')} />
       {peoples.map(({ name }) => (
         <div key={name}>{name}</div>
       ))}

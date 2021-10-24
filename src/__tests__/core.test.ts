@@ -77,17 +77,19 @@ test('should update animation callback function', () => {
 });
 
 test('should function have auto curry', () => {
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
-  const newSpy = jest.fn((a, b, c, d, e) => {});
+  const newSpy = jest.fn(
+    // eslint-disable-next-line @typescript-eslint/no-empty-function
+    (_a: number, _b: number, _c: number, _d: number, _e: number) => {},
+  );
   const hook = getAnimationFrame({ fn: newSpy, delay: 300 });
 
-  hook.result.current(1, 2);
+  const curry1 = hook.result.current(1, 2);
   jest.runAllTimers();
 
-  hook.result.current(3)(4);
+  const curry2 = curry1(3)(4);
   jest.runAllTimers();
 
-  hook.result.current(5);
+  const curry3 = curry2(5);
   jest.runAllTimers();
 
   expect(newSpy).toBeCalledTimes(1);
