@@ -50,7 +50,7 @@
     "@semantic-release/exec": "6.0.2",
     "@semantic-release/git": "10.0.1",
     "@semantic-release/github": "8.0.2",
-    "@semantic-release/npm": "8.0.2",
+    "@semantic-release/npm": "8.0.3",
     "@semantic-release/release-notes-generator": "10.0.2",
     "@size-limit/preset-small-lib": "5.0.5",
     "@size-limit/time": "6.0.4",
