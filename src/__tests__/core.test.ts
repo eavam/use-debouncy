@@ -1,9 +1,10 @@
 /**
- * @jest-environment jsdom
+ * @jest-environment @stryker-mutator/jest-runner/jest-env/jsdom
  */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
 import { renderHook } from '@testing-library/react-hooks';
+import fc from 'fast-check';
 import { useAnimationFrame } from '../core';
 
 beforeAll(() => {
@@ -77,4 +78,68 @@ test('should update animation callback function', () => {
 
   expect(fnSpy).toBeCalledTimes(0);
   expect(newSpy).toBeCalledTimes(1);
+});
+
+describe('with mocked requestAnimationFrame', () => {
+  let count = 0;
+  let rafSpy: jest.SpyInstance<number, [callback: FrameRequestCallback]>;
+
+  beforeEach(() => {
+    rafSpy = jest
+      .spyOn(window, 'requestAnimationFrame')
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
+      .mockImplementation((cb) => {
+        count += 100;
+        return cb(count);
+      });
+  });
+
+  afterEach(() => {
+    count = 0;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    window.requestAnimationFrame.mockRestore();
+  });
+
+  test('should renderFrame function calls', () => {
+    const hook = getAnimationFrame();
+
+    hook.result.current();
+    jest.runAllTimers();
+
+    expect(rafSpy).toBeCalledTimes(2);
+    expect(fnSpy).toBeCalledTimes(1);
+  });
+
+  test('should update renderFrame function after changed delay', () => {
+    const hook = getAnimationFrame();
+
+    hook.rerender(getAnimationFrameProps({ delay: 200 }));
+    hook.result.current();
+    jest.runAllTimers();
+
+    expect(rafSpy).toBeCalledTimes(3);
+    expect(fnSpy).toBeCalledTimes(1);
+  });
+});
+
+test('fast check', () => {
+  fc.assert(
+    fc.property(
+      fc.func(fc.nat()),
+      fc.nat(),
+      fc.nat(10_000),
+      (fn, arg, time) => {
+        const newSpy = jest.fn((args) => fn(args));
+        const hook = renderHook(() => useAnimationFrame(newSpy, time));
+
+        hook.result.current(arg);
+        jest.runAllTimers();
+
+        expect(newSpy.mock.calls[0][0]).toEqual(arg);
+        expect(newSpy.mock.results[0].value).toEqual(fn(arg));
+      },
+    ),
+  );
 });
