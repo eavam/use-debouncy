@@ -76,3 +76,7 @@ dist/
 # Cypress
 cypress/screenshots
 cypress/videos
+
+# stryker temp files
+.stryker-tmp
+reports

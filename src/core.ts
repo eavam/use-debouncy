@@ -17,6 +17,7 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
     (cb, timeStart = 0) =>
       (timeNow) => {
         const timeFirstStart = timeStart || timeNow;
+
         // Call next rAF if time is not up
         if (timeNow - timeFirstStart < wait) {
           rafId.current = requestAnimationFrame(
@@ -45,6 +46,7 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
   );
 
   // Call cancel animation after umount
+  // Stryker disable next-line ArrayDeclaration
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
   return render;
