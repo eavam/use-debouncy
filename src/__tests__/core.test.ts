@@ -93,6 +93,8 @@ describe('with mocked requestAnimationFrame', () => {
         count += 100;
         return cb(count);
       });
+
+    jest.spyOn(Date, 'now').mockImplementation(() => 100);
   });
 
   afterEach(() => {
@@ -100,6 +102,9 @@ describe('with mocked requestAnimationFrame', () => {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     window.requestAnimationFrame.mockRestore();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    Date.now.mockRestore();
   });
 
   test('should renderFrame function calls', () => {
