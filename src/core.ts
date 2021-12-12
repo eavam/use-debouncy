@@ -1,9 +1,5 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-interface RenderFrameFn<Fn> {
-  (cb: Fn | (() => void), timeStart?: number): FrameRequestCallback;
-}
-
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type Args = any[];
 
@@ -13,36 +9,26 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
 ): ((...args: Parameters<Fn>) => void) => {
   const rafId = useRef(0);
 
-  const renderFrame = useCallback<RenderFrameFn<Fn>>(
-    (cb, timeStart = 0) =>
-      (timeNow) => {
-        const timeFirstStart = timeStart || timeNow;
-
-        // Call next rAF if time is not up
-        if (timeNow - timeFirstStart < wait) {
-          rafId.current = requestAnimationFrame(
-            renderFrame(cb, timeFirstStart),
-          );
-          return;
-        }
-
-        cb();
-      },
-    [wait],
-  );
-
   const render = useCallback(
     (...args: Parameters<Fn>) => {
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
-      rafId.current = requestAnimationFrame(
-        renderFrame(() => {
-          callback(...args);
-        }),
-      );
+      const timeStart = window.performance.now();
+
+      const renderFrame = (timeNow: number) => {
+        // Call next rAF if time is not up
+        if (timeNow - timeStart < wait) {
+          rafId.current = requestAnimationFrame(renderFrame);
+          return;
+        }
+
+        callback(...args);
+      };
+
+      rafId.current = requestAnimationFrame(renderFrame);
     },
-    [callback, renderFrame],
+    [callback, wait],
   );
 
   // Call cancel animation after umount
