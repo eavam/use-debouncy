@@ -14,7 +14,7 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
       // Reset previous animation before start new animation
       cancelAnimationFrame(rafId.current);
 
-      const timeStart = window.performance.now();
+      const timeStart = performance.now();
 
       const renderFrame = (timeNow: number) => {
         // Call next rAF if time is not up

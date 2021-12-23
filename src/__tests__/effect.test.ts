@@ -18,7 +18,7 @@ afterAll(() => {
   jest.useRealTimers();
 });
 
-const defaultDelay = 100;
+const defaultDelay = 300;
 const defaultDeps = [1];
 const spy = jest.fn();
 
@@ -92,7 +92,7 @@ test('should call callback after timer end', () => {
 
   hook.rerender(getProperties({ deps: [2] }));
 
-  jest.advanceTimersByTime(defaultDelay - 1); // 99 ms
+  jest.advanceTimersByTime(defaultDelay - 200); // 100 ms
   expect(spy).toBeCalledTimes(0);
 
   jest.advanceTimersByTime(100); // next big tick
