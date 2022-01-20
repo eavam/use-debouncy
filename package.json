@@ -41,7 +41,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "16.0.3",
+    "@commitlint/cli": "16.1.0",
     "@commitlint/config-conventional": "16.0.0",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-sucrase": "4.0.2",
