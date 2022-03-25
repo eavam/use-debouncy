@@ -72,7 +72,7 @@
     "eslint-plugin-unicorn": "37.0.1",
     "husky": "7.0.4",
     "is-ci": "3.0.1",
-    "prettier": "2.6.0",
+    "prettier": "2.6.1",
     "jest": "27.5.1",
     "jest-environment-jsdom": "27.5.1",
     "pretty-quick": "3.1.3",
