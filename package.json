@@ -34,7 +34,8 @@
     "clear": "rimraf lib",
     "prebuild": "npm run clear && tsc -p tsconfig.declaration.json",
     "semantic-release": "semantic-release",
-    "prepare": "is-ci || husky install"
+    "prepare": "is-ci || husky install",
+    "stryker": "stryker run"
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0"
