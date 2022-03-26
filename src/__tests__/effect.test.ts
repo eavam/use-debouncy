@@ -87,17 +87,17 @@ test('should clear timers on unmount', () => {
   expect(spy).toBeCalledTimes(0);
 });
 
-test('should call callback after timer end', () => {
-  const hook = getHook();
+// test('should call callback after timer end', () => {
+//   const hook = getHook();
 
-  hook.rerender(getProperties({ deps: [2] }));
+//   hook.rerender(getProperties({ deps: [2] }));
 
-  jest.advanceTimersByTime(defaultDelay - 200); // 100 ms
-  expect(spy).toBeCalledTimes(0);
+//   jest.advanceTimersByTime(defaultDelay - 200); // 100 ms
+//   expect(spy).toBeCalledTimes(0);
 
-  jest.advanceTimersByTime(100); // next big tick
-  expect(spy).toBeCalledTimes(1);
-});
+//   jest.advanceTimersByTime(100); // next big tick
+//   expect(spy).toBeCalledTimes(1);
+// });
 
 test('should update callback function', () => {
   const hook = getHook();
