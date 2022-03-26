@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/eavam/use-debouncy/compare/v4.2.1...v4.3.0) (2022-03-26)
+
+
+### Features
+
+* optimize size ([836b997](https://github.com/eavam/use-debouncy/commit/836b997a4641722f626da2ac3c6ca62c6164d8f2))
+
 ## [4.2.1](https://github.com/eavam/use-debouncy/compare/v4.2.0...v4.2.1) (2021-10-24)
 
 
