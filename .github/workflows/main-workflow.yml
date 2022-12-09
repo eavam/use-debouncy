@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [14]
+        node: [14, 16]
     steps:
       - uses: actions/checkout@v3
 
@@ -55,7 +55,7 @@ jobs:
     needs: [pack-tests]
     strategy:
       matrix:
-        node: [14]
+        node: [14, 16]
     steps:
       - uses: actions/checkout@v3
 
@@ -88,7 +88,7 @@ jobs:
     needs: [pack-tests]
     strategy:
       matrix:
-        node: [14]
+        node: [14, 16]
     steps:
       - uses: actions/checkout@v3
 
@@ -127,7 +127,7 @@ jobs:
     strategy:
       matrix:
         browser: [chrome, firefox]
-        node: [14]
+        node: [14, 16]
     steps:
       - uses: actions/checkout@v3
 
@@ -171,7 +171,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 14
+          node-version: 16
 
       - name: Cache Node.js modules
         uses: actions/cache@v3
