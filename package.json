@@ -57,7 +57,7 @@
     "@testing-library/react-hooks": "7.0.2",
     "@types/react": "17.0.52",
     "@types/react-dom": "17.0.18",
-    "@types/jest": "27.4.1",
+    "@types/jest": "27.5.2",
     "@typescript-eslint/eslint-plugin": "5.17.0",
     "@typescript-eslint/parser": "5.17.0",
     "@stryker-mutator/core": "5.6.1",
