@@ -1,3 +1,10 @@
+## [4.3.1](https://github.com/eavam/use-debouncy/compare/v4.3.0...v4.3.1) (2022-12-09)
+
+
+### Bug Fixes
+
+* legacy deps ([b0a597a](https://github.com/eavam/use-debouncy/commit/b0a597a3e4bdd45386381afd07c061883f6a1631))
+
 # [4.3.0](https://github.com/eavam/use-debouncy/compare/v4.2.1...v4.3.0) (2022-03-26)
 
 
