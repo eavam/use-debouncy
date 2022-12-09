@@ -147,10 +147,10 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        uses: cypress-io/github-action@v5.0.0
         with:
           browser: ${{ matrix.browser }}
-          headless: true
+          headed: true
           build: npm run build
           start: npm run serve:e2e
           wait-on: 'http://localhost:1234'
