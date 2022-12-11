@@ -16,12 +16,6 @@
       {
         "assets": ["lib/**"]
       }
-    ],
-    [
-      "@semantic-release/exec",
-      {
-        "publishCmd": "./node_modules/.bin/bit tag --all ${nextRelease.version} && ./node_modules/.bin/bit export"
-      }
     ]
   ]
 }

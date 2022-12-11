@@ -189,19 +189,6 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup bit.dev
-        # https://github.com/teambit/bit/issues/2297
-        run: |
-          ./node_modules/.bin/bit config set analytics_reporting false
-          ./node_modules/.bin/bit config set error_reporting false
-          ./node_modules/.bin/bit config set user.token $BIT_TOKEN
-          ./node_modules/.bin/bit config
-          ./node_modules/.bin/bit import -c bit.envs/compilers/react-typescript@3.1.54
-          ./node_modules/.bin/bit -v && ./node_modules/.bin/bit import
-          ./node_modules/.bin/bit status
-        env:
-          BIT_TOKEN: ${{ secrets.BIT_TOKEN }}
-
       - name: Release
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
