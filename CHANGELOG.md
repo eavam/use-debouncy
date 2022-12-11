@@ -1,3 +1,10 @@
+# [4.4.0](https://github.com/eavam/use-debouncy/compare/v4.3.1...v4.4.0) (2022-12-11)
+
+
+### Features
+
+* bit support removed ([#942](https://github.com/eavam/use-debouncy/issues/942)) ([f5a977c](https://github.com/eavam/use-debouncy/commit/f5a977cb82ba9dfdc1032d273a55c53950348d12))
+
 ## [4.3.1](https://github.com/eavam/use-debouncy/compare/v4.3.0...v4.3.1) (2022-12-09)
 
 
