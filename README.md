@@ -36,14 +36,6 @@ npm install use-debouncy
 yarn add use-debouncy
 ```
 
-#### Import bit component
-
-[Check bit component here](https://bit.dev/eavam/use-debouncy/use-debounce)
-
-```sh
-bit import eavam.use-debouncy/use-debounce
-```
-
 ## Usage
 
 ### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
@@ -113,6 +105,6 @@ function useDebouncyFn(
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
 
-
 ## License
+
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_large)

@@ -1,3 +1,7 @@
 {
-  "sandboxes": ["example-use-debouncy-ynfuq"]
+  "sandboxes": [
+    "example-use-debouncy-ynfuq",
+    "example-use-debouncy-react-18-625bev"
+  ],
+  "node": "16"
 }
