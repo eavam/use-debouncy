@@ -9,7 +9,7 @@ on:
       - main
 
 jobs:
-  pack-tests:
+  install:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -37,6 +37,36 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: dependencies-${{ matrix.node-version }}
+          path: |
+            node_modules
+            .npm
+
+  pack-tests:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node: [14, 16, 18]
+    needs: [install]
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node }}
+
+      - run: npm install -g npm@8
+      - run: npm --version
+
+      - name: Download artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dependencies-${{ matrix.node-version }}
 
       - name: Build
         run: npm run build
@@ -55,10 +85,11 @@ jobs:
 
   stryker-tests:
     runs-on: ubuntu-latest
-    needs: [pack-tests]
     strategy:
       matrix:
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -70,18 +101,10 @@ jobs:
       - run: npm install -g npm@8
       - run: npm --version
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v3
+      - name: Download artifact
+        uses: actions/download-artifact@v3
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install dependencies
-        run: npm ci
+          name: dependencies-${{ matrix.node-version }}
 
       - name: Stryker tests
         run: npm run stryker
@@ -91,10 +114,11 @@ jobs:
 
   unit-tests:
     runs-on: ubuntu-latest
-    needs: [pack-tests]
     strategy:
       matrix:
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -106,18 +130,10 @@ jobs:
       - run: npm install -g npm@8
       - run: npm --version
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v3
+      - name: Download artifact
+        uses: actions/download-artifact@v3
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install dependencies
-        run: npm ci
+          name: dependencies-${{ matrix.node-version }}
 
       - name: Linter
         run: npm run lint
@@ -132,11 +148,11 @@ jobs:
 
   e2e-tests:
     runs-on: ubuntu-latest
-    needs: [pack-tests]
     strategy:
       matrix:
-        browser: [chrome, firefox]
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -148,15 +164,10 @@ jobs:
       - run: npm install -g npm@8
       - run: npm --version
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v3
+      - name: Download artifact
+        uses: actions/download-artifact@v3
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
+          name: dependencies-${{ matrix.node-version }}
 
       - name: Cypress run
         uses: cypress-io/github-action@v5.0.9
@@ -171,35 +182,28 @@ jobs:
 
   release:
     if: github.event_name == 'push'
-    needs: [unit-tests, e2e-tests]
+    needs: [unit-tests, e2e-tests, install]
     name: release
     runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          persist-credentials: false
+    strategy:
+      matrix:
+        node: [14, 16, 18]
 
-      - name: Setup Node.js
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
 
       - run: npm install -g npm@8
       - run: npm --version
 
-      - name: Cache Node.js modules
-        uses: actions/cache@v3
+      - name: Download artifact
+        uses: actions/download-artifact@v3
         with:
-          # npm cache files are stored in `~/.npm` on Linux/macOS
-          path: ~/.npm
-          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.OS }}-node-
-            ${{ runner.OS }}-
-
-      - name: Install dependencies
-        run: npm ci
+          name: dependencies-${{ matrix.node-version }}
 
       - name: Build
         run: npm run build
