@@ -88,6 +88,8 @@ jobs:
     strategy:
       matrix:
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -115,6 +117,8 @@ jobs:
     strategy:
       matrix:
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -146,8 +150,9 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        browser: [chrome, firefox]
         node: [14, 16, 18]
+    needs: [pack-tests, install]
+
     steps:
       - uses: actions/checkout@v3
 
@@ -190,7 +195,7 @@ jobs:
       - name: Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: ${{ matrix.node }}
 
       - run: npm install -g npm@8
       - run: npm --version
