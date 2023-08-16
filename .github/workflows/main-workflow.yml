@@ -159,7 +159,7 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Cypress run
-        uses: cypress-io/github-action@v5.0.9
+        uses: cypress-io/github-action@v5.8.4
         with:
           browser: ${{ matrix.browser }}
           headed: true
