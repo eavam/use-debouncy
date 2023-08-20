@@ -17,7 +17,7 @@
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍ **Tiny.** ~0.2kb. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍ **Tiny.** ~0.2kb.
 - 🦾 **Performance.** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
 - 🎣 **Easy.** Use like React effect or function.
