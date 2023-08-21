@@ -9,11 +9,11 @@
   },
   "plugins": ["@typescript-eslint", "import", "react", "react-hooks"],
   "extends": [
+    "standard",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:unicorn/recommended",
     "plugin:react-hooks/recommended"
   ],
   "settings": {
@@ -21,17 +21,5 @@
       "pragma": "React",
       "version": "detect"
     }
-  },
-  "rules": {
-    "@typescript-eslint/no-explicit-any": "error",
-    "no-undef": "off",
-    "unicorn/prevent-abbreviations": "off",
-    "unicorn/import-index": "off",
-    "unicorn/filename-case": [
-      "error",
-      {
-        "case": "camelCase"
-      }
-    ]
   }
 }

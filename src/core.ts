@@ -23,6 +23,7 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
           return;
         }
 
+        // eslint-disable-next-line n/no-callback-literal
         callback(...args);
       };
 

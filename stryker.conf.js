@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-module */
 /**
  * @type {import('@stryker-mutator/api/core').StrykerOptions}
  */
