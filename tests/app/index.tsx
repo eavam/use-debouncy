@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { SearchPeoplesWithEffect } from './src/searchPeoplesWithEffect';
 import { SearchPeoplesWithFn } from './src/searchPeoplesWithFn';
 
@@ -13,6 +13,6 @@ const App = () => {
   );
 };
 
-const rootElement = document.querySelector('#root');
-
-render(<App />, rootElement);
+const container = document.querySelector('#root');
+const root = createRoot(container!);
+root.render(<App />);

@@ -7,21 +7,14 @@
     "sourceType": "module",
     "project": "./tsconfig.json"
   },
-  "plugins": [
-    "@typescript-eslint",
-    "import",
-    "react",
-    "react-hooks",
-    "cypress"
-  ],
+  "plugins": ["@typescript-eslint", "import", "react", "react-hooks"],
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended",
     "plugin:unicorn/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:cypress/recommended"
+    "plugin:react-hooks/recommended"
   ],
   "settings": {
     "react": {
@@ -40,8 +33,5 @@
         "case": "camelCase"
       }
     ]
-  },
-  "env": {
-    "cypress/globals": true
   }
 }

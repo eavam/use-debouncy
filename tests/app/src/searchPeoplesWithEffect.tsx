@@ -20,7 +20,11 @@ export const SearchPeoplesWithEffect = (): JSX.Element => {
 
   return (
     <div>
-      <input data-cy="input/search/effect" value={value} onChange={onChange} />
+      <input
+        data-testid="input/search/effect"
+        value={value}
+        onChange={onChange}
+      />
       {peoples.map(({ name }) => (
         <div key={name}>{name}</div>
       ))}

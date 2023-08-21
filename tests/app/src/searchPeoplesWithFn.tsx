@@ -14,7 +14,7 @@ export const SearchPeoplesWithFn = (): JSX.Element => {
 
   return (
     <div>
-      <input data-cy="input/search/fn" onChange={search} />
+      <input data-testid="input/search/fn" onChange={search} />
       {peoples.map(({ name }) => (
         <div key={name}>{name}</div>
       ))}

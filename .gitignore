@@ -73,10 +73,9 @@ dist/
 # Rollup cache
 .rollup.cache
 
-# Cypress
-cypress/screenshots
-cypress/videos
-
 # stryker temp files
 .stryker-tmp
 reports
+/test-results/
+/playwright-report/
+/playwright/.cache/
