@@ -2,11 +2,11 @@
  * @jest-environment @stryker-mutator/jest-runner/jest-env/jsdom
  */
 
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import useDebouncy from '../effect';
 
 beforeAll(() => {
-  jest.useFakeTimers('modern');
+  jest.useFakeTimers();
 });
 
 afterEach(() => {
@@ -22,8 +22,12 @@ const defaultDelay = 300;
 const defaultDeps = [1];
 const spy = jest.fn();
 
-const getProperties = ({ deps = defaultDeps, fn = spy } = {}) => ({
-  delay: defaultDelay,
+const getProperties = ({
+  fn = spy,
+  deps = defaultDeps,
+  delay = defaultDelay,
+} = {}) => ({
+  delay,
   deps,
   fn,
 });
@@ -51,7 +55,7 @@ test.each`
     const hook = getHook();
 
     // Photom rerender without changed deps
-    hook.rerender();
+    hook.rerender(getProperties());
     jest.runAllTimers();
 
     while (firstCalls--) {
@@ -87,17 +91,17 @@ test('should clear timers on unmount', () => {
   expect(spy).toBeCalledTimes(0);
 });
 
-// test('should call callback after timer end', () => {
-//   const hook = getHook();
+test('should call callback after timer end', () => {
+  const hook = getHook();
 
-//   hook.rerender(getProperties({ deps: [2] }));
+  hook.rerender(getProperties({ deps: [2] }));
 
-//   jest.advanceTimersByTime(defaultDelay - 200); // 100 ms
-//   expect(spy).toBeCalledTimes(0);
+  jest.advanceTimersByTime(100); // 100 ms
+  expect(spy).toBeCalledTimes(0);
 
-//   jest.advanceTimersByTime(100); // next big tick
-//   expect(spy).toBeCalledTimes(1);
-// });
+  jest.advanceTimersByTime(300); // next big tick
+  expect(spy).toBeCalledTimes(1);
+});
 
 test('should update callback function', () => {
   const hook = getHook();

@@ -3,12 +3,12 @@
  */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import fc from 'fast-check';
 import { useAnimationFrame } from '../core';
 
 beforeAll(() => {
-  jest.useFakeTimers('modern');
+  jest.useFakeTimers();
 });
 
 afterEach(() => {

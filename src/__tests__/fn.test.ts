@@ -2,11 +2,11 @@
  * @jest-environment @stryker-mutator/jest-runner/jest-env/jsdom
  */
 
-import { renderHook } from '@testing-library/react-hooks';
+import { renderHook } from '@testing-library/react';
 import useDebouncyFn from '../fn';
 
 beforeAll(() => {
-  jest.useFakeTimers('modern');
+  jest.useFakeTimers();
 });
 
 afterEach(() => {

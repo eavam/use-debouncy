@@ -1,6 +1,7 @@
-/** @type {import('ts-jest/dist/types').InitialOptionsTsJest} */
+/** @type {import('jest').Config} */
 module.exports = {
-  name: 'unit',
+  displayName: 'unit',
   preset: 'ts-jest',
   testMatch: ['<rootDir>/src/**/*.test.ts'],
+  testEnvironment: 'jsdom',
 };
