@@ -16,10 +16,7 @@
     "hooks",
     "typescript"
   ],
-  "repository": {
-    "url": "https://github.com/eavam/use-debouncy.git",
-    "type": "git"
-  },
+  "repository": "https://github.com/eavam/use-debouncy.git",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.es.js",
@@ -30,7 +27,7 @@
     "lint": "eslint . --ext .js,.ts",
     "build": "rollup -c",
     "clear": "rimraf lib",
-    "prebuild": "npm run clear && tsc -p tsconfig.declaration.json",
+    "prebuild": "yarn clear && tsc -p tsconfig.declaration.json",
     "semantic-release": "semantic-release",
     "prepare": "is-ci || husky install",
     "stryker": "stryker run"
@@ -92,5 +89,6 @@
   ],
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "packageManager": "yarn@3.6.2"
 }

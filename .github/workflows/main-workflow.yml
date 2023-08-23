@@ -22,17 +22,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install NPM
-        run: |
-          npm install -g npm@8
-          npm --version
-
-      - name: Install dependencies
-        run: npm ci
+      - run: yarn --version
+      - run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Pack build
         run: echo "pack_name=$(npm pack | tail -n 1)" >> $GITHUB_ENV
@@ -59,17 +53,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install NPM
-        run: |
-          npm install -g npm@8
-          npm --version
-
-      - name: Install dependencies
-        run: npm ci
+      - run: yarn --version
+      - run: yarn install
 
       - name: Stryker tests
-        run: npm run stryker
+        run: yarn stryker
 
     env:
       CI: true
@@ -87,20 +75,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install NPM
-        run: |
-          npm install -g npm@8
-          npm --version
-
-      - name: Install dependencies
-        run: npm ci
+      - run: yarn --version
+      - run: yarn install
 
       - name: Linter
-        run: npm run lint
+        run: yarn lint
 
       - name: Unit tests
-        run: npm run test -- --ci --coverage
+        run: yarn test -- --ci --coverage
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
@@ -123,17 +105,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node }}
-
-      - name: Install NPM
-        run: |
-          npm install -g npm@8
-          npm --version
-
-      - name: Install dependencies
-        run: npm ci
+      - run: yarn --version
+      - run: yarn install
 
       - name: Build
-        run: npm run build
+        run: yarn build
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
@@ -146,4 +122,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm run semantic-release
+        run: yarn semantic-release

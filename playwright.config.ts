@@ -70,7 +70,7 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'npm run serve:e2e',
+    command: 'yarn serve:e2e',
     url: 'http://127.0.0.1:1234',
     reuseExistingServer: !process.env.CI,
   },
