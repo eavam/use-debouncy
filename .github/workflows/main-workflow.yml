@@ -29,13 +29,13 @@ jobs:
         run: yarn build
 
       - name: Pack build
-        run: echo "pack_name=$(npm pack | tail -n 1)" >> $GITHUB_ENV
+        run: yarn pack -o use-debouncy-pack.tgz
 
       - name: Pack tests
         run: |
-          cp ./${{ env.pack_name }} ./test-publish
+          cp ./use-debouncy-pack.tgz ./test-publish
           cd ./test-publish
-          npm install ./${{ env.pack_name }}
+          npm install ./use-debouncy-pack.tgz
 
     env:
       CI: true
