@@ -38,11 +38,10 @@ jobs:
 
       - name: Pack build
         run: yarn pack -o use-debouncy-pack.tgz
-        working-directory: ./test-publish
 
       - name: Install packed package
-        run: npm install ./use-debouncy-pack.tgz
-        working-directory: ./test-publish
+        run: npm install ../use-debouncy-pack.tgz
+        working-directory: test-publish
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
