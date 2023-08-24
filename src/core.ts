@@ -33,7 +33,6 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
   );
 
   // Call cancel animation after umount
-  // Stryker disable next-line ArrayDeclaration
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
   return render;

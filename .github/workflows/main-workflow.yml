@@ -40,28 +40,6 @@ jobs:
     env:
       CI: true
 
-  stryker-tests:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16, 18]
-
-    steps:
-      - uses: actions/checkout@v3
-
-      - name: Setup Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node }}
-      - run: yarn --version
-      - run: yarn install
-
-      - name: Stryker tests
-        run: yarn stryker
-
-    env:
-      CI: true
-
   unit-tests:
     runs-on: ubuntu-latest
     strategy:

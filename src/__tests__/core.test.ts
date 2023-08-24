@@ -1,8 +1,3 @@
-/**
- * @jest-environment @stryker-mutator/jest-runner/jest-env/jsdom
- */
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
 import { renderHook } from '@testing-library/react';
 import fc from 'fast-check';
 import { useAnimationFrame } from '../core';

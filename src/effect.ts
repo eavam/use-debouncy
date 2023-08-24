@@ -1,7 +1,6 @@
 import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
 import { useAnimationFrame } from './core';
 
-// Stryker disable next-line ArrayDeclaration
 const defaultDeps: DependencyList = [];
 
 /**
