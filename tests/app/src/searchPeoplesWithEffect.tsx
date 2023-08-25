@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { usePeoples } from './usePeoples';
-import useDebounceEffect from '../../../lib/effect';
+import * as useDebounceEffect from '../../../lib/effect';
 
 export const SearchPeoplesWithEffect = (): JSX.Element => {
   const [value, setValue] = useState('');
   const { fetchPeoples, peoples } = usePeoples();
 
-  useDebounceEffect(
+  useDebounceEffect.default(
     () => {
       fetchPeoples(value);
     },

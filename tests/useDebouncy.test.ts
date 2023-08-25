@@ -31,7 +31,7 @@ async function performInputTest(page: Page, testId: string) {
 }
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('http://localhost:1234');
+  await page.goto('/');
 
   // Intercept requests to API_URL and respond with an empty body.
   await page.route(API_URL, async (route) => {

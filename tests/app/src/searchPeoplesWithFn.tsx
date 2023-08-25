@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { usePeoples } from './usePeoples';
-import useDebounceFn from '../../../lib/fn';
+import * as useDebounceFn from '../../../lib/fn';
 
 export const SearchPeoplesWithFn = (): JSX.Element => {
   const { fetchPeoples, peoples } = usePeoples();
@@ -10,7 +10,7 @@ export const SearchPeoplesWithFn = (): JSX.Element => {
     fetchPeoples(event.target.value);
   };
 
-  const search = useDebounceFn(onChange, 400);
+  const search = useDebounceFn.default(onChange, 400);
 
   return (
     <div>

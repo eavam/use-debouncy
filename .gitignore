@@ -79,5 +79,5 @@ dist/
 .stryker-tmp
 reports
 /test-results/
-/playwright-report/
-/playwright/.cache/
+playwright-report/
+playwright/.cache/
