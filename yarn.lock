@@ -6595,17 +6595,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"is-ci@npm:3.0.1":
-  version: 3.0.1
-  resolution: "is-ci@npm:3.0.1"
-  dependencies:
-    ci-info: ^3.2.0
-  bin:
-    is-ci: bin.js
-  checksum: 192c66dc7826d58f803ecae624860dccf1899fc1f3ac5505284c0a5cf5f889046ffeb958fa651e5725d5705c5bcb14f055b79150ea5fcad7456a9569de60260e
-  languageName: node
-  linkType: hard
-
 "is-cidr@npm:^4.0.2":
   version: 4.0.2
   resolution: "is-cidr@npm:4.0.2"
@@ -11722,7 +11711,6 @@ __metadata:
     eslint-plugin-react-hooks: 4.6.0
     fast-check: 3.6.3
     husky: 8.0.3
-    is-ci: 3.0.1
     jest: 29.6.3
     jest-environment-jsdom: 29.6.3
     parcel: 2.9.3
