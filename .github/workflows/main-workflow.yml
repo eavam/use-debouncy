@@ -88,4 +88,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: yarn release --ci
+        run: yarn release --ci --npm.yarn
