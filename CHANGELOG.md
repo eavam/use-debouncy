@@ -1,3 +1,17 @@
+# Changelog
+
+# [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.4.0...v4.6.0) (2023-08-26)
+
+
+### Bug Fixes
+
+* remove postinstall ([#1058](https://github.com/eavam/use-debouncy/issues/1058)) ([f6a5082](https://github.com/eavam/use-debouncy/commit/f6a5082464fb1230cfd8bc70c8937336e2df20db))
+
+
+### Features
+
+* streamlined project setup and configurations ([#1031](https://github.com/eavam/use-debouncy/issues/1031)) ([9276279](https://github.com/eavam/use-debouncy/commit/9276279c883c560d574d45c287f970549a2aa95b)), closes [#1051](https://github.com/eavam/use-debouncy/issues/1051) [#1047](https://github.com/eavam/use-debouncy/issues/1047) [#1046](https://github.com/eavam/use-debouncy/issues/1046) [#1048](https://github.com/eavam/use-debouncy/issues/1048) [#1050](https://github.com/eavam/use-debouncy/issues/1050) [#1049](https://github.com/eavam/use-debouncy/issues/1049)
+
 # [4.4.0](https://github.com/eavam/use-debouncy/compare/v4.3.1...v4.4.0) (2022-12-11)
 
 
