@@ -68,14 +68,20 @@ jobs:
         with:
           node-version: 18
 
-      - name: npm credentials
-        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
-
       - name: Install dependencies
         run: yarn install
 
       - name: Build application
         run: yarn build
+
+      - name: npm credentials
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+      - name: yarn credentials
+        run: yarn config set npmAuthToken $NPM_TOKEN
+
+      - name: Whoiam
+        run: yarn npm whoami --publish
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
