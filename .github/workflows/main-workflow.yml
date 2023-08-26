@@ -68,6 +68,9 @@ jobs:
         with:
           node-version: 18
 
+      - name: npm credentials
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
       - name: Install dependencies
         run: yarn install
 
