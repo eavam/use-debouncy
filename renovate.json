@@ -14,19 +14,10 @@
       "automerge": true
     },
     {
-      "matchPackageNames": [
-        "@size-limit/preset-small-lib",
-        "@size-limit/time",
-        "size-limit"
-      ],
-      "groupName": "size-limit update",
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    },
-    {
       "updateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ],
-  "rebaseWhen": "behind-base-branch"
+  "rebaseWhen": "behind-base-branch",
+  "schedule": ["before 4am on the first day of the month"]
 }

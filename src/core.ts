@@ -23,6 +23,7 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
           return;
         }
 
+        // eslint-disable-next-line n/no-callback-literal
         callback(...args);
       };
 
@@ -32,7 +33,6 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
   );
 
   // Call cancel animation after umount
-  // Stryker disable next-line ArrayDeclaration
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
   return render;

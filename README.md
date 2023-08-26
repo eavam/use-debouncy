@@ -2,12 +2,9 @@
 
 🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support
 
-![license](https://badgen.net/npm/license/use-debouncy)
-![dependents](https://badgen.net/npm/dependents/use-debouncy)
-![minified](https://badgen.net/bundlephobia/min/use-debouncy)
-![minified + gzip](https://badgen.net/bundlephobia/minzip/use-debouncy)
-![tree-shaking](https://badgen.net/bundlephobia/tree-shaking/use-debouncy)
-![downloads](https://badgen.net/npm/dm/use-debouncy)
+![GitHub](https://img.shields.io/github/license/eavam/use-debouncy)
+![npm bundle size](https://img.shields.io/bundlephobia/minzip/use-debouncy)
+![npm](https://img.shields.io/npm/dm/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
 [![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/main/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_shield)
@@ -17,7 +14,7 @@
 ## Features
 
 - 👌 **No dependencies.**
-- 🏋️‍ **Tiny.** ~0.2kb. [Size Limit](https://github.com/ai/size-limit) controls the size.
+- 🏋️‍ **Tiny.** ~0.2kb.
 - 🦾 **Performance.** Used by requestAnimationFrame.
 - 📖 **Types.** Support TypeScript.
 - 🎣 **Easy.** Use like React effect or function.
@@ -104,6 +101,10 @@ function useDebouncyFn(
 | ---- | -------- | ------- | -------------------------------- |
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
+
+## Development
+
+[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
 
 ## License
 
