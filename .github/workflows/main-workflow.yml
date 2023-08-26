@@ -58,18 +58,15 @@ jobs:
     if: github.event_name == 'push'
     needs: [build-and-test]
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node: [16, 18]
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js ${{ matrix.node }}
+      - name: Set up Node.js 18
         uses: actions/setup-node@v3
         with:
-          node-version: ${{ matrix.node }}
+          node-version: 18
 
       - name: Install dependencies
         run: yarn install
