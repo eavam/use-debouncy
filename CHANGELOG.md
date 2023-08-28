@@ -1,272 +1,246 @@
-# [4.4.0](https://github.com/eavam/use-debouncy/compare/v4.3.1...v4.4.0) (2022-12-11)
+# Changelog
 
+# [4.7.0](https://github.com/eavam/use-debouncy/compare/v4.4.0...v4.7.0) (2023-08-28)
+
+### Bug Fixes
+
+- remove postinstall ([#1058](https://github.com/eavam/use-debouncy/issues/1058)) ([f6a5082](https://github.com/eavam/use-debouncy/commit/f6a5082464fb1230cfd8bc70c8937336e2df20db))
 
 ### Features
 
-* bit support removed ([#942](https://github.com/eavam/use-debouncy/issues/942)) ([f5a977c](https://github.com/eavam/use-debouncy/commit/f5a977cb82ba9dfdc1032d273a55c53950348d12))
+- streamlined project setup and configurations ([#1031](https://github.com/eavam/use-debouncy/issues/1031)) ([9276279](https://github.com/eavam/use-debouncy/commit/9276279c883c560d574d45c287f970549a2aa95b)), closes [#1051](https://github.com/eavam/use-debouncy/issues/1051) [#1047](https://github.com/eavam/use-debouncy/issues/1047) [#1046](https://github.com/eavam/use-debouncy/issues/1046) [#1048](https://github.com/eavam/use-debouncy/issues/1048) [#1050](https://github.com/eavam/use-debouncy/issues/1050) [#1049](https://github.com/eavam/use-debouncy/issues/1049)
+
+# [4.4.0](https://github.com/eavam/use-debouncy/compare/v4.3.1...v4.4.0) (2022-12-11)
+
+### Features
+
+- bit support removed ([#942](https://github.com/eavam/use-debouncy/issues/942)) ([f5a977c](https://github.com/eavam/use-debouncy/commit/f5a977cb82ba9dfdc1032d273a55c53950348d12))
 
 ## [4.3.1](https://github.com/eavam/use-debouncy/compare/v4.3.0...v4.3.1) (2022-12-09)
 
-
 ### Bug Fixes
 
-* legacy deps ([b0a597a](https://github.com/eavam/use-debouncy/commit/b0a597a3e4bdd45386381afd07c061883f6a1631))
+- legacy deps ([b0a597a](https://github.com/eavam/use-debouncy/commit/b0a597a3e4bdd45386381afd07c061883f6a1631))
 
 # [4.3.0](https://github.com/eavam/use-debouncy/compare/v4.2.1...v4.3.0) (2022-03-26)
 
-
 ### Features
 
-* optimize size ([836b997](https://github.com/eavam/use-debouncy/commit/836b997a4641722f626da2ac3c6ca62c6164d8f2))
+- optimize size ([836b997](https://github.com/eavam/use-debouncy/commit/836b997a4641722f626da2ac3c6ca62c6164d8f2))
 
 ## [4.2.1](https://github.com/eavam/use-debouncy/compare/v4.2.0...v4.2.1) (2021-10-24)
 
-
 ### Bug Fixes
 
-* **core:** update typing ([27bf62c](https://github.com/eavam/use-debouncy/commit/27bf62c5899c547673ebe8e644f6b5ea74ef1382))
+- **core:** update typing ([27bf62c](https://github.com/eavam/use-debouncy/commit/27bf62c5899c547673ebe8e644f6b5ea74ef1382))
 
 # [4.2.0](https://github.com/eavam/use-debouncy/compare/v4.1.1...v4.2.0) (2021-05-23)
 
-
 ### Bug Fixes
 
-* giving up date.now ([#496](https://github.com/eavam/use-debouncy/issues/496)) ([032e735](https://github.com/eavam/use-debouncy/commit/032e7353e07876727a5ba09c6a880c05921d4700))
-
+- giving up date.now ([#496](https://github.com/eavam/use-debouncy/issues/496)) ([032e735](https://github.com/eavam/use-debouncy/commit/032e7353e07876727a5ba09c6a880c05921d4700))
 
 ### Features
 
-* optimize size ([7b3bb0c](https://github.com/eavam/use-debouncy/commit/7b3bb0c7aa8dd9d6ae0fea10df8ec3777eae0316))
-* removed fragile code related to fps timing ([2355c07](https://github.com/eavam/use-debouncy/commit/2355c07ab14d7d75cf74edc4731e85cce979cb42))
+- optimize size ([7b3bb0c](https://github.com/eavam/use-debouncy/commit/7b3bb0c7aa8dd9d6ae0fea10df8ec3777eae0316))
+- removed fragile code related to fps timing ([2355c07](https://github.com/eavam/use-debouncy/commit/2355c07ab14d7d75cf74edc4731e85cce979cb42))
 
 ## [4.1.1](https://github.com/eavam/use-debouncy/compare/v4.1.0...v4.1.1) (2021-04-19)
 
-
 ### Reverts
 
-* Revert "feat: removed fragile code related to fps timing" ([1f5f684](https://github.com/eavam/use-debouncy/commit/1f5f6842e49d1e0b9fddf532213e3286332b360b))
-* Revert "feat: optimize size" ([cf3aad7](https://github.com/eavam/use-debouncy/commit/cf3aad7b0d93d0e7500adc25883eb7220740883d))
-* this reverts commit 5952cffe6d1333c14836e2e033681af703bdfc86 ([3f9f784](https://github.com/eavam/use-debouncy/commit/3f9f784feaed9e2bc510967ea7cfac735efce437))
-* this reverts commit e2f60d284e534e53eb6082ff62a6096cc3462e01 ([cf6b851](https://github.com/eavam/use-debouncy/commit/cf6b851d5a5183efbc962ba8c3d60d249bd81fd6))
+- Revert "feat: removed fragile code related to fps timing" ([1f5f684](https://github.com/eavam/use-debouncy/commit/1f5f6842e49d1e0b9fddf532213e3286332b360b))
+- Revert "feat: optimize size" ([cf3aad7](https://github.com/eavam/use-debouncy/commit/cf3aad7b0d93d0e7500adc25883eb7220740883d))
+- this reverts commit 5952cffe6d1333c14836e2e033681af703bdfc86 ([3f9f784](https://github.com/eavam/use-debouncy/commit/3f9f784feaed9e2bc510967ea7cfac735efce437))
+- this reverts commit e2f60d284e534e53eb6082ff62a6096cc3462e01 ([cf6b851](https://github.com/eavam/use-debouncy/commit/cf6b851d5a5183efbc962ba8c3d60d249bd81fd6))
 
 # [4.1.0](https://github.com/eavam/use-debouncy/compare/v4.0.2...v4.1.0) (2021-04-18)
 
-
 ### Features
 
-* optimize size ([e2f60d2](https://github.com/eavam/use-debouncy/commit/e2f60d284e534e53eb6082ff62a6096cc3462e01))
-* removed fragile code related to fps timing ([5952cff](https://github.com/eavam/use-debouncy/commit/5952cffe6d1333c14836e2e033681af703bdfc86))
+- optimize size ([e2f60d2](https://github.com/eavam/use-debouncy/commit/e2f60d284e534e53eb6082ff62a6096cc3462e01))
+- removed fragile code related to fps timing ([5952cff](https://github.com/eavam/use-debouncy/commit/5952cffe6d1333c14836e2e033681af703bdfc86))
 
 ## [4.0.2](https://github.com/eavam/use-debouncy/compare/v4.0.1...v4.0.2) (2021-04-17)
 
-
 ### Bug Fixes
 
-* changed postinstall to prepare ([d5ec166](https://github.com/eavam/use-debouncy/commit/d5ec166d696a004bef4b5aa2e92a75e0b6a4716e)), closes [#477](https://github.com/eavam/use-debouncy/issues/477)
+- changed postinstall to prepare ([d5ec166](https://github.com/eavam/use-debouncy/commit/d5ec166d696a004bef4b5aa2e92a75e0b6a4716e)), closes [#477](https://github.com/eavam/use-debouncy/issues/477)
 
 ## [4.0.1](https://github.com/eavam/use-debouncy/compare/v4.0.0...v4.0.1) (2021-03-14)
 
-
 ### Bug Fixes
 
-* update module path ([c8fdcde](https://github.com/eavam/use-debouncy/commit/c8fdcde66b533876f72d1abcccef034507f998d8))
-* update paths for size-limit ([d732894](https://github.com/eavam/use-debouncy/commit/d7328945ea7ae861e41f9d32d5e990429c8c2558))
+- update module path ([c8fdcde](https://github.com/eavam/use-debouncy/commit/c8fdcde66b533876f72d1abcccef034507f998d8))
+- update paths for size-limit ([d732894](https://github.com/eavam/use-debouncy/commit/d7328945ea7ae861e41f9d32d5e990429c8c2558))
 
 # [4.0.0](https://github.com/eavam/use-debouncy/compare/v3.1.1...v4.0.0) (2021-03-14)
 
-
 ### Features
 
-* add useDebouncy as function ([42e436f](https://github.com/eavam/use-debouncy/commit/42e436f7470611aafe1c6b94a78d8d509b910915))
-
+- add useDebouncy as function ([42e436f](https://github.com/eavam/use-debouncy/commit/42e436f7470611aafe1c6b94a78d8d509b910915))
 
 ### BREAKING CHANGES
 
-* Now hooks need to be imported from `fn` or `effect` subdirectory
+- Now hooks need to be imported from `fn` or `effect` subdirectory
 
 ## [3.1.1](https://github.com/eavam/use-debouncy/compare/v3.1.0...v3.1.1) (2021-03-12)
 
-
 ### Bug Fixes
 
-* parcel version > 1.12.3 is broken ([f651d32](https://github.com/eavam/use-debouncy/commit/f651d324e5c801782ab6f711e3cf606138a620e4))
+- parcel version > 1.12.3 is broken ([f651d32](https://github.com/eavam/use-debouncy/commit/f651d324e5c801782ab6f711e3cf606138a620e4))
 
 # [3.1.0](https://github.com/eavam/use-debouncy/compare/v3.0.1...v3.1.0) (2020-11-29)
 
-
 ### Bug Fixes
 
-* add abort request ([1572c5f](https://github.com/eavam/use-debouncy/commit/1572c5fc8ba8e5d93eaa1a4bde8b831ec6c0faef))
-* remove webkit tests ([81910d3](https://github.com/eavam/use-debouncy/commit/81910d3d557fec901fe30a0cc2c7860599b97b02))
-* remove webkit tests ([1690144](https://github.com/eavam/use-debouncy/commit/1690144b892df17a77562483dd9b3e179a70b0c0))
-
+- add abort request ([1572c5f](https://github.com/eavam/use-debouncy/commit/1572c5fc8ba8e5d93eaa1a4bde8b831ec6c0faef))
+- remove webkit tests ([81910d3](https://github.com/eavam/use-debouncy/commit/81910d3d557fec901fe30a0cc2c7860599b97b02))
+- remove webkit tests ([1690144](https://github.com/eavam/use-debouncy/commit/1690144b892df17a77562483dd9b3e179a70b0c0))
 
 ### Features
 
-* add async fetch for e2e tests ([795b39d](https://github.com/eavam/use-debouncy/commit/795b39d92bf8092e57b46057c68f7922cd557647))
-* upgrade husky ([29b38c3](https://github.com/eavam/use-debouncy/commit/29b38c329fddcd35d2a38976dd335283bca70bbd))
+- add async fetch for e2e tests ([795b39d](https://github.com/eavam/use-debouncy/commit/795b39d92bf8092e57b46057c68f7922cd557647))
+- upgrade husky ([29b38c3](https://github.com/eavam/use-debouncy/commit/29b38c329fddcd35d2a38976dd335283bca70bbd))
 
 ## [3.0.1](https://github.com/eavam/use-debouncy/compare/v3.0.0...v3.0.1) (2020-09-14)
 
-
 ### Bug Fixes
 
-* change flag for bit release ([2ccd423](https://github.com/eavam/use-debouncy/commit/2ccd423c3c09639e84df348d8283060c1e1e54f7))
+- change flag for bit release ([2ccd423](https://github.com/eavam/use-debouncy/commit/2ccd423c3c09639e84df348d8283060c1e1e54f7))
 
 # [3.0.0](https://github.com/eavam/use-debouncy/compare/v2.2.0...v3.0.0) (2020-09-14)
 
-
 ### Features
 
-* settimeout replaced on rAF ([5af7ab9](https://github.com/eavam/use-debouncy/commit/5af7ab9c0abfe7bf2652b54ebc0e6f0e600e5bbc))
-
+- settimeout replaced on rAF ([5af7ab9](https://github.com/eavam/use-debouncy/commit/5af7ab9c0abfe7bf2652b54ebc0e6f0e600e5bbc))
 
 ### BREAKING CHANGES
 
-* Instead of setTimeout is used now requestAnimationFrame.
+- Instead of setTimeout is used now requestAnimationFrame.
 
 # [2.2.0](https://github.com/eavam/use-debouncy/compare/v2.1.7...v2.2.0) (2020-08-16)
 
-
 ### Features
 
-* move to npm ([01fd239](https://github.com/eavam/use-debouncy/commit/01fd239367b641f88db447d1f47d4963fa9c3d83))
-* release build now use npm ([4bfd285](https://github.com/eavam/use-debouncy/commit/4bfd285631bdd5c15aa1010084b7de1e277a0c5e))
+- move to npm ([01fd239](https://github.com/eavam/use-debouncy/commit/01fd239367b641f88db447d1f47d4963fa9c3d83))
+- release build now use npm ([4bfd285](https://github.com/eavam/use-debouncy/commit/4bfd285631bdd5c15aa1010084b7de1e277a0c5e))
 
 ## [2.1.7](https://github.com/eavam/use-debouncy/compare/v2.1.6...v2.1.7) (2020-07-09)
 
-
 ### Bug Fixes
 
-* optimize e2e test and add more matrix in CI ([#63](https://github.com/eavam/use-debouncy/issues/63)) ([8939446](https://github.com/eavam/use-debouncy/commit/89394465015970f9eddf8574fcb3a7c0bbedbbf6))
+- optimize e2e test and add more matrix in CI ([#63](https://github.com/eavam/use-debouncy/issues/63)) ([8939446](https://github.com/eavam/use-debouncy/commit/89394465015970f9eddf8574fcb3a7c0bbedbbf6))
 
 ## [2.1.6](https://github.com/eavam/use-debouncy/compare/v2.1.5...v2.1.6) (2020-07-05)
 
-
 ### Bug Fixes
 
-* add import compiler for bit ([531f3cb](https://github.com/eavam/use-debouncy/commit/531f3cb2c12c323a82c6fe9a2180f9aea2be1dee))
-* add import compiler for bit ([0b2ca84](https://github.com/eavam/use-debouncy/commit/0b2ca842e4fb081a7f853389e0b4a7910ca85317))
-* add import compiler for bit ([396e901](https://github.com/eavam/use-debouncy/commit/396e901f957b9525e1a3d1910526063b07eef8cf))
+- add import compiler for bit ([531f3cb](https://github.com/eavam/use-debouncy/commit/531f3cb2c12c323a82c6fe9a2180f9aea2be1dee))
+- add import compiler for bit ([0b2ca84](https://github.com/eavam/use-debouncy/commit/0b2ca842e4fb081a7f853389e0b4a7910ca85317))
+- add import compiler for bit ([396e901](https://github.com/eavam/use-debouncy/commit/396e901f957b9525e1a3d1910526063b07eef8cf))
 
 ## [2.1.5](https://github.com/eavam/use-debouncy/compare/v2.1.4...v2.1.5) (2020-07-05)
 
-
 ### Bug Fixes
 
-* add force tag for bit ([0081b64](https://github.com/eavam/use-debouncy/commit/0081b64e8662706294e94af9086023c52a3c6ca7))
+- add force tag for bit ([0081b64](https://github.com/eavam/use-debouncy/commit/0081b64e8662706294e94af9086023c52a3c6ca7))
 
 ## [2.1.4](https://github.com/eavam/use-debouncy/compare/v2.1.3...v2.1.4) (2020-07-05)
 
-
 ### Bug Fixes
 
-* add description for install in bit and try release workflow ([0cc9dd7](https://github.com/eavam/use-debouncy/commit/0cc9dd7335725ecae79dbbbe9458e75c4c088462))
+- add description for install in bit and try release workflow ([0cc9dd7](https://github.com/eavam/use-debouncy/commit/0cc9dd7335725ecae79dbbbe9458e75c4c088462))
 
 ## [2.1.3](https://github.com/eavam/use-debouncy/compare/v2.1.2...v2.1.3) (2020-07-05)
 
-
 ### Bug Fixes
 
-* change bit set config ([8bac3c4](https://github.com/eavam/use-debouncy/commit/8bac3c46fc1a8a37254832d959d93d072a3e0254))
-* change bit set config ([9261339](https://github.com/eavam/use-debouncy/commit/9261339d8b1ad62b56f75099c25fda7302a6f639))
+- change bit set config ([8bac3c4](https://github.com/eavam/use-debouncy/commit/8bac3c46fc1a8a37254832d959d93d072a3e0254))
+- change bit set config ([9261339](https://github.com/eavam/use-debouncy/commit/9261339d8b1ad62b56f75099c25fda7302a6f639))
 
 ## [2.1.2](https://github.com/eavam/use-debouncy/compare/v2.1.1...v2.1.2) (2020-07-05)
 
-
 ### Bug Fixes
 
-* add pull latest bit object ([41538e0](https://github.com/eavam/use-debouncy/commit/41538e0be437631f5d4c1d384232ddace9b14178))
+- add pull latest bit object ([41538e0](https://github.com/eavam/use-debouncy/commit/41538e0be437631f5d4c1d384232ddace9b14178))
 
 ## [2.1.1](https://github.com/eavam/use-debouncy/compare/v2.1.0...v2.1.1) (2020-07-05)
 
-
 ### Bug Fixes
 
-* disabled reporting for bit ([0c59ffb](https://github.com/eavam/use-debouncy/commit/0c59ffb6803648eb13e5d5eb5a7d663351fc0983))
+- disabled reporting for bit ([0c59ffb](https://github.com/eavam/use-debouncy/commit/0c59ffb6803648eb13e5d5eb5a7d663351fc0983))
 
 # [2.1.0](https://github.com/eavam/use-debouncy/compare/v2.0.2...v2.1.0) (2020-07-05)
 
-
 ### Features
 
-* add bit.dev support ([d295182](https://github.com/eavam/use-debouncy/commit/d295182c8f79330ef4944416a467117074c31f67))
+- add bit.dev support ([d295182](https://github.com/eavam/use-debouncy/commit/d295182c8f79330ef4944416a467117074c31f67))
 
 ## [2.0.2](https://github.com/eavam/use-debouncy/compare/v2.0.1...v2.0.2) (2020-07-04)
 
-
 ### Bug Fixes
 
-* change size limit and add info about side effects ([8df54bb](https://github.com/eavam/use-debouncy/commit/8df54bb3139446f122c73c2dc8c536249e8d4726))
+- change size limit and add info about side effects ([8df54bb](https://github.com/eavam/use-debouncy/commit/8df54bb3139446f122c73c2dc8c536249e8d4726))
 
 ## [2.0.1](https://github.com/eavam/use-debouncy/compare/v2.0.0...v2.0.1) (2020-07-02)
 
-
 ### Bug Fixes
 
-* update information about bundle size ([38017d2](https://github.com/eavam/use-debouncy/commit/38017d21d0b11fcf3245e5e4e3d4afc451d991c9))
+- update information about bundle size ([38017d2](https://github.com/eavam/use-debouncy/commit/38017d21d0b11fcf3245e5e4e3d4afc451d991c9))
 
 # [2.0.0](https://github.com/eavam/use-debouncy/compare/v1.9.3...v2.0.0) (2020-07-02)
 
-
 ### Bug Fixes
 
-* add e2e tests in release workflow ([23928e3](https://github.com/eavam/use-debouncy/commit/23928e35dbb23d1a7c43a713f74c8061b86c6691))
-* add newline at end gitignore ([c66ba7f](https://github.com/eavam/use-debouncy/commit/c66ba7f6ce012ebc50e897f92a8debf24827b17d))
-
+- add e2e tests in release workflow ([23928e3](https://github.com/eavam/use-debouncy/commit/23928e35dbb23d1a7c43a713f74c8061b86c6691))
+- add newline at end gitignore ([c66ba7f](https://github.com/eavam/use-debouncy/commit/c66ba7f6ce012ebc50e897f92a8debf24827b17d))
 
 ### Features
 
-* add e2e tests ([34cc610](https://github.com/eavam/use-debouncy/commit/34cc610a4f01affafa58d5d643094aa5a60c650c))
-* changed hook for minimize useEffect calls ([26c608a](https://github.com/eavam/use-debouncy/commit/26c608aa27dfc24ab31e78d53313d5c8829a217f))
-
+- add e2e tests ([34cc610](https://github.com/eavam/use-debouncy/commit/34cc610a4f01affafa58d5d643094aa5a60c650c))
+- changed hook for minimize useEffect calls ([26c608a](https://github.com/eavam/use-debouncy/commit/26c608aa27dfc24ab31e78d53313d5c8829a217f))
 
 ### BREAKING CHANGES
 
-* Change track first mount call.
-setTimeout reference moved in lexical scope.
-The call happens clearTimeout with every deps update.
+- Change track first mount call.
+  setTimeout reference moved in lexical scope.
+  The call happens clearTimeout with every deps update.
 
 ## [1.9.3](https://github.com/eavam/use-debouncy/compare/v1.9.2...v1.9.3) (2020-07-01)
 
-
 ### Bug Fixes
 
-* add example gif ([54d1cbe](https://github.com/eavam/use-debouncy/commit/54d1cbe04bc72f0d77c42ab30b4144ab1c3768f5))
+- add example gif ([54d1cbe](https://github.com/eavam/use-debouncy/commit/54d1cbe04bc72f0d77c42ab30b4144ab1c3768f5))
 
 ## [1.9.2](https://github.com/eavam/use-debouncy/compare/v1.9.1...v1.9.2) (2020-06-28)
 
-
 ### Bug Fixes
 
-* current timer state allocated to a separate variable ([9d8846e](https://github.com/eavam/use-debouncy/commit/9d8846ec648b38ce69c736985173ee3e23328623))
+- current timer state allocated to a separate variable ([9d8846e](https://github.com/eavam/use-debouncy/commit/9d8846ec648b38ce69c736985173ee3e23328623))
 
 ## [1.9.1](https://github.com/eavam/use-debouncy/compare/v1.9.0...v1.9.1) (2020-06-25)
 
-
 ### Bug Fixes
 
-* change description ([83f420e](https://github.com/eavam/use-debouncy/commit/83f420ea3314abfc82836e0afba548501621ddf8))
+- change description ([83f420e](https://github.com/eavam/use-debouncy/commit/83f420ea3314abfc82836e0afba548501621ddf8))
 
 # [1.9.0](https://github.com/eavam/use-debouncy/compare/v1.8.0...v1.9.0) (2020-06-24)
 
-
 ### Features
 
-* optimize bundle size ([1d393cb](https://github.com/eavam/use-debouncy/commit/1d393cbb384fd18dcce3f13fe9e8717335443fc1))
+- optimize bundle size ([1d393cb](https://github.com/eavam/use-debouncy/commit/1d393cbb384fd18dcce3f13fe9e8717335443fc1))
 
 # [1.8.0](https://github.com/eavam/use-debouncy/compare/v1.7.0...v1.8.0) (2020-06-24)
 
-
 ### Bug Fixes
 
-* change bundle size limit ([8fc2039](https://github.com/eavam/use-debouncy/commit/8fc2039c5ffc9c0df88cffbe7b4cc0e4895dc5d2))
-* repository urls ([829f8d3](https://github.com/eavam/use-debouncy/commit/829f8d367d94525c0989515c9bd0ea3f13cb3177))
-
+- change bundle size limit ([8fc2039](https://github.com/eavam/use-debouncy/commit/8fc2039c5ffc9c0df88cffbe7b4cc0e4895dc5d2))
+- repository urls ([829f8d3](https://github.com/eavam/use-debouncy/commit/829f8d367d94525c0989515c9bd0ea3f13cb3177))
 
 ### Features
 
-* add clear timer on unmount to avoid memory leaks ([56f2c4c](https://github.com/eavam/use-debouncy/commit/56f2c4c15289e4f6b9f6954a80763df3fa85f8b5))
+- add clear timer on unmount to avoid memory leaks ([56f2c4c](https://github.com/eavam/use-debouncy/commit/56f2c4c15289e4f6b9f6954a80763df3fa85f8b5))
 
 # [1.7.0](https://github.com/eavam/use-debouncy/compare/v1.6.1...v1.7.0) (2020-06-23)
 
