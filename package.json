@@ -91,7 +91,8 @@
       "commit": true,
       "tag": true,
       "requireCommits": false,
-      "requireCleanWorkingDir": false
+      "requireCleanWorkingDir": false,
+      "pushArgs": "--force"
     },
     "github": {
       "release": true,
