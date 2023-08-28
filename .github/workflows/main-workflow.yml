@@ -59,7 +59,7 @@ jobs:
     needs: [build-and-test]
     runs-on: ubuntu-latest
     env:
-      GITHUB_TOKEN: ${{ secrets.TOKEN }}
+      GITHUB_TOKEN: ${{ secrets.RELEASE_BOT }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
