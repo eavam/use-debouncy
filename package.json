@@ -83,7 +83,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "yarn@3.6.2",
+  "packageManager": "yarn@3.6.3",
   "release-it": {
     "git": {
       "commitMessage": "chore(release): v${version}",
