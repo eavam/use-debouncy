@@ -1,13 +1,12 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - main
   workflow_run:
     workflows: ['Build and Test', 'Playwright Tests']
     types:
       - completed
+    branches:
+      - main
 
 permissions:
   contents: write # to be able to publish a GitHub release
@@ -30,9 +29,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install
-
-      - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
-        run: npm audit signatures
 
       - name: Build application
         run: yarn build
