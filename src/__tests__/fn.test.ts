@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import useDebouncyFn from '../fn';
+import { useDebouncyFn } from '../index';
 
 beforeAll(() => {
   jest.useFakeTimers();

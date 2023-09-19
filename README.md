@@ -41,20 +41,18 @@ yarn add use-debouncy
 
 ```tsx
 import React, { useState } from 'react';
-import useDebouncy from 'use-debouncy/effect'; // <== importing from effect
+import { useDebouncyEffect } from 'use-debouncy';
 
 const App = () => {
   const [value, setValue] = useState('');
 
-  useDebouncy(
+  useDebouncyEffect(
     () => fetchData(value), // function debounce
     400, // number of milliseconds to delay
     [value], // array values that the debounce depends (like as useEffect)
   );
 
-  return (
-    <input value={value} onChange={(event) => setValue(event.target.value)} />
-  );
+  return <input value={value} onChange={(event) => setValue(event.target.value)} />;
 };
 ```
 
@@ -62,10 +60,10 @@ const App = () => {
 
 ```tsx
 import React, { useState } from 'react';
-import useDebouncy from 'use-debouncy/fn'; // <== importing from fn
+import { useDebouncyFn } from 'use-debouncy';
 
 const App = () => {
-  const handleChange = useDebouncy(
+  const handleChange = useDebouncyFn(
     (event) => fetchData(event.target.value), // function debounce
     400, // number of milliseconds to delay
   );
@@ -91,10 +89,7 @@ function useDebouncyEffect(fn: () => void, wait?: number, deps?: any[]): void;
 ### useDebouncy/fn
 
 ```typescript
-function useDebouncyFn(
-  fn: (...args: any[]) => void,
-  wait?: number,
-): (...args: any[]) => void;
+function useDebouncyFn(fn: (...args: any[]) => void, wait?: number): (...args: any[]) => void;
 ```
 
 | Prop | Required | Default | Description                      |

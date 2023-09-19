@@ -9,7 +9,7 @@ const defaultDeps: DependencyList = [];
  * @param wait - Number of milliseconds to delay.
  * @param deps - Array values that the debounce depends (like as useEffect).
  */
-const useDebouncy = (
+export const useDebouncyEffect = (
   fn: EffectCallback,
   wait = 0,
   deps = defaultDeps,
@@ -29,5 +29,3 @@ const useDebouncy = (
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 };
-
-export default useDebouncy;
