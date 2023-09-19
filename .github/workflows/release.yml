@@ -2,7 +2,7 @@ name: Release
 
 on:
   workflow_run:
-    workflows: ['Build and Test', 'Playwright Tests']
+    workflows: ['Build and Test']
     types:
       - completed
     branches:
@@ -17,6 +17,9 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.RELEASE_BOT }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -33,6 +36,15 @@ jobs:
       - name: Build application
         run: yarn build
 
+      - name: npm credentials
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+      - name: yarn credentials
+        run: yarn config set npmAuthToken $NPM_TOKEN
+
+      - name: Whoiam
+        run: yarn npm whoami --publish
+
       - name: Archive production artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -42,6 +54,3 @@ jobs:
 
       - name: Release
         run: yarn release
-        env:
-          GITHUB_TOKEN: ${{ secrets.RELEASE_BOT }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
