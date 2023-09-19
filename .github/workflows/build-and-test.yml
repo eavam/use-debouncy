@@ -1,0 +1,55 @@
+name: Build and Test
+
+on:
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read # for checkout
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build application
+        run: yarn build
+
+      - name: Run linting
+        run: yarn lint
+
+      - name: Run unit tests and generate coverage
+        run: yarn test --ci --coverage
+
+      - name: Pack build
+        run: yarn pack -o use-debouncy-pack.tgz
+
+      - name: Install packed package
+        run: npm install ../use-debouncy-pack.tgz
+        working-directory: test-publish
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            lib
+            use-debouncy-pack.tgz
