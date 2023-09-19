@@ -1,3 +1,23 @@
+# [5.0.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v5.0.0) (2023-09-19)
+
+
+### Bug Fixes
+
+* remove default imports ([#1076](https://github.com/eavam/use-debouncy/issues/1076)) ([f46b35d](https://github.com/eavam/use-debouncy/commit/f46b35d9e63b165534290718d6278f35baf6ed0e))
+
+
+### Features
+
+* add codesandbox ([#1075](https://github.com/eavam/use-debouncy/issues/1075)) ([d92ecb4](https://github.com/eavam/use-debouncy/commit/d92ecb4f45e8f964a38b6523d3dffbbaa3d28168))
+* rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
+
+
+### BREAKING CHANGES
+
+* Includes were removed by default as tree-shaking should do its job.
+
+* fix: remove useless files in config
+
 # [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v4.6.0) (2023-09-19)
 
 
