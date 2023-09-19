@@ -1,2 +1,2 @@
-export { default as useDebouncyEffect } from './effect';
-export { default as useDebouncyFn } from './fn';
+export { useDebouncyEffect } from './effect';
+export { useDebouncyFn } from './fn';

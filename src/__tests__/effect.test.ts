@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react';
-import useDebouncy from '../effect';
+import { useDebouncyEffect } from '../index';
 
 beforeAll(() => {
   jest.useFakeTimers();
@@ -29,7 +29,7 @@ const getProperties = ({
 });
 
 const getHook = () =>
-  renderHook(({ delay, deps, fn }) => useDebouncy(fn, delay, deps), {
+  renderHook(({ delay, deps, fn }) => useDebouncyEffect(fn, delay, deps), {
     initialProps: getProperties(),
   });
 
@@ -69,7 +69,7 @@ test.each`
 );
 
 test('should call with default args', () => {
-  const hook = renderHook(() => useDebouncy(spy));
+  const hook = renderHook(() => useDebouncyEffect(spy));
 
   hook.rerender();
   jest.runAllTimers();
