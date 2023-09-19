@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v4.6.0) (2023-09-19)
+
+
+### Features
+
+* rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
+
 # [4.5.0](https://github.com/eavam/use-debouncy/compare/v4.4.0...v4.5.0) (2023-09-19)
 
 
