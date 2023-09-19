@@ -1722,9 +1722,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rollup/plugin-commonjs@npm:24.0.1":
-  version: 24.0.1
-  resolution: "@rollup/plugin-commonjs@npm:24.0.1"
+"@rollup/plugin-commonjs@npm:25.0.4":
+  version: 25.0.4
+  resolution: "@rollup/plugin-commonjs@npm:25.0.4"
   dependencies:
     "@rollup/pluginutils": ^5.0.1
     commondir: ^1.0.1
@@ -1737,7 +1737,7 @@ __metadata:
   peerDependenciesMeta:
     rollup:
       optional: true
-  checksum: ff5b09f5c350640fe6836fcc97bf5c5612bf78b26eaaad01bf1aee955f0b136135d1a8950a02f680779aec1f16f2c6b6cf89d6080e84ed09be62737abb6b3a5f
+  checksum: 073b92b765a1f8ab8db8e1aa216c1950e62f6c0c41210d10bb7530c4fc63670a16c19c0bbbf73e2752467c4468ad4c8134cf4724924388c3eed83df45630fda6
   languageName: node
   linkType: hard
 
@@ -9202,9 +9202,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:2.79.1":
-  version: 2.79.1
-  resolution: "rollup@npm:2.79.1"
+"rollup@npm:3.29.2":
+  version: 3.29.2
+  resolution: "rollup@npm:3.29.2"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -9212,7 +9212,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
+  checksum: 2eacb5a2522cb41e46e0bd78cca2c2da29b09b1fbd5b7c6ebb0afb3864af125a06fba528dfd6699704e49384e106ff58b359ce4abef61d7db12a7840d3b56e54
   languageName: node
   linkType: hard
 
@@ -10542,7 +10542,7 @@ __metadata:
     "@commitlint/cli": 17.7.1
     "@commitlint/config-conventional": 17.7.0
     "@playwright/test": 1.38.0
-    "@rollup/plugin-commonjs": 24.0.1
+    "@rollup/plugin-commonjs": 25.0.4
     "@rollup/plugin-sucrase": 5.0.1
     "@semantic-release/changelog": 6.0.3
     "@semantic-release/commit-analyzer": 11.0.0
@@ -10576,7 +10576,7 @@ __metadata:
     react: 18.2.0
     react-dom: 18.2.0
     rimraf: 5.0.1
-    rollup: 2.79.1
+    rollup: 3.29.2
     rollup-plugin-terser: 7.0.2
     semantic-release: 22.0.0
     semantic-release-yarn: 2.0.1
