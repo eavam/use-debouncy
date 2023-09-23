@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - main
+      - beta
 
 permissions:
   contents: read # for checkout
@@ -53,3 +54,78 @@ jobs:
           path: |
             lib
             use-debouncy-pack.tgz
+
+  playwright:
+    timeout-minutes: 60
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - run: yarn install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Build
+        run: yarn build
+
+      - name: Run Playwright tests
+        run: yarn playwright test
+
+      - uses: actions/upload-artifact@v3
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 30
+
+  release:
+    runs-on: ubuntu-latest
+    needs: ['build-and-test', 'playwright']
+    permissions:
+      contents: write # to be able to publish a GitHub release
+      issues: write # to be able to comment on released issues
+      pull-requests: write # to be able to comment on released pull requests
+      id-token: write # to enable use of OIDC for npm provenance
+    env:
+      GITHUB_TOKEN: ${{ secrets.RELEASE_BOT }}
+      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: yarn install
+
+      - name: Build application
+        run: yarn build
+
+      - name: npm credentials
+        run: npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN
+
+      - name: yarn credentials
+        run: yarn config set npmAuthToken $NPM_TOKEN
+
+      - name: Whoiam
+        run: yarn npm whoami --publish
+
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            lib
+
+      - name: Release
+        run: yarn release
