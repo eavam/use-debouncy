@@ -1,3 +1,10 @@
+## [5.0.1-beta.2](https://github.com/eavam/use-debouncy/compare/v5.0.1-beta.1...v5.0.1-beta.2) (2023-09-23)
+
+
+### Bug Fixes
+
+* type generation ([57f2f4c](https://github.com/eavam/use-debouncy/commit/57f2f4cc9bf7c3e69bb6a9eb9716a4bb0011695e))
+
 ## [5.0.1-beta.1](https://github.com/eavam/use-debouncy/compare/v5.0.0...v5.0.1-beta.1) (2023-09-23)
 
 
