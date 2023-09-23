@@ -1,7 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type Args = any[];
+type Args = unknown[];
 
 export const useAnimationFrame = <Fn extends (...args: Args) => void>(
   callback: Fn,
