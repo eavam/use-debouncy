@@ -25,7 +25,7 @@
     "test": "jest",
     "serve:e2e": "vite",
     "lint": "eslint . --ext .js,.ts",
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "yarn prebuild && rollup -c --bundleConfigAsCjs",
     "clear": "rimraf lib",
     "prebuild": "yarn clear && tsc -p tsconfig.declaration.json",
     "release": "semantic-release",
