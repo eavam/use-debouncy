@@ -60,13 +60,11 @@ web_modules/
 .parcel-cache
 
 # yarn
-.yarn/*
 !.yarn/cache
-!.yarn/patches
-!.yarn/plugins
-!.yarn/releases
-!.yarn/sdks
-!.yarn/versions
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
 
 # build
 lib/
