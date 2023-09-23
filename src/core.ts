@@ -3,7 +3,7 @@ import { useCallback, useEffect, useRef } from 'react';
 type Args = unknown[];
 
 export const useAnimationFrame = <Fn extends (...args: Args) => void>(
-  callback: Fn,
+  fn: Fn,
   wait = 0,
 ): ((...args: Parameters<Fn>) => void) => {
   const rafId = useRef(0);
@@ -22,13 +22,12 @@ export const useAnimationFrame = <Fn extends (...args: Args) => void>(
           return;
         }
 
-        // eslint-disable-next-line n/no-callback-literal
-        callback(...args);
+        fn(...args);
       };
 
       rafId.current = requestAnimationFrame(renderFrame);
     },
-    [callback, wait],
+    [fn, wait],
   );
 
   // Call cancel animation after umount
