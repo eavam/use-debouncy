@@ -1,8 +1,6 @@
 import { useCallback, useEffect, useRef } from 'react';
 
-type Args = unknown[];
-
-export const useAnimationFrame = <Fn extends (...args: Args) => void>(
+export const useAnimationFrame = <Fn extends (...args: Parameters<Fn>) => void>(
   fn: Fn,
   wait = 0,
 ): ((...args: Parameters<Fn>) => void) => {
