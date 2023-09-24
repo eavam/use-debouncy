@@ -1,3 +1,24 @@
+## [5.0.1-beta.3](https://github.com/eavam/use-debouncy/compare/v5.0.1-beta.2...v5.0.1-beta.3) (2023-09-23)
+
+
+### Bug Fixes
+
+* update types ([242ac80](https://github.com/eavam/use-debouncy/commit/242ac805af8316528281e8174f9c139f1c708a6c))
+
+## [5.0.1-beta.2](https://github.com/eavam/use-debouncy/compare/v5.0.1-beta.1...v5.0.1-beta.2) (2023-09-23)
+
+
+### Bug Fixes
+
+* type generation ([57f2f4c](https://github.com/eavam/use-debouncy/commit/57f2f4cc9bf7c3e69bb6a9eb9716a4bb0011695e))
+
+## [5.0.1-beta.1](https://github.com/eavam/use-debouncy/compare/v5.0.0...v5.0.1-beta.1) (2023-09-23)
+
+
+### Bug Fixes
+
+* remove type any ([14a9d23](https://github.com/eavam/use-debouncy/commit/14a9d23ea0c20be54693858a8df6dd2b2f025857))
+
 # [5.0.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v5.0.0) (2023-09-19)
 
 

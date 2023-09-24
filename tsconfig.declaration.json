@@ -4,6 +4,7 @@
   "compilerOptions": {
     "declaration": true,
     "declarationDir": "lib",
-    "emitDeclarationOnly": true
+    "emitDeclarationOnly": true,
+    "skipLibCheck": true
   }
 }
