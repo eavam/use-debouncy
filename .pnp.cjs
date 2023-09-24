@@ -65,7 +65,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
             ["rimraf", "npm:5.0.1"],\
-            ["rollup", "npm:3.29.2"],\
+            ["rollup", "npm:3.29.3"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
             ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1"],\
@@ -2437,7 +2437,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["glob", "npm:8.1.0"],\
             ["is-reference", "npm:1.2.1"],\
             ["magic-string", "npm:0.27.0"],\
-            ["rollup", "npm:3.29.2"]\
+            ["rollup", "npm:3.29.3"]\
           ],\
           "packagePeers": [\
             "@types/rollup",\
@@ -2460,7 +2460,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.1"],\
             ["@rollup/pluginutils", "virtual:a22c6d7ca73fd6e5287fd8dc79764decb1c90d4cf37f7cad220b34b050422bf313f7cebccc26a02510db7544cce649812a36c2a7603ed0275bad78df18ee739c#npm:5.0.3"],\
             ["@types/rollup", null],\
-            ["rollup", "npm:3.29.2"],\
+            ["rollup", "npm:3.29.3"],\
             ["sucrase", "npm:3.34.0"]\
           ],\
           "packagePeers": [\
@@ -2486,7 +2486,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/rollup", null],\
             ["estree-walker", "npm:2.0.2"],\
             ["picomatch", "npm:2.3.1"],\
-            ["rollup", "npm:3.29.2"]\
+            ["rollup", "npm:3.29.3"]\
           ],\
           "packagePeers": [\
             "@types/rollup",\
@@ -11076,10 +11076,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:3.29.2", {\
-          "packageLocation": "./.yarn/cache/rollup-npm-3.29.2-1c58c7ff1a-2eacb5a252.zip/node_modules/rollup/",\
+        ["npm:3.29.3", {\
+          "packageLocation": "./.yarn/cache/rollup-npm-3.29.3-e8a6f08380-46dfbfbb57.zip/node_modules/rollup/",\
           "packageDependencies": [\
-            ["rollup", "npm:3.29.2"],\
+            ["rollup", "npm:3.29.3"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.3#~builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"]\
           ],\
           "linkType": "HARD"\
@@ -11100,7 +11100,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@babel/code-frame", "npm:7.22.10"],\
             ["@types/rollup", null],\
             ["jest-worker", "npm:26.6.2"],\
-            ["rollup", "npm:3.29.2"],\
+            ["rollup", "npm:3.29.3"],\
             ["serialize-javascript", "npm:4.0.0"],\
             ["terser", "npm:5.19.2"]\
           ],\
@@ -12651,7 +12651,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
             ["rimraf", "npm:5.0.1"],\
-            ["rollup", "npm:3.29.2"],\
+            ["rollup", "npm:3.29.3"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
             ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1"],\
