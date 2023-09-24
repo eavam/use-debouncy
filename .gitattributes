@@ -1,0 +1,13 @@
+# This line does two things:
+# - forces git to use LF
+# - tell git to guess whether files are text or binary
+* text=auto eol=lf
+
+# Mark generated files as binary to prevent git from trying to merge them
+/.pnp.* binary linguist-generated
+
+# Set the language for these files to json5 to ensure GitHub doesn't show the comments as errors
+/.vscode/*.json linguist-language=JSON5
+
+# Hide .yarn and docs from GitHub's language detection
+/.yarn/** linguist-vendored
