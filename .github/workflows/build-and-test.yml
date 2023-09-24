@@ -1,13 +1,11 @@
 name: Build and Test
 
 on:
-  pull_request:
-    branches:
-      - main
   push:
     branches:
       - main
       - beta
+  pull_request:
 
 permissions:
   contents: read # for checkout
