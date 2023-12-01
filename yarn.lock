@@ -2563,7 +2563,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"aggregate-error@npm:^4.0.0, aggregate-error@npm:^4.0.1":
+"aggregate-error@npm:^4.0.0":
   version: 4.0.1
   resolution: "aggregate-error@npm:4.0.1"
   dependencies:
@@ -9329,12 +9329,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release-yarn@npm:2.0.1":
-  version: 2.0.1
-  resolution: "semantic-release-yarn@npm:2.0.1"
+"semantic-release-yarn@npm:2.0.2":
+  version: 2.0.2
+  resolution: "semantic-release-yarn@npm:2.0.2"
   dependencies:
     "@semantic-release/error": ^4.0.0
-    aggregate-error: ^4.0.1
+    aggregate-error: ^5.0.0
     cosmiconfig: ^8.1.0
     execa: ^8.0.1
     fs-extra: ^11.1.0
@@ -9345,7 +9345,7 @@ __metadata:
     semver: ^7.3.8
   peerDependencies:
     semantic-release: ">=19.0.0"
-  checksum: d4acc0945241817adf533df30ffdd8384a4abe2853b6bb170b1fbb0bc97729c662dbcf97b12e0c83a2ded4737c9772b7c1fa23684b2cd3c840cc6bebdbf95069
+  checksum: 0265dd0db723d800d000b728f709d90d5f6a1b64c54d534cba801f5d1d5dc79e83fbd2332a68b0d1e3b5c234667231213d3b3f37d8c4de339a0b2545edfbe5ef
   languageName: node
   linkType: hard
 
@@ -10607,7 +10607,7 @@ __metadata:
     rollup: 3.29.4
     rollup-plugin-terser: 7.0.2
     semantic-release: 22.0.0
-    semantic-release-yarn: 2.0.1
+    semantic-release-yarn: 2.0.2
     ts-jest: 29.1.1
     ts-node: 10.9.1
     typescript: 4.9.5
