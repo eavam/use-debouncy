@@ -1684,14 +1684,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.38.1":
-  version: 1.38.1
-  resolution: "@playwright/test@npm:1.38.1"
+"@playwright/test@npm:1.40.1":
+  version: 1.40.1
+  resolution: "@playwright/test@npm:1.40.1"
   dependencies:
-    playwright: 1.38.1
+    playwright: 1.40.1
   bin:
     playwright: cli.js
-  checksum: c5ec0b23261fe1ef163b6234f69263bc10e7e5a3fb676c7773ffc70b87459a7ab225f57c03b9de649475771638a04c2e00d9b2739304a4dcf5d3edf20a7a4a82
+  checksum: ae094e6cb809365c0707ee2b184e42d2a2542569ada020d2d44ca5866066941262bd9a67af185f86c2fb0133c9b712ea8cb73e2959a289e4261c5fd17077283c
   languageName: node
   linkType: hard
 
@@ -8567,27 +8567,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.38.1":
-  version: 1.38.1
-  resolution: "playwright-core@npm:1.38.1"
+"playwright-core@npm:1.40.1":
+  version: 1.40.1
+  resolution: "playwright-core@npm:1.40.1"
   bin:
     playwright-core: cli.js
-  checksum: 66e83fe040f309b13ad94ba39dea40ac207bfcbbc22de13141af88dbdedd64e1c4e3ce1d0cb070d4efd8050d7e579953ec3681dd8a0acf2c1cc738d9c50e545e
+  checksum: 84d92fb9b86e3c225b16b6886bf858eb5059b4e60fa1205ff23336e56a06dcb2eac62650992dede72f406c8e70a7b6a5303e511f9b4bc0b85022ede356a01ee0
   languageName: node
   linkType: hard
 
-"playwright@npm:1.38.1":
-  version: 1.38.1
-  resolution: "playwright@npm:1.38.1"
+"playwright@npm:1.40.1":
+  version: 1.40.1
+  resolution: "playwright@npm:1.40.1"
   dependencies:
     fsevents: 2.3.2
-    playwright-core: 1.38.1
+    playwright-core: 1.40.1
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 4e01d4ee52d9ccf75a80d8492829106802590721d56bff7c5957ff1f21eb3c328ee5bc3c1784a59c4b515df1b98d08ef92e4a35a807f454cd00dc481d30fadc2
+  checksum: 9e36791c1b4a649c104aa365fdd9d049924eeb518c5967c0e921aa38b9b00994aa6ee54784d6c2af194b3b494b6f69772673081ef53c6c4a4b2065af9955c4ba
   languageName: node
   linkType: hard
 
@@ -10569,7 +10569,7 @@ __metadata:
   dependencies:
     "@commitlint/cli": 17.7.2
     "@commitlint/config-conventional": 17.7.0
-    "@playwright/test": 1.38.1
+    "@playwright/test": 1.40.1
     "@rollup/plugin-commonjs": 25.0.4
     "@rollup/plugin-sucrase": 5.0.1
     "@semantic-release/changelog": 6.0.3
