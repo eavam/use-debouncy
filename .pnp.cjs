@@ -68,7 +68,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup", "npm:3.29.4"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
-            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1"],\
+            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2"],\
             ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.1.1"],\
             ["ts-node", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
@@ -4756,10 +4756,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:9d627be9489b8a6462a1844deb9ea3ab486abca8a78d618cbb02e1ab9ef6e1d61aaa9e371661e8466a41978e664f8bd6a820c73dff6a225f77d410b1fc0163df#npm:8.3.6", {\
-          "packageLocation": "./.yarn/__virtual__/cosmiconfig-virtual-58e1dce1b1/0/cache/cosmiconfig-npm-8.3.6-a5566e2779-dc339ebea4.zip/node_modules/cosmiconfig/",\
+        ["virtual:31137d51f0172d03c3c9a0d6b4a351ccf6df407e31f81bf10c9765d4d65019c08e8b83890bcd9159ff8dd7495e2e71504762c4d4514568823fda6d49fae9c43d#npm:8.3.6", {\
+          "packageLocation": "./.yarn/__virtual__/cosmiconfig-virtual-0d2dc7c83a/0/cache/cosmiconfig-npm-8.3.6-a5566e2779-dc339ebea4.zip/node_modules/cosmiconfig/",\
           "packageDependencies": [\
-            ["cosmiconfig", "virtual:9d627be9489b8a6462a1844deb9ea3ab486abca8a78d618cbb02e1ab9ef6e1d61aaa9e371661e8466a41978e664f8bd6a820c73dff6a225f77d410b1fc0163df#npm:8.3.6"],\
+            ["cosmiconfig", "virtual:31137d51f0172d03c3c9a0d6b4a351ccf6df407e31f81bf10c9765d4d65019c08e8b83890bcd9159ff8dd7495e2e71504762c4d4514568823fda6d49fae9c43d#npm:8.3.6"],\
             ["@types/typescript", null],\
             ["import-fresh", "npm:3.3.0"],\
             ["js-yaml", "npm:4.1.0"],\
@@ -11250,21 +11250,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["semantic-release-yarn", [\
-        ["npm:2.0.1", {\
-          "packageLocation": "./.yarn/cache/semantic-release-yarn-npm-2.0.1-eaa32a1d74-d4acc09452.zip/node_modules/semantic-release-yarn/",\
+        ["npm:2.0.2", {\
+          "packageLocation": "./.yarn/cache/semantic-release-yarn-npm-2.0.2-cefdfa588d-0265dd0db7.zip/node_modules/semantic-release-yarn/",\
           "packageDependencies": [\
-            ["semantic-release-yarn", "npm:2.0.1"]\
+            ["semantic-release-yarn", "npm:2.0.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1", {\
-          "packageLocation": "./.yarn/__virtual__/semantic-release-yarn-virtual-9d627be948/0/cache/semantic-release-yarn-npm-2.0.1-eaa32a1d74-d4acc09452.zip/node_modules/semantic-release-yarn/",\
+        ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2", {\
+          "packageLocation": "./.yarn/__virtual__/semantic-release-yarn-virtual-31137d51f0/0/cache/semantic-release-yarn-npm-2.0.2-cefdfa588d-0265dd0db7.zip/node_modules/semantic-release-yarn/",\
           "packageDependencies": [\
-            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1"],\
+            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2"],\
             ["@semantic-release/error", "npm:4.0.0"],\
             ["@types/semantic-release", null],\
-            ["aggregate-error", "npm:4.0.1"],\
-            ["cosmiconfig", "virtual:9d627be9489b8a6462a1844deb9ea3ab486abca8a78d618cbb02e1ab9ef6e1d61aaa9e371661e8466a41978e664f8bd6a820c73dff6a225f77d410b1fc0163df#npm:8.3.6"],\
+            ["aggregate-error", "npm:5.0.0"],\
+            ["cosmiconfig", "virtual:31137d51f0172d03c3c9a0d6b4a351ccf6df407e31f81bf10c9765d4d65019c08e8b83890bcd9159ff8dd7495e2e71504762c4d4514568823fda6d49fae9c43d#npm:8.3.6"],\
             ["execa", "npm:8.0.1"],\
             ["fs-extra", "npm:11.1.1"],\
             ["js-yaml", "npm:4.1.0"],\
@@ -12675,7 +12675,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rollup", "npm:3.29.4"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
-            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.1"],\
+            ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2"],\
             ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.1.1"],\
             ["ts-node", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:10.9.1"],\
             ["typescript", "patch:typescript@npm%3A4.9.5#~builtin<compat/typescript>::version=4.9.5&hash=289587"],\
