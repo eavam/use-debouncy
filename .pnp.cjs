@@ -41,7 +41,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:11.0.0"],\
             ["@semantic-release/release-notes-generator", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:12.0.0"],\
             ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.0.0"],\
-            ["@types/jest", "npm:29.5.5"],\
+            ["@types/jest", "npm:29.5.10"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@typescript-eslint/eslint-plugin", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.62.0"],\
@@ -3013,10 +3013,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@types/jest", [\
-        ["npm:29.5.5", {\
-          "packageLocation": "./.yarn/cache/@types-jest-npm-29.5.5-cc0df7a171-56e55cde99.zip/node_modules/@types/jest/",\
+        ["npm:29.5.10", {\
+          "packageLocation": "./.yarn/cache/@types-jest-npm-29.5.10-cc73227aae-ef38590578.zip/node_modules/@types/jest/",\
           "packageDependencies": [\
-            ["@types/jest", "npm:29.5.5"],\
+            ["@types/jest", "npm:29.5.10"],\
             ["expect", "npm:29.6.3"],\
             ["pretty-format", "npm:29.6.3"]\
           ],\
@@ -12163,7 +12163,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/babel-jest", null],\
             ["@types/babel__core", null],\
             ["@types/esbuild", null],\
-            ["@types/jest", "npm:29.5.5"],\
+            ["@types/jest", "npm:29.5.10"],\
             ["@types/jest__types", null],\
             ["@types/typescript", null],\
             ["babel-jest", null],\
@@ -12648,7 +12648,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/npm", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:11.0.0"],\
             ["@semantic-release/release-notes-generator", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:12.0.0"],\
             ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.0.0"],\
-            ["@types/jest", "npm:29.5.5"],\
+            ["@types/jest", "npm:29.5.10"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
             ["@typescript-eslint/eslint-plugin", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.62.0"],\
