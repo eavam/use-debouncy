@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "17.7.2",
     "@commitlint/config-conventional": "17.7.0",
-    "@playwright/test": "1.38.1",
+    "@playwright/test": "1.40.1",
     "@rollup/plugin-commonjs": "25.0.4",
     "@rollup/plugin-sucrase": "5.0.1",
     "@semantic-release/changelog": "6.0.3",
