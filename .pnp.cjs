@@ -40,7 +40,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/github", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:9.0.6"],\
             ["@semantic-release/npm", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:11.0.0"],\
             ["@semantic-release/release-notes-generator", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:12.0.0"],\
-            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.0"],\
+            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.2"],\
             ["@types/jest", "npm:29.5.11"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
@@ -2922,17 +2922,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@testing-library/react", [\
-        ["npm:14.2.0", {\
-          "packageLocation": "./.yarn/cache/@testing-library-react-npm-14.2.0-9a3420b9fd-c7fa471dbb.zip/node_modules/@testing-library/react/",\
+        ["npm:14.2.2", {\
+          "packageLocation": "./.yarn/cache/@testing-library-react-npm-14.2.2-b4ff2da14c-cb73df5885.zip/node_modules/@testing-library/react/",\
           "packageDependencies": [\
-            ["@testing-library/react", "npm:14.2.0"]\
+            ["@testing-library/react", "npm:14.2.2"]\
           ],\
           "linkType": "SOFT"\
         }],\
-        ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.0", {\
-          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-c8614147ba/0/cache/@testing-library-react-npm-14.2.0-9a3420b9fd-c7fa471dbb.zip/node_modules/@testing-library/react/",\
+        ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.2", {\
+          "packageLocation": "./.yarn/__virtual__/@testing-library-react-virtual-eda234baac/0/cache/@testing-library-react-npm-14.2.2-b4ff2da14c-cb73df5885.zip/node_modules/@testing-library/react/",\
           "packageDependencies": [\
-            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.0"],\
+            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.2"],\
             ["@babel/runtime", "npm:7.22.10"],\
             ["@testing-library/dom", "npm:9.3.1"],\
             ["@types/react", "npm:18.0.28"],\
@@ -12825,7 +12825,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@semantic-release/github", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:9.0.6"],\
             ["@semantic-release/npm", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:11.0.0"],\
             ["@semantic-release/release-notes-generator", "virtual:7f2aec34457c69baede4793996aff468abab35f5b8d3e2e5f38c4da77e3ef6db210815672446f27e5fd5ed54e90b001c8e1db1882f2ba19118375d4dba3e5184#npm:12.0.0"],\
-            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.0"],\
+            ["@testing-library/react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:14.2.2"],\
             ["@types/jest", "npm:29.5.11"],\
             ["@types/react", "npm:18.0.28"],\
             ["@types/react-dom", "npm:18.0.11"],\
