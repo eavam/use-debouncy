@@ -30,7 +30,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [\
             ["@commitlint/cli", "npm:17.8.1"],\
             ["@commitlint/config-conventional", "npm:17.8.1"],\
-            ["@playwright/test", "npm:1.42.1"],\
+            ["@playwright/test", "npm:1.43.1"],\
             ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:25.0.7"],\
             ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
             ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
@@ -2482,11 +2482,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["@playwright/test", [\
-        ["npm:1.42.1", {\
-          "packageLocation": "./.yarn/cache/@playwright-test-npm-1.42.1-1e93511e64-a41505f02a.zip/node_modules/@playwright/test/",\
+        ["npm:1.43.1", {\
+          "packageLocation": "./.yarn/cache/@playwright-test-npm-1.43.1-5642bcf0aa-f9db387b48.zip/node_modules/@playwright/test/",\
           "packageDependencies": [\
-            ["@playwright/test", "npm:1.42.1"],\
-            ["playwright", "npm:1.42.1"]\
+            ["@playwright/test", "npm:1.43.1"],\
+            ["playwright", "npm:1.43.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -10525,21 +10525,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]\
       ]],\
       ["playwright", [\
-        ["npm:1.42.1", {\
-          "packageLocation": "./.yarn/cache/playwright-npm-1.42.1-ad14b1d04e-06c16bcd07.zip/node_modules/playwright/",\
+        ["npm:1.43.1", {\
+          "packageLocation": "./.yarn/cache/playwright-npm-1.43.1-57b872b758-de9db021f9.zip/node_modules/playwright/",\
           "packageDependencies": [\
-            ["playwright", "npm:1.42.1"],\
+            ["playwright", "npm:1.43.1"],\
             ["fsevents", "patch:fsevents@npm%3A2.3.2#~builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
-            ["playwright-core", "npm:1.42.1"]\
+            ["playwright-core", "npm:1.43.1"]\
           ],\
           "linkType": "HARD"\
         }]\
       ]],\
       ["playwright-core", [\
-        ["npm:1.42.1", {\
-          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.42.1-9ffc4604de/node_modules/playwright-core/",\
+        ["npm:1.43.1", {\
+          "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.43.1-32d72955cf/node_modules/playwright-core/",\
           "packageDependencies": [\
-            ["playwright-core", "npm:1.42.1"]\
+            ["playwright-core", "npm:1.43.1"]\
           ],\
           "linkType": "HARD"\
         }]\
@@ -12815,7 +12815,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["use-debouncy", "workspace:."],\
             ["@commitlint/cli", "npm:17.8.1"],\
             ["@commitlint/config-conventional", "npm:17.8.1"],\
-            ["@playwright/test", "npm:1.42.1"],\
+            ["@playwright/test", "npm:1.43.1"],\
             ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:25.0.7"],\
             ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
             ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
