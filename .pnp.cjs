@@ -64,7 +64,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
-            ["rimraf", "npm:5.0.7"],\
+            ["rimraf", "npm:5.0.10"],\
             ["rollup", "npm:3.29.4"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
@@ -11238,10 +11238,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],\
           "linkType": "HARD"\
         }],\
-        ["npm:5.0.7", {\
-          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.7-5c7aa1db5b-884852abf8.zip/node_modules/rimraf/",\
+        ["npm:5.0.10", {\
+          "packageLocation": "./.yarn/cache/rimraf-npm-5.0.10-d0c6647697-50e27388dd.zip/node_modules/rimraf/",\
           "packageDependencies": [\
-            ["rimraf", "npm:5.0.7"],\
+            ["rimraf", "npm:5.0.10"],\
             ["glob", "npm:10.3.10"]\
           ],\
           "linkType": "HARD"\
@@ -12863,7 +12863,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
             ["react", "npm:18.2.0"],\
             ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
-            ["rimraf", "npm:5.0.7"],\
+            ["rimraf", "npm:5.0.10"],\
             ["rollup", "npm:3.29.4"],\
             ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
             ["semantic-release", "npm:22.0.0"],\
