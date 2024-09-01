@@ -1049,17 +1049,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@eslint-community/regexpp@npm:^4.11.0":
+  version: 4.11.0
+  resolution: "@eslint-community/regexpp@npm:4.11.0"
+  checksum: 97d2fe46690b69417a551bd19a3dc53b6d9590d2295c43cc4c4e44e64131af541e2f4a44d5c12e87de990403654d3dae9d33600081f3a2f0386b368abc9111ec
+  languageName: node
+  linkType: hard
+
 "@eslint-community/regexpp@npm:^4.4.0, @eslint-community/regexpp@npm:^4.6.1":
   version: 4.8.0
   resolution: "@eslint-community/regexpp@npm:4.8.0"
   checksum: 601e6d033d556e98e8c929905bef335f20d7389762812df4d0f709d9b4d2631610dda975fb272e23b5b68e24a163b3851b114c8080a0a19fb4c141a1eff6305b
-  languageName: node
-  linkType: hard
-
-"@eslint-community/regexpp@npm:^4.6.0":
-  version: 4.7.0
-  resolution: "@eslint-community/regexpp@npm:4.7.0"
-  checksum: 09b8d11a9957b58be870d76e36b718030ba2215e1fb9d009f7a0833733c86b47d8528c47808eeef389145ca198abc3ea4d169452840e36142ecfb9491e3a1d16
   languageName: node
   linkType: hard
 
@@ -3366,6 +3366,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"builtin-modules@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "builtin-modules@npm:3.3.0"
+  checksum: db021755d7ed8be048f25668fe2117620861ef6703ea2c65ed2779c9e3636d5c3b82325bd912244293959ff3ae303afa3471f6a15bf5060c103e4cc3a839749d
+  languageName: node
+  linkType: hard
+
 "builtins@npm:^5.0.0, builtins@npm:^5.0.1":
   version: 5.0.1
   resolution: "builtins@npm:5.0.1"
@@ -4730,6 +4737,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"eslint-compat-utils@npm:^0.5.1":
+  version: 0.5.1
+  resolution: "eslint-compat-utils@npm:0.5.1"
+  dependencies:
+    semver: ^7.5.4
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: beccf2a5bd7c7974e3584b269f8a02667c83bca64cfd4c866f3055867f187e78b00ee826721765bdee9b13efaaa248f8068c581f7bb05803e8f47abb116e68fc
+  languageName: node
+  linkType: hard
+
 "eslint-config-prettier@npm:8.10.0":
   version: 8.10.0
   resolution: "eslint-config-prettier@npm:8.10.0"
@@ -4776,15 +4794,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-es-x@npm:^7.1.0":
-  version: 7.2.0
-  resolution: "eslint-plugin-es-x@npm:7.2.0"
+"eslint-plugin-es-x@npm:^7.5.0":
+  version: 7.8.0
+  resolution: "eslint-plugin-es-x@npm:7.8.0"
   dependencies:
     "@eslint-community/eslint-utils": ^4.1.2
-    "@eslint-community/regexpp": ^4.6.0
+    "@eslint-community/regexpp": ^4.11.0
+    eslint-compat-utils: ^0.5.1
   peerDependencies:
     eslint: ">=8"
-  checksum: eece76ef6bcfce463659338b487e516e962ddf3ae34a8a65240ebd318fc991cabfe3573b1c3af5226474193b9c83f030c7900a8e5ffdbe731a3928ca8f2799c9
+  checksum: c30fc6bd94f86781eaf34dec59e7d52ee68b8a12305ae76222d8d0ff6cc0a5c94e8306ed079b4234d64f7464bcd162a5fef59e7cc69a978ba77950e0395c79f8
   languageName: node
   linkType: hard
 
@@ -4815,21 +4834,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-n@npm:16.0.2":
-  version: 16.0.2
-  resolution: "eslint-plugin-n@npm:16.0.2"
+"eslint-plugin-n@npm:16.6.2":
+  version: 16.6.2
+  resolution: "eslint-plugin-n@npm:16.6.2"
   dependencies:
     "@eslint-community/eslint-utils": ^4.4.0
     builtins: ^5.0.1
-    eslint-plugin-es-x: ^7.1.0
+    eslint-plugin-es-x: ^7.5.0
+    get-tsconfig: ^4.7.0
+    globals: ^13.24.0
     ignore: ^5.2.4
+    is-builtin-module: ^3.2.1
     is-core-module: ^2.12.1
     minimatch: ^3.1.2
     resolve: ^1.22.2
     semver: ^7.5.3
   peerDependencies:
     eslint: ">=7.0.0"
-  checksum: 44cffe32a3a3cd2a706e82f45fedf79e0af7cae20e7c5f3185707233d941de1058373a27b90e86a8f0e5f9830b02c90116deaa05f139a67556954de72bc4935d
+  checksum: 3b468da0038cf25af582608983491b33ac2d481b6a94a0ff2e715d3b85e1ff8cb93df4cd67b689d520bea1bfb8f2b717f01606bf6b2ea19fe8f9c0999ea7057d
   languageName: node
   linkType: hard
 
@@ -5620,6 +5642,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"get-tsconfig@npm:^4.7.0":
+  version: 4.8.0
+  resolution: "get-tsconfig@npm:4.8.0"
+  dependencies:
+    resolve-pkg-maps: ^1.0.0
+  checksum: e8716cb4774747d73e1f2e32f9a01cd7aa55dcbdeadaae2d514b62f686a24d28681111d5ea4c238b80e7537fe6c95bb4800cd6123d6305966a2dd333e2a85720
+  languageName: node
+  linkType: hard
+
 "git-log-parser@npm:^1.2.0":
   version: 1.2.0
   resolution: "git-log-parser@npm:1.2.0"
@@ -5775,6 +5806,15 @@ __metadata:
   dependencies:
     type-fest: ^0.20.2
   checksum: 86c92ca8a04efd864c10852cd9abb1ebe6d447dcc72936783e66eaba1087d7dba5c9c3421a48d6ca722c319378754dbcc3f3f732dbe47592d7de908edf58a773
+  languageName: node
+  linkType: hard
+
+"globals@npm:^13.24.0":
+  version: 13.24.0
+  resolution: "globals@npm:13.24.0"
+  dependencies:
+    type-fest: ^0.20.2
+  checksum: 56066ef058f6867c04ff203b8a44c15b038346a62efbc3060052a1016be9f56f4cf0b2cd45b74b22b81e521a889fc7786c73691b0549c2f3a6e825b3d394f43c
   languageName: node
   linkType: hard
 
@@ -6352,6 +6392,15 @@ __metadata:
     call-bind: ^1.0.2
     has-tostringtag: ^1.0.0
   checksum: c03b23dbaacadc18940defb12c1c0e3aaece7553ef58b162a0f6bba0c2a7e1551b59f365b91e00d2dbac0522392d576ef322628cb1d036a0fe51eb466db67222
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: ^3.3.0
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
   languageName: node
   linkType: hard
 
@@ -9814,6 +9863,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"resolve-pkg-maps@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "resolve-pkg-maps@npm:1.0.0"
+  checksum: 1012afc566b3fdb190a6309cc37ef3b2dcc35dff5fa6683a9d00cd25c3247edfbc4691b91078c97adc82a29b77a2660c30d791d65dab4fc78bfc473f60289977
+  languageName: node
+  linkType: hard
+
 "resolve.exports@npm:^2.0.0":
   version: 2.0.2
   resolution: "resolve.exports@npm:2.0.2"
@@ -11473,7 +11529,7 @@ __metadata:
     eslint-config-prettier: 8.10.0
     eslint-config-standard: 17.1.0
     eslint-plugin-import: 2.29.1
-    eslint-plugin-n: 16.0.2
+    eslint-plugin-n: 16.6.2
     eslint-plugin-prettier: 4.2.1
     eslint-plugin-promise: 6.1.1
     eslint-plugin-react: 7.32.2
