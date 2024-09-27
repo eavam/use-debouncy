@@ -1,1 +1,1 @@
-console.log('testing publish');
+'testing publish';

@@ -9,7 +9,6 @@
   },
   "plugins": ["@typescript-eslint", "import", "react", "react-hooks"],
   "extends": [
-    "standard",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
