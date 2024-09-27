@@ -6,4 +6,4 @@ const config = {
   testEnvironment: 'jsdom',
 };
 
-export default config;
+module.exports = config;
