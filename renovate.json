@@ -19,5 +19,5 @@
     }
   ],
   "rebaseWhen": "behind-base-branch",
-  "schedule": ["before 4am on the first day of the month"]
+  "schedule": ["* * 1-5 * *"]
 }
