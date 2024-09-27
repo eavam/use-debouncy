@@ -59,7 +59,6 @@ const RAW_RUNTIME_STATE =
           ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
-          ["rimraf", "npm:5.0.10"],\
           ["rollup", "npm:3.29.4"],\
           ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.0"],\
@@ -6511,18 +6510,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["glob", [\
-      ["npm:10.3.10", {\
-        "packageLocation": "./.yarn/cache/glob-npm-10.3.10-da1ef8b112-38bdb2c9ce.zip/node_modules/glob/",\
-        "packageDependencies": [\
-          ["glob", "npm:10.3.10"],\
-          ["foreground-child", "npm:3.1.1"],\
-          ["jackspeak", "npm:2.3.6"],\
-          ["minimatch", "npm:9.0.3"],\
-          ["minipass", "npm:7.0.3"],\
-          ["path-scurry", "npm:1.10.1"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:10.3.3", {\
         "packageLocation": "./.yarn/cache/glob-npm-10.3.3-2d9abea8c7-0d1a59dff5.zip/node_modules/glob/",\
         "packageDependencies": [\
@@ -7640,15 +7627,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/jackspeak-npm-2.3.0-d55fd5c42c-f123a6eb18.zip/node_modules/jackspeak/",\
         "packageDependencies": [\
           ["jackspeak", "npm:2.3.0"],\
-          ["@isaacs/cliui", "npm:8.0.2"],\
-          ["@pkgjs/parseargs", "npm:0.11.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
-      ["npm:2.3.6", {\
-        "packageLocation": "./.yarn/cache/jackspeak-npm-2.3.6-42e1233172-6e6490d676.zip/node_modules/jackspeak/",\
-        "packageDependencies": [\
-          ["jackspeak", "npm:2.3.6"],\
           ["@isaacs/cliui", "npm:8.0.2"],\
           ["@pkgjs/parseargs", "npm:0.11.0"]\
         ],\
@@ -11029,14 +11007,6 @@ const RAW_RUNTIME_STATE =
           ["glob", "npm:7.2.3"]\
         ],\
         "linkType": "HARD"\
-      }],\
-      ["npm:5.0.10", {\
-        "packageLocation": "./.yarn/cache/rimraf-npm-5.0.10-d0c6647697-f3b8ce81ee.zip/node_modules/rimraf/",\
-        "packageDependencies": [\
-          ["rimraf", "npm:5.0.10"],\
-          ["glob", "npm:10.3.10"]\
-        ],\
-        "linkType": "HARD"\
       }]\
     ]],\
     ["rollup", [\
@@ -12638,7 +12608,6 @@ const RAW_RUNTIME_STATE =
           ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
           ["react", "npm:18.2.0"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.2.0"],\
-          ["rimraf", "npm:5.0.10"],\
           ["rollup", "npm:3.29.4"],\
           ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.0"],\
