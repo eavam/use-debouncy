@@ -89,7 +89,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "yarn@3.6.3",
+  "packageManager": "yarn@4.5.0",
   "commitlint": {
     "extends": [
       "@commitlint/config-conventional"
