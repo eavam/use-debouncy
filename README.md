@@ -97,10 +97,6 @@ function useDebouncyFn(fn: (...args: any[]) => void, wait?: number): (...args: a
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
 
-## Development
-
-[![js-standard-style](https://cdn.rawgit.com/standard/standard/master/badge.svg)](http://standardjs.com)
-
 ## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_large)
