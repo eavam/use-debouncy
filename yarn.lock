@@ -5084,12 +5084,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-check@npm:3.12.0":
-  version: 3.12.0
-  resolution: "fast-check@npm:3.12.0"
+"fast-check@npm:3.22.0":
+  version: 3.22.0
+  resolution: "fast-check@npm:3.22.0"
   dependencies:
-    pure-rand: "npm:^6.0.0"
-  checksum: 10/5ef7162e7d2e64bda44e6cbd344816c5a309a59ddb9a8eb6cd2e840e8e1405aca99d97492ccca55bc0c4a6fbf576f22ac72b14e2e4ca1e138da4d7fceb6c0d97
+    pure-rand: "npm:^6.1.0"
+  checksum: 10/26ae7cc228fcd9759124db10cbbc01efff730bcdc848544ec7c3a533b9d88dec88d2a4a79da0ea4eb1ec78611dc6576f06f3fa5f8ff7126ad2eecf5ce3da57c6
   languageName: node
   linkType: hard
 
@@ -9469,6 +9469,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pure-rand@npm:^6.1.0":
+  version: 6.1.0
+  resolution: "pure-rand@npm:6.1.0"
+  checksum: 10/256aa4bcaf9297256f552914e03cbdb0039c8fe1db11fa1e6d3f80790e16e563eb0a859a1e61082a95e224fc0c608661839439f8ecc6a3db4e48d46d99216ee4
+  languageName: node
+  linkType: hard
+
 "qrcode-terminal@npm:^0.12.0":
   version: 0.12.0
   resolution: "qrcode-terminal@npm:0.12.0"
@@ -11455,7 +11462,7 @@ __metadata:
     eslint-plugin-prettier: "npm:4.2.1"
     eslint-plugin-react: "npm:7.37.1"
     eslint-plugin-react-hooks: "npm:4.6.2"
-    fast-check: "npm:3.12.0"
+    fast-check: "npm:3.22.0"
     husky: "npm:8.0.3"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
