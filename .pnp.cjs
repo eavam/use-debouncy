@@ -59,7 +59,7 @@ const RAW_RUNTIME_STATE =
           ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.3.1"],\
-          ["rollup", "npm:3.29.4"],\
+          ["rollup", "npm:3.29.5"],\
           ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.0"],\
           ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2"],\
@@ -2557,7 +2557,7 @@ const RAW_RUNTIME_STATE =
           ["glob", "npm:8.1.0"],\
           ["is-reference", "npm:1.2.1"],\
           ["magic-string", "npm:0.30.5"],\
-          ["rollup", "npm:3.29.4"]\
+          ["rollup", "npm:3.29.5"]\
         ],\
         "packagePeers": [\
           "@types/rollup",\
@@ -2580,7 +2580,7 @@ const RAW_RUNTIME_STATE =
           ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
           ["@rollup/pluginutils", "virtual:02e78b0e235a5a4a1420cd29bcb2a617fd03793c74a0bb284cc68ae6c22deadccfa2b9a86192cc7ddf626d47f204c018318251726f9cda28122976a78e987a44#npm:5.0.3"],\
           ["@types/rollup", null],\
-          ["rollup", "npm:3.29.4"],\
+          ["rollup", "npm:3.29.5"],\
           ["sucrase", "npm:3.34.0"]\
         ],\
         "packagePeers": [\
@@ -2606,7 +2606,7 @@ const RAW_RUNTIME_STATE =
           ["@types/rollup", null],\
           ["estree-walker", "npm:2.0.2"],\
           ["picomatch", "npm:2.3.1"],\
-          ["rollup", "npm:3.29.4"]\
+          ["rollup", "npm:3.29.5"]\
         ],\
         "packagePeers": [\
           "@types/rollup",\
@@ -11134,10 +11134,10 @@ const RAW_RUNTIME_STATE =
         ],\
         "linkType": "HARD"\
       }],\
-      ["npm:3.29.4", {\
-        "packageLocation": "./.yarn/cache/rollup-npm-3.29.4-5e5e5f2087-9e39d54e23.zip/node_modules/rollup/",\
+      ["npm:3.29.5", {\
+        "packageLocation": "./.yarn/cache/rollup-npm-3.29.5-4622371c71-5ce0e5f1d9.zip/node_modules/rollup/",\
         "packageDependencies": [\
-          ["rollup", "npm:3.29.4"],\
+          ["rollup", "npm:3.29.5"],\
           ["fsevents", "patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"]\
         ],\
         "linkType": "HARD"\
@@ -11158,7 +11158,7 @@ const RAW_RUNTIME_STATE =
           ["@babel/code-frame", "npm:7.22.10"],\
           ["@types/rollup", null],\
           ["jest-worker", "npm:26.6.2"],\
-          ["rollup", "npm:3.29.4"],\
+          ["rollup", "npm:3.29.5"],\
           ["serialize-javascript", "npm:4.0.0"],\
           ["terser", "npm:5.19.2"]\
         ],\
@@ -12689,7 +12689,7 @@ const RAW_RUNTIME_STATE =
           ["pretty-quick", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.1.3"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.3.1"],\
-          ["rollup", "npm:3.29.4"],\
+          ["rollup", "npm:3.29.5"],\
           ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.0"],\
           ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:2.0.2"],\
