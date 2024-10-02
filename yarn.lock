@@ -11454,7 +11454,7 @@ __metadata:
     semantic-release-yarn: "npm:2.0.2"
     ts-jest: "npm:29.2.5"
     typescript: "npm:4.9.5"
-    vite: "npm:4.4.9"
+    vite: "npm:4.5.5"
     vite-plugin-commonjs: "npm:0.8.2"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -11529,9 +11529,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:4.4.9":
-  version: 4.4.9
-  resolution: "vite@npm:4.4.9"
+"vite@npm:4.5.5":
+  version: 4.5.5
+  resolution: "vite@npm:4.5.5"
   dependencies:
     esbuild: "npm:^0.18.10"
     fsevents: "npm:~2.3.2"
@@ -11565,7 +11565,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/d15543bded36f2083c13286b5420e89673be99abd28664f27a73980f2099f10e427b07e24f4e035dcd682989ebf8e1e5f5257664771edd4b466e2599119d1a47
+  checksum: 10/2e8b39e004f2b2e72506b816700b3aafaf3f85bdcb9dd9392075bb234ce7333f859a0d2078a85ce5d0039f0f659ca564a7366af587848e5166f14b136cb0ad37
   languageName: node
   linkType: hard
 
