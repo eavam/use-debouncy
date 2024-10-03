@@ -35,8 +35,8 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "17.8.1",
-    "@commitlint/config-conventional": "17.8.1",
+    "@commitlint/cli": "19.5.0",
+    "@commitlint/config-conventional": "19.5.0",
     "@playwright/test": "1.47.2",
     "@rollup/plugin-commonjs": "28.0.0",
     "@rollup/plugin-sucrase": "5.0.2",
