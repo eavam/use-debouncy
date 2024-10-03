@@ -10709,9 +10709,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semantic-release-yarn@npm:2.0.2":
-  version: 2.0.2
-  resolution: "semantic-release-yarn@npm:2.0.2"
+"semantic-release-yarn@npm:3.0.2":
+  version: 3.0.2
+  resolution: "semantic-release-yarn@npm:3.0.2"
   dependencies:
     "@semantic-release/error": "npm:^4.0.0"
     aggregate-error: "npm:^5.0.0"
@@ -10725,7 +10725,7 @@ __metadata:
     semver: "npm:^7.3.8"
   peerDependencies:
     semantic-release: ">=19.0.0"
-  checksum: 10/51b71877f1ce3d15aedd97fcb96ea93dfbba4c0afab9015b385796ced0859df0bc54179b0b27a2f5e0a68e3bce40304c4b160fe2e8f5d8273e07414fbc1d88ae
+  checksum: 10/cffb4a64f94092193705587277ae6d475a008d523df976b01cac41201c9c4d9fb5f43266cbcbc68570e7c4a81e797635dbe0cde1dc12900716d81e5922dbe63d
   languageName: node
   linkType: hard
 
@@ -12116,7 +12116,7 @@ __metadata:
     rollup: "npm:3.29.5"
     rollup-plugin-terser: "npm:7.0.2"
     semantic-release: "npm:22.0.12"
-    semantic-release-yarn: "npm:2.0.2"
+    semantic-release-yarn: "npm:3.0.2"
     ts-jest: "npm:29.2.5"
     typescript: "npm:4.9.5"
     vite: "npm:4.5.5"
