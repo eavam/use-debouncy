@@ -67,7 +67,7 @@
     "pretty-quick": "4.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "3.29.5",
+    "rollup": "4.24.0",
     "rollup-plugin-terser": "7.0.2",
     "semantic-release": "22.0.12",
     "semantic-release-yarn": "2.0.2",
