@@ -32,6 +32,7 @@ const RAW_RUNTIME_STATE =
           ["@playwright/test", "npm:1.47.2"],\
           ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:28.0.0"],\
           ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
+          ["@rollup/plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:0.1.0"],\
           ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
           ["@semantic-release/commit-analyzer", "virtual:af2cf72dc39691c71459e458026c5c34e70102662ec3c672a81f04a0a9438b409df99e648748671b2c936443bb341cff406321d9d48103b5d85fdc26705c8a42#npm:11.1.0"],\
           ["@semantic-release/exec", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
@@ -60,7 +61,6 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.3.1"],\
           ["rollup", "npm:4.24.0"],\
-          ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.12"],\
           ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.0.2"],\
           ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.2.5"],\
@@ -2797,6 +2797,29 @@ const RAW_RUNTIME_STATE =
           ["@types/rollup", null],\
           ["rollup", "npm:4.24.0"],\
           ["sucrase", "npm:3.34.0"]\
+        ],\
+        "packagePeers": [\
+          "@types/rollup",\
+          "rollup"\
+        ],\
+        "linkType": "HARD"\
+      }]\
+    ]],\
+    ["@rollup/plugin-terser", [\
+      ["npm:0.1.0", {\
+        "packageLocation": "./.yarn/cache/@rollup-plugin-terser-npm-0.1.0-e208d1c0c5-e8abed2bc9.zip/node_modules/@rollup/plugin-terser/",\
+        "packageDependencies": [\
+          ["@rollup/plugin-terser", "npm:0.1.0"]\
+        ],\
+        "linkType": "SOFT"\
+      }],\
+      ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:0.1.0", {\
+        "packageLocation": "./.yarn/__virtual__/@rollup-plugin-terser-virtual-cab890525c/0/cache/@rollup-plugin-terser-npm-0.1.0-e208d1c0c5-e8abed2bc9.zip/node_modules/@rollup/plugin-terser/",\
+        "packageDependencies": [\
+          ["@rollup/plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:0.1.0"],\
+          ["@types/rollup", null],\
+          ["rollup", "npm:4.24.0"],\
+          ["terser", "npm:5.34.1"]\
         ],\
         "packagePeers": [\
           "@types/rollup",\
@@ -9238,16 +9261,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["jest-worker", [\
-      ["npm:26.6.2", {\
-        "packageLocation": "./.yarn/cache/jest-worker-npm-26.6.2-46cbcd449f-5f6b94cf0e.zip/node_modules/jest-worker/",\
-        "packageDependencies": [\
-          ["jest-worker", "npm:26.6.2"],\
-          ["@types/node", "npm:20.5.3"],\
-          ["merge-stream", "npm:2.0.0"],\
-          ["supports-color", "npm:7.2.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:29.7.0", {\
         "packageLocation": "./.yarn/cache/jest-worker-npm-29.7.0-4d3567fed6-364cbaef00.zip/node_modules/jest-worker/",\
         "packageDependencies": [\
@@ -12047,16 +12060,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["randombytes", [\
-      ["npm:2.1.0", {\
-        "packageLocation": "./.yarn/cache/randombytes-npm-2.1.0-e3da76bccf-4efd1ad3d8.zip/node_modules/randombytes/",\
-        "packageDependencies": [\
-          ["randombytes", "npm:2.1.0"],\
-          ["safe-buffer", "npm:5.2.1"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["rc", [\
       ["npm:1.2.8", {\
         "packageLocation": "./.yarn/cache/rc-npm-1.2.8-d6768ac936-5c4d72ae7e.zip/node_modules/rc/",\
@@ -12469,32 +12472,6 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["rollup-plugin-terser", [\
-      ["npm:7.0.2", {\
-        "packageLocation": "./.yarn/cache/rollup-plugin-terser-npm-7.0.2-3f55469f5a-af84bb7a7a.zip/node_modules/rollup-plugin-terser/",\
-        "packageDependencies": [\
-          ["rollup-plugin-terser", "npm:7.0.2"]\
-        ],\
-        "linkType": "SOFT"\
-      }],\
-      ["virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2", {\
-        "packageLocation": "./.yarn/__virtual__/rollup-plugin-terser-virtual-f848813d86/0/cache/rollup-plugin-terser-npm-7.0.2-3f55469f5a-af84bb7a7a.zip/node_modules/rollup-plugin-terser/",\
-        "packageDependencies": [\
-          ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
-          ["@babel/code-frame", "npm:7.22.10"],\
-          ["@types/rollup", null],\
-          ["jest-worker", "npm:26.6.2"],\
-          ["rollup", "npm:4.24.0"],\
-          ["serialize-javascript", "npm:4.0.0"],\
-          ["terser", "npm:5.19.2"]\
-        ],\
-        "packagePeers": [\
-          "@types/rollup",\
-          "rollup"\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
     ["run-parallel", [\
       ["npm:1.2.0", {\
         "packageLocation": "./.yarn/cache/run-parallel-npm-1.2.0-3f47ff2034-cb4f97ad25.zip/node_modules/run-parallel/",\
@@ -12705,16 +12682,6 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/semver-regex-npm-4.0.5-9917344f87-b9e5c0573c.zip/node_modules/semver-regex/",\
         "packageDependencies": [\
           ["semver-regex", "npm:4.0.5"]\
-        ],\
-        "linkType": "HARD"\
-      }]\
-    ]],\
-    ["serialize-javascript", [\
-      ["npm:4.0.0", {\
-        "packageLocation": "./.yarn/cache/serialize-javascript-npm-4.0.0-b4aeff413b-df68091689.zip/node_modules/serialize-javascript/",\
-        "packageDependencies": [\
-          ["serialize-javascript", "npm:4.0.0"],\
-          ["randombytes", "npm:2.1.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -13465,10 +13432,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["terser", [\
-      ["npm:5.19.2", {\
-        "packageLocation": "./.yarn/cache/terser-npm-5.19.2-91391d2f00-da441c9e0e.zip/node_modules/terser/",\
+      ["npm:5.34.1", {\
+        "packageLocation": "./.yarn/cache/terser-npm-5.34.1-5a74f20db9-4389f39b5b.zip/node_modules/terser/",\
         "packageDependencies": [\
-          ["terser", "npm:5.19.2"],\
+          ["terser", "npm:5.34.1"],\
           ["@jridgewell/source-map", "npm:0.3.5"],\
           ["acorn", "npm:8.10.0"],\
           ["commander", "npm:2.20.3"],\
@@ -14132,6 +14099,7 @@ const RAW_RUNTIME_STATE =
           ["@playwright/test", "npm:1.47.2"],\
           ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:28.0.0"],\
           ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
+          ["@rollup/plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:0.1.0"],\
           ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
           ["@semantic-release/commit-analyzer", "virtual:af2cf72dc39691c71459e458026c5c34e70102662ec3c672a81f04a0a9438b409df99e648748671b2c936443bb341cff406321d9d48103b5d85fdc26705c8a42#npm:11.1.0"],\
           ["@semantic-release/exec", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
@@ -14160,7 +14128,6 @@ const RAW_RUNTIME_STATE =
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:18.3.1"],\
           ["rollup", "npm:4.24.0"],\
-          ["rollup-plugin-terser", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.0.2"],\
           ["semantic-release", "npm:22.0.12"],\
           ["semantic-release-yarn", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:3.0.2"],\
           ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.2.5"],\
