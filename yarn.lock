@@ -5564,12 +5564,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-check@npm:3.22.0":
-  version: 3.22.0
-  resolution: "fast-check@npm:3.22.0"
+"fast-check@npm:3.23.1":
+  version: 3.23.1
+  resolution: "fast-check@npm:3.23.1"
   dependencies:
     pure-rand: "npm:^6.1.0"
-  checksum: 10/26ae7cc228fcd9759124db10cbbc01efff730bcdc848544ec7c3a533b9d88dec88d2a4a79da0ea4eb1ec78611dc6576f06f3fa5f8ff7126ad2eecf5ce3da57c6
+  checksum: 10/03720c2d4adf02701a2e974b83d6439477851a6524c5980df0870dc0032f0200cc5e157f47641afa79dc42733b05058f2333df54291d5ac39d108d317a62e6c0
   languageName: node
   linkType: hard
 
@@ -12488,7 +12488,7 @@ __metadata:
     eslint-plugin-prettier: "npm:4.2.1"
     eslint-plugin-react: "npm:7.37.2"
     eslint-plugin-react-hooks: "npm:4.6.2"
-    fast-check: "npm:3.22.0"
+    fast-check: "npm:3.23.1"
     husky: "npm:9.1.6"
     jest: "npm:29.7.0"
     jest-environment-jsdom: "npm:29.7.0"
