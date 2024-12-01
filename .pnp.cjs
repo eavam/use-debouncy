@@ -66,7 +66,7 @@ const RAW_RUNTIME_STATE =
           ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.2.5"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["vite", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.4.11"],\
-          ["vite-plugin-commonjs", "npm:0.10.3"]\
+          ["vite-plugin-commonjs", "npm:0.10.4"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -14346,7 +14346,7 @@ const RAW_RUNTIME_STATE =
           ["ts-jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.2.5"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["vite", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.4.11"],\
-          ["vite-plugin-commonjs", "npm:0.10.3"]\
+          ["vite-plugin-commonjs", "npm:0.10.4"]\
         ],\
         "linkType": "SOFT"\
       }]\
@@ -14453,10 +14453,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["vite-plugin-commonjs", [\
-      ["npm:0.10.3", {\
-        "packageLocation": "./.yarn/cache/vite-plugin-commonjs-npm-0.10.3-0be424f67f-1b1d399339.zip/node_modules/vite-plugin-commonjs/",\
+      ["npm:0.10.4", {\
+        "packageLocation": "./.yarn/cache/vite-plugin-commonjs-npm-0.10.4-4cf8f72fe1-ce7df43281.zip/node_modules/vite-plugin-commonjs/",\
         "packageDependencies": [\
-          ["vite-plugin-commonjs", "npm:0.10.3"],\
+          ["vite-plugin-commonjs", "npm:0.10.4"],\
           ["acorn", "npm:8.12.1"],\
           ["magic-string", "npm:0.30.11"],\
           ["vite-plugin-dynamic-import", "npm:1.6.0"]\

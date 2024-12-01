@@ -12512,7 +12512,7 @@ __metadata:
     ts-jest: "npm:29.2.5"
     typescript: "npm:5.6.3"
     vite: "npm:5.4.11"
-    vite-plugin-commonjs: "npm:0.10.3"
+    vite-plugin-commonjs: "npm:0.10.4"
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0
   languageName: unknown
@@ -12562,14 +12562,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-plugin-commonjs@npm:0.10.3":
-  version: 0.10.3
-  resolution: "vite-plugin-commonjs@npm:0.10.3"
+"vite-plugin-commonjs@npm:0.10.4":
+  version: 0.10.4
+  resolution: "vite-plugin-commonjs@npm:0.10.4"
   dependencies:
     acorn: "npm:^8.12.1"
     magic-string: "npm:^0.30.11"
     vite-plugin-dynamic-import: "npm:^1.6.0"
-  checksum: 10/1b1d3993392d824f57b7d2f1e66423974275ced0b208b48f3a4f6cc4a3dc55e8ef338868b9e08ba217dc7e994e049db194b368acdfba7372ca3331cf9eb556d3
+  checksum: 10/ce7df43281bb9a2fd3c429996c1c543d5fd29921e6165f2694135ab65b16e6c0b4ee89081b81a00d8522e5aa1f88b8901c0a72fdd89ccb1db7c633e464e43ae9
   languageName: node
   linkType: hard
 
