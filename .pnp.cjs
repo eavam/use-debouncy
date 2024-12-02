@@ -29,7 +29,7 @@ const RAW_RUNTIME_STATE =
         "packageDependencies": [\
           ["@commitlint/cli", "npm:19.6.0"],\
           ["@commitlint/config-conventional", "npm:19.6.0"],\
-          ["@playwright/test", "npm:1.47.2"],\
+          ["@playwright/test", "npm:1.49.0"],\
           ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:28.0.1"],\
           ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
           ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
@@ -2719,11 +2719,11 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["@playwright/test", [\
-      ["npm:1.47.2", {\
-        "packageLocation": "./.yarn/cache/@playwright-test-npm-1.47.2-64d730def7-374bf386b4.zip/node_modules/@playwright/test/",\
+      ["npm:1.49.0", {\
+        "packageLocation": "./.yarn/cache/@playwright-test-npm-1.49.0-0d251ef816-e87485ab4c.zip/node_modules/@playwright/test/",\
         "packageDependencies": [\
-          ["@playwright/test", "npm:1.47.2"],\
-          ["playwright", "npm:1.47.2"]\
+          ["@playwright/test", "npm:1.49.0"],\
+          ["playwright", "npm:1.49.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -11849,21 +11849,21 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["playwright", [\
-      ["npm:1.47.2", {\
-        "packageLocation": "./.yarn/cache/playwright-npm-1.47.2-1c1ac76b93-73494a187b.zip/node_modules/playwright/",\
+      ["npm:1.49.0", {\
+        "packageLocation": "./.yarn/cache/playwright-npm-1.49.0-d57440d7c1-1fb198d09d.zip/node_modules/playwright/",\
         "packageDependencies": [\
-          ["playwright", "npm:1.47.2"],\
+          ["playwright", "npm:1.49.0"],\
           ["fsevents", "patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"],\
-          ["playwright-core", "npm:1.47.2"]\
+          ["playwright-core", "npm:1.49.0"]\
         ],\
         "linkType": "HARD"\
       }]\
     ]],\
     ["playwright-core", [\
-      ["npm:1.47.2", {\
-        "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.47.2-126f8f9846/node_modules/playwright-core/",\
+      ["npm:1.49.0", {\
+        "packageLocation": "./.yarn/unplugged/playwright-core-npm-1.49.0-4a6c09b0ee/node_modules/playwright-core/",\
         "packageDependencies": [\
-          ["playwright-core", "npm:1.47.2"]\
+          ["playwright-core", "npm:1.49.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -14309,7 +14309,7 @@ const RAW_RUNTIME_STATE =
           ["use-debouncy", "workspace:."],\
           ["@commitlint/cli", "npm:19.6.0"],\
           ["@commitlint/config-conventional", "npm:19.6.0"],\
-          ["@playwright/test", "npm:1.47.2"],\
+          ["@playwright/test", "npm:1.49.0"],\
           ["@rollup/plugin-commonjs", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:28.0.1"],\
           ["@rollup/plugin-sucrase", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.2"],\
           ["@semantic-release/changelog", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:6.0.3"],\
