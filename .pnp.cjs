@@ -6723,10 +6723,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["es-module-lexer", [\
-      ["npm:1.5.4", {\
-        "packageLocation": "./.yarn/cache/es-module-lexer-npm-1.5.4-b52b96b8fc-f29c7c97a5.zip/node_modules/es-module-lexer/",\
+      ["npm:1.7.0", {\
+        "packageLocation": "./.yarn/cache/es-module-lexer-npm-1.7.0-456b47a08a-b6f3e576a3.zip/node_modules/es-module-lexer/",\
         "packageDependencies": [\
-          ["es-module-lexer", "npm:1.5.4"]\
+          ["es-module-lexer", "npm:1.7.0"]\
         ],\
         "linkType": "HARD"\
       }]\
@@ -10822,14 +10822,6 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["magic-string", [\
-      ["npm:0.30.11", {\
-        "packageLocation": "./.yarn/cache/magic-string-npm-0.30.11-4e76dc2f30-b784d22402.zip/node_modules/magic-string/",\
-        "packageDependencies": [\
-          ["magic-string", "npm:0.30.11"],\
-          ["@jridgewell/sourcemap-codec", "npm:1.5.0"]\
-        ],\
-        "linkType": "HARD"\
-      }],\
       ["npm:0.30.17", {\
         "packageLocation": "./.yarn/cache/magic-string-npm-0.30.17-da1b7593b1-2f71af2b0a.zip/node_modules/magic-string/",\
         "packageDependencies": [\
@@ -15292,8 +15284,8 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/vite-plugin-commonjs-npm-0.10.4-4cf8f72fe1-ce7df43281.zip/node_modules/vite-plugin-commonjs/",\
         "packageDependencies": [\
           ["vite-plugin-commonjs", "npm:0.10.4"],\
-          ["acorn", "npm:8.12.1"],\
-          ["magic-string", "npm:0.30.11"],\
+          ["acorn", "npm:8.14.1"],\
+          ["magic-string", "npm:0.30.17"],\
           ["vite-plugin-dynamic-import", "npm:1.6.0"]\
         ],\
         "linkType": "HARD"\
@@ -15339,10 +15331,10 @@ const RAW_RUNTIME_STATE =
         "packageLocation": "./.yarn/cache/vite-plugin-dynamic-import-npm-1.6.0-0aa6cb759e-816b17e792.zip/node_modules/vite-plugin-dynamic-import/",\
         "packageDependencies": [\
           ["vite-plugin-dynamic-import", "npm:1.6.0"],\
-          ["acorn", "npm:8.12.1"],\
-          ["es-module-lexer", "npm:1.5.4"],\
+          ["acorn", "npm:8.14.1"],\
+          ["es-module-lexer", "npm:1.7.0"],\
           ["fast-glob", "npm:3.3.2"],\
-          ["magic-string", "npm:0.30.11"]\
+          ["magic-string", "npm:0.30.17"]\
         ],\
         "linkType": "HARD"\
       }]\
