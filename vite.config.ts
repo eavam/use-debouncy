@@ -8,7 +8,6 @@ import commonjs from 'vite-plugin-commonjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
-  root: './tests/app',
   server: {
     port: 1234,
   },
