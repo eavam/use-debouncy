@@ -50,7 +50,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-prettier", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:4.2.1"],\
           ["eslint-plugin-react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.37.5"],\
           ["eslint-plugin-react-hooks", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.0"],\
-          ["fast-check", "npm:3.23.1"],\
+          ["fast-check", "npm:3.23.2"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.7.0"],\
           ["jest-environment-jsdom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.7.0"],\
@@ -7285,10 +7285,10 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["fast-check", [\
-      ["npm:3.23.1", {\
-        "packageLocation": "./.yarn/cache/fast-check-npm-3.23.1-febe837d3b-03720c2d4a.zip/node_modules/fast-check/",\
+      ["npm:3.23.2", {\
+        "packageLocation": "./.yarn/cache/fast-check-npm-3.23.2-63dd857472-dab344146b.zip/node_modules/fast-check/",\
         "packageDependencies": [\
-          ["fast-check", "npm:3.23.1"],\
+          ["fast-check", "npm:3.23.2"],\
           ["pure-rand", "npm:6.1.0"]\
         ],\
         "linkType": "HARD"\
@@ -15158,7 +15158,7 @@ const RAW_RUNTIME_STATE =
           ["eslint-plugin-prettier", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:4.2.1"],\
           ["eslint-plugin-react", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:7.37.5"],\
           ["eslint-plugin-react-hooks", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:5.0.0"],\
-          ["fast-check", "npm:3.23.1"],\
+          ["fast-check", "npm:3.23.2"],\
           ["husky", "npm:9.1.7"],\
           ["jest", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.7.0"],\
           ["jest-environment-jsdom", "virtual:0212b1687c58bcc90d39a583c4c76409eae098d27ac57977a4dbd5bb7e2815825e3898a2350d289cef60ef072c370626a2f1c1be5a1ef8208c24462bc45c49f9#npm:29.7.0"],\
