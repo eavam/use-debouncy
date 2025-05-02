@@ -25,9 +25,7 @@
     "test": "jest",
     "serve:e2e": "vite",
     "lint": "eslint . --ext .js,.ts",
-    "build": "yarn prebuild && rollup -c --bundleConfigAsCjs",
-    "clear": "rm -rf ./lib",
-    "prebuild": "yarn clear && tsc -p tsconfig.declaration.json",
+    "build": "vite build",
     "release": "semantic-release",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },
@@ -38,8 +36,6 @@
     "@commitlint/cli": "19.6.0",
     "@commitlint/config-conventional": "19.6.0",
     "@playwright/test": "1.47.2",
-    "@rollup/plugin-commonjs": "28.0.3",
-    "@rollup/plugin-sucrase": "5.0.2",
     "@semantic-release/changelog": "6.0.3",
     "@semantic-release/commit-analyzer": "11.1.0",
     "@semantic-release/exec": "6.0.3",
@@ -49,6 +45,7 @@
     "@semantic-release/release-notes-generator": "12.1.0",
     "@testing-library/react": "14.3.1",
     "@types/jest": "29.5.14",
+    "@types/node": "22.15.3",
     "@types/react": "18.3.12",
     "@types/react-dom": "18.3.1",
     "@typescript-eslint/eslint-plugin": "5.62.0",
@@ -67,14 +64,14 @@
     "pretty-quick": "4.0.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "rollup": "4.28.0",
-    "rollup-plugin-terser": "7.0.2",
     "semantic-release": "22.0.12",
     "semantic-release-yarn": "3.0.2",
+    "terser": "5.39.0",
     "ts-jest": "29.2.5",
     "typescript": "5.7.2",
     "vite": "5.4.11",
-    "vite-plugin-commonjs": "0.10.4"
+    "vite-plugin-commonjs": "0.10.4",
+    "vite-plugin-dts": "4.5.3"
   },
   "files": [
     "lib/"
