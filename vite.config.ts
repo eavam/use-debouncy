@@ -1,12 +1,44 @@
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import commonjs from 'vite-plugin-commonjs';
+import dts from 'vite-plugin-dts';
 
-// https://vitejs.dev/config/
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
 export default defineConfig({
-  plugins: [react(), commonjs()],
-  root: './tests/app',
-  server: {
-    port: 1234,
+  build: {
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      formats: ['es', 'cjs'],
+      fileName: (format) => `index.${format === 'es' ? 'es.js' : 'js'}`,
+    },
+    minify: 'terser',
+    terserOptions: {
+      ecma: 5,
+      mangle: {
+        properties: {
+          reserved: ['useRef', 'useCallback', 'useEffect', 'current'],
+        },
+      },
+    },
+    sourcemap: true,
+    rollupOptions: {
+      external: ['react'],
+      output: {
+        exports: 'auto',
+        generatedCode: {
+          constBindings: true,
+          objectShorthand: true,
+        },
+      },
+    },
+    outDir: 'lib',
+    emptyOutDir: true,
   },
+  plugins: [
+    dts({
+      outDir: 'lib',
+      exclude: ['**/__tests__/**'],
+    }),
+  ],
 });
