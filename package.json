@@ -67,7 +67,7 @@
     "semantic-release": "22.0.12",
     "semantic-release-yarn": "3.0.2",
     "terser": "5.39.0",
-    "ts-jest": "29.2.5",
+    "ts-jest": "29.3.2",
     "typescript": "5.7.2",
     "vite": "5.4.19",
     "vite-plugin-commonjs": "0.10.4",
