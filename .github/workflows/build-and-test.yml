@@ -23,14 +23,19 @@ jobs:
         with:
           node-version: 18
 
+      - name: Setup Biome
+        uses: biomejs/setup-biome@v2
+        with:
+          version: latest
+
       - name: Install dependencies
         run: yarn install
 
       - name: Build application
         run: yarn build
 
-      - name: Run linting
-        run: yarn lint
+      - name: Run Biome
+        run: biome check .
 
       - name: Run unit tests and generate coverage
         run: yarn test --ci --coverage
