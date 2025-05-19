@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
-import { usePeoples } from './usePeoples';
+import { type ChangeEvent, useState } from 'react';
+import React from 'react';
 import { useDebouncyEffect } from '../../../lib';
+import { usePeoples } from './usePeoples';
 
 export const SearchPeoplesWithEffect = (): JSX.Element => {
   const [value, setValue] = useState('');
@@ -14,7 +15,7 @@ export const SearchPeoplesWithEffect = (): JSX.Element => {
     [value],
   );
 
-  const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const onChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setValue(event.target.value);
   };
 

@@ -1,9 +1,9 @@
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { defineConfig } from 'vite';
-import dts from 'vite-plugin-dts';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
 import commonjs from 'vite-plugin-commonjs';
+import dts from 'vite-plugin-dts';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 

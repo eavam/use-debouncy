@@ -1,4 +1,9 @@
-import { useRef, useEffect, EffectCallback, DependencyList } from 'react';
+import {
+  type DependencyList,
+  type EffectCallback,
+  useEffect,
+  useRef,
+} from 'react';
 import { useAnimationFrame } from './core';
 
 const defaultDeps: DependencyList = [];
@@ -35,16 +40,13 @@ export const useDebouncyEffect = (
 ): void => {
   const isFirstRender = useRef(true);
   const render = useAnimationFrame(fn, wait);
-
   // Call update if deps changes
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;
       return;
     }
-
     render();
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, deps);
 };

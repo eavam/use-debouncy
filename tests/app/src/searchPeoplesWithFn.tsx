@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { usePeoples } from './usePeoples';
 import { useDebouncyFn } from '../../../lib';
+import { usePeoples } from './usePeoples';
 
 export const SearchPeoplesWithFn = (): JSX.Element => {
   const { fetchPeoples, peoples } = usePeoples();

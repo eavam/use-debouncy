@@ -2,4 +2,4 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 [ -n "$CI" ] && exit 0
-yarn pretty-quick --staged
+yarn biome check --staged --files-ignore-unknown=true --no-errors-on-unmatched

@@ -1,11 +1,9 @@
 import { useState } from 'react';
 
-interface UsePeoplesHook {
-  (): {
-    fetchPeoples: (search: string) => Promise<void>;
-    peoples: { name: string }[];
-  };
-}
+type UsePeoplesHook = () => {
+  fetchPeoples: (search: string) => Promise<void>;
+  peoples: { name: string }[];
+};
 
 export const usePeoples: UsePeoplesHook = () => {
   const [peoples, setPeoples] = useState([]);

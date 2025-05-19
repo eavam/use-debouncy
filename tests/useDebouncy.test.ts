@@ -1,9 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import type { Page } from '@playwright/test';
 
 const API_URL = '*/**/swapi.dev/**/*';
-const SEARCH_INPUT_EFFECT = `input/search/effect`;
-const SEARCH_INPUT_FN = `input/search/fn`;
+const SEARCH_INPUT_EFFECT = 'input/search/effect';
+const SEARCH_INPUT_FN = 'input/search/fn';
 
 async function performInputTest(page: Page, testId: string) {
   // Wait for the input element based on the provided selector.
@@ -39,10 +39,10 @@ test.beforeEach(async ({ page }) => {
   });
 });
 
-test(`input with effect`, async ({ page }) => {
+test('input with effect', async ({ page }) => {
   await performInputTest(page, SEARCH_INPUT_EFFECT);
 });
 
-test(`input with fn`, async ({ page }) => {
+test('input with fn', async ({ page }) => {
   await performInputTest(page, SEARCH_INPUT_FN);
 });
