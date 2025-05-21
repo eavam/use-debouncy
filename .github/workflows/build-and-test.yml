@@ -23,11 +23,6 @@ jobs:
         with:
           node-version: 18
 
-      - name: Setup Biome
-        uses: biomejs/setup-biome@v2
-        with:
-          version: latest
-
       - name: Install dependencies
         run: yarn install --immutable
 
@@ -35,7 +30,7 @@ jobs:
         run: yarn build
 
       - name: Run Biome
-        run: biome ci .
+        run: yarn biome ci .
 
       - name: Run unit tests and generate coverage
         run: yarn test --ci --coverage
