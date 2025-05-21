@@ -29,13 +29,13 @@ jobs:
           version: latest
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Build application
         run: yarn build
 
       - name: Run Biome
-        run: biome check .
+        run: biome ci .
 
       - name: Run unit tests and generate coverage
         run: yarn test --ci --coverage
