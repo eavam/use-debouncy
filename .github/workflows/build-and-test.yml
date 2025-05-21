@@ -72,7 +72,7 @@ jobs:
       - run: yarn install
 
       - name: Install Playwright Browsers
-        run: npx -y playwright@1.47.2 install --with-deps
+        run: npx -y playwright@1.52.0 install --with-deps
 
       - name: Build
         run: yarn build
