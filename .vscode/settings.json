@@ -3,5 +3,6 @@
   "editor.defaultFormatter": "biomejs.biome",
   "editor.codeActionsOnSave": {
     "source.fixAll.biome": "explicit"
-  }
+  },
+  "biome.lspBin": "node_modules/.bin/biome"
 }
