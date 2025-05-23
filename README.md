@@ -97,6 +97,39 @@ function useDebouncyFn(fn: (...args: any[]) => void, wait?: number): (...args: a
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
 
+## Development & Testing
+
+This project uses modern testing approach with Playwright component tests:
+
+### Commands
+
+```bash
+# Run all tests (Playwright component tests)
+yarn test
+
+# Run tests with UI mode for debugging
+yarn test --ui
+
+# Run linting
+yarn lint
+
+# Build the project
+yarn build
+```
+
+### Test Coverage
+
+The project has comprehensive test coverage including:
+
+- **Core functionality tests** - Basic debouncing behavior
+- **Effect hook tests** - `useDebouncyEffect` scenarios  
+- **Function hook tests** - `useDebouncyFn` scenarios
+- **Integration tests** - Real-world usage patterns
+- **Performance tests** - Edge cases and performance validation
+- **E2E tests** - Full application integration with API calls
+
+All tests run across multiple browsers (Chromium, Firefox, WebKit) to ensure cross-browser compatibility.
+
 ## License
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_large)

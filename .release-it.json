@@ -1,0 +1,35 @@
+{
+  "git": {
+    "commitMessage": "chore: release v${version}",
+    "tagName": "v${version}",
+    "push": true,
+    "commit": true,
+    "tag": true,
+    "requireCleanWorkingDir": false
+  },
+  "github": {
+    "release": true,
+    "releaseName": "v${version}",
+    "assets": ["lib/**/*"],
+    "web": false
+  },
+  "npm": {
+    "publish": true,
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
+  "hooks": {
+    "before:init": ["yarn build"],
+    "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "preset": "angular",
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog\n\nAll notable changes to this project will be documented in this file.\n",
+      "ignoreRecommendedBump": false,
+      "strictSemVer": true
+    }
+  },
+  "ci": true
+}

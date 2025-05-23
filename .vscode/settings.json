@@ -1,11 +1,8 @@
 {
   "cSpell.words": ["Debouncy", "swapi"],
-  "search.exclude": {
-    "**/.yarn": true,
-    "**/.pnp.*": true
+  "editor.defaultFormatter": "biomejs.biome",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.biome": "explicit"
   },
-  "eslint.nodePath": ".yarn/sdks",
-  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true
+  "biome.lspBin": "node_modules/.bin/biome"
 }

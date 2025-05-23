@@ -60,8 +60,8 @@ web_modules/
 .parcel-cache
 
 # yarn
+.pnp.*
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
@@ -81,3 +81,8 @@ reports
 /test-results/
 playwright-report/
 playwright/.cache/
+
+# Playwright
+/playwright-report/
+/blob-report/
+/playwright/.cache/
