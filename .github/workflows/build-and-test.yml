@@ -124,7 +124,7 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions"
           git config --global user.email "github-actions@github.com"
-          git checkout "${{ github.ref }}"
+          git checkout "${{ github.head_ref }}"
 
       - name: Release
         run: |
