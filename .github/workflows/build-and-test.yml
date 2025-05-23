@@ -108,4 +108,9 @@ jobs:
             lib
 
       - name: Release
-        run: yarn release --ci
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            yarn release --ci
+          else
+            yarn release --ci --dry-run
+          fi
