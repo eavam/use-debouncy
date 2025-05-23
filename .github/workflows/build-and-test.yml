@@ -12,6 +12,7 @@ permissions:
 
 jobs:
   build-and-test:
+    timeout-minutes: 60
     runs-on: ubuntu-latest
 
     steps:
@@ -26,14 +27,27 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
+      - name: Install Playwright Browsers
+        run: npx -y playwright@1.52.0 install --with-deps
+
       - name: Build application
         run: yarn build
 
-      - name: Run Biome
+      - name: Run Biome linting
         run: yarn biome ci .
 
-      - name: Run unit tests and generate coverage
-        run: yarn test --ci --coverage
+      - name: Run all tests (Playwright component tests)
+        run: yarn test
+
+      - name: Upload Playwright test results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 30
 
       - name: Pack build
         run: yarn pack -o use-debouncy-pack.tgz
@@ -41,9 +55,6 @@ jobs:
       - name: Install packed package
         run: npm install ../use-debouncy-pack.tgz
         working-directory: test-publish
-
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v5
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v4
@@ -53,38 +64,9 @@ jobs:
             lib
             use-debouncy-pack.tgz
 
-  playwright:
-    timeout-minutes: 60
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js 18
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-      - run: yarn install
-
-      - name: Install Playwright Browsers
-        run: npx -y playwright@1.52.0 install --with-deps
-
-      - name: Build
-        run: yarn build
-
-      - name: Run Playwright tests
-        run: yarn playwright test
-
-      - uses: actions/upload-artifact@v4
-        if: always()
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 30
-
   release:
     runs-on: ubuntu-latest
-    needs: ['build-and-test', 'playwright']
+    needs: ['build-and-test']
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
