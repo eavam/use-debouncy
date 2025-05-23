@@ -1,3 +1,20 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+
+# [5.1.0](https://github.com/eavam/use-debouncy/compare/v5.0.1...v5.1.0) (2025-05-23)
+
+
+### Bug Fixes
+
+* **ci:** resolve release-it workflow issues in CI environment ([#1184](https://github.com/eavam/use-debouncy/issues/1184)) ([a882e92](https://github.com/eavam/use-debouncy/commit/a882e9216c57e5b4b418e1630357a72bdf835606))
+
+
+### Features
+
+* migrate to modern toolchain (Biome, tsup, release-it, Node.js 20) ([#1183](https://github.com/eavam/use-debouncy/issues/1183)) ([defbab6](https://github.com/eavam/use-debouncy/commit/defbab6604aafee5520806cfc424257db563762f))
+
 ## [5.0.1](https://github.com/eavam/use-debouncy/compare/v5.0.0...v5.0.1) (2023-09-24)
 
 
