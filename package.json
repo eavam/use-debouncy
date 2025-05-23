@@ -30,7 +30,7 @@
     "lint": "yarn biome check --write .",
     "build": "tsup",
     "release": "semantic-release",
-    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
+    "prepare": "husky",
     "test-ct": "playwright test -c playwright-ct.config.mts"
   },
   "peerDependencies": {
