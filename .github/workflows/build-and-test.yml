@@ -98,6 +98,12 @@ jobs:
         with:
           node-version: 20
 
+      - name: Git details
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout "${{ github.ref }}"
+
       - name: Install dependencies
         run: yarn install
 
@@ -119,12 +125,6 @@ jobs:
           name: release-artifacts
           path: |
             lib
-
-      - name: Git details
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions@github.com"
-          git checkout "${{ github.head_ref }}"
 
       - name: Release
         run: |
