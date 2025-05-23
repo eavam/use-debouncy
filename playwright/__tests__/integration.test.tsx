@@ -160,7 +160,7 @@ test.describe('Form validation', () => {
     // Should not have validated during typing
     await expect(component.getByTestId('validation-count')).toHaveText('0');
 
-    // Wait for typing to stop test
+    // Wait for typing to stop
     await page.clock.runFor(550);
 
     // Now should validate
