@@ -29,7 +29,7 @@
     "test": "yarn test-ct",
     "lint": "yarn biome check --write .",
     "build": "tsup",
-    "release": "semantic-release",
+    "release": "release-it",
     "test-ct": "playwright test -c playwright-ct.config.mts"
   },
   "peerDependencies": {
@@ -39,20 +39,13 @@
     "@biomejs/biome": "1.9.4",
     "@playwright/experimental-ct-react": "1.52.0",
     "@playwright/test": "1.52.0",
-    "@semantic-release/changelog": "6.0.3",
-    "@semantic-release/commit-analyzer": "11.1.0",
-    "@semantic-release/exec": "6.0.3",
-    "@semantic-release/git": "10.0.1",
-    "@semantic-release/github": "9.2.6",
-    "@semantic-release/npm": "11.0.3",
-    "@semantic-release/release-notes-generator": "12.1.0",
+    "@release-it/conventional-changelog": "10.0.1",
     "@types/node": "22.15.3",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.7",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "semantic-release": "22.0.12",
-    "semantic-release-yarn": "3.0.2",
+    "release-it": "19.0.2",
     "simple-git-hooks": "2.13.0",
     "terser": "5.39.0",
     "tsup": "8.5.0",
@@ -69,42 +62,5 @@
   "packageManager": "yarn@4.9.1",
   "simple-git-hooks": {
     "pre-commit": "yarn biome check --staged --files-ignore-unknown=true --no-errors-on-unmatched"
-  },
-  "release": {
-    "branches": [
-      "main",
-      {
-        "name": "beta",
-        "prerelease": true
-      }
-    ],
-    "plugins": [
-      "@semantic-release/commit-analyzer",
-      "@semantic-release/release-notes-generator",
-      "@semantic-release/changelog",
-      [
-        "semantic-release-yarn",
-        {
-          "tarballDir": "lib"
-        }
-      ],
-      [
-        "@semantic-release/git",
-        {
-          "assets": [
-            "CHANGELOG.md",
-            "package.json"
-          ]
-        }
-      ],
-      [
-        "@semantic-release/github",
-        {
-          "assets": [
-            "lib/**"
-          ]
-        }
-      ]
-    ]
   }
 }

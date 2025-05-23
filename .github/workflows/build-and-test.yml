@@ -73,7 +73,7 @@ jobs:
       pull-requests: write # to be able to comment on released pull requests
       id-token: write # to enable use of OIDC for npm provenance
     env:
-      GITHUB_TOKEN: ${{ secrets.RELEASE_BOT }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
@@ -108,4 +108,4 @@ jobs:
             lib
 
       - name: Release
-        run: yarn release
+        run: yarn release --ci
