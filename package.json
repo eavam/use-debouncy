@@ -30,7 +30,6 @@
     "lint": "yarn biome check --write .",
     "build": "tsup",
     "release": "semantic-release",
-    "prepare": "husky",
     "test-ct": "playwright test -c playwright-ct.config.mts"
   },
   "peerDependencies": {
@@ -49,15 +48,14 @@
     "@semantic-release/github": "9.2.6",
     "@semantic-release/npm": "11.0.3",
     "@semantic-release/release-notes-generator": "12.1.0",
-    "@testing-library/react": "14.3.1",
     "@types/node": "22.15.3",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.7",
-    "husky": "9.1.7",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "semantic-release": "22.0.12",
     "semantic-release-yarn": "3.0.2",
+    "simple-git-hooks": "2.13.0",
     "terser": "5.39.0",
     "tsup": "8.5.0",
     "typescript": "5.8.3",
@@ -75,6 +73,10 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
+  },
+  "simple-git-hooks": {
+    "pre-commit": "yarn biome check --staged --files-ignore-unknown=true --no-errors-on-unmatched",
+    "commit-msg": "yarn commitlint --edit $1"
   },
   "release": {
     "branches": [
