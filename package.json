@@ -68,14 +68,18 @@
     "vite-plugin-commonjs": "0.10.4",
     "vite-plugin-dts": "4.5.3"
   },
-  "files": ["lib/"],
+  "files": [
+    "lib/"
+  ],
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
   "packageManager": "yarn@4.9.1",
   "commitlint": {
-    "extends": ["@commitlint/config-conventional"]
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   },
   "release": {
     "branches": [
@@ -98,13 +102,18 @@
       [
         "@semantic-release/git",
         {
-          "assets": ["CHANGELOG.md", "package.json"]
+          "assets": [
+            "CHANGELOG.md",
+            "package.json"
+          ]
         }
       ],
       [
         "@semantic-release/github",
         {
-          "assets": ["lib/**"]
+          "assets": [
+            "lib/**"
+          ]
         }
       ]
     ]
