@@ -6,6 +6,9 @@ test.beforeEach(async ({ page }) => {
   await page.clock.install();
 });
 
+/**
+ * Test basic functionality of useAnimationFrame hook
+ */
 test('should call callback after timer end', async ({ mount, page }) => {
   const component = await mount(<AnimationFrameTest delay={100} />);
 
@@ -18,6 +21,9 @@ test('should call callback after timer end', async ({ mount, page }) => {
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
+/**
+ * Test cancellation behavior - rapid triggers should cancel previous ones
+ */
 test('should cancel previous animation before starting new one', async ({
   mount,
   page,
@@ -33,16 +39,21 @@ test('should cancel previous animation before starting new one', async ({
 
   const button = component.getByTestId('trigger');
 
+  // Trigger multiple times rapidly
   for (let i = 0; i < 5; i++) {
     await button.click();
   }
 
   await page.clock.runFor(200);
 
+  // Should only execute once (last trigger)
   expect(calls).toBeLessThanOrEqual(5);
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
+/**
+ * Test zero delay edge case
+ */
 test('should handle zero delay', async ({ mount, page }) => {
   const component = await mount(<AnimationFrameTest delay={0} />);
 
@@ -54,6 +65,9 @@ test('should handle zero delay', async ({ mount, page }) => {
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
+/**
+ * Test rapid clicking behavior
+ */
 test('should handle multiple rapid clicks correctly', async ({
   mount,
   page,
@@ -80,6 +94,9 @@ test('should handle multiple rapid clicks correctly', async ({
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
+/**
+ * Test longer delay values
+ */
 test('should work with longer delays', async ({ mount, page }) => {
   const component = await mount(<AnimationFrameTest delay={500} />);
 
@@ -94,6 +111,9 @@ test('should work with longer delays', async ({ mount, page }) => {
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
+/**
+ * Test cleanup on unmount to prevent memory leaks
+ */
 test('should cleanup on component unmount', async ({ mount, page }) => {
   const component = await mount(<AnimationFrameTest delay={100} />);
 
@@ -109,6 +129,9 @@ test('should cleanup on component unmount', async ({ mount, page }) => {
   // (This test verifies cleanup behavior)
 });
 
+/**
+ * Test negative delay edge case
+ */
 test('should handle negative delay as zero', async ({ mount, page }) => {
   const component = await mount(<AnimationFrameTest delay={-100} />);
 
