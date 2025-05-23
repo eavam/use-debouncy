@@ -5,7 +5,9 @@
     "push": true,
     "commit": true,
     "tag": true,
-    "requireCleanWorkingDir": false
+    "requireCleanWorkingDir": false,
+    "requireBranch": false,
+    "requireUpstream": false
   },
   "github": {
     "release": true,
