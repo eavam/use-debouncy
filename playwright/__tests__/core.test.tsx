@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/experimental-ct-react';
 import React from 'react';
-import { AnimationFrameTest } from '../stories/animation-frame-test';
+import { AnimationFrameTest } from '../stories/testing-stories';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
