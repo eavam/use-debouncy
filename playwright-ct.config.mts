@@ -1,5 +1,4 @@
 import { defineConfig, devices } from '@playwright/experimental-ct-react';
-import react from '@vitejs/plugin-react';
 import commonjs from 'vite-plugin-commonjs';
 
 /**
@@ -30,7 +29,7 @@ export default defineConfig({
     ctPort: 3100,
 
     ctViteConfig: {
-      plugins: [react(), commonjs()],
+      plugins: [commonjs()],
     },
   },
 

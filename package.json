@@ -19,12 +19,12 @@
   "repository": "https://github.com/eavam/use-debouncy.git",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
-  "module": "lib/index.es.js",
+  "module": "lib/index.mjs",
   "sideEffects": false,
   "scripts": {
     "test": "yarn test-ct",
     "lint": "yarn biome check --write .",
-    "build": "vite build",
+    "build": "tsup",
     "release": "semantic-release",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "test-ct": "playwright test -c playwright-ct.config.mts"
@@ -50,17 +50,15 @@
     "@types/node": "22.15.3",
     "@types/react": "18.3.20",
     "@types/react-dom": "18.3.7",
-    "@vitejs/plugin-react": "4.4.1",
     "husky": "9.1.7",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "semantic-release": "22.0.12",
     "semantic-release-yarn": "3.0.2",
     "terser": "5.39.0",
+    "tsup": "8.5.0",
     "typescript": "5.8.3",
-    "vite": "6.3.5",
-    "vite-plugin-commonjs": "0.10.4",
-    "vite-plugin-dts": "4.5.3"
+    "vite-plugin-commonjs": "0.10.4"
   },
   "files": [
     "lib/"
