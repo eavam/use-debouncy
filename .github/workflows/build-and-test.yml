@@ -130,5 +130,5 @@ jobs:
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             yarn release --ci
           else
-            yarn release --ci --dry-run
+            yarn release --ci --dry-run --no-git.commit --no-git.tag --no-git.push --no-github.release
           fi
