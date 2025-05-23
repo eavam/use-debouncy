@@ -371,7 +371,6 @@ __metadata:
 "@biomejs/cli-darwin-arm64@npm:1.9.4":
   version: 1.9.4
   resolution: "@biomejs/cli-darwin-arm64@npm:1.9.4"
-  checksum: 10/e54ba9dffbc5cb61dc5181b1826ca974781c35dadc0a5e08604c2acd8636ac6b292135f54785b95d67364a32fb51278f0acd3617175c41d9fbe018a28ded0236
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -8533,7 +8532,6 @@ __metadata:
   resolution: "use-debouncy@workspace:."
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
-    "@biomejs/cli-darwin-arm64": "npm:1.9.4"
     "@commitlint/cli": "npm:19.8.0"
     "@commitlint/config-conventional": "npm:19.8.0"
     "@playwright/experimental-ct-react": "npm:1.52.0"
