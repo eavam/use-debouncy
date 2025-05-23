@@ -120,6 +120,12 @@ jobs:
           path: |
             lib
 
+      - name: Git details
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git checkout "${{ github.ref }}"
+
       - name: Release
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
