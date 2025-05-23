@@ -61,11 +61,9 @@ web_modules/
 
 # yarn
 .yarn/*
-!.yarn/cache
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases
-!.yarn/sdks
 !.yarn/versions
 
 # build

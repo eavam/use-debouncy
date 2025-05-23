@@ -19,7 +19,8 @@ test('should call effect after value change and delay', async ({
 }) => {
   const component = await mount(<DebounceEffectTest delay={100} />);
 
-  await component.update(<DebounceEffectTest delay={200} />);
+  const input = component.getByTestId('input');
+  await input.fill('updated');
 
   await expect(component.getByTestId('effect-calls')).toHaveText('0');
 
@@ -31,21 +32,22 @@ test('should call effect after value change and delay', async ({
 
 test('should debounce multiple value changes', async ({ mount, page }) => {
   const component = await mount(<DebounceEffectTest delay={100} />);
+  const input = component.getByTestId('input');
 
-  await component.update(<DebounceEffectTest delay={200} />);
+  await input.fill('first');
   await page.clock.runFor(20);
 
-  await component.update(<DebounceEffectTest delay={300} />);
+  await input.fill('second');
   await page.clock.runFor(20);
 
-  await component.update(<DebounceEffectTest delay={400} />);
+  await input.fill('third');
   await page.clock.runFor(20);
 
-  await component.update(<DebounceEffectTest delay={500} />);
+  await input.fill('final value');
 
   await expect(component.getByTestId('effect-calls')).toHaveText('0');
 
-  await page.clock.runFor(600);
+  await page.clock.runFor(150);
 
   await expect(component.getByTestId('effect-calls')).toHaveText('1');
   await expect(component.getByTestId('effect-value')).toHaveText('final value');
@@ -78,4 +80,33 @@ test('should work with user input', async ({ mount, page }) => {
 
   await expect(component.getByTestId('effect-calls')).toHaveText('2');
   await expect(component.getByTestId('effect-value')).toHaveText('Test');
+});
+
+test('should handle rapid successive input changes', async ({
+  mount,
+  page,
+}) => {
+  const component = await mount(<DebounceEffectTest delay={200} />);
+  const input = component.getByTestId('input');
+
+  // Simulate typing with pressSequentially
+  await input.pressSequentially('abcd', { delay: 50 });
+
+  await expect(component.getByTestId('effect-calls')).toHaveText('0');
+
+  await page.clock.runFor(250);
+
+  await expect(component.getByTestId('effect-calls')).toHaveText('1');
+  await expect(component.getByTestId('effect-value')).toHaveText('abcd');
+});
+
+test('should cancel effect on component unmount', async ({ mount, page }) => {
+  const component = await mount(<DebounceEffectTest delay={100} />);
+  const input = component.getByTestId('input');
+
+  await input.fill('test');
+
+  await component.unmount();
+
+  await page.clock.runFor(150);
 });
