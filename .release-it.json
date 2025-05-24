@@ -1,14 +1,9 @@
 {
+  "$schema": "https://unpkg.com/release-it@19/schema/release-it.json",
   "git": {
     "commitMessage": "chore: release v${version}",
-    "tagName": "v${version}",
-    "push": true,
-    "commit": true,
-    "tag": true,
-    "requireCleanWorkingDir": false,
-    "requireBranch": false,
-    "requireUpstream": false,
-    "addUntrackedFiles": false
+    "requireCleanWorkingDir": true,
+    "requireBranch": "main"
   },
   "github": {
     "release": true,
@@ -18,12 +13,10 @@
   },
   "npm": {
     "publish": true,
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
+    "registry": "https://registry.npmjs.org/"
   },
   "hooks": {
     "before:init": ["yarn build"],
-    "before:git:add": ["git add package.json CHANGELOG.md"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "plugins": {
@@ -34,6 +27,5 @@
       "ignoreRecommendedBump": false,
       "strictSemVer": true
     }
-  },
-  "ci": true
+  }
 }
