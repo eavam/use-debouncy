@@ -33,7 +33,6 @@
     "lint": "yarn biome check --write .",
     "build": "tsup",
     "release": "release-it",
-    "release:dry-run": "npm publish --dry-run && yarn release --dry-run",
     "test-ct": "playwright test -c playwright-ct.config.mts"
   },
   "peerDependencies": {
