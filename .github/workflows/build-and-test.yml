@@ -98,11 +98,6 @@ jobs:
         with:
           node-version: 20
 
-      - name: Git details
-        run: |
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "github-actions@github.com"
-
       - name: Install dependencies
         run: yarn install
 
