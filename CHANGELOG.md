@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file.
 
 
+## [5.1.3](https://github.com/eavam/use-debouncy/compare/v5.1.0...v5.1.3) (2025-05-24)
+
+
+### Bug Fixes
+
+* after switching to tsup, the configuration was updated, which reduced the size of the final build ([#1185](https://github.com/eavam/use-debouncy/issues/1185)) ([7ea2cd6](https://github.com/eavam/use-debouncy/commit/7ea2cd6ff19d688feb744c2de5fcb83096bd6910))
+* improve release workflow and npm authentication  ([#1187](https://github.com/eavam/use-debouncy/issues/1187)) ([a32d8e3](https://github.com/eavam/use-debouncy/commit/a32d8e36f26f2c3eedbab5e04f985aaafcd7469f))
+* update authentication steps and configuration for npm and yarn ([#1186](https://github.com/eavam/use-debouncy/issues/1186)) ([e54dbc4](https://github.com/eavam/use-debouncy/commit/e54dbc42a1032e901fff36a2e0a33dc5f7d4ac95))
+
 # [5.1.0](https://github.com/eavam/use-debouncy/compare/v5.0.1...v5.1.0) (2025-05-23)
 
 
