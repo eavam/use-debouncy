@@ -6,14 +6,17 @@ export default defineConfig({
   dts: true,
   outDir: 'lib',
   minify: 'terser',
+  clean: true,
+  treeshake: true,
   terserOptions: {
     ecma: 5,
+    compress: {
+      booleans_as_integers: true,
+    },
     mangle: {
       properties: {
-        // Preserve specific property names to avoid breaking React hooks
         reserved: ['useRef', 'useCallback', 'useEffect', 'current'],
       },
     },
   },
-  clean: true,
 });
