@@ -3,7 +3,8 @@
   "git": {
     "commitMessage": "chore: release v${version}",
     "requireCleanWorkingDir": true,
-    "requireBranch": "main"
+    "requireBranch": "main",
+    "addUntrackedFiles": false
   },
   "github": {
     "release": true,
@@ -17,6 +18,7 @@
   },
   "hooks": {
     "before:init": ["yarn build"],
+    "before:git:add": ["git add package.json CHANGELOG.md"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
   "plugins": {
