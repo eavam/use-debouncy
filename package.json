@@ -1,6 +1,6 @@
 {
   "name": "use-debouncy",
-  "version": "5.1.0",
+  "version": "5.1.2",
   "author": "Egor Avakumov",
   "description": "🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support",
   "license": "MIT",
@@ -16,7 +16,10 @@
     "hooks",
     "typescript"
   ],
-  "repository": "https://github.com/eavam/use-debouncy.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eavam/use-debouncy.git"
+  },
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
   "module": "lib/index.mjs",
@@ -30,6 +33,7 @@
     "lint": "yarn biome check --write .",
     "build": "tsup",
     "release": "release-it",
+    "release:dry-run": "npm publish --dry-run && yarn release --dry-run",
     "test-ct": "playwright test -c playwright-ct.config.mts"
   },
   "peerDependencies": {

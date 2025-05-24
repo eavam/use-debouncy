@@ -122,7 +122,9 @@ jobs:
       - name: Release
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            echo "Running release for main branch..."
             yarn release --ci
           else
+            echo "Running dry-run release for other branches..."
             yarn release --ci --dry-run --no-git.commit --no-git.tag --no-git.push --no-github.release
           fi
