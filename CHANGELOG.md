@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file.
 
 
+## [5.1.4](https://github.com/eavam/use-debouncy/compare/v5.1.3...v5.1.4) (2025-05-25)
+
+
+### Bug Fixes
+
+* remove hardcoded npm token from .yarnrc.yml ([#1188](https://github.com/eavam/use-debouncy/issues/1188)) ([d44be71](https://github.com/eavam/use-debouncy/commit/d44be71754a93fc1de55a09a42119df9e54cbd8b))
+
 ## [5.1.3](https://github.com/eavam/use-debouncy/compare/v5.1.0...v5.1.3) (2025-05-24)
 
 
