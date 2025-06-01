@@ -1,3 +1,3 @@
 module.exports = {
-  allowedEnv: ["NPM_TOKEN"],
+  allowedEnv: ['NPM_TOKEN'],
 };
