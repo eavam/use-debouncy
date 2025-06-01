@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file.
 
 
+## [5.1.6](https://github.com/eavam/use-debouncy/compare/v5.1.5...v5.1.6) (2025-06-01)
+
 ## [5.1.5](https://github.com/eavam/use-debouncy/compare/v5.1.4...v5.1.5) (2025-06-01)
 
 ## [5.1.4](https://github.com/eavam/use-debouncy/compare/v5.1.3...v5.1.4) (2025-05-25)
