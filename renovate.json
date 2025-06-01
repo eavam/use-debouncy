@@ -17,5 +17,6 @@
   "schedule": ["* * 1-5 * *"],
   "env": {
     "NPM_TOKEN": ""
-  }
+  },
+  "allowedEnv": ["NPM_TOKEN"]
 }
