@@ -124,7 +124,13 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "Running release for main branch..."
-            yarn release --ci
+            if npx should-semantic-release; then
+              echo "Changes found that require a release. Running release-it..."
+              yarn release --ci
+            else
+              echo "No changes found that require a release. Skipping release."
+              exit 0
+            fi
           else
             echo "Running dry-run release for other branches..."
             yarn release --ci --dry-run --no-git.commit --no-git.tag --no-git.push --no-github.release
