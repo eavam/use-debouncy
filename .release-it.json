@@ -18,8 +18,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "hooks": {
-    "before:bump": "if ! npx should-semantic-release ; then exit 1 ; fi",
     "before:init": ["yarn build", "npm publish --dry-run"],
+    "before:bump": "if ! npx should-semantic-release ; then exit 1 ; fi",
     "before:git:add": ["git add package.json CHANGELOG.md"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },
