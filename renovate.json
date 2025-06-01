@@ -3,12 +3,6 @@
   "extends": ["config:base", "customManagers:biomeVersions"],
   "packageRules": [
     {
-      "matchPackageNames": ["jest", "jest-environment-jsdom"],
-      "groupName": "jest update",
-      "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
-    },
-    {
       "matchPackageNames": ["react", "react-dom"],
       "groupName": "react update",
       "updateTypes": ["minor", "patch", "pin", "digest"],
@@ -20,5 +14,8 @@
     }
   ],
   "rebaseWhen": "behind-base-branch",
-  "schedule": ["* * 1-5 * *"]
+  "schedule": ["* * 1-5 * *"],
+  "env": {
+    "NPM_TOKEN": ""
+  }
 }
