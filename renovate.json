@@ -14,5 +14,8 @@
     }
   ],
   "rebaseWhen": "behind-base-branch",
-  "schedule": ["* * 1-5 * *"]
+  "schedule": ["* * 1-5 * *"],
+  "env": {
+    "NPM_TOKEN": ""
+  }
 }
