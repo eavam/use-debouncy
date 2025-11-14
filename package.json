@@ -50,7 +50,7 @@
     "react-dom": "19.1.0",
     "release-it": "19.0.6",
     "simple-git-hooks": "2.13.1",
-    "terser": "5.39.2",
+    "terser": "5.44.1",
     "tsup": "8.5.0",
     "typescript": "5.8.3",
     "vite-plugin-commonjs": "0.10.4"

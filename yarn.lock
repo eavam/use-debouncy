@@ -1345,6 +1345,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"acorn@npm:^8.15.0":
+  version: 8.15.0
+  resolution: "acorn@npm:8.15.0"
+  bin:
+    acorn: bin/acorn
+  checksum: 10/77f2de5051a631cf1729c090e5759148459cdb76b5f5c70f890503d629cf5052357b0ce783c0f976dd8a93c5150f59f6d18df1def3f502396a20f81282482fa4
+  languageName: node
+  linkType: hard
+
 "add-stream@npm:^1.0.0":
   version: 1.0.0
   resolution: "add-stream@npm:1.0.0"
@@ -4478,17 +4487,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"terser@npm:5.39.2":
-  version: 5.39.2
-  resolution: "terser@npm:5.39.2"
+"terser@npm:5.44.1":
+  version: 5.44.1
+  resolution: "terser@npm:5.44.1"
   dependencies:
     "@jridgewell/source-map": "npm:^0.3.3"
-    acorn: "npm:^8.14.0"
+    acorn: "npm:^8.15.0"
     commander: "npm:^2.20.0"
     source-map-support: "npm:~0.5.20"
   bin:
     terser: bin/terser
-  checksum: 10/07fd3533858c42f01e942964818727cdeba59c3d49431066b68d640b57f7e854e5c473dc77a4ef38378ad288a8fa0c322bf56801fee6651b1fe4dc9d2b6869f0
+  checksum: 10/516ece205b7db778c4eddb287a556423cb776b7ca591b06270e558a76aa2d57c8d71d9c3c4410b276d3426beb03516fff7d96ff8b517e10730a72908810c6e33
   languageName: node
   linkType: hard
 
@@ -4759,7 +4768,7 @@ __metadata:
     react-dom: "npm:19.1.0"
     release-it: "npm:19.0.6"
     simple-git-hooks: "npm:2.13.1"
-    terser: "npm:5.39.2"
+    terser: "npm:5.44.1"
     tsup: "npm:8.5.0"
     typescript: "npm:5.8.3"
     vite-plugin-commonjs: "npm:0.10.4"
