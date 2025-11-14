@@ -4233,12 +4233,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simple-git-hooks@npm:2.13.0":
-  version: 2.13.0
-  resolution: "simple-git-hooks@npm:2.13.0"
+"simple-git-hooks@npm:2.13.1":
+  version: 2.13.1
+  resolution: "simple-git-hooks@npm:2.13.1"
   bin:
     simple-git-hooks: cli.js
-  checksum: 10/c8bef47104985670ed1fc946c814b68290db5d5d3898a64c7125ad5b318029b41035f643f011ffa3dcbfb4690582439f37f515c950fe280dfb8b0a39b60cbaab
+  checksum: 10/a315ab71dcc5da1552970051c8b05ab745496e95667501e6961165f9946b58119ed8c3aa0e97748ca04c61b891936e3464c5feb4c5fb2d70a79e8f431809453d
   languageName: node
   linkType: hard
 
@@ -4758,7 +4758,7 @@ __metadata:
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
     release-it: "npm:19.0.6"
-    simple-git-hooks: "npm:2.13.0"
+    simple-git-hooks: "npm:2.13.1"
     terser: "npm:5.39.2"
     tsup: "npm:8.5.0"
     typescript: "npm:5.8.3"
