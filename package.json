@@ -43,7 +43,7 @@
     "@playwright/experimental-ct-react": "1.52.0",
     "@playwright/test": "1.52.0",
     "@release-it/conventional-changelog": "10.0.1",
-    "@types/node": "22.15.21",
+    "@types/node": "22.19.1",
     "@types/react": "19.1.5",
     "@types/react-dom": "19.1.5",
     "react": "19.1.0",

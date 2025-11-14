@@ -1266,12 +1266,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:22.15.21":
-  version: 22.15.21
-  resolution: "@types/node@npm:22.15.21"
+"@types/node@npm:22.19.1":
+  version: 22.19.1
+  resolution: "@types/node@npm:22.19.1"
   dependencies:
     undici-types: "npm:~6.21.0"
-  checksum: 10/cb4189587cca445bfb8166c0ed39f9344d743f37f3da892f2999a99bbabda45dc773237e61ecb7d1dc83dd95718cb1b5715b0be5dd7953565b19019e36a7cf39
+  checksum: 10/40d5368faa6d9be6c27ebca2362734bc9e035a742e0b5cafee40ba3b355d7cfcaedbc93618c76465451e53f1af0c811b4b85ee9b85e2e942f34a4c5310fa047b
   languageName: node
   linkType: hard
 
@@ -4752,7 +4752,7 @@ __metadata:
     "@playwright/experimental-ct-react": "npm:1.52.0"
     "@playwright/test": "npm:1.52.0"
     "@release-it/conventional-changelog": "npm:10.0.1"
-    "@types/node": "npm:22.15.21"
+    "@types/node": "npm:22.19.1"
     "@types/react": "npm:19.1.5"
     "@types/react-dom": "npm:19.1.5"
     react: "npm:19.1.0"
