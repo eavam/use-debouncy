@@ -1191,37 +1191,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-core@npm:1.52.0":
-  version: 1.52.0
-  resolution: "@playwright/experimental-ct-core@npm:1.52.0"
+"@playwright/experimental-ct-core@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/experimental-ct-core@npm:1.57.0"
   dependencies:
-    playwright: "npm:1.52.0"
-    playwright-core: "npm:1.52.0"
-    vite: "npm:^6.2.6"
-  checksum: 10/36fefbc3fc88dc11ed44ab4eceb49655621ac4c094dfc87aa15b6b0fe9f6a33f04d1d346bc3e35785a2ecc37e9efc450ee8c7e033d0e96d448ed7cbc591e3a77
+    playwright: "npm:1.57.0"
+    playwright-core: "npm:1.57.0"
+    vite: "npm:^6.4.1"
+  checksum: 10/97dd49cd192efb503abc35118162d761e19a0152548194b210ed4ae249ad3b3c0e13a6f7bee18a2f2c859d416d604c7540c192708da73057e6e012c0c6881bc0
   languageName: node
   linkType: hard
 
-"@playwright/experimental-ct-react@npm:1.52.0":
-  version: 1.52.0
-  resolution: "@playwright/experimental-ct-react@npm:1.52.0"
+"@playwright/experimental-ct-react@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/experimental-ct-react@npm:1.57.0"
   dependencies:
-    "@playwright/experimental-ct-core": "npm:1.52.0"
+    "@playwright/experimental-ct-core": "npm:1.57.0"
     "@vitejs/plugin-react": "npm:^4.2.1"
   bin:
     playwright: cli.js
-  checksum: 10/4d32bac9aeffb08bd28c2a27559e22376f8e136d08c4dfad41bfa65ff078e42bd4c1590772ccee19a18fbf2c7977df704f68ccf9be8250321f910f09abec335e
+  checksum: 10/163756ae54a3515e51a1e6fe428badff430f99c3ddbc10c47152a922fa0544447eeaeef551c5897d33428faaa375186d38bfbd46b6818469f4657b20fe879f48
   languageName: node
   linkType: hard
 
-"@playwright/test@npm:1.52.0":
-  version: 1.52.0
-  resolution: "@playwright/test@npm:1.52.0"
+"@playwright/test@npm:1.57.0":
+  version: 1.57.0
+  resolution: "@playwright/test@npm:1.57.0"
   dependencies:
-    playwright: "npm:1.52.0"
+    playwright: "npm:1.57.0"
   bin:
     playwright: cli.js
-  checksum: 10/e18a4eb626c7bc6cba212ff2e197cf9ae2e4da1c91bfdf08a744d62e27222751173e4b220fa27da72286a89a3b4dea7c09daf384d23708f284b64f98e9a63a88
+  checksum: 10/07f5ba4841b2db1dea70d821004c5156b692488e13523c096ce3487d30f95f34ccf30ba6467ece60c86faac27ae382213b7eacab48a695550981b2e811e5e579
   languageName: node
   linkType: hard
 
@@ -3908,27 +3908,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"playwright-core@npm:1.52.0":
-  version: 1.52.0
-  resolution: "playwright-core@npm:1.52.0"
+"playwright-core@npm:1.57.0":
+  version: 1.57.0
+  resolution: "playwright-core@npm:1.57.0"
   bin:
     playwright-core: cli.js
-  checksum: 10/42e13f5f98dc25ebc95525fb338a215b9097b2ba39d41e99972a190bf75d79979f163f5bc07b1ca06847ee07acb2c9b487d070fab67e9cd55e33310fc05aca3c
+  checksum: 10/ec066602f0196f036006caee14a30d0a57533a76673bb9a0c609ef56e21decf018f0e8d402ba2fb18251393be6a1c9e193c83266f1670fe50838c5340e220de0
   languageName: node
   linkType: hard
 
-"playwright@npm:1.52.0":
-  version: 1.52.0
-  resolution: "playwright@npm:1.52.0"
+"playwright@npm:1.57.0":
+  version: 1.57.0
+  resolution: "playwright@npm:1.57.0"
   dependencies:
     fsevents: "npm:2.3.2"
-    playwright-core: "npm:1.52.0"
+    playwright-core: "npm:1.57.0"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
     playwright: cli.js
-  checksum: 10/214175446089000c2ac997b925063b95f7d86d129c5d7c74caa5ddcb05bcad598dfd569d2133a10dc82d288bf67e7858877dcd099274b0b928b9c63db7d6ecec
+  checksum: 10/241559210f98ef11b6bd6413f2d29da7ef67c7865b72053192f0d164fab9e0d3bd47913b3351d5de6433a8aff2d8424d4b8bd668df420bf4dda7ae9fcd37b942
   languageName: node
   linkType: hard
 
@@ -4840,8 +4840,8 @@ __metadata:
   resolution: "use-debouncy@workspace:."
   dependencies:
     "@biomejs/biome": "npm:1.9.4"
-    "@playwright/experimental-ct-react": "npm:1.52.0"
-    "@playwright/test": "npm:1.52.0"
+    "@playwright/experimental-ct-react": "npm:1.57.0"
+    "@playwright/test": "npm:1.57.0"
     "@release-it/conventional-changelog": "npm:10.0.2"
     "@types/node": "npm:22.19.1"
     "@types/react": "npm:19.2.7"
@@ -4899,9 +4899,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^6.2.6":
-  version: 6.3.5
-  resolution: "vite@npm:6.3.5"
+"vite@npm:^6.4.1":
+  version: 6.4.1
+  resolution: "vite@npm:6.4.1"
   dependencies:
     esbuild: "npm:^0.25.0"
     fdir: "npm:^6.4.4"
@@ -4950,7 +4950,7 @@ __metadata:
       optional: true
   bin:
     vite: bin/vite.js
-  checksum: 10/7bc3a1c5ef79413ad70daeeaf69b76cd1218d16aa18ed8ee08d74648ef17284f4a17c11f5cf42b573b6dc5e3d5f115110b67b1d23c2c699cfe404757764a634a
+  checksum: 10/ea2083b6b1d1c9e85a13d6797ae989aa1dbc27a5c054319c71141934bf3f8dba8d54b510618040f95751148da63787f28f043df7458a194c81f8b6d8a2d32844
   languageName: node
   linkType: hard
 
