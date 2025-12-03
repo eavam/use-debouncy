@@ -53,7 +53,7 @@ jobs:
         run: yarn test
 
       - name: Upload Playwright test results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         if: always()
         with:
           name: playwright-report
@@ -70,7 +70,7 @@ jobs:
         working-directory: test-publish
 
       - name: Archive build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build-artifacts
           path: |
@@ -115,7 +115,7 @@ jobs:
           yarn npm whoami --publish
 
       - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: release-artifacts
           path: |
