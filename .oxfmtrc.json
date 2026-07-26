@@ -1,0 +1,8 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 80,
+  "singleQuote": true,
+  // .gitignore is honoured by default; .yarn/releases is committed, so it is
+  // the one thing that has to be excluded here
+  "ignorePatterns": [".yarn/**"]
+}

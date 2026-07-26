@@ -10,12 +10,15 @@ on:
 permissions:
   contents: read # for checkout
 
+# Cancel superseded runs on the same ref, but never interrupt a release on main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build-and-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -24,10 +27,13 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          # .yarn/cache is not committed, so a lockfile change would otherwise
+          # refetch every package instead of the ones that moved
+          cache: yarn
 
       - name: Cache Node.js modules
         uses: actions/cache@v4
@@ -40,16 +46,32 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Install Playwright Browsers
-        run: npx -y playwright@1.52.0 install --with-deps
+      # Cheap and dependent only on node_modules, so run it before the browser
+      # download and the build rather than after them
+      - name: Lint and check formatting
+        run: yarn lint:check
+
+      - name: Check types
+        run: yarn typecheck
+
+      # Keyed on the lockfile so a Playwright bump invalidates the cached browsers
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      # Must run through the workspace binary: a hardcoded version installs
+      # browser revisions that do not match the installed test runner
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
 
       - name: Build application
         run: yarn build
 
-      - name: Run Biome linting
-        run: yarn biome ci .
-
-      - name: Run all tests (Playwright component tests)
+      - name: Run component tests
         run: yarn test
 
       - name: Upload Playwright test results
@@ -65,9 +87,18 @@ jobs:
       - name: Pack build
         run: yarn pack -o use-debouncy-pack.tgz
 
-      - name: Install packed package
-        run: npm install ../use-debouncy-pack.tgz
-        working-directory: test-publish
+      # Lint what actually ships, not the working tree. Versions are pinned so
+      # a new release of either tool cannot turn CI red on its own.
+      - name: Lint published package
+        run: |
+          npx -y publint@0.3.22 use-debouncy-pack.tgz --strict
+          npx -y @arethetypeswrong/cli@0.18.5 use-debouncy-pack.tgz
+
+      - name: Smoke test published package
+        working-directory: smoke
+        run: |
+          npm install ../use-debouncy-pack.tgz react react-dom
+          node --test
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v4
@@ -80,15 +111,16 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: ['build-and-test']
+    # Pull requests get no OIDC publishing identity, so this job can only fail
+    # there. A red check on every PR is what blocks Renovate from automerging.
+    if: github.event_name == 'push'
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+      id-token: write # OIDC: authenticates the npm publish and signs provenance
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -97,35 +129,27 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 20
+          node-version-file: .nvmrc
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
-      - name: Build application
-        run: yarn build
-
-      - name: Verify authentication
+      - name: Configure git identity
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
-          yarn npm whoami --publish
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-artifacts
-          path: |
-            lib
-
+      # lib/ is produced by release-it's before:init hook, and build-and-test
+      # already uploaded it as build-artifacts
       - name: Release
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "Running release for main branch..."
-            if npx should-semantic-release; then
+            if npx -y should-semantic-release@0.3.5; then
               echo "Changes found that require a release. Running release-it..."
               yarn release --ci
             else

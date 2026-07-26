@@ -1,3 +1,4 @@
 ## Checks
 
-- [ ] Manual check in Codesandbox.
+- [ ] `yarn test` passes locally.
+- [ ] Public API changes are reflected in the README.

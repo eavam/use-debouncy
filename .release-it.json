@@ -15,7 +15,8 @@
   },
   "npm": {
     "publish": true,
-    "registry": "https://registry.npmjs.org/"
+    "registry": "https://registry.npmjs.org/",
+    "skipChecks": true
   },
   "hooks": {
     "before:init": ["yarn build", "npm publish --dry-run"],

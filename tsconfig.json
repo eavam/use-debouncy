@@ -1,18 +1,16 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
     "module": "esnext",
     "target": "ESNext",
-    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "noImplicitThis": true,
-    "noImplicitAny": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "strict": true
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "lib"],
-  "types": ["jest", "node"]
+  "include": ["src", "playwright", "vite.config.ts", "playwright.config.ts"],
+  "exclude": ["node_modules", "lib"]
 }

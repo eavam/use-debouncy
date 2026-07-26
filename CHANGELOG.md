@@ -2,13 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-
 ## [5.1.7](https://github.com/eavam/use-debouncy/compare/v5.1.6...v5.1.7) (2025-11-14)
-
 
 ### Bug Fixes
 
-* renovate artifact update by removing npmAuthToken requirement from .yarnrc.yml ([#1201](https://github.com/eavam/use-debouncy/issues/1201)) ([07d8bfb](https://github.com/eavam/use-debouncy/commit/07d8bfb164c93e088bb0e59123093ebdbeaa4b54))
+- renovate artifact update by removing npmAuthToken requirement from .yarnrc.yml ([#1201](https://github.com/eavam/use-debouncy/issues/1201)) ([07d8bfb](https://github.com/eavam/use-debouncy/commit/07d8bfb164c93e088bb0e59123093ebdbeaa4b54))
 
 ## [5.1.6](https://github.com/eavam/use-debouncy/compare/v5.1.5...v5.1.6) (2025-06-01)
 
@@ -16,106 +14,91 @@ All notable changes to this project will be documented in this file.
 
 ## [5.1.4](https://github.com/eavam/use-debouncy/compare/v5.1.3...v5.1.4) (2025-05-25)
 
-
 ### Bug Fixes
 
-* remove hardcoded npm token from .yarnrc.yml ([#1188](https://github.com/eavam/use-debouncy/issues/1188)) ([d44be71](https://github.com/eavam/use-debouncy/commit/d44be71754a93fc1de55a09a42119df9e54cbd8b))
+- remove hardcoded npm token from .yarnrc.yml ([#1188](https://github.com/eavam/use-debouncy/issues/1188)) ([d44be71](https://github.com/eavam/use-debouncy/commit/d44be71754a93fc1de55a09a42119df9e54cbd8b))
 
 ## [5.1.3](https://github.com/eavam/use-debouncy/compare/v5.1.0...v5.1.3) (2025-05-24)
 
-
 ### Bug Fixes
 
-* after switching to tsup, the configuration was updated, which reduced the size of the final build ([#1185](https://github.com/eavam/use-debouncy/issues/1185)) ([7ea2cd6](https://github.com/eavam/use-debouncy/commit/7ea2cd6ff19d688feb744c2de5fcb83096bd6910))
-* improve release workflow and npm authentication  ([#1187](https://github.com/eavam/use-debouncy/issues/1187)) ([a32d8e3](https://github.com/eavam/use-debouncy/commit/a32d8e36f26f2c3eedbab5e04f985aaafcd7469f))
-* update authentication steps and configuration for npm and yarn ([#1186](https://github.com/eavam/use-debouncy/issues/1186)) ([e54dbc4](https://github.com/eavam/use-debouncy/commit/e54dbc42a1032e901fff36a2e0a33dc5f7d4ac95))
+- after switching to tsup, the configuration was updated, which reduced the size of the final build ([#1185](https://github.com/eavam/use-debouncy/issues/1185)) ([7ea2cd6](https://github.com/eavam/use-debouncy/commit/7ea2cd6ff19d688feb744c2de5fcb83096bd6910))
+- improve release workflow and npm authentication ([#1187](https://github.com/eavam/use-debouncy/issues/1187)) ([a32d8e3](https://github.com/eavam/use-debouncy/commit/a32d8e36f26f2c3eedbab5e04f985aaafcd7469f))
+- update authentication steps and configuration for npm and yarn ([#1186](https://github.com/eavam/use-debouncy/issues/1186)) ([e54dbc4](https://github.com/eavam/use-debouncy/commit/e54dbc42a1032e901fff36a2e0a33dc5f7d4ac95))
 
 # [5.1.0](https://github.com/eavam/use-debouncy/compare/v5.0.1...v5.1.0) (2025-05-23)
 
-
 ### Bug Fixes
 
-* **ci:** resolve release-it workflow issues in CI environment ([#1184](https://github.com/eavam/use-debouncy/issues/1184)) ([a882e92](https://github.com/eavam/use-debouncy/commit/a882e9216c57e5b4b418e1630357a72bdf835606))
-
+- **ci:** resolve release-it workflow issues in CI environment ([#1184](https://github.com/eavam/use-debouncy/issues/1184)) ([a882e92](https://github.com/eavam/use-debouncy/commit/a882e9216c57e5b4b418e1630357a72bdf835606))
 
 ### Features
 
-* migrate to modern toolchain (Biome, tsup, release-it, Node.js 20) ([#1183](https://github.com/eavam/use-debouncy/issues/1183)) ([defbab6](https://github.com/eavam/use-debouncy/commit/defbab6604aafee5520806cfc424257db563762f))
+- migrate to modern toolchain (Biome, tsup, release-it, Node.js 20) ([#1183](https://github.com/eavam/use-debouncy/issues/1183)) ([defbab6](https://github.com/eavam/use-debouncy/commit/defbab6604aafee5520806cfc424257db563762f))
 
 ## [5.0.1](https://github.com/eavam/use-debouncy/compare/v5.0.0...v5.0.1) (2023-09-24)
 
-
 ### Bug Fixes
 
-* remove type any ([4b47d62](https://github.com/eavam/use-debouncy/commit/4b47d625203eae194a89350bd946bea840cf5e79))
+- remove type any ([4b47d62](https://github.com/eavam/use-debouncy/commit/4b47d625203eae194a89350bd946bea840cf5e79))
 
 ## [5.0.1-beta.3](https://github.com/eavam/use-debouncy/compare/v5.0.1-beta.2...v5.0.1-beta.3) (2023-09-23)
 
-
 ### Bug Fixes
 
-* update types ([242ac80](https://github.com/eavam/use-debouncy/commit/242ac805af8316528281e8174f9c139f1c708a6c))
+- update types ([242ac80](https://github.com/eavam/use-debouncy/commit/242ac805af8316528281e8174f9c139f1c708a6c))
 
 ## [5.0.1-beta.2](https://github.com/eavam/use-debouncy/compare/v5.0.1-beta.1...v5.0.1-beta.2) (2023-09-23)
 
-
 ### Bug Fixes
 
-* type generation ([57f2f4c](https://github.com/eavam/use-debouncy/commit/57f2f4cc9bf7c3e69bb6a9eb9716a4bb0011695e))
+- type generation ([57f2f4c](https://github.com/eavam/use-debouncy/commit/57f2f4cc9bf7c3e69bb6a9eb9716a4bb0011695e))
 
 ## [5.0.1-beta.1](https://github.com/eavam/use-debouncy/compare/v5.0.0...v5.0.1-beta.1) (2023-09-23)
 
-
 ### Bug Fixes
 
-* remove type any ([14a9d23](https://github.com/eavam/use-debouncy/commit/14a9d23ea0c20be54693858a8df6dd2b2f025857))
+- remove type any ([14a9d23](https://github.com/eavam/use-debouncy/commit/14a9d23ea0c20be54693858a8df6dd2b2f025857))
 
 # [5.0.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v5.0.0) (2023-09-19)
 
-
 ### Bug Fixes
 
-* remove default imports ([#1076](https://github.com/eavam/use-debouncy/issues/1076)) ([f46b35d](https://github.com/eavam/use-debouncy/commit/f46b35d9e63b165534290718d6278f35baf6ed0e))
-
+- remove default imports ([#1076](https://github.com/eavam/use-debouncy/issues/1076)) ([f46b35d](https://github.com/eavam/use-debouncy/commit/f46b35d9e63b165534290718d6278f35baf6ed0e))
 
 ### Features
 
-* add codesandbox ([#1075](https://github.com/eavam/use-debouncy/issues/1075)) ([d92ecb4](https://github.com/eavam/use-debouncy/commit/d92ecb4f45e8f964a38b6523d3dffbbaa3d28168))
-* rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
-
+- add codesandbox ([#1075](https://github.com/eavam/use-debouncy/issues/1075)) ([d92ecb4](https://github.com/eavam/use-debouncy/commit/d92ecb4f45e8f964a38b6523d3dffbbaa3d28168))
+- rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
 
 ### BREAKING CHANGES
 
-* Includes were removed by default as tree-shaking should do its job.
+- Includes were removed by default as tree-shaking should do its job.
 
-* fix: remove useless files in config
-
-# [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v4.6.0) (2023-09-19)
-
-
-### Features
-
-* add codesandbox ([#1075](https://github.com/eavam/use-debouncy/issues/1075)) ([d92ecb4](https://github.com/eavam/use-debouncy/commit/d92ecb4f45e8f964a38b6523d3dffbbaa3d28168))
-* rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
+- fix: remove useless files in config
 
 # [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v4.6.0) (2023-09-19)
 
+### Features
+
+- add codesandbox ([#1075](https://github.com/eavam/use-debouncy/issues/1075)) ([d92ecb4](https://github.com/eavam/use-debouncy/commit/d92ecb4f45e8f964a38b6523d3dffbbaa3d28168))
+- rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
+
+# [4.6.0](https://github.com/eavam/use-debouncy/compare/v4.5.0...v4.6.0) (2023-09-19)
 
 ### Features
 
-* rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
+- rollup update ([#1074](https://github.com/eavam/use-debouncy/issues/1074)) ([589221c](https://github.com/eavam/use-debouncy/commit/589221c7f72f75b8d76535f6f34310ec0427a908))
 
 # [4.5.0](https://github.com/eavam/use-debouncy/compare/v4.4.0...v4.5.0) (2023-09-19)
 
-
 ### Bug Fixes
 
-* remove postinstall ([#1058](https://github.com/eavam/use-debouncy/issues/1058)) ([f6a5082](https://github.com/eavam/use-debouncy/commit/f6a5082464fb1230cfd8bc70c8937336e2df20db))
-
+- remove postinstall ([#1058](https://github.com/eavam/use-debouncy/issues/1058)) ([f6a5082](https://github.com/eavam/use-debouncy/commit/f6a5082464fb1230cfd8bc70c8937336e2df20db))
 
 ### Features
 
-* streamlined project setup and configurations ([#1031](https://github.com/eavam/use-debouncy/issues/1031)) ([9276279](https://github.com/eavam/use-debouncy/commit/9276279c883c560d574d45c287f970549a2aa95b)), closes [#1051](https://github.com/eavam/use-debouncy/issues/1051) [#1047](https://github.com/eavam/use-debouncy/issues/1047) [#1046](https://github.com/eavam/use-debouncy/issues/1046) [#1048](https://github.com/eavam/use-debouncy/issues/1048) [#1050](https://github.com/eavam/use-debouncy/issues/1050) [#1049](https://github.com/eavam/use-debouncy/issues/1049)
+- streamlined project setup and configurations ([#1031](https://github.com/eavam/use-debouncy/issues/1031)) ([9276279](https://github.com/eavam/use-debouncy/commit/9276279c883c560d574d45c287f970549a2aa95b)), closes [#1051](https://github.com/eavam/use-debouncy/issues/1051) [#1047](https://github.com/eavam/use-debouncy/issues/1047) [#1046](https://github.com/eavam/use-debouncy/issues/1046) [#1048](https://github.com/eavam/use-debouncy/issues/1048) [#1050](https://github.com/eavam/use-debouncy/issues/1050) [#1049](https://github.com/eavam/use-debouncy/issues/1049)
 
 # Changelog
 

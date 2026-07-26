@@ -1,69 +1,84 @@
 {
   "name": "use-debouncy",
   "version": "5.1.7",
-  "author": "Egor Avakumov",
   "description": "🌀 Small (~0.2kb) debounce effect hook for React with TypeScript support",
-  "license": "MIT",
   "keywords": [
     "debounce",
-    "use-debounce",
-    "react debounce",
     "debounce hook",
-    "use-debouncy",
-    "use-effect",
-    "react",
-    "react hook",
     "hooks",
-    "typescript"
+    "react",
+    "react debounce",
+    "react hook",
+    "typescript",
+    "use-debounce",
+    "use-debouncy",
+    "use-effect"
   ],
+  "license": "MIT",
+  "author": "Egor Avakumov",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/eavam/use-debouncy.git"
   },
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "module": "lib/index.mjs",
-  "sideEffects": false,
-  "engines": {
-    "node": ">=20.0.0",
-    "npm": ">=10.0.0"
-  },
-  "scripts": {
-    "test": "yarn test-ct",
-    "lint": "yarn biome check --write .",
-    "build": "tsup",
-    "release": "release-it",
-    "test-ct": "playwright test -c playwright-ct.config.mts"
-  },
-  "peerDependencies": {
-    "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.9.4",
-    "@playwright/experimental-ct-react": "1.52.0",
-    "@playwright/test": "1.52.0",
-    "@release-it/conventional-changelog": "10.0.2",
-    "@types/node": "22.19.1",
-    "@types/react": "19.2.7",
-    "@types/react-dom": "19.2.3",
-    "react": "19.2.1",
-    "react-dom": "19.2.1",
-    "release-it": "19.0.6",
-    "simple-git-hooks": "2.13.1",
-    "terser": "5.44.1",
-    "tsup": "8.5.1",
-    "typescript": "5.9.3",
-    "vite-plugin-commonjs": "0.10.4"
-  },
   "files": [
     "lib/"
   ],
+  "type": "module",
+  "sideEffects": false,
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      },
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "yarn@4.12.0",
+  "scripts": {
+    "dev": "vite",
+    "test": "playwright test",
+    "lint": "oxlint --fix && oxfmt",
+    "lint:check": "oxlint && oxfmt --check",
+    "build": "vite build && tsc -p tsconfig.build.json && cp lib/index.d.ts lib/index.d.cts",
+    "release": "release-it",
+    "typecheck": "tsc",
+    "hooks": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.0",
+    "@release-it/conventional-changelog": "12.0.0",
+    "@types/node": "26.1.1",
+    "@types/react": "19.2.17",
+    "@types/react-dom": "19.2.3",
+    "oxfmt": "0.60.0",
+    "oxlint": "1.75.0",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "release-it": "21.0.0",
+    "simple-git-hooks": "2.13.1",
+    "typescript": "7.0.2",
+    "vite": "8.1.5"
+  },
+  "peerDependencies": {
+    "react": "^18.0.0 || ^19.0.0"
+  },
   "simple-git-hooks": {
-    "pre-commit": "yarn biome check --staged --files-ignore-unknown=true --no-errors-on-unmatched"
-  }
+    "pre-commit": "yarn lint"
+  },
+  "packageManager": "yarn@4.17.1"
 }
