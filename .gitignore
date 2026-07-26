@@ -86,3 +86,7 @@ playwright/.cache/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# smoke test workspace
+smoke/node_modules/
+smoke/package-lock.json

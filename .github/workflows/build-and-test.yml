@@ -81,9 +81,18 @@ jobs:
       - name: Pack build
         run: yarn pack -o use-debouncy-pack.tgz
 
-      - name: Install packed package
-        run: npm install ../use-debouncy-pack.tgz
-        working-directory: test-publish
+      # Lint what actually ships, not the working tree. Versions are pinned so
+      # a new release of either tool cannot turn CI red on its own.
+      - name: Lint published package
+        run: |
+          npx -y publint@0.3.22 use-debouncy-pack.tgz --strict
+          npx -y @arethetypeswrong/cli@0.18.5 use-debouncy-pack.tgz
+
+      - name: Smoke test published package
+        working-directory: smoke
+        run: |
+          npm install ../use-debouncy-pack.tgz react react-dom
+          node --test
 
       - name: Archive build artifacts
         uses: actions/upload-artifact@v4
