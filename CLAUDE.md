@@ -18,10 +18,12 @@ smoke suite enforces a gzip budget — raise it deliberately, never to make a bu
 yarn dev         # Vite dev server; the story gallery lives at
                  # http://localhost:3100/playwright/gallery/index.html
 yarn test        # Playwright component tests, all three browsers
-yarn typecheck   # tsc --noEmit
+yarn typecheck   # tsc over src, the stories and the specs
 yarn lint        # oxlint --fix && oxfmt
+yarn lint:check  # the same, in check mode — what CI runs
 yarn build       # vite build + declarations, into lib/
 yarn release     # release-it (CI only, normally not run by hand)
+yarn hooks       # install the pre-commit hook (once, after cloning)
 
 # Useful during development
 npx playwright install chromium chromium-headless-shell   # first run only
@@ -38,7 +40,8 @@ npx playwright test --project=chromium -g "should debounce"
   root so `update()` reconciles instead of remounting.
 - `playwright/stories/*.story.tsx` — components under test. One named export per scenario; the
   story owns the state and records what the test asserts on into the DOM.
-- `playwright/tests/*.test.ts` — plain `@playwright/test` specs. They address stories by id
+- `playwright/tests/*.test.ts` — specs importing `test`/`expect` from `./fixtures`, which
+  installs the fake clock automatically. They address stories by id
   (`mount('effect/DebounceEffectTest', { delay: 100 })`) and type props with
   `mount<typeof Story>`.
 - `smoke/` — installs the packed tarball and checks it on Node's built-in test runner: CJS and
@@ -46,8 +49,10 @@ npx playwright test --project=chromium -g "should debounce"
 
 ## Testing notes
 
-- Specs install a fake clock (`page.clock.install()`) and advance it with `page.clock.runFor(ms)`.
-  Never use real waits — `requestAnimationFrame` and `performance.now` are both driven by it.
+- Specs get a fake clock from the auto fixture in `playwright/tests/fixtures.ts` and advance it
+  with `page.clock.runFor(ms)`. Never use real waits — `requestAnimationFrame` and
+  `performance.now` are both driven by it. `search.test.ts` is the exception: it types at a real
+  speed against a routed API, so it imports from `@playwright/test` directly.
 - The gallery is served by the dev server, so React runs in development mode and `StrictMode`
   double-invokes effects. That is intentional: it is the only way the tests can reach React's
   dev-only behaviour, and it caught a real bug where the effect fired on mount.
@@ -92,7 +97,8 @@ Dependencies are managed by Renovate; minor and patch updates are set to automer
 ## Conventions
 
 - oxlint and oxfmt handle linting and formatting: single quotes, two-space indent. A
-  `simple-git-hooks` pre-commit hook runs both on commit.
+  `simple-git-hooks` pre-commit hook runs both on commit — Yarn 4 has no `prepare` lifecycle,
+  so run `yarn hooks` once after cloning to install it.
 - Conventional commit messages (see above — they drive releases).
 - Everything in this repository is written in English: code, comments, commit messages, docs.
 - Keep the public API additive and the bundle small; both are why people pick this package.

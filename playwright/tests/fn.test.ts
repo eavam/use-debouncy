@@ -1,11 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type { DebounceFnTest } from '../stories/fn.story';
 
 const STORY = 'fn/DebounceFnTest';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 /**
  * Test basic functionality of useDebouncyFn hook

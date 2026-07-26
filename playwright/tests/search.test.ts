@@ -1,4 +1,4 @@
-import { type Page, expect, test } from '@playwright/test';
+import { type Locator, type Page, expect, test } from '@playwright/test';
 
 // A regexp, not a glob: glob URL matching does not match this URL shape, which
 // would silently disable the interception and let the tests hit the real API
@@ -10,9 +10,7 @@ const SEARCH_INPUT_FN = 'input/search/fn';
  * Integration test helper to verify debounced input behavior with API calls
  * Tests that inputs are properly debounced and API requests are made correctly
  */
-async function performInputTest(page: Page, testId: string) {
-  const input = page.getByTestId(testId);
-
+async function performInputTest(page: Page, input: Locator) {
   // Wait for the first request and start typing 'Dar' with realistic typing speed
   const firstResponsePromise = page.waitForRequest(API_URL);
   await input.pressSequentially('Dar', { delay: 100 });
@@ -44,14 +42,14 @@ test.beforeEach(async ({ page }) => {
  * Integration test for useDebouncyEffect hook
  */
 test('input with effect', async ({ mount, page }) => {
-  await mount('search/SearchPeoplesWithEffect');
-  await performInputTest(page, SEARCH_INPUT_EFFECT);
+  const component = await mount('search/SearchPeoplesWithEffect');
+  await performInputTest(page, component.getByTestId(SEARCH_INPUT_EFFECT));
 });
 
 /**
  * Integration test for useDebouncyFn hook
  */
 test('input with fn', async ({ mount, page }) => {
-  await mount('search/SearchPeoplesWithFn');
-  await performInputTest(page, SEARCH_INPUT_FN);
+  const component = await mount('search/SearchPeoplesWithFn');
+  await performInputTest(page, component.getByTestId(SEARCH_INPUT_FN));
 });

@@ -1,12 +1,8 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type {
   ButtonClickComponent,
   SearchComponent,
 } from '../stories/integration.story';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 test.describe('Search functionality', () => {
   test('should debounce search requests correctly', async ({ mount, page }) => {

@@ -1,9 +1,5 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type { AnimationFrameTest } from '../stories/core.story';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 /**
  * Test basic functionality of useAnimationFrame hook

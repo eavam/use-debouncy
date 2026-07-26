@@ -30,7 +30,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: .nvmrc
+          # .yarn/cache is not committed, so a lockfile change would otherwise
+          # refetch every package instead of the ones that moved
+          cache: yarn
 
       - name: Cache Node.js modules
         uses: actions/cache@v4
@@ -42,6 +45,14 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      # Cheap and dependent only on node_modules, so run it before the browser
+      # download and the build rather than after them
+      - name: Lint and check formatting
+        run: yarn lint:check
+
+      - name: Check types
+        run: yarn typecheck
 
       # Keyed on the lockfile so a Playwright bump invalidates the cached browsers
       - name: Cache Playwright browsers
@@ -59,11 +70,6 @@ jobs:
 
       - name: Build application
         run: yarn build
-
-      - name: Lint and check formatting
-        run: |
-          yarn oxlint
-          yarn oxfmt --check
 
       - name: Run component tests
         run: yarn test
@@ -126,26 +132,19 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: .nvmrc
+          cache: yarn
 
       - name: Install dependencies
         run: yarn install --immutable
-
-      - name: Build application
-        run: yarn build
 
       - name: Configure git identity
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
 
-      - name: Archive production artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-artifacts
-          path: |
-            lib
-
+      # lib/ is produced by release-it's before:init hook, and build-and-test
+      # already uploaded it as build-artifacts
       - name: Release
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then

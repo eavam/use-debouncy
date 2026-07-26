@@ -1,6 +1,5 @@
 import { type ChangeEvent, useState } from 'react';
-import { useDebouncyEffect } from '../../src';
-import { useDebouncyFn } from '../../src';
+import { useDebouncyEffect, useDebouncyFn } from '../../src';
 
 type Person = { name: string };
 

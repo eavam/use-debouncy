@@ -1,13 +1,9 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type {
   EdgeCaseDelayComponent,
   HighFrequencyComponent,
   MemoryLeakTestComponent,
 } from '../stories/performance.story';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 test.describe('Performance and Memory', () => {
   test('should handle component unmounting without memory leaks', async ({

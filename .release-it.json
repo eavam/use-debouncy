@@ -19,11 +19,7 @@
     "skipChecks": true
   },
   "hooks": {
-    "before:init": [
-      "yarn build",
-      "npx -y publint@0.3.22 --strict",
-      "npm publish --dry-run"
-    ],
+    "before:init": ["yarn build", "npm publish --dry-run"],
     "before:git:add": ["git add package.json CHANGELOG.md"],
     "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
   },

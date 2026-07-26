@@ -13,7 +13,7 @@
     "builtin": true,
     "browser": true
   },
-  "ignorePatterns": [".yarn", "lib", "smoke/node_modules"],
+  "ignorePatterns": [".yarn"],
   "overrides": [
     {
       "files": ["playwright/**"],

@@ -1,11 +1,7 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type { DebounceEffectTest } from '../stories/effect.story';
 
 const STORY = 'effect/DebounceEffectTest';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 /**
  * Test that useDebouncyEffect doesn't trigger on initial component render

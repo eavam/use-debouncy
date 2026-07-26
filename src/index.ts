@@ -36,13 +36,10 @@ const useAnimationFrame = <Args extends unknown[]>(
     waitRef.current = wait;
   });
 
-  // Call cancel animation after unmount
-  useEffect(() => () => cancelAnimationFrame(rafId.current), []);
-
-  return useMemo(() => {
+  const debounced = useMemo(() => {
     const render = (...args: Args) => {
       // Reset previous animation before start new animation
-      cancelAnimationFrame(rafId.current);
+      render.cancel();
       pendingArgs.current = args;
 
       const timeStart = performance.now();
@@ -54,8 +51,7 @@ const useAnimationFrame = <Args extends unknown[]>(
           return;
         }
 
-        pendingArgs.current = undefined;
-        fnRef.current(...args);
+        render.flush();
       };
 
       rafId.current = requestAnimationFrame(renderFrame);
@@ -66,6 +62,8 @@ const useAnimationFrame = <Args extends unknown[]>(
       pendingArgs.current = undefined;
     };
 
+    // The single invoke path: the pending arguments are the only source of
+    // truth for what a waiting call carries
     render.flush = () => {
       const args = pendingArgs.current;
 
@@ -77,6 +75,12 @@ const useAnimationFrame = <Args extends unknown[]>(
 
     return render;
   }, []);
+
+  // Cancel after unmount, which also releases the pending arguments — they can
+  // hold a synthetic event and, through it, a detached DOM node
+  useEffect(() => debounced.cancel, [debounced]);
+
+  return debounced;
 };
 
 /**

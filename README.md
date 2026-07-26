@@ -166,8 +166,9 @@ yarn dev        # story gallery at http://localhost:3100/playwright/gallery/inde
 yarn test       # component tests in Chromium, Firefox and WebKit
 yarn test --ui  # same, in Playwright's UI mode
 yarn lint       # oxlint + oxfmt
-yarn typecheck  # tsc --noEmit
+yarn typecheck  # tsc over src, the stories and the specs
 yarn build      # bundle into lib/
+yarn hooks      # install the pre-commit hook (once, after cloning)
 ```
 
 Components under test live in `playwright/stories/*.story.tsx`, one export per

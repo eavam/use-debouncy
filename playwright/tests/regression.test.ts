@@ -1,13 +1,9 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type {
   EffectDestructor,
   LatestState,
   SilentOnMount,
 } from '../stories/regression.story';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 /**
  * The gallery renders stories in StrictMode, so React mounts, unmounts and

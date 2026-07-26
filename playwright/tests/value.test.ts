@@ -1,9 +1,5 @@
-import { expect, test } from '@playwright/test';
+import { expect, test } from './fixtures';
 import type { DebouncyValue, FnControls } from '../stories/value.story';
-
-test.beforeEach(async ({ page }) => {
-  await page.clock.install();
-});
 
 test.describe('useDebouncyValue', () => {
   test('should return the value as is on the first render', async ({

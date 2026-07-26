@@ -53,10 +53,11 @@
     "dev": "vite",
     "test": "playwright test",
     "lint": "oxlint --fix && oxfmt",
-    "build": "vite build && tsc && cp lib/index.d.ts lib/index.d.cts",
+    "lint:check": "oxlint && oxfmt --check",
+    "build": "vite build && tsc -p tsconfig.build.json && cp lib/index.d.ts lib/index.d.cts",
     "release": "release-it",
-    "typecheck": "tsc --noEmit",
-    "format": "oxfmt"
+    "typecheck": "tsc",
+    "hooks": "simple-git-hooks"
   },
   "devDependencies": {
     "@playwright/test": "1.62.0",
@@ -77,7 +78,7 @@
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "simple-git-hooks": {
-    "pre-commit": "yarn oxlint --fix && yarn oxfmt"
+    "pre-commit": "yarn lint"
   },
   "packageManager": "yarn@4.17.1"
 }
