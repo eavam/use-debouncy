@@ -11,8 +11,12 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "strict": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "rootDir": "src",
+    "outDir": "lib"
   },
-  "include": ["src", "playwright", "vite.config.ts", "playwright.config.ts"],
+  "include": ["src"],
   "exclude": ["node_modules", "lib"]
 }
