@@ -14,39 +14,47 @@
 
 - 👌 **No dependencies.**
 - 🏋️‍ **Tiny.** ~0.2kb.
-- 🦾 **Performance.** Used by requestAnimationFrame.
-- 📖 **Types.** Support TypeScript.
-- 🎣 **Easy.** Use like React effect or function.
+- 🦾 **Frame-aligned.** Driven by `requestAnimationFrame`.
+- 📖 **Types.** Written in TypeScript, ships its own declarations.
+- 🎣 **Three hooks.** Debounce an effect, a callback or a value.
 
 ## Installation
-
-#### NPM
 
 ```sh
 npm install use-debouncy
 ```
 
-#### Yarn
-
 ```sh
 yarn add use-debouncy
 ```
 
+```sh
+pnpm add use-debouncy
+```
+
+Requires React 18 or 19 as a peer dependency.
+
 ## Usage
 
-### Use as effect hook
+Three hooks, one idea: do the work only after things have stopped changing for a
+while. Pick the one that fits what you already have.
+
+### Debounce an effect
+
+Reads like `useEffect`, but waits for the dependencies to settle. It does not
+run on the initial render.
 
 ```tsx
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useDebouncyEffect } from 'use-debouncy';
 
-const App = () => {
+const Search = () => {
   const [value, setValue] = useState('');
 
   useDebouncyEffect(
-    () => fetchData(value), // function debounce
-    400, // number of milliseconds to delay
-    [value], // array values that the debounce depends (like as useEffect)
+    () => fetchData(value), // called once typing stops
+    400, // milliseconds to wait
+    [value], // dependencies, like useEffect
   );
 
   return (
@@ -55,16 +63,35 @@ const App = () => {
 };
 ```
 
-### Use as callback function
+Like `useEffect`, the callback may return a destructor. It runs before the next
+invocation and when the component unmounts:
 
 ```tsx
-import React, { type ChangeEvent } from 'react';
+useDebouncyEffect(
+  () => {
+    const controller = new AbortController();
+    fetchData(value, { signal: controller.signal });
+
+    return () => controller.abort();
+  },
+  400,
+  [value],
+);
+```
+
+### Debounce a callback
+
+Returns a function that delays the call until it stops being called. Handy for
+event handlers, where there is no dependency array to speak of.
+
+```tsx
+import type { ChangeEvent } from 'react';
 import { useDebouncyFn } from 'use-debouncy';
 
-const App = () => {
+const Search = () => {
   const handleChange = useDebouncyFn(
-    (event: ChangeEvent<HTMLInputElement>) => fetchData(event.target.value), // function debounce
-    400, // number of milliseconds to delay
+    (event: ChangeEvent<HTMLInputElement>) => fetchData(event.target.value),
+    400,
   );
 
   return <input onChange={handleChange} />;
@@ -72,29 +99,32 @@ const App = () => {
 ```
 
 The returned function keeps the same identity across renders, so it is safe to
-pass to memoized children or to a dependency array. It also carries two
+hand to a memoized child or to put in a dependency array. It also carries two
 controls for the call that is currently waiting:
 
 ```tsx
 const save = useDebouncyFn(saveDraft, 1000);
 
-save.flush(); // run the pending call right away
+save.flush(); // run the pending call now
 save.cancel(); // drop it instead
 ```
 
-### Use as value
+### Debounce a value
+
+The shortest path when the value already lives in state — you get a copy that
+trails behind until things go quiet.
 
 ```tsx
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDebouncyValue } from 'use-debouncy';
 
-const App = () => {
+const Search = () => {
   const [value, setValue] = useState('');
-  const search = useDebouncyValue(value, 400); // updates once typing stops
+  const query = useDebouncyValue(value, 400);
 
   useEffect(() => {
-    fetchData(search);
-  }, [search]);
+    fetchData(query);
+  }, [query]);
 
   return (
     <input value={value} onChange={(event) => setValue(event.target.value)} />
@@ -102,27 +132,120 @@ const App = () => {
 };
 ```
 
-## API Reference
+## Recipes
 
-### useDebouncy/effect
+### Autosave that survives navigation
 
-```typescript
-function useDebouncyEffect(fn: () => void, wait?: number, deps?: any[]): void;
+Debounce the writes while typing, and flush the last one when the user leaves.
+
+```tsx
+const Editor = ({ id }: { id: string }) => {
+  const [draft, setDraft] = useState('');
+  const save = useDebouncyFn((text: string) => saveDraft(id, text), 1000);
+
+  // Nothing is lost on unmount: the pending write goes out immediately
+  useEffect(() => () => save.flush(), [save]);
+
+  return (
+    <textarea
+      value={draft}
+      onChange={(event) => {
+        setDraft(event.target.value);
+        save(event.target.value);
+      }}
+    />
+  );
+};
 ```
 
-| Prop | Required | Default | Description                                                 |
-| ---- | -------- | ------- | ----------------------------------------------------------- |
-| fn   | ✓        |         | Debounce callback.                                          |
-| wait |          | `0`     | Number of milliseconds to delay.                            |
-| deps |          | `[]`    | Array values that the debounce depends (like as useEffect). |
+### Validation that stops when the field is cleared
 
-### useDebouncy/fn
+```tsx
+const Email = () => {
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
-```typescript
+  const validate = useDebouncyFn((value: string) => {
+    setError(isEmail(value) ? null : 'Enter a valid email');
+  }, 500);
+
+  return (
+    <input
+      value={email}
+      onChange={(event) => {
+        const { value } = event.target;
+        setEmail(value);
+        setError(null);
+
+        // No point validating an empty field, so drop the pending run
+        if (value) validate(value);
+        else validate.cancel();
+      }}
+    />
+  );
+};
+```
+
+## API
+
+### `useDebouncyEffect(fn, wait?, deps?)`
+
+```ts
+function useDebouncyEffect(
+  fn: EffectCallback,
+  wait?: number,
+  deps?: DependencyList,
+): void;
+```
+
+| Argument | Required | Default | Description                                                   |
+| -------- | -------- | ------- | ------------------------------------------------------------- |
+| `fn`     | ✓        |         | Called once the dependencies settle. May return a destructor. |
+| `wait`   |          | `0`     | Milliseconds to wait.                                         |
+| `deps`   |          | `[]`    | Dependencies, as in `useEffect`.                              |
+
+Skips the initial render, restarts the timer whenever the dependencies change,
+and cancels a pending call on unmount.
+
+### `useDebouncyFn(fn, wait?)`
+
+```ts
 function useDebouncyFn<Args extends unknown[]>(
   fn: (...args: Args) => unknown,
   wait?: number,
 ): DebouncyFn<Args>;
+```
+
+| Argument | Required | Default | Description                                       |
+| -------- | -------- | ------- | ------------------------------------------------- |
+| `fn`     | ✓        |         | Called with the arguments of the last invocation. |
+| `wait`   |          | `0`     | Milliseconds to wait.                             |
+
+Returns a function with a stable identity, which also exposes:
+
+| Method     | Description                                |
+| ---------- | ------------------------------------------ |
+| `cancel()` | Drops the pending call, if any.            |
+| `flush()`  | Runs the pending call immediately, if any. |
+
+### `useDebouncyValue(value, wait?)`
+
+```ts
+function useDebouncyValue<Value>(value: Value, wait?: number): Value;
+```
+
+| Argument | Required | Default | Description           |
+| -------- | -------- | ------- | --------------------- |
+| `value`  | ✓        |         | Value to trail.       |
+| `wait`   |          | `0`     | Milliseconds to wait. |
+
+Returns the value unchanged on the first render, then updates once it has
+stopped changing.
+
+### Types
+
+```ts
+import type { DebouncyFn } from 'use-debouncy';
 
 type DebouncyFn<Args extends unknown[]> = ((...args: Args) => void) & {
   cancel: () => void;
@@ -130,45 +253,39 @@ type DebouncyFn<Args extends unknown[]> = ((...args: Args) => void) & {
 };
 ```
 
-| Prop | Required | Default | Description                      |
-| ---- | -------- | ------- | -------------------------------- |
-| fn   | ✓        |         | Debounce handler.                |
-| wait |          | `0`     | Number of milliseconds to delay. |
-
-### useDebouncy/value
-
-```typescript
-function useDebouncyValue<Value>(value: Value, wait?: number): Value;
-```
-
-| Prop  | Required | Default | Description                      |
-| ----- | -------- | ------- | -------------------------------- |
-| value | ✓        |         | Value to debounce.               |
-| wait  |          | `0`     | Number of milliseconds to delay. |
-
 ## Good to know
 
-- **Effects wait for a frame.** The timer is driven by `requestAnimationFrame`,
-  which browsers pause for hidden tabs. A pending call resumes when the tab
-  becomes visible again, so avoid this package for work that has to happen
-  while the user is away, such as a last-chance autosave.
-- **Server rendering works.** The hooks touch no browser globals during render,
-  so `renderToString` is fine; the timer only ever starts in the browser.
-- **You may not need it.** If the goal is only to keep a heavy render from
-  blocking typing, React's own `useDeferredValue` does that without a
-  dependency. Reach for this package when you want to delay a _side effect_ —
-  a request, an autosave, a validation.
+**The timer follows frames, not the wall clock.** Waiting is driven by
+`requestAnimationFrame`, so the callback lands right before a repaint, together
+with the rest of the frame's work. The flip side: browsers pause frames for
+hidden tabs, so a pending call resumes only when the tab becomes visible again.
+Work that has to happen while the user is away belongs in `visibilitychange` or
+`sendBeacon` instead.
+
+**Server rendering works.** Nothing touches browser globals during render, so
+`renderToString` is fine — the timer only ever starts in the browser.
+
+**You may not need this package.** If the only goal is to keep a heavy render
+from blocking typing, React's own `useDeferredValue` does that with no
+dependency at all. Reach for these hooks when you want to delay a _side effect_:
+a request, an autosave, a validation.
+
+**Testing.** Fake timers have to mock `requestAnimationFrame` as well, or the
+callback never fires. `jest.useFakeTimers()` and Playwright's
+`page.clock.install()` both do.
 
 ## Development
 
 ```bash
+yarn install
+yarn hooks      # once per clone: installs the pre-commit hook
+
 yarn dev        # story gallery at http://localhost:3100/playwright/gallery/index.html
 yarn test       # component tests in Chromium, Firefox and WebKit
 yarn test --ui  # same, in Playwright's UI mode
 yarn lint       # oxlint + oxfmt
-yarn typecheck  # tsc over src, the stories and the specs
+yarn typecheck  # tsc
 yarn build      # bundle into lib/
-yarn hooks      # install the pre-commit hook (once, after cloning)
 ```
 
 Components under test live in `playwright/stories/*.story.tsx`, one export per
@@ -177,6 +294,11 @@ project's own Vite dev server and renders stories in `StrictMode`, so React's
 development-only behaviour is covered too. Open the gallery URL in a browser to
 eyeball every story by hand.
 
+Commit messages follow [Conventional Commits](https://www.conventionalcommits.org)
+— they decide the released version.
+
 ## License
+
+MIT © [Egor Avakumov](https://github.com/eavam)
 
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_large)
