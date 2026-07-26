@@ -1,22 +1,35 @@
 import {
   type DependencyList,
   type EffectCallback,
-  useCallback,
   useEffect,
+  useMemo,
   useRef,
+  useState,
 } from 'react';
 
 const defaultDeps: DependencyList = [];
 
-const useAnimationFrame = <Fn extends (...args: Parameters<Fn>) => void>(
-  fn: Fn,
+/**
+ * The debounced function returned by `useDebouncyFn`, with controls for the
+ * call that is currently waiting.
+ */
+export type DebouncyFn<Args extends unknown[]> = ((...args: Args) => void) & {
+  /** Drop the pending call, if any. */
+  cancel: () => void;
+  /** Run the pending call right away, if any. */
+  flush: () => void;
+};
+
+const useAnimationFrame = <Args extends unknown[]>(
+  fn: (...args: Args) => unknown,
   wait = 0,
-): ((...args: Parameters<Fn>) => void) => {
+): DebouncyFn<Args> => {
   const rafId = useRef(0);
   // Read through refs so a pending call runs the latest callback and the
   // returned function keeps a stable identity across renders
   const fnRef = useRef(fn);
   const waitRef = useRef(wait);
+  const pendingArgs = useRef<Args>(undefined);
 
   useEffect(() => {
     fnRef.current = fn;
@@ -26,23 +39,43 @@ const useAnimationFrame = <Fn extends (...args: Parameters<Fn>) => void>(
   // Call cancel animation after unmount
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
-  return useCallback((...args: Parameters<Fn>) => {
-    // Reset previous animation before start new animation
-    cancelAnimationFrame(rafId.current);
+  return useMemo(() => {
+    const render = (...args: Args) => {
+      // Reset previous animation before start new animation
+      cancelAnimationFrame(rafId.current);
+      pendingArgs.current = args;
 
-    const timeStart = performance.now();
+      const timeStart = performance.now();
 
-    const renderFrame = (timeNow: number) => {
-      // Call next rAF if time is not up
-      if (timeNow - timeStart < waitRef.current) {
-        rafId.current = requestAnimationFrame(renderFrame);
-        return;
-      }
+      const renderFrame = (timeNow: number) => {
+        // Call next rAF if time is not up
+        if (timeNow - timeStart < waitRef.current) {
+          rafId.current = requestAnimationFrame(renderFrame);
+          return;
+        }
 
-      fnRef.current(...args);
+        pendingArgs.current = undefined;
+        fnRef.current(...args);
+      };
+
+      rafId.current = requestAnimationFrame(renderFrame);
     };
 
-    rafId.current = requestAnimationFrame(renderFrame);
+    render.cancel = () => {
+      cancelAnimationFrame(rafId.current);
+      pendingArgs.current = undefined;
+    };
+
+    render.flush = () => {
+      const args = pendingArgs.current;
+
+      if (args) {
+        render.cancel();
+        fnRef.current(...args);
+      }
+    };
+
+    return render;
   }, []);
 };
 
@@ -112,6 +145,9 @@ export const useDebouncyEffect = (
  * the provided function will be invoked after N milliseconds,
  * unless the function is called again.
  *
+ * The returned function keeps a stable identity across renders and carries
+ * `cancel()` to drop the pending call and `flush()` to run it right away.
+ *
  * @param fn - Function that will be called after the timer expires.
  * @param wait - Number of milliseconds to delay.
  * @example
@@ -124,3 +160,30 @@ export const useDebouncyEffect = (
  * ```
  */
 export const useDebouncyFn = useAnimationFrame;
+
+/**
+ *
+ * Returns a copy of the value that only updates once the value has stopped
+ * changing for N milliseconds. The first render returns the value as is.
+ *
+ * @param value - Value to debounce.
+ * @param wait - Number of milliseconds to delay.
+ * @example
+ * ```ts
+ *  const App = () => {
+ *    const [value, setValue] = useState('');
+ *    const search = useDebouncyValue(value, 400);
+ *
+ *    useEffect(() => { fetchData(search) }, [search]);
+ *
+ *    return <input value={value} onChange={(event) => setValue(event.target.value)} />
+ * }
+ * ```
+ */
+export const useDebouncyValue = <Value>(value: Value, wait = 0): Value => {
+  const [debounced, setDebounced] = useState(value);
+
+  useDebouncyEffect(() => setDebounced(value), wait, [value]);
+
+  return debounced;
+};

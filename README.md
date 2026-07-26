@@ -59,16 +59,45 @@ const App = () => {
 ### Use as callback function
 
 ```tsx
-import React, { useState } from 'react';
+import React, { type ChangeEvent } from 'react';
 import { useDebouncyFn } from 'use-debouncy';
 
 const App = () => {
   const handleChange = useDebouncyFn(
-    (event) => fetchData(event.target.value), // function debounce
+    (event: ChangeEvent<HTMLInputElement>) => fetchData(event.target.value), // function debounce
     400, // number of milliseconds to delay
   );
 
-  return <input value={value} onChange={handleChange} />;
+  return <input onChange={handleChange} />;
+};
+```
+
+The returned function keeps the same identity across renders, so it is safe to
+pass to memoized children or to a dependency array. It also carries two
+controls for the call that is currently waiting:
+
+```tsx
+const save = useDebouncyFn(saveDraft, 1000);
+
+save.flush(); // run the pending call right away
+save.cancel(); // drop it instead
+```
+
+### Use as value
+
+```tsx
+import React, { useEffect, useState } from 'react';
+import { useDebouncyValue } from 'use-debouncy';
+
+const App = () => {
+  const [value, setValue] = useState('');
+  const search = useDebouncyValue(value, 400); // updates once typing stops
+
+  useEffect(() => {
+    fetchData(search);
+  }, [search]);
+
+  return <input value={value} onChange={(event) => setValue(event.target.value)} />;
 };
 ```
 
@@ -89,13 +118,32 @@ function useDebouncyEffect(fn: () => void, wait?: number, deps?: any[]): void;
 ### useDebouncy/fn
 
 ```typescript
-function useDebouncyFn(fn: (...args: any[]) => void, wait?: number): (...args: any[]) => void;
+function useDebouncyFn<Args extends unknown[]>(
+  fn: (...args: Args) => unknown,
+  wait?: number,
+): DebouncyFn<Args>;
+
+type DebouncyFn<Args extends unknown[]> = ((...args: Args) => void) & {
+  cancel: () => void;
+  flush: () => void;
+};
 ```
 
 | Prop | Required | Default | Description                      |
 | ---- | -------- | ------- | -------------------------------- |
 | fn   | ✓        |         | Debounce handler.                |
 | wait |          | `0`     | Number of milliseconds to delay. |
+
+### useDebouncy/value
+
+```typescript
+function useDebouncyValue<Value>(value: Value, wait?: number): Value;
+```
+
+| Prop  | Required | Default | Description                      |
+| ----- | -------- | ------- | -------------------------------- |
+| value | ✓        |         | Value to debounce.               |
+| wait  |          | `0`     | Number of milliseconds to delay. |
 
 ## Development & Testing
 
