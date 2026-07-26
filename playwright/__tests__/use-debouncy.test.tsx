@@ -3,7 +3,9 @@ import type { Page } from '@playwright/test';
 import React from 'react';
 import { App } from '../app/src';
 
-const API_URL = '*/**/swapi.dev/**/*';
+// A regexp, not a glob: glob URL matching no longer matches this pattern, which
+// silently disabled the route interception and let the tests hit the real API
+const API_URL = /swapi\.dev/;
 const SEARCH_INPUT_EFFECT = 'input/search/effect';
 const SEARCH_INPUT_FN = 'input/search/fn';
 
