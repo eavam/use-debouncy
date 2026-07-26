@@ -6,7 +6,6 @@
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/use-debouncy)
 ![npm](https://img.shields.io/npm/dm/use-debouncy)
 ![types](https://badgen.net/npm/types/use-debouncy)
-[![codecov](https://codecov.io/gh/eavam/use-debouncy/branch/main/graph/badge.svg)](https://codecov.io/gh/eavam/use-debouncy)
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Feavam%2Fuse-debouncy?ref=badge_shield)
 
 ![](assets/example.gif)
@@ -34,8 +33,6 @@ yarn add use-debouncy
 ```
 
 ## Usage
-
-### [Demo codesandbox](https://codesandbox.io/s/example-use-debouncy-ynfuq?expanddevtools=1&fontsize=14&theme=dark)
 
 ### Use as effect hook
 
@@ -149,38 +146,35 @@ function useDebouncyValue<Value>(value: Value, wait?: number): Value;
 | value | ✓        |         | Value to debounce.               |
 | wait  |          | `0`     | Number of milliseconds to delay. |
 
-## Development & Testing
+## Good to know
 
-This project uses modern testing approach with Playwright component tests:
+- **Effects wait for a frame.** The timer is driven by `requestAnimationFrame`,
+  which browsers pause for hidden tabs. A pending call resumes when the tab
+  becomes visible again, so avoid this package for work that has to happen
+  while the user is away, such as a last-chance autosave.
+- **Server rendering works.** The hooks touch no browser globals during render,
+  so `renderToString` is fine; the timer only ever starts in the browser.
+- **You may not need it.** If the goal is only to keep a heavy render from
+  blocking typing, React's own `useDeferredValue` does that without a
+  dependency. Reach for this package when you want to delay a _side effect_ —
+  a request, an autosave, a validation.
 
-### Commands
+## Development
 
 ```bash
-# Run all tests (Playwright component tests)
-yarn test
-
-# Run tests with UI mode for debugging
-yarn test --ui
-
-# Run linting
-yarn lint
-
-# Build the project
-yarn build
+yarn dev        # story gallery at http://localhost:3100/playwright/gallery/index.html
+yarn test       # component tests in Chromium, Firefox and WebKit
+yarn test --ui  # same, in Playwright's UI mode
+yarn lint       # oxlint + oxfmt
+yarn typecheck  # tsc --noEmit
+yarn build      # bundle into lib/
 ```
 
-### Test Coverage
-
-The project has comprehensive test coverage including:
-
-- **Core functionality tests** - Basic debouncing behavior
-- **Effect hook tests** - `useDebouncyEffect` scenarios
-- **Function hook tests** - `useDebouncyFn` scenarios
-- **Integration tests** - Real-world usage patterns
-- **Performance tests** - Edge cases and performance validation
-- **E2E tests** - Full application integration with API calls
-
-All tests run across multiple browsers (Chromium, Firefox, WebKit) to ensure cross-browser compatibility.
+Components under test live in `playwright/stories/*.story.tsx`, one export per
+scenario, and the tests address them by id. The gallery is served by the
+project's own Vite dev server and renders stories in `StrictMode`, so React's
+development-only behaviour is covered too. Open the gallery URL in a browser to
+eyeball every story by hand.
 
 ## License
 
