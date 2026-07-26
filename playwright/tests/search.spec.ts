@@ -1,10 +1,7 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import type { Page } from '@playwright/test';
-import React from 'react';
-import { App } from '../app/src';
+import { type Page, expect, test } from '@playwright/test';
 
-// A regexp, not a glob: glob URL matching no longer matches this pattern, which
-// silently disabled the route interception and let the tests hit the real API
+// A regexp, not a glob: glob URL matching does not match this URL shape, which
+// would silently disable the interception and let the tests hit the real API
 const API_URL = /swapi\.dev/;
 const SEARCH_INPUT_EFFECT = 'input/search/effect';
 const SEARCH_INPUT_FN = 'input/search/fn';
@@ -14,7 +11,6 @@ const SEARCH_INPUT_FN = 'input/search/fn';
  * Tests that inputs are properly debounced and API requests are made correctly
  */
 async function performInputTest(page: Page, testId: string) {
-  // Wait for the input element based on the provided selector
   const input = page.getByTestId(testId);
 
   // Wait for the first request and start typing 'Dar' with realistic typing speed
@@ -24,43 +20,38 @@ async function performInputTest(page: Page, testId: string) {
 
   // Wait for the second request and type 'Dart Vader' with realistic typing
   const secondResponsePromise = page.waitForRequest(API_URL);
-  await input.pressSequentially('t Vader', { delay: 100 }); // Continue from 'Dar'
+  await input.pressSequentially('t Vader', { delay: 100 });
   const secondResponse = await secondResponsePromise;
 
-  // Wait for the third request and clear the input field by filling it with an empty value
+  // Wait for the third request and clear the input field
   const thirdResponsePromise = page.waitForRequest(API_URL);
   await input.fill('');
   const thirdResponse = await thirdResponsePromise;
 
-  // Verify that request URLs match the expected values
   expect(firstResponse.url()).toContain(encodeURIComponent('Dar'));
   expect(secondResponse.url()).toContain(encodeURIComponent('Dart Vader'));
   expect(thirdResponse.url()).toMatch(/search=$/);
 }
 
 test.beforeEach(async ({ page }) => {
-  await page.goto('/');
-
-  // Intercept requests to API_URL and respond with an empty body
+  // Routes must be registered before mount(), which navigates
   await page.route(API_URL, async (route) => {
-    await route.fulfill({ body: '' });
+    await route.fulfill({ body: JSON.stringify({ results: [] }) });
   });
 });
 
 /**
  * Integration test for useDebouncyEffect hook
- * Verifies that API calls are properly debounced when using effect-based approach
  */
 test('input with effect', async ({ mount, page }) => {
-  await mount(<App />);
+  await mount('search/SearchPeoplesWithEffect');
   await performInputTest(page, SEARCH_INPUT_EFFECT);
 });
 
 /**
  * Integration test for useDebouncyFn hook
- * Verifies that API calls are properly debounced when using function-based approach
  */
 test('input with fn', async ({ mount, page }) => {
-  await mount(<App />);
+  await mount('search/SearchPeoplesWithFn');
   await performInputTest(page, SEARCH_INPUT_FN);
 });

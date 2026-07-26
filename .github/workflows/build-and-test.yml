@@ -65,7 +65,7 @@ jobs:
       - name: Run Biome linting
         run: yarn biome ci .
 
-      - name: Run all tests (Playwright component tests)
+      - name: Run component tests
         run: yarn test
 
       - name: Upload Playwright test results

@@ -1,10 +1,8 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import React from 'react';
-import {
+import { expect, test } from '@playwright/test';
+import type {
   ButtonClickComponent,
-  FormValidationComponent,
   SearchComponent,
-} from '../stories/testing-stories';
+} from '../stories/integration.story';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -12,16 +10,16 @@ test.beforeEach(async ({ page }) => {
 
 test.describe('Search functionality', () => {
   test('should debounce search requests correctly', async ({ mount, page }) => {
-    const component = await mount(<SearchComponent searchDelay={300} />);
-    const input = component.getByTestId('search-input');
+    const component = await mount<typeof SearchComponent>(
+      'integration/SearchComponent',
+      { searchDelay: 300 },
+    );
 
-    // Type search query
-    await input.fill('React');
+    await component.getByTestId('search-input').fill('React');
 
     // Should not search immediately
     await expect(component.getByTestId('search-count')).toHaveText('0');
 
-    // Wait for debounce
     await page.clock.runFor(350);
 
     // Should have searched once
@@ -35,16 +33,19 @@ test.describe('Search functionality', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<SearchComponent searchDelay={200} />);
-    const input = component.getByTestId('search-input');
+    const component = await mount<typeof SearchComponent>(
+      'integration/SearchComponent',
+      { searchDelay: 200 },
+    );
 
     // Simulate rapid typing with pressSequentially
-    await input.pressSequentially('React', { delay: 50 });
+    await component
+      .getByTestId('search-input')
+      .pressSequentially('React', { delay: 50 });
 
     // Should not have made any searches yet
     await expect(component.getByTestId('search-count')).toHaveText('0');
 
-    // Wait for debounce
     await page.clock.runFor(250);
 
     // Should have made only one search for final value
@@ -58,7 +59,9 @@ test.describe('Search functionality', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<SearchComponent />);
+    const component = await mount<typeof SearchComponent>(
+      'integration/SearchComponent',
+    );
     const input = component.getByTestId('search-input');
 
     // Search for something
@@ -80,7 +83,10 @@ test.describe('Search functionality', () => {
 
 test.describe('Button debouncing', () => {
   test('should prevent multiple rapid clicks', async ({ mount, page }) => {
-    const component = await mount(<ButtonClickComponent clickDelay={500} />);
+    const component = await mount<typeof ButtonClickComponent>(
+      'integration/ButtonClickComponent',
+      { clickDelay: 500 },
+    );
     const button = component.getByTestId('debounced-button');
 
     // Click rapidly multiple times
@@ -94,7 +100,6 @@ test.describe('Button debouncing', () => {
     // Should not have incremented count yet
     await expect(component.getByTestId('click-count')).toHaveText('0');
 
-    // Wait for debounce
     await page.clock.runFor(600);
 
     // Should have clicked only once
@@ -102,7 +107,10 @@ test.describe('Button debouncing', () => {
   });
 
   test('should allow separate clicks after delay', async ({ mount, page }) => {
-    const component = await mount(<ButtonClickComponent clickDelay={200} />);
+    const component = await mount<typeof ButtonClickComponent>(
+      'integration/ButtonClickComponent',
+      { clickDelay: 200 },
+    );
     const button = component.getByTestId('debounced-button');
 
     // First click
@@ -121,7 +129,7 @@ test.describe('Button debouncing', () => {
 
 test.describe('Form validation', () => {
   test('should debounce email validation', async ({ mount, page }) => {
-    const component = await mount(<FormValidationComponent />);
+    const component = await mount('integration/FormValidationComponent');
     const input = component.getByTestId('email-input');
 
     // Type invalid email
@@ -131,7 +139,6 @@ test.describe('Form validation', () => {
     await expect(component.getByTestId('validation-count')).toHaveText('0');
     await expect(component.getByTestId('email-status')).toHaveText('none');
 
-    // Wait for debounce
     await page.clock.runFor(550);
 
     // Should validate as invalid
@@ -151,16 +158,16 @@ test.describe('Form validation', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<FormValidationComponent />);
-    const input = component.getByTestId('email-input');
+    const component = await mount('integration/FormValidationComponent');
 
     // Simulate continuous typing with pressSequentially
-    await input.pressSequentially('test@ex', { delay: 100 });
+    await component
+      .getByTestId('email-input')
+      .pressSequentially('test@ex', { delay: 100 });
 
     // Should not have validated during typing
     await expect(component.getByTestId('validation-count')).toHaveText('0');
 
-    // Wait for typing to stop
     await page.clock.runFor(550);
 
     // Now should validate

@@ -1,13 +1,13 @@
-import { defineConfig, devices } from '@playwright/experimental-ct-react';
-import commonjs from 'vite-plugin-commonjs';
+import { defineConfig, devices } from '@playwright/test';
 
 /**
- * See https://playwright.dev/docs/test-configuration.
+ * Component tests run against the story gallery served by the project's own
+ * Vite dev server. See https://playwright.dev/docs/test-components
  */
+const GALLERY_URL = 'http://localhost:3100/playwright/gallery/index.html';
+
 export default defineConfig({
-  testDir: './playwright/__tests__',
-  /* The base directory, relative to the config file, for snapshot files created with toMatchSnapshot and toHaveScreenshot. */
-  snapshotDir: './__snapshots__',
+  testDir: './playwright/tests',
   /* Maximum time one test can run for. */
   timeout: 10 * 1000,
   /* Run tests in files in parallel */
@@ -20,20 +20,19 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: 'html',
-  /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
+
   use: {
+    /* mount() navigates here, so it must point at the gallery page. */
+    baseURL: GALLERY_URL,
+    /* Keep a service worker from shadowing page.route() mocks. */
+    serviceWorkers: 'block',
+    /* Reuse the browser context across tests in a worker, as the component
+     * testing runtime used to do. */
+    reuseContext: true,
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-
-    /* Port to use for Playwright component endpoint. */
-    ctPort: 3100,
-
-    ctViteConfig: {
-      plugins: [commonjs()],
-    },
   },
 
-  /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
@@ -48,4 +47,10 @@ export default defineConfig({
       use: { ...devices['Desktop Safari'] },
     },
   ],
+
+  webServer: {
+    command: 'yarn vite',
+    url: GALLERY_URL,
+    reuseExistingServer: !process.env.CI,
+  },
 });

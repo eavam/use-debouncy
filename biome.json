@@ -24,7 +24,7 @@
     }
   },
   "javascript": {
-    "jsxRuntime": "reactClassic",
+    "jsxRuntime": "transparent",
     "formatter": {
       "quoteStyle": "single"
     }

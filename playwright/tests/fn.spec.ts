@@ -1,6 +1,7 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import React from 'react';
-import { DebounceFnTest } from '../stories/testing-stories';
+import { expect, test } from '@playwright/test';
+import type { DebounceFnTest } from '../stories/fn.story';
+
+const STORY = 'fn/DebounceFnTest';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -8,11 +9,9 @@ test.beforeEach(async ({ page }) => {
 
 /**
  * Test basic functionality of useDebouncyFn hook
- * Verifies that function calls are properly debounced and state updates correctly
  */
 test('should work with input changes', async ({ mount, page }) => {
-  const component = await mount(<DebounceFnTest />);
-
+  const component = await mount<typeof DebounceFnTest>(STORY);
   const input = component.getByTestId('input');
 
   await input.fill('Hello');
@@ -48,20 +47,19 @@ test('should work with input changes', async ({ mount, page }) => {
 
 /**
  * Test rapid input handling with pressSequentially API
- * Ensures only the final value triggers the debounced function
  */
 test('should debounce rapid input changes', async ({ mount, page }) => {
-  const component = await mount(<DebounceFnTest delay={200} />);
-  const input = component.getByTestId('input');
+  const component = await mount<typeof DebounceFnTest>(STORY, { delay: 200 });
 
   // Simulate rapid realistic typing
-  await input.pressSequentially('abcde', { delay: 50 });
+  await component
+    .getByTestId('input')
+    .pressSequentially('abcde', { delay: 50 });
 
   // Function should not be called during rapid typing
   await expect(component.getByTestId('call-count')).toHaveText('0');
   await expect(component.getByTestId('debounced-value')).toHaveText('');
 
-  // Wait for debounce delay
   await page.clock.runFor(250);
 
   // Function should be called only once with final value
@@ -71,10 +69,9 @@ test('should debounce rapid input changes', async ({ mount, page }) => {
 
 /**
  * Test edge case handling with empty input values
- * Verifies that empty strings are handled correctly by the debounced function
  */
 test('should handle empty input correctly', async ({ mount, page }) => {
-  const component = await mount(<DebounceFnTest />);
+  const component = await mount<typeof DebounceFnTest>(STORY);
   const input = component.getByTestId('input');
 
   // Start with some text
@@ -97,10 +94,9 @@ test('should handle empty input correctly', async ({ mount, page }) => {
  * Test different delay values to ensure flexibility
  */
 test('should work with different delay values', async ({ mount, page }) => {
-  const component = await mount(<DebounceFnTest delay={300} />);
-  const input = component.getByTestId('input');
+  const component = await mount<typeof DebounceFnTest>(STORY, { delay: 300 });
 
-  await input.fill('Test');
+  await component.getByTestId('input').fill('Test');
 
   // Should not call before delay period
   await page.clock.runFor(200);
@@ -114,15 +110,13 @@ test('should work with different delay values', async ({ mount, page }) => {
 
 /**
  * Test that function arguments are preserved correctly
- * Important for ensuring data integrity in debounced operations
  */
 test('should preserve function arguments', async ({ mount, page }) => {
-  const component = await mount(<DebounceFnTest />);
-  const input = component.getByTestId('input');
+  const component = await mount<typeof DebounceFnTest>(STORY);
 
   // Test with special characters and spaces
   const testValue = 'Test with spaces & symbols!';
-  await input.fill(testValue);
+  await component.getByTestId('input').fill(testValue);
   await page.clock.runFor(150);
 
   await expect(component.getByTestId('debounced-value')).toHaveText(testValue);

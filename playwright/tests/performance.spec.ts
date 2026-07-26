@@ -1,11 +1,9 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import React from 'react';
-import {
+import { expect, test } from '@playwright/test';
+import type {
   EdgeCaseDelayComponent,
-  FunctionParameterComponent,
   HighFrequencyComponent,
   MemoryLeakTestComponent,
-} from '../stories/testing-stories';
+} from '../stories/performance.story';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -16,11 +14,13 @@ test.describe('Performance and Memory', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<MemoryLeakTestComponent delay={200} />);
-    const input = component.getByTestId('memory-input');
+    const component = await mount<typeof MemoryLeakTestComponent>(
+      'performance/MemoryLeakTestComponent',
+      { delay: 200 },
+    );
 
     // Create some state that needs cleanup
-    await input.fill('test');
+    await component.getByTestId('memory-input').fill('test');
     await page.clock.runFor(100);
 
     // Unmount before effect completes
@@ -28,24 +28,25 @@ test.describe('Performance and Memory', () => {
 
     // Wait longer than the delay to ensure cleanup happened
     await page.clock.runFor(300);
-
-    // Test passes if no memory leak errors occur
   });
 
   test('should handle high frequency updates efficiently', async ({
     mount,
     page,
   }) => {
-    const component = await mount(<HighFrequencyComponent delay={100} />);
-    const input = component.getByTestId('high-freq-input');
+    const component = await mount<typeof HighFrequencyComponent>(
+      'performance/HighFrequencyComponent',
+      { delay: 100 },
+    );
 
     // Simulate very rapid typing with pressSequentially
-    await input.pressSequentially('rapid-0123456789', { delay: 20 });
+    await component
+      .getByTestId('high-freq-input')
+      .pressSequentially('rapid-0123456789', { delay: 20 });
 
     // Should not have processed any yet
     await expect(component.getByTestId('processed-count')).toHaveText('0');
 
-    // Wait for debounce to complete
     await page.clock.runFor(150);
 
     // Should have processed only once with final value
@@ -59,34 +60,34 @@ test.describe('Performance and Memory', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<HighFrequencyComponent delay={200} />);
-    const input = component.getByTestId('high-freq-input');
-
-    // Simulate typing a long string with very fast delays
-    await input.pressSequentially(
-      'change-0123456789012345678901234567890123456789012345678',
-      { delay: 5 },
+    const component = await mount<typeof HighFrequencyComponent>(
+      'performance/HighFrequencyComponent',
+      { delay: 200 },
     );
+    const value = 'change-0123456789012345678901234567890123456789012345678';
+
+    await component
+      .getByTestId('high-freq-input')
+      .pressSequentially(value, { delay: 5 });
 
     await expect(component.getByTestId('processed-count')).toHaveText('0');
 
-    // Wait for final debounce
     await page.clock.runFor(250);
 
     // Should still only process once
     await expect(component.getByTestId('processed-count')).toHaveText('1');
-    await expect(component.getByTestId('last-processed')).toHaveText(
-      'change-0123456789012345678901234567890123456789012345678',
-    );
+    await expect(component.getByTestId('last-processed')).toHaveText(value);
   });
 });
 
 test.describe('Edge Cases', () => {
   test('should handle zero delay correctly', async ({ mount, page }) => {
-    const component = await mount(<EdgeCaseDelayComponent delay={0} />);
-    const input = component.getByTestId('edge-input');
+    const component = await mount<typeof EdgeCaseDelayComponent>(
+      'performance/EdgeCaseDelayComponent',
+      { delay: 0 },
+    );
 
-    await input.fill('zero-delay');
+    await component.getByTestId('edge-input').fill('zero-delay');
 
     // With zero delay, should execute on next animation frame
     await page.clock.runFor(20);
@@ -95,10 +96,12 @@ test.describe('Edge Cases', () => {
   });
 
   test('should handle negative delay as zero', async ({ mount, page }) => {
-    const component = await mount(<EdgeCaseDelayComponent delay={-100} />);
-    const input = component.getByTestId('edge-input');
+    const component = await mount<typeof EdgeCaseDelayComponent>(
+      'performance/EdgeCaseDelayComponent',
+      { delay: -100 },
+    );
 
-    await input.fill('negative-delay');
+    await component.getByTestId('edge-input').fill('negative-delay');
 
     // Negative delay should be treated as zero/immediate
     await page.clock.runFor(20);
@@ -107,10 +110,12 @@ test.describe('Edge Cases', () => {
   });
 
   test('should handle very large delays', async ({ mount, page }) => {
-    const component = await mount(<EdgeCaseDelayComponent delay={5000} />);
-    const input = component.getByTestId('edge-input');
+    const component = await mount<typeof EdgeCaseDelayComponent>(
+      'performance/EdgeCaseDelayComponent',
+      { delay: 5000 },
+    );
 
-    await input.fill('large-delay');
+    await component.getByTestId('edge-input').fill('large-delay');
 
     // Should not execute before delay
     await page.clock.runFor(4000);
@@ -125,11 +130,10 @@ test.describe('Edge Cases', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<FunctionParameterComponent />);
-    const button = component.getByTestId('trigger-params');
+    const component = await mount('fn/FunctionParameterComponent');
 
     // Trigger function with complex parameters
-    await button.click();
+    await component.getByTestId('trigger-params').click();
     await page.clock.runFor(150);
 
     await expect(component.getByTestId('param-call-count')).toHaveText('1');
@@ -142,7 +146,7 @@ test.describe('Edge Cases', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<FunctionParameterComponent />);
+    const component = await mount('fn/FunctionParameterComponent');
     const button = component.getByTestId('trigger-params');
 
     // Multiple rapid clicks
@@ -155,7 +159,6 @@ test.describe('Edge Cases', () => {
     // Should not have called yet
     await expect(component.getByTestId('param-call-count')).toHaveText('0');
 
-    // Wait for debounce
     await page.clock.runFor(150);
 
     // Should have called only once
@@ -169,7 +172,10 @@ test.describe('Edge Cases', () => {
     mount,
     page,
   }) => {
-    const component = await mount(<EdgeCaseDelayComponent delay={100} />);
+    const component = await mount<typeof EdgeCaseDelayComponent>(
+      'performance/EdgeCaseDelayComponent',
+      { delay: 100 },
+    );
     const input = component.getByTestId('edge-input');
 
     // Start with empty
@@ -177,7 +183,6 @@ test.describe('Edge Cases', () => {
 
     // Type and clear using pressSequentially
     await input.pressSequentially('test', { delay: 50 });
-    // Clear by selecting all and typing empty
     await input.selectText();
     await input.pressSequentially('', { delay: 50 });
 

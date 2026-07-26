@@ -1,6 +1,5 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import React from 'react';
-import { AnimationFrameTest } from '../stories/testing-stories';
+import { expect, test } from '@playwright/test';
+import type { AnimationFrameTest } from '../stories/core.story';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -10,7 +9,10 @@ test.beforeEach(async ({ page }) => {
  * Test basic functionality of useAnimationFrame hook
  */
 test('should call callback after timer end', async ({ mount, page }) => {
-  const component = await mount(<AnimationFrameTest delay={100} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 100 },
+  );
 
   await expect(component.getByTestId('call-count')).toHaveText('0');
 
@@ -28,13 +30,9 @@ test('should cancel previous animation before starting new one', async ({
   mount,
   page,
 }) => {
-  let calls = 0;
-  const onCall = () => {
-    calls++;
-  };
-
-  const component = await mount(
-    <AnimationFrameTest delay={100} onCall={onCall} />,
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 100 },
   );
 
   const button = component.getByTestId('trigger');
@@ -46,8 +44,7 @@ test('should cancel previous animation before starting new one', async ({
 
   await page.clock.runFor(200);
 
-  // Should only execute once (last trigger)
-  expect(calls).toBeLessThanOrEqual(5);
+  // Only the last trigger survives
   await expect(component.getByTestId('call-count')).toHaveText('1');
 });
 
@@ -55,7 +52,10 @@ test('should cancel previous animation before starting new one', async ({
  * Test zero delay edge case
  */
 test('should handle zero delay', async ({ mount, page }) => {
-  const component = await mount(<AnimationFrameTest delay={0} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 0 },
+  );
 
   await component.getByTestId('trigger').click();
 
@@ -72,7 +72,10 @@ test('should handle multiple rapid clicks correctly', async ({
   mount,
   page,
 }) => {
-  const component = await mount(<AnimationFrameTest delay={200} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 200 },
+  );
   const button = component.getByTestId('trigger');
 
   // Click rapidly multiple times
@@ -98,7 +101,10 @@ test('should handle multiple rapid clicks correctly', async ({
  * Test longer delay values
  */
 test('should work with longer delays', async ({ mount, page }) => {
-  const component = await mount(<AnimationFrameTest delay={500} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 500 },
+  );
 
   await component.getByTestId('trigger').click();
 
@@ -115,25 +121,28 @@ test('should work with longer delays', async ({ mount, page }) => {
  * Test cleanup on unmount to prevent memory leaks
  */
 test('should cleanup on component unmount', async ({ mount, page }) => {
-  const component = await mount(<AnimationFrameTest delay={100} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: 100 },
+  );
 
   await component.getByTestId('trigger').click();
 
   // Unmount component before animation completes
   await component.unmount();
 
-  // Wait for the delay to pass
+  // Wait for the delay to pass - the pending frame must not fire
   await page.clock.runFor(150);
-
-  // Animation should have been cancelled on unmount
-  // (This test verifies cleanup behavior)
 });
 
 /**
  * Test negative delay edge case
  */
 test('should handle negative delay as zero', async ({ mount, page }) => {
-  const component = await mount(<AnimationFrameTest delay={-100} />);
+  const component = await mount<typeof AnimationFrameTest>(
+    'core/AnimationFrameTest',
+    { delay: -100 },
+  );
 
   await component.getByTestId('trigger').click();
 

@@ -1,6 +1,7 @@
-import { expect, test } from '@playwright/experimental-ct-react';
-import React from 'react';
-import { DebounceEffectTest } from '../stories/testing-stories';
+import { expect, test } from '@playwright/test';
+import type { DebounceEffectTest } from '../stories/effect.story';
+
+const STORY = 'effect/DebounceEffectTest';
 
 test.beforeEach(async ({ page }) => {
   await page.clock.install();
@@ -11,7 +12,7 @@ test.beforeEach(async ({ page }) => {
  * This is important behavior to prevent unwanted side effects on mount
  */
 test('should not call effect on initial render', async ({ mount }) => {
-  const component = await mount(<DebounceEffectTest />);
+  const component = await mount<typeof DebounceEffectTest>(STORY);
 
   await expect(component.getByTestId('effect-calls')).toHaveText('0');
   await expect(component.getByTestId('effect-value')).toHaveText('');
@@ -24,10 +25,11 @@ test('should call effect after value change and delay', async ({
   mount,
   page,
 }) => {
-  const component = await mount(<DebounceEffectTest delay={100} />);
+  const component = await mount<typeof DebounceEffectTest>(STORY, {
+    delay: 100,
+  });
 
-  const input = component.getByTestId('input');
-  await input.fill('updated');
+  await component.getByTestId('input').fill('updated');
 
   // Effect should not trigger immediately
   await expect(component.getByTestId('effect-calls')).toHaveText('0');
@@ -44,7 +46,9 @@ test('should call effect after value change and delay', async ({
  * Only the final value should trigger the effect, not intermediate values
  */
 test('should debounce multiple value changes', async ({ mount, page }) => {
-  const component = await mount(<DebounceEffectTest delay={100} />);
+  const component = await mount<typeof DebounceEffectTest>(STORY, {
+    delay: 100,
+  });
   const input = component.getByTestId('input');
 
   // Make multiple rapid changes
@@ -73,8 +77,9 @@ test('should debounce multiple value changes', async ({ mount, page }) => {
  * Test realistic user input scenarios with multiple edits
  */
 test('should work with user input', async ({ mount, page }) => {
-  const component = await mount(<DebounceEffectTest delay={100} />);
-
+  const component = await mount<typeof DebounceEffectTest>(STORY, {
+    delay: 100,
+  });
   const input = component.getByTestId('input');
 
   await input.fill('Hello');
@@ -109,17 +114,17 @@ test('should work with user input', async ({ mount, page }) => {
 
 /**
  * Test rapid typing simulation using modern pressSequentially API
- * This simulates more realistic user typing behavior
  */
 test('should handle rapid successive input changes', async ({
   mount,
   page,
 }) => {
-  const component = await mount(<DebounceEffectTest delay={200} />);
-  const input = component.getByTestId('input');
+  const component = await mount<typeof DebounceEffectTest>(STORY, {
+    delay: 200,
+  });
 
   // Simulate realistic typing with pressSequentially
-  await input.pressSequentially('abcd', { delay: 50 });
+  await component.getByTestId('input').pressSequentially('abcd', { delay: 50 });
 
   // Effect should not trigger during typing
   await expect(component.getByTestId('effect-calls')).toHaveText('0');
@@ -136,16 +141,15 @@ test('should handle rapid successive input changes', async ({
  * This ensures no memory leaks or unwanted effects after unmount
  */
 test('should cancel effect on component unmount', async ({ mount, page }) => {
-  const component = await mount(<DebounceEffectTest delay={100} />);
-  const input = component.getByTestId('input');
+  const component = await mount<typeof DebounceEffectTest>(STORY, {
+    delay: 100,
+  });
 
-  await input.fill('test');
+  await component.getByTestId('input').fill('test');
 
   // Unmount before effect triggers
   await component.unmount();
 
   // Wait past the delay - effect should not trigger
   await page.clock.runFor(150);
-
-  // Test passes if no errors occur (effect was properly cancelled)
 });
