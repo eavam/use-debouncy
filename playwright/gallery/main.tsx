@@ -2,8 +2,8 @@ import type { ComponentType } from 'react';
 import { flushSync } from 'react-dom';
 import { type Root, createRoot } from 'react-dom/client';
 
-type StoryModule = Record<string, ComponentType<never>>;
-type MountParams = { story: string; props?: Record<string, unknown> };
+type StoryProps = Record<string, unknown>;
+type StoryModule = Record<string, ComponentType<StoryProps>>;
 
 // Vite analyzes this statically and relative to this file, so it has to stay inline
 const stories = import.meta.glob<StoryModule>('../stories/**/*.story.tsx');
@@ -29,7 +29,7 @@ const resolve = async (storyId: string) => {
 const rootElement = document.getElementById('root');
 let root: Root | undefined;
 
-window.mount = async ({ story, props }: MountParams) => {
+window.mount = async ({ story, props }) => {
   const Story = await resolve(story);
 
   if (!Story) {
@@ -46,7 +46,7 @@ window.mount = async ({ story, props }: MountParams) => {
 
   // flushSync so a render error rejects this promise rather than being swallowed
   flushSync(() => {
-    root?.render(<Story {...(props as never)} />);
+    root?.render(<Story {...props} />);
   });
 };
 

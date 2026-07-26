@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useAnimationFrame } from '../../src/core';
+import { useDebouncyFn } from '../../src';
 
 export const AnimationFrameTest = ({ delay = 100 }: { delay?: number }) => {
   const [callCount, setCallCount] = useState(0);
@@ -8,7 +8,7 @@ export const AnimationFrameTest = ({ delay = 100 }: { delay?: number }) => {
     setCallCount((prev) => prev + 1);
   }, []);
 
-  const cb = useAnimationFrame(callback, delay);
+  const cb = useDebouncyFn(callback, delay);
 
   return (
     <>

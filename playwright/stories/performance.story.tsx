@@ -1,5 +1,5 @@
 import { useCallback, useRef, useState } from 'react';
-import { useDebouncyEffect } from '../../src/effect';
+import { useDebouncyEffect } from '../../src';
 
 export const MemoryLeakTestComponent = ({
   delay = 100,

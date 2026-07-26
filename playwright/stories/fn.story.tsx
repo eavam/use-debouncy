@@ -1,5 +1,5 @@
 import { type ChangeEvent, useCallback, useState } from 'react';
-import { useDebouncyFn } from '../../src/fn';
+import { useDebouncyFn } from '../../src';
 
 export const DebounceFnTest = ({ delay = 100 }: { delay?: number }) => {
   const [inputValue, setInputValue] = useState('');

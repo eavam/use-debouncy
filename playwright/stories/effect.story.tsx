@@ -1,5 +1,5 @@
 import { type ChangeEvent, useCallback, useState } from 'react';
-import { useDebouncyEffect } from '../../src/effect';
+import { useDebouncyEffect } from '../../src';
 
 export const DebounceEffectTest = ({ delay = 100 }: { delay?: number }) => {
   const [inputValue, setInputValue] = useState('');

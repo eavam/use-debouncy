@@ -20,15 +20,34 @@
     "type": "git",
     "url": "git+https://github.com/eavam/use-debouncy.git"
   },
-  "main": "lib/index.js",
-  "typings": "lib/index.d.ts",
-  "module": "lib/index.mjs",
+  "type": "module",
+  "main": "./lib/index.cjs",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "react-native": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      },
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
+    },
+    "./package.json": "./package.json"
+  },
   "sideEffects": false,
   "scripts": {
     "dev": "vite",
     "test": "playwright test",
     "lint": "yarn biome check --write .",
-    "build": "tsup",
+    "build": "vite build && yarn build:types",
+    "build:types": "tsc src/index.ts -d --emitDeclarationOnly --outDir lib --module esnext --moduleResolution bundler --target esnext --strict --skipLibCheck && cp lib/index.d.ts lib/index.d.cts",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -44,9 +63,8 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "release-it": "21.0.0",
+    "rolldown-plugin-dts": "0.27.14",
     "simple-git-hooks": "2.13.1",
-    "terser": "5.44.1",
-    "tsup": "8.5.1",
     "typescript": "5.9.3",
     "vite": "8.1.5"
   },

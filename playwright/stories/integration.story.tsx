@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
-import { useDebouncyEffect } from '../../src/effect';
-import { useDebouncyFn } from '../../src/fn';
+import { useDebouncyEffect } from '../../src';
+import { useDebouncyFn } from '../../src';
 
 export const SearchComponent = ({
   searchDelay = 300,
