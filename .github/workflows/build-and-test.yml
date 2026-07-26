@@ -19,8 +19,6 @@ jobs:
   build-and-test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    env:
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout code
@@ -107,18 +105,16 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: ['build-and-test']
-    # Pull requests carry no publishing credentials, so this job can only fail there.
-    # A red check on every PR is what blocks Renovate from automerging.
+    # Pull requests get no OIDC publishing identity, so this job can only fail
+    # there. A red check on every PR is what blocks Renovate from automerging.
     if: github.event_name == 'push'
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
       pull-requests: write # to be able to comment on released pull requests
-      id-token: write # to enable use of OIDC for npm provenance
+      id-token: write # OIDC: authenticates the npm publish and signs provenance
     env:
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
     steps:
       - name: Checkout code

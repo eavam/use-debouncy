@@ -79,9 +79,13 @@ commit messages decide the version: `fix:` → patch, `feat:` → minor, `!`/`BR
 major. `chore:`/`docs:` alone produce no release. Version bumps, `CHANGELOG.md`, the git tag and
 the npm publish all happen in CI — never bump the version by hand.
 
-The release job only runs on `push`; it has no credentials on pull requests. If publishing fails
-with `Invalid authentication`, the npm token has expired — that is a repository secret, not
-something to fix in code.
+Publishing uses npm trusted publishing (OIDC): there is no npm token anywhere, the release job
+authenticates through `id-token: write` and npm signs provenance automatically. The trusted
+publisher on npmjs.com is bound to this repository and to `build-and-test.yml`, so renaming that
+workflow file breaks publishing until the binding is updated. release-it runs with
+`npm.skipChecks`, because its pre-flight `npm whoami` cannot work without a token.
+
+The release job only runs on `push` — pull requests get no publishing identity.
 
 Dependencies are managed by Renovate; minor and patch updates are set to automerge.
 
