@@ -1,4 +1,4 @@
-import type { ComponentType } from 'react';
+import { type ComponentType, StrictMode } from 'react';
 import { flushSync } from 'react-dom';
 import { type Root, createRoot } from 'react-dom/client';
 
@@ -44,9 +44,15 @@ window.mount = async ({ story, props }) => {
   // what preserves component state between mount() calls
   root ??= createRoot(rootElement);
 
+  // StrictMode matches how apps render and, in this dev server build, makes
+  // React's double-invoked effects observable to the tests
   // flushSync so a render error rejects this promise rather than being swallowed
   flushSync(() => {
-    root?.render(<Story {...props} />);
+    root?.render(
+      <StrictMode>
+        <Story {...props} />
+      </StrictMode>,
+    );
   });
 };
 

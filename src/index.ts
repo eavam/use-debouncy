@@ -13,33 +13,37 @@ const useAnimationFrame = <Fn extends (...args: Parameters<Fn>) => void>(
   wait = 0,
 ): ((...args: Parameters<Fn>) => void) => {
   const rafId = useRef(0);
+  // Read through refs so a pending call runs the latest callback and the
+  // returned function keeps a stable identity across renders
+  const fnRef = useRef(fn);
+  const waitRef = useRef(wait);
 
-  const render = useCallback(
-    (...args: Parameters<Fn>) => {
-      // Reset previous animation before start new animation
-      cancelAnimationFrame(rafId.current);
+  useEffect(() => {
+    fnRef.current = fn;
+    waitRef.current = wait;
+  });
 
-      const timeStart = performance.now();
-
-      const renderFrame = (timeNow: number) => {
-        // Call next rAF if time is not up
-        if (timeNow - timeStart < wait) {
-          rafId.current = requestAnimationFrame(renderFrame);
-          return;
-        }
-
-        fn(...args);
-      };
-
-      rafId.current = requestAnimationFrame(renderFrame);
-    },
-    [fn, wait],
-  );
-
-  // Call cancel animation after umount
+  // Call cancel animation after unmount
   useEffect(() => () => cancelAnimationFrame(rafId.current), []);
 
-  return render;
+  return useCallback((...args: Parameters<Fn>) => {
+    // Reset previous animation before start new animation
+    cancelAnimationFrame(rafId.current);
+
+    const timeStart = performance.now();
+
+    const renderFrame = (timeNow: number) => {
+      // Call next rAF if time is not up
+      if (timeNow - timeStart < waitRef.current) {
+        rafId.current = requestAnimationFrame(renderFrame);
+        return;
+      }
+
+      fnRef.current(...args);
+    };
+
+    rafId.current = requestAnimationFrame(renderFrame);
+  }, []);
 };
 
 /**
@@ -72,7 +76,25 @@ export const useDebouncyEffect = (
   deps = defaultDeps,
 ): void => {
   const isFirstRender = useRef(true);
-  const render = useAnimationFrame(fn, wait);
+  const destructor = useRef<ReturnType<EffectCallback>>(undefined);
+
+  const render = useAnimationFrame(() => {
+    // Mirror useEffect: tear down the previous run before starting a new one
+    destructor.current?.();
+    destructor.current = fn();
+  }, wait);
+
+  useEffect(
+    () => () => {
+      // StrictMode remounts in development: without this the second mount
+      // would look like an update and fire the effect on the initial render
+      isFirstRender.current = true;
+      destructor.current?.();
+      destructor.current = undefined;
+    },
+    [],
+  );
+
   // Call update if deps changes
   // biome-ignore lint/correctness/useExhaustiveDependencies: the hook mirrors useEffect, deps come from the caller
   useEffect(() => {
