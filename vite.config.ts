@@ -1,3 +1,4 @@
+import Dts from 'unplugin-dts/vite';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
@@ -8,6 +9,7 @@ export default defineConfig({
     port: 3100,
     strictPort: true,
   },
+  plugins: [Dts({ include: ['src'], bundleTypes: true })],
   build: {
     outDir: 'lib',
     lib: {
