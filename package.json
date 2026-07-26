@@ -47,7 +47,7 @@
     "test": "playwright test",
     "lint": "yarn biome check --write .",
     "build": "vite build && yarn build:types",
-    "build:types": "tsc src/index.ts -d --emitDeclarationOnly --outDir lib --module esnext --moduleResolution bundler --target esnext --strict --skipLibCheck && cp lib/index.d.ts lib/index.d.cts",
+    "build:types": "tsc src/index.ts --ignoreConfig -d --emitDeclarationOnly --outDir lib --module esnext --moduleResolution bundler --target esnext --strict --skipLibCheck && cp lib/index.d.ts lib/index.d.cts",
     "release": "release-it"
   },
   "peerDependencies": {
@@ -63,9 +63,8 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "release-it": "21.0.0",
-    "rolldown-plugin-dts": "0.27.14",
     "simple-git-hooks": "2.13.1",
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "vite": "8.1.5"
   },
   "files": [
@@ -75,7 +74,7 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "yarn@4.17.1",
   "simple-git-hooks": {
     "pre-commit": "yarn biome check --staged --files-ignore-unknown=true --no-errors-on-unmatched"
   }
