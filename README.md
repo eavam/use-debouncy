@@ -52,7 +52,9 @@ const App = () => {
     [value], // array values that the debounce depends (like as useEffect)
   );
 
-  return <input value={value} onChange={(event) => setValue(event.target.value)} />;
+  return (
+    <input value={value} onChange={(event) => setValue(event.target.value)} />
+  );
 };
 ```
 
@@ -97,7 +99,9 @@ const App = () => {
     fetchData(search);
   }, [search]);
 
-  return <input value={value} onChange={(event) => setValue(event.target.value)} />;
+  return (
+    <input value={value} onChange={(event) => setValue(event.target.value)} />
+  );
 };
 ```
 
@@ -170,7 +174,7 @@ yarn build
 The project has comprehensive test coverage including:
 
 - **Core functionality tests** - Basic debouncing behavior
-- **Effect hook tests** - `useDebouncyEffect` scenarios  
+- **Effect hook tests** - `useDebouncyEffect` scenarios
 - **Function hook tests** - `useDebouncyFn` scenarios
 - **Integration tests** - Real-world usage patterns
 - **Performance tests** - Edge cases and performance validation

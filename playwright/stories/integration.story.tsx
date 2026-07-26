@@ -4,7 +4,9 @@ import { useDebouncyFn } from '../../src';
 
 export const SearchComponent = ({
   searchDelay = 300,
-}: { searchDelay?: number }) => {
+}: {
+  searchDelay?: number;
+}) => {
   const [query, setQuery] = useState('');
   const [searchResults, setSearchResults] = useState<string[]>([]);
   const [searchCount, setSearchCount] = useState(0);
@@ -63,7 +65,9 @@ export const SearchComponent = ({
 
 export const ButtonClickComponent = ({
   clickDelay = 1000,
-}: { clickDelay?: number }) => {
+}: {
+  clickDelay?: number;
+}) => {
   const [clickCount, setClickCount] = useState(0);
 
   const handleClick = useDebouncyFn(() => {

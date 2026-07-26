@@ -129,7 +129,8 @@ export const useDebouncyEffect = (
   );
 
   // Call update if deps changes
-  // biome-ignore lint/correctness/useExhaustiveDependencies: the hook mirrors useEffect, deps come from the caller
+  // The hook mirrors useEffect: deps come from the caller, so exhaustive-deps
+  // is disabled for this file in .oxlintrc.json
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;

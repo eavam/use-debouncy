@@ -1,7 +1,7 @@
 {
   "name": "use-debouncy-smoke",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "description": "Installs the packed tarball and checks that it actually works",
   "scripts": {
     "test": "node --test"

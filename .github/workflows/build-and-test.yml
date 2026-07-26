@@ -62,8 +62,10 @@ jobs:
       - name: Build application
         run: yarn build
 
-      - name: Run Biome linting
-        run: yarn biome ci .
+      - name: Lint and check formatting
+        run: |
+          yarn oxlint
+          yarn oxfmt --check
 
       - name: Run component tests
         run: yarn test

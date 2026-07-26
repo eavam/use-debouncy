@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "react", "import"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error",
+    "perf": "error"
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true
+  },
+  "ignorePatterns": [".yarn", "lib", "smoke/node_modules"],
+  "overrides": [
+    {
+      "files": ["playwright/**"],
+      "rules": {
+        "no-await-in-loop": "off"
+      }
+    },
+    {
+      "files": ["src/index.ts"],
+      "rules": {
+        "react-hooks/exhaustive-deps": "off"
+      }
+    }
+  ]
+}

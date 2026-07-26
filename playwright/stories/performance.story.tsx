@@ -3,7 +3,9 @@ import { useDebouncyEffect } from '../../src';
 
 export const MemoryLeakTestComponent = ({
   delay = 100,
-}: { delay?: number }) => {
+}: {
+  delay?: number;
+}) => {
   const [value, setValue] = useState('');
   const [effectCalls, setEffectCalls] = useState(0);
   const intervalRef = useRef<ReturnType<typeof setInterval>>(undefined);
