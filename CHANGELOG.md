@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+
+# [6.0.0](https://github.com/eavam/use-debouncy/compare/v5.1.7...v6.0.0) (2026-07-26)
+
+* feat!: audit fixes, React 18+, story gallery tests, Vite build and trusted publishing (#1223) ([bded988](https://github.com/eavam/use-debouncy/commit/bded98804ff6fafb5167b2434c73e75b5677dc61)), closes [#1223](https://github.com/eavam/use-debouncy/issues/1223) [#root](https://github.com/eavam/use-debouncy/issues/root)
+
+### BREAKING CHANGES
+
+* react ^18 is now the minimum peer dependency.
+
 ## [5.1.7](https://github.com/eavam/use-debouncy/compare/v5.1.6...v5.1.7) (2025-11-14)
 
 ### Bug Fixes
