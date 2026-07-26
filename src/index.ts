@@ -2,10 +2,16 @@ import {
   type DependencyList,
   type EffectCallback,
   useEffect,
+  useInsertionEffect,
   useMemo,
   useRef,
   useState,
 } from 'react';
+
+// Insertion effects run before layout effects, so the refs below are current
+// even for a consumer that flushes from its own layout effect. React 16 and 17
+// have no such hook and fall back to a passive effect.
+const useLatestRefEffect = useInsertionEffect ?? useEffect;
 
 const defaultDeps: DependencyList = [];
 
@@ -31,7 +37,7 @@ const useAnimationFrame = <Args extends unknown[]>(
   const waitRef = useRef(wait);
   const pendingArgs = useRef<Args>(undefined);
 
-  useEffect(() => {
+  useLatestRefEffect(() => {
     fnRef.current = fn;
     waitRef.current = wait;
   });

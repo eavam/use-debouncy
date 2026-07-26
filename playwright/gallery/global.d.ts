@@ -8,4 +8,7 @@ interface Window {
     props?: Record<string, unknown>;
   }) => Promise<void>;
   unmount: () => Promise<void>;
+  // Set by regression stories that hand their callback to the test
+  escapedFn?: { flush: () => void; cancel: () => void };
+  escapedCalls?: number;
 }

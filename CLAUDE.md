@@ -7,7 +7,7 @@ Guidance for Claude Code when working in this repository.
 `use-debouncy` — a tiny debounce hook library for React, published to npm. Three public hooks
 (`useDebouncyEffect`, `useDebouncyFn`, `useDebouncyValue`) built on a single
 `requestAnimationFrame` loop. No runtime dependencies; React is a peer dependency
-(`^16.8 || ^17 || ^18 || ^19`).
+(`^18 || ^19`).
 
 Because the package is sold on its size, treat bundle bytes as a first-class constraint. The
 smoke suite enforces a gzip budget — raise it deliberately, never to make a build pass.
@@ -60,7 +60,7 @@ npx playwright test --project=chromium -g "should debounce"
   separately by `smoke/` and by publint/arethetypeswrong in CI.
 - Under heavy parallel load a rAF-driven spec can still flake; re-run it alone before assuming a
   regression. CI uses `workers: 1` with retries.
-- Only React 19 is installed, though the peer range claims 16.8+.
+- Only React 19 is installed, though the peer range also allows 18.
 
 ## Gotchas
 

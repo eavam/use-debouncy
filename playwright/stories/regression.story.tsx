@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 import { useDebouncyEffect, useDebouncyFn } from '../../src';
 
 /** The effect callback may return a destructor, like useEffect. */
@@ -93,4 +93,58 @@ export const SilentOnMount = ({ delay = 50 }: { delay?: number }) => {
   );
 
   return <div data-testid="calls">{calls}</div>;
+};
+
+/** Hands the debounced function to the test so it outlives the component. */
+export const EscapingFn = ({ delay = 200 }: { delay?: number }) => {
+  const debounced = useDebouncyFn(() => {
+    window.escapedCalls = (window.escapedCalls ?? 0) + 1;
+  }, delay);
+
+  useEffect(() => {
+    window.escapedCalls = 0;
+    window.escapedFn = debounced;
+  }, [debounced]);
+
+  return (
+    <button type="button" data-testid="schedule" onClick={() => debounced()}>
+      Schedule
+    </button>
+  );
+};
+
+/**
+ * Flushes from a layout effect, which React runs before passive effects — so
+ * the refs have not been updated with this render's callback yet.
+ */
+export const LayoutFlush = () => {
+  const [count, setCount] = useState(1);
+  const [seen, setSeen] = useState(0);
+  const shouldFlush = useRef(false);
+
+  const debounced = useDebouncyFn(() => setSeen(count), 1000);
+
+  useLayoutEffect(() => {
+    if (shouldFlush.current) {
+      shouldFlush.current = false;
+      debounced.flush();
+    }
+  });
+
+  return (
+    <div>
+      <button
+        type="button"
+        data-testid="bump"
+        onClick={() => {
+          debounced();
+          shouldFlush.current = true;
+          setCount(2);
+        }}
+      >
+        Bump
+      </button>
+      <div data-testid="seen">{seen}</div>
+    </div>
+  );
 };

@@ -1,6 +1,7 @@
 import { expect, test } from './fixtures';
 import type {
   EffectDestructor,
+  EscapingFn,
   LatestState,
   SilentOnMount,
 } from '../stories/regression.story';
@@ -85,4 +86,36 @@ test('should run a pending call against the latest state', async ({
   await page.clock.runFor(400);
 
   await expect(component.getByTestId('seen')).toHaveText('updated');
+});
+
+/**
+ * Codex review, P2: the refs are written from a passive effect, which React
+ * flushes after layout effects. A flush() issued from a consumer's layout
+ * effect therefore runs the callback from the previous render.
+ */
+test('should flush the latest callback from a layout effect', async ({
+  mount,
+}) => {
+  const component = await mount('regression/LayoutFlush');
+
+  await component.getByTestId('bump').click();
+
+  await expect(component.getByTestId('seen')).toHaveText('2');
+});
+
+/**
+ * Codex review, P2: a reference to the debounced function can outlive the
+ * component, and flushing it afterwards must not resurrect the cancelled call.
+ */
+test('should not run a flush issued after unmount', async ({ mount, page }) => {
+  const component = await mount<typeof EscapingFn>('regression/EscapingFn', {
+    delay: 200,
+  });
+
+  await component.getByTestId('schedule').click();
+  await component.unmount();
+
+  await page.evaluate(() => window.escapedFn?.flush());
+
+  expect(await page.evaluate(() => window.escapedCalls)).toBe(0);
 });
