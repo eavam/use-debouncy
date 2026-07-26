@@ -10,6 +10,11 @@ on:
 permissions:
   contents: read # for checkout
 
+# Cancel superseded runs on the same ref, but never interrupt a release on main
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
   build-and-test:
     timeout-minutes: 60
@@ -40,8 +45,19 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Install Playwright Browsers
-        run: npx -y playwright@1.52.0 install --with-deps
+      # Keyed on the lockfile so a Playwright bump invalidates the cached browsers
+      - name: Cache Playwright browsers
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/ms-playwright
+          key: ${{ runner.os }}-playwright-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-playwright-
+
+      # Must run through the workspace binary: a hardcoded version installs
+      # browser revisions that do not match the installed test runner
+      - name: Install Playwright browsers
+        run: yarn playwright install --with-deps
 
       - name: Build application
         run: yarn build
@@ -80,6 +96,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     needs: ['build-and-test']
+    # Pull requests carry no publishing credentials, so this job can only fail there.
+    # A red check on every PR is what blocks Renovate from automerging.
+    if: github.event_name == 'push'
     permissions:
       contents: write # to be able to publish a GitHub release
       issues: write # to be able to comment on released issues
@@ -103,16 +122,15 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: yarn install
+        run: yarn install --immutable
 
       - name: Build application
         run: yarn build
 
-      - name: Verify authentication
+      - name: Configure git identity
         run: |
           git config --global user.name github-actions
           git config --global user.email github-actions@github.com
-          yarn npm whoami --publish
 
       - name: Archive production artifacts
         uses: actions/upload-artifact@v4
@@ -125,7 +143,7 @@ jobs:
         run: |
           if [ "${{ github.ref }}" = "refs/heads/main" ]; then
             echo "Running release for main branch..."
-            if npx should-semantic-release; then
+            if npx -y should-semantic-release@0.3.5; then
               echo "Changes found that require a release. Running release-it..."
               yarn release --ci
             else
