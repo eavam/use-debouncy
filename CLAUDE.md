@@ -75,6 +75,9 @@ npx playwright test --project=chromium -g "should debounce"
   programmatically (dts plugins, api-extractor) needs `@typescript/typescript6` alongside it.
 - Yarn's builtin TypeScript compat patch breaks on TS 7 before 4.17 — keep the pinned Yarn
   release current.
+- **`CHANGELOG.md` is excluded from `oxfmt`.** conventional-changelog writes `*` bullets and an
+  extra blank line, which the formatter rewrites, so every release used to turn the next pull
+  request red. Leave it in `ignorePatterns` — the file is generated, not authored.
 - Do not commit `lib/` — it is gitignored and rebuilt on release.
 
 ## Release

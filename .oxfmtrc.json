@@ -2,7 +2,9 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "printWidth": 80,
   "singleQuote": true,
-  // .gitignore is honoured by default; .yarn/releases is committed, so it is
-  // the one thing that has to be excluded here
-  "ignorePatterns": [".yarn/**"]
+  // .gitignore is honoured by default, so only committed generated files need
+  // listing here: .yarn/releases, and CHANGELOG.md, which conventional-changelog
+  // writes with `*` bullets and a blank line this formatter would rewrite —
+  // every release would otherwise turn the next pull request red
+  "ignorePatterns": [".yarn/**", "CHANGELOG.md"]
 }
