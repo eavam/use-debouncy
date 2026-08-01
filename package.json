@@ -60,7 +60,7 @@
     "hooks": "simple-git-hooks"
   },
   "devDependencies": {
-    "@playwright/test": "1.62.0",
+    "@playwright/test": "1.62.1",
     "@release-it/conventional-changelog": "12.0.0",
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",
