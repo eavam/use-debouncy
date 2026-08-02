@@ -1,15 +1,21 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["config:base"],
+  "description": [
+    "Updates land in one batch a month: the schedule opens on the first five days of the month, and nothing younger than 7 days is offered at all.",
+    "Everything here is a dev dependency — nothing ships to consumers — so freshness is worth less than letting a bad release be pulled before it reaches main unattended. Seven days clears that window while still leaving a fix released mid-month eligible for the next one.",
+    "Security fixes bypass both settings: vulnerabilityAlerts defaults to no minimum age, no schedule and immediate PR creation."
+  ],
+  "extends": ["config:recommended"],
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
       "matchPackageNames": ["react", "react-dom"],
       "groupName": "react update",
-      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     },
     {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ],
