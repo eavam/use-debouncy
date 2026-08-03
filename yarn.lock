@@ -939,12 +939,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:26.1.1":
-  version: 26.1.1
-  resolution: "@types/node@npm:26.1.1"
+"@types/node@npm:26.1.2":
+  version: 26.1.2
+  resolution: "@types/node@npm:26.1.2"
   dependencies:
     undici-types: "npm:~8.3.0"
-  checksum: 10/df6555a94c6b4cf74e6238373e2881e72dc91058cf2ba173be77ea3974aaa8f459c2f10fbb7eb644fb1e5189dd8407097f5d39506fad39c89bde18acb3b90316
+  checksum: 10/2dd6d75b80c006deab4e381acc8cb2e3d634f10141f05fd6cadaabddd80a95f04aef7b00a574bd8fd5e08e940b899c23b91dd09a70b11a34a2762203b5eea25e
   languageName: node
   linkType: hard
 
@@ -3783,7 +3783,7 @@ __metadata:
   dependencies:
     "@playwright/test": "npm:1.62.1"
     "@release-it/conventional-changelog": "npm:12.0.0"
-    "@types/node": "npm:26.1.1"
+    "@types/node": "npm:26.1.2"
     "@types/react": "npm:19.2.17"
     "@types/react-dom": "npm:19.2.3"
     oxfmt: "npm:0.61.0"
