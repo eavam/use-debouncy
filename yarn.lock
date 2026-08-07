@@ -3125,9 +3125,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"release-it@npm:21.0.0":
-  version: 21.0.0
-  resolution: "release-it@npm:21.0.0"
+"release-it@npm:21.0.1":
+  version: 21.0.1
+  resolution: "release-it@npm:21.0.1"
   dependencies:
     "@inquirer/prompts": "npm:8.5.2"
     "@octokit/rest": "npm:22.0.1"
@@ -3153,7 +3153,7 @@ __metadata:
     wildcard-match: "npm:5.1.4"
   bin:
     release-it: bin/release-it.js
-  checksum: 10/1ce89c40cd0fcb0d391bbca9aaedf60675fb2342f843ebdac04b1ded4dcc50b97529b086e7c2acafacfd71a3cf7f4a6616a05062a9a89676ec16cba7a22f3b04
+  checksum: 10/641731eeddfcd82119a3855e9128a9eeb64ade9aa4ae7bb0fab9bb37706889cec9038cd929cb2aaa41f4415304e9348f8b2c26f96e0a9a31dca1bb4c7590f792
   languageName: node
   linkType: hard
 
@@ -3727,7 +3727,7 @@ __metadata:
     oxlint: "npm:1.76.0"
     react: "npm:19.2.8"
     react-dom: "npm:19.2.8"
-    release-it: "npm:21.0.0"
+    release-it: "npm:21.0.1"
     simple-git-hooks: "npm:2.13.1"
     typescript: "npm:7.0.2"
     vite: "npm:8.2.0"
