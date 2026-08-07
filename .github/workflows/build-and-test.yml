@@ -36,7 +36,7 @@ jobs:
           cache: yarn
 
       - name: Cache Node.js modules
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/yarn.lock') }}
@@ -56,7 +56,7 @@ jobs:
 
       # Keyed on the lockfile so a Playwright bump invalidates the cached browsers
       - name: Cache Playwright browsers
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         with:
           path: ~/.cache/ms-playwright
           key: ${{ runner.os }}-playwright-${{ hashFiles('yarn.lock') }}
