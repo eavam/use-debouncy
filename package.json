@@ -70,7 +70,7 @@
     "react": "19.2.8",
     "react-dom": "19.2.8",
     "release-it": "21.0.2",
-    "simple-git-hooks": "2.13.1",
+    "simple-git-hooks": "2.14.0",
     "typescript": "7.0.2",
     "vite": "8.2.2"
   },
